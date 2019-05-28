@@ -38,7 +38,6 @@ vector<vector<double>> parse2DCsvFile(string inputFileName, int start) {
                     e.what();
                 }
             }
- 
             data.push_back(record);
         }
     }
