@@ -13,12 +13,20 @@
             # This file allows to create a 2D rectangular (2^nx, 2^ny) hilbert curve
         - ./ini/struct/hilbert.py
             # This file allows to generate a file containing informations on the grid structure. 
-            # It will be named as : ./grid2Dx256y32.dat for example 
+            # It will be named as : ./grid2Dx5y3.dat for example 
             # Inside it will contain a table given as : 
-            # HilbertIndex "\t" XIndex "\t" YIndex "\t" i-1 "\t" i+1 "\t" j-1 "\t" j+1"
+            # HilbertIndex "\t" XIndex "\t" YIndex
 
 
 - ./src/
+    - ./src/read/
+        - ./src/read/read2D.h
+            # This file allows to read a 2D Hilbert grid
+
+- ./post/
+    - ./post/read/
+        - ./post/read/read2DGrid.py (independant)
+            # This file allows to read a 2D Hilbert grid 
 
 
 - ./bin/
