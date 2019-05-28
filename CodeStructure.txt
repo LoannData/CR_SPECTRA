@@ -1,0 +1,24 @@
+######################################################
+#       STRUCTURE FILE DESCRIPTION OF THE CODE       # 
+######################################################
+- ./setup.py 
+    # This file can be executed from your own work folder. It allows to create folders  : 
+    data_ini (containing the initial conditions), data_out (containing the output files 
+    structured as : output_0001/(files.dat or something else)), params (containing the 
+    simulation parameters). It will allow to compile all the code and copy compiled c++ 
+    files from ./bin to your work folder
+- ./ini/
+    - ./ini/struct/
+        - ./ini/struct/hilbertRectangular2D.py
+            # This file allows to create a 2D rectangular (2^nx, 2^ny) hilbert curve
+        - ./ini/struct/hilbert.py
+            # This file allows to generate a file containing informations on the grid structure. 
+            # It will be named as : ./grid2Dx256y32.dat for example 
+            # Inside it will contain a table given as : 
+            # HilbertIndex "\t" XIndex "\t" YIndex "\t" i-1 "\t" i+1 "\t" j-1 "\t" j+1"
+
+
+- ./src/
+
+
+- ./bin/
