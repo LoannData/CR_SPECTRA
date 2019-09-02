@@ -1,0 +1,310 @@
+        
+        start = omp_get_wtime();
+        
+
+        //cout<<"----------"<<endl;
+        Pcr_old = Pcr_new;
+        Ip_old  = Ip_new;
+        
+        
+
+        int xi, ei; 
+        int nb = 1;
+
+        
+
+        /*double box_Pcr[3][3], box_Ip[3][3], box_VA[3][3], box_Gd[3][3], box_Db[3][3], box_X[3], box_E[3]; 
+        int loc_xi, loc_ei;
+        int lxi, lei;
+        double P1, P2, Ip1, Ip2;
+        double Pcr_new_temp, Ip_new_temp;
+        double Pcr_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp;
+        int ei_temp, xi_temp;*/
+
+        double 
+
+        
+        
+        //start = std::clock();
+        #pragma omp parallel num_threads(nb)
+        #pragma omp for schedule(static)
+        #pragma omp private()
+        //int(double(NX*NE/nb))
+        //#pragma omp for schedule(static) private(xi, ei, box_X, box_E, box_Pcr, box_Ip, box_Gd, box_Db, loc_xi, loc_ei, lxi, lei, P1, P2, Ip1, Ip2, Pcr_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp, ei_temp, xi_temp) //collapse(2) //private()
+        //duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+        //showLog_0(time, Tmax, getLogOutput(), time_index, duration);
+
+        for (xi = 0; xi<NX; xi++)
+        {
+            for (ei = 0; ei<NE; ei++)
+            {
+
+
+
+
+            }
+        }
+
+
+        /*for (xi = 0; xi<NX; xi++)
+        {
+            
+            //if (xi == NX -1){cout<<xi<<endl;}
+            for (ei = 0; ei<NE; ei++)
+            {
+                
+                //We load all the values we need 
+                Qcrs_temp = Qcrs[xi][ei];
+
+                dX_temp = dX[xi];
+                dE_temp = dE[ei];
+                E_temp = E[ei];
+                B_temp = B[xi];
+
+                Pcr_background_temp = Pcr_background[xi][ei];
+
+                if (xi > 0 && xi < NX-1 && ei > 0 && ei < NE-1)
+                {
+                    for (lxi = 0; lxi < 5; lxi++)
+                    {
+                        loc_xi = lxi - 2;
+                        if (xi+loc_xi >= 0 && xi+loc_xi < NX-1)
+                        {
+                            for (lei = 0; lei < 5; lei++)
+                            {
+                                loc_ei = lei - 2;
+                                if (ei+loc_ei >= 0 && ei+loc_ei < NE-1)
+                                {
+                                    cout<<"xi+loc_xi = "<<xi+loc_xi<<"ei+loc_ei = "<<ei+loc_ei<<endl;
+                                    box_Pcr[lxi][lei] = Pcr_old[xi+loc_xi][ei+loc_ei]; 
+                                    box_Ip[lxi][lei] = Ip_old[xi+loc_xi][ei+loc_ei]; 
+                                    box_VA[lxi][lei] = VA[xi+loc_xi][ei+loc_ei]; 
+                                    box_Gd[lxi][lei] = Gd[xi+loc_xi][ei+loc_ei]; 
+                                    box_Db[lxi][lei] = Db[xi+loc_xi][ei+loc_ei]; 
+                                    if (lei == 0) {box_E[lei] = E[ei+loc_ei];}
+                                }
+                            }
+                            box_X[lxi] = X[xi+loc_xi];
+                        }
+                    }
+                    
+                    /*for (lxi = 0; lxi < 3; lxi++)
+                    {
+                        loc_xi = lxi - 1;
+                        for (lei = 0; lei < 3; lei++)
+                        {
+                            loc_ei = lei - 1;
+                            cout<<"xi+loc_xi = "<<xi+loc_xi<<"ei+loc_ei = "<<ei+loc_ei<<endl;
+                            box_Pcr[lxi][lei] = Pcr_old[xi+loc_xi][ei+loc_ei]; 
+                            box_Ip[lxi][lei] = Ip_old[xi+loc_xi][ei+loc_ei]; 
+                            box_VA[lxi][lei] = VA[xi+loc_xi][ei+loc_ei]; 
+                            box_Gd[lxi][lei] = Gd[xi+loc_xi][ei+loc_ei]; 
+                            box_Db[lxi][lei] = Db[xi+loc_xi][ei+loc_ei]; 
+                            if (lei == 0) {box_E[lei] = E[ei+loc_ei];}
+                        }
+                        box_X[lxi] = X[xi+loc_xi];
+                    }*/
+
+                    
+
+                    // EQ. Solving 
+                    Qwaves = box_Gd[0][0]*box_Ip[0][0]; 
+                    Qcrs_temp = Qcrs_temp*CRinjection1Dfunction(time, "dirac_ini");
+                    
+                    Pcr_new_temp = pressureSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, E_temp, Qcrs_temp);
+                    Ip_new_temp  = wavesSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, B_temp, Qwaves);
+
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                }
+
+                
+
+                // Boundaries
+
+
+                /*if (xi == 0 || xi == NX-1 || ei == 0 || ei == NE-1)
+                {
+                    xi_temp = 2; 
+                    ei_temp = 2;
+                    for (lxi = 0; lxi < 4; lxi++)
+                    {
+                        loc_xi = lxi - xi_temp;
+                        if (loc_xi >= 0)
+                        {
+                            for (lei = 0; lei < 4; lei++)
+                            {
+                                loc_ei = lei - ei_temp;
+                                if (loc_ei >= 0)
+                                {
+                                    cout<<"xi+loc_xi = "<<xi+loc_xi<<"ei+loc_ei = "<<ei+loc_ei<<endl;
+                                    box_Pcr[lxi][lei] = Pcr_old[xi+loc_xi][ei+loc_ei]; 
+                                    box_Ip[lxi][lei] = Ip_old[xi+loc_xi][ei+loc_ei]; 
+                                    box_VA[lxi][lei] = VA[xi+loc_xi][ei+loc_ei]; 
+                                    box_Gd[lxi][lei] = Gd[xi+loc_xi][ei+loc_ei]; 
+                                    box_Db[lxi][lei] = Db[xi+loc_xi][ei+loc_ei]; 
+                                    if (lei == 0) {box_E[lei] = E[ei+loc_ei];}
+                                }
+                            }
+                            box_X[lxi] = X[xi+loc_xi];
+                        }
+                    }
+
+                }*/
+
+                xi_temp = 2;
+                ei_temp = 2;
+                
+
+
+                if (xi == 0 && (ei != 0 && ei != NE-1))
+                {
+                    
+                    //Pcr_new_temp = Pcr_old[xi+1][ei] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Pcr_old[xi+2][ei] - Pcr_old[xi+1][ei]); 
+                    //Ip_new_temp = Ip_old[xi+1][ei] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei] - Ip_old[xi+1][ei]);
+                    Pcr_new_temp = box_Pcr[xi_temp+1][ei_temp] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Pcr[xi_temp+2][ei_temp] - box_Pcr[xi_temp+1][ei_temp]); 
+                    Ip_new_temp = box_Ip[xi_temp+1][ei_temp] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Ip[xi_temp+2][ei_temp] - box_Ip[xi_temp+1][ei_temp]);
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                    
+                }
+                
+
+                
+
+                if (xi == NX-1 && (ei !=0 && ei != NE-1))
+                {
+                    
+                    //Pcr_new_temp = Pcr_old[xi-1][ei] + (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Pcr_old[xi-1][ei] - Pcr_old[xi-2][ei]);
+                    //Ip_new_temp = Ip_old[xi-1][ei] + (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Ip_old[xi-1][ei] - Ip_old[xi-2][ei]);
+                    Pcr_new_temp = box_Pcr[xi_temp-1][ei_temp] + (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Pcr[xi_temp-1][ei_temp] - box_Pcr[xi_temp-2][ei_temp]);
+                    Ip_new_temp = box_Ip[xi_temp-1][ei_temp] + (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Ip[xi_temp-1][ei_temp] - box_Ip[xi_temp-2][ei_temp]);
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+
+                }
+
+                if (ei == 0 && (xi != 0 && xi != NX-1))
+                {
+                    
+                    //Pcr_new_temp = pow(10, log10(Pcr_old[xi][ei+1]) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(Pcr_old[xi][ei+2]) - log10(Pcr_old[xi][ei+1])));
+                    //Ip_new_temp = pow(10, log10(Ip_old[xi][ei+1]) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(Ip_old[xi][ei+2]) - log10(Ip_old[xi][ei+1])));
+                    Pcr_new_temp = pow(10, log10(box_Pcr[xi_temp][ei_temp+1]) - (box_E[ei_temp+1] - box_E[ei_temp])/(box_E[ei_temp+2] - box_E[ei_temp+1])*(log10(box_Pcr[xi_temp][ei_temp+2]) - log10(box_Pcr[xi_temp][ei_temp+1])));
+                    Ip_new_temp = pow(10, log10(box_Ip[xi_temp][ei_temp+1]) - (box_E[ei_temp+1] - box_E[ei_temp])/(box_E[ei_temp+2] - box_E[ei_temp+1])*(log10(box_Ip[xi_temp][ei_temp+2]) - log10(box_Ip[xi_temp][ei_temp+1])));
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                    
+                }
+
+                if (ei == NE-1 && (xi != 0 && xi != NX-1))
+                {
+                    
+                    //Pcr_new_temp = pow(10, log10(Pcr_old[xi][ei-1]) + (E[ei] - E[ei-1])/(E[ei-1] - E[ei-2])*(log10(Pcr_old[xi][ei-1]) - log10(Pcr_old[xi][ei-2])));
+                    //Ip_new_temp = pow(10, log10(Ip_old[xi][ei-1]) + (E[ei] - E[ei-1])/(E[ei-1] - E[ei-2])*(log10(Ip_old[xi][ei-1]) - log10(Ip_old[xi][ei-2])));
+                    Pcr_new_temp = pow(10, log10(box_Pcr[xi_temp][ei_temp-1]) + (box_E[ei_temp] - box_E[ei_temp-1])/(box_E[ei_temp-1] - box_E[ei_temp-2])*(log10(box_Pcr[xi_temp][ei_temp-1]) - log10(box_Pcr[xi_temp][ei_temp-2])));
+                    Ip_new_temp = pow(10, log10(box_Ip[xi_temp][ei_temp-1]) + (box_E[ei_temp] - box_E[ei_temp-1])/(box_E[ei_temp-1] - box_E[ei_temp-2])*(log10(box_Ip[xi_temp][ei_temp-1]) - log10(box_Ip[xi_temp][ei_temp-2])));
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                }
+
+                if (xi == 0 && ei == 0)
+                {
+                    //P1 = Pcr_old[xi+1][ei+1] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Pcr_old[xi+2][ei+1] - Pcr_old[xi+1][ei+1]);
+                    //P2 = Pcr_old[xi+1][ei+2] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Pcr_old[xi+2][ei+2] - Pcr_old[xi+1][ei+2]); 
+                    //Pcr_new_temp = pow(10, log10(P1) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(P2) - log10(P1))); 
+
+                    //Ip1 = Ip_old[xi+1][ei+1] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei+1] - Ip_old[xi+1][ei+1]);
+                    //Ip2 = Ip_old[xi+1][ei+2] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei+2] - Ip_old[xi+1][ei+2]); 
+                    //Ip_new_temp = pow(10, log10(Ip1) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(Ip2) - log10(Ip1))); 
+
+                    P1 = box_Pcr[xi_temp+1][ei_temp+1] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Pcr[xi_temp+2][ei_temp+1] - box_Pcr[xi_temp+1][ei_temp+1]);
+                    P2 = box_Pcr[xi_temp+1][ei_temp+2] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Pcr[xi_temp+2][ei_temp+2] - box_Pcr[xi_temp+1][ei_temp+2]); 
+                    Pcr_new_temp = pow(10, log10(P1) - (box_E[ei_temp+1] - box_E[ei_temp])/(box_E[ei_temp+2] - box_E[ei_temp+1])*(log10(P2) - log10(P1))); 
+
+                    //Ip1 = Ip_old[xi+1][ei+1] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei+1] - Ip_old[xi+1][ei+1]);
+                    //Ip2 = Ip_old[xi+1][ei+2] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei+2] - Ip_old[xi+1][ei+2]); 
+                    //Ip_new_temp = pow(10, log10(Ip1) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(Ip2) - log10(Ip1))); 
+
+                    Ip1 = box_Ip[xi_temp+1][ei_temp+1] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Ip[xi_temp+2][ei_temp+1] - box_Ip[xi_temp+1][ei_temp+1]);
+                    Ip2 = box_Ip[xi_temp+1][ei_temp+2] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Ip[xi_temp+2][ei_temp+2] - box_Ip[xi_temp+1][ei_temp+2]); 
+                    Ip_new_temp = pow(10, log10(Ip1) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(Ip2) - log10(Ip1))); 
+
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                }
+
+                if (xi == NX-1 && ei == 0)
+                {
+                    //P1 = Pcr_old[xi-1][ei+1] - (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Pcr_old[xi-1][ei+1] - Pcr_old[xi-2][ei+1]);
+                    //P2 = Pcr_old[xi-1][ei+2] - (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Pcr_old[xi-1][ei+2] - Pcr_old[xi-2][ei+2]); 
+                    //Pcr_new_temp = pow(10, log10(P1) - (E[ei+1] - E[ei])/(E[ei+2] - E[ei+1])*(log10(P2) - log10(P1)));
+
+                    P1 = box_Pcr[xi_temp-1][ei_temp+1] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Pcr[xi_temp-1][ei_temp+1] - box_Pcr[xi_temp-2][ei_temp+1]);
+                    P2 = box_Pcr[xi_temp-1][ei_temp+2] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Pcr[xi_temp-1][ei_temp+2] - box_Pcr[xi_temp-2][ei_temp+2]); 
+                    Pcr_new_temp = pow(10, log10(P1) - (box_E[ei_temp+1] - box_E[ei_temp])/(box_E[ei_temp+2] - box_E[ei_temp+1])*(log10(P2) - log10(P1)));
+
+                    Ip1 = box_Ip[xi_temp-1][ei_temp+1] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Ip[xi_temp-1][ei_temp+1] - box_Ip[xi_temp-2][ei_temp+1]);
+                    Ip2 = Ip_old[xi_temp-1][ei_temp+2] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Ip[xi_temp-1][ei_temp+2] - box_Ip[xi_temp-2][ei_temp+2]); 
+                    Ip_new_temp = pow(10, log10(Ip1) - (box_E[ei_temp+1] - box_E[ei_temp])/(box_E[ei_temp+2] - box_E[ei_temp+1])*(log10(Ip2) - log10(Ip1)));  
+
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                }
+
+                if (xi == 0 && ei == NE-1)
+                {
+                    //P1 = Pcr_old[xi+1][ei-1] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Pcr_old[xi+2][ei-1] - Pcr_old[xi+1][ei-1]);
+                    //P2 = Pcr_old[xi+1][ei-2] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Pcr_old[xi+2][ei-2] - Pcr_old[xi+1][ei-2]); 
+                    //Pcr_new_temp = pow(10, log10(P1) + (E[ei] - E[ei-1])/(E[ei-1] - E[ei-2])*(log10(P1) - log10(P2)));
+
+                    P1 = box_Pcr[xi_temp+1][ei_temp-1] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Pcr[xi_temp+2][ei_temp-1] - box_Pcr[xi_temp+1][ei_temp-1]);
+                    P2 = box_Pcr[xi_temp+1][ei_temp-2] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Pcr[xi_temp+2][ei_temp-2] - box_Pcr[xi_temp+1][ei_temp-2]); 
+                    Pcr_new_temp = pow(10, log10(P1) + (box_E[ei_temp] - box_E[ei_temp-1])/(box_E[ei_temp-1] - box_E[ei_temp-2])*(log10(P1) - log10(P2)));
+
+                    //Ip1 = Ip_old[xi+1][ei-1] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei-1] - Ip_old[xi+1][ei-1]);
+                    //Ip2 = Ip_old[xi+1][ei-2] - (X[xi+1] - X[xi])/(X[xi+2] - X[xi+1])*(Ip_old[xi+2][ei-2] - Ip_old[xi+1][ei-2]); 
+                    //Ip_new_temp = pow(10, log10(Ip1) + (E[ei] - E[ei-1])/(E[ei-1] - E[ei-2])*(log10(Ip1) - log10(Ip2)));
+
+                    Ip1 = box_Ip[xi_temp+1][ei_temp-1] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Ip[xi_temp+2][ei_temp-1] - box_Ip[xi_temp+1][ei_temp-1]);
+                    Ip2 = box_Ip[xi_temp+1][ei_temp-2] - (box_X[xi_temp+1] - box_X[xi_temp])/(box_X[xi_temp+2] - box_X[xi_temp+1])*(box_Ip[xi_temp+2][ei_temp-2] - box_Ip[xi_temp+1][ei_temp-2]); 
+                    Ip_new_temp = pow(10, log10(Ip1) + (box_E[ei_temp] - box_E[ei_temp-1])/(box_E[ei_temp-1] - box_E[ei_temp-2])*(log10(Ip1) - log10(Ip2)));
+
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                }
+
+                
+
+                if (xi == NX-1 && ei == NE-1)
+                {
+                    //P1 = Pcr_old[xi-1][ei+1] - (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Pcr_old[xi-1][ei+1] - Pcr_old[xi-2][ei+1]);
+                    //P2 = Pcr_old[xi-1][ei+2] - (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Pcr_old[xi-1][ei+2] - Pcr_old[xi-2][ei+2]); 
+                    //Pcr_new_temp = pow(10, log10(P1) + (E[ei] - E[ei-1])/(E[ei-1] - E[ei-2])*(log10(P1) - log10(P2)));
+
+                    P1 = box_Pcr[xi_temp-1][ei_temp+1] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Pcr[xi_temp-1][ei_temp+1] - box_Pcr[xi_temp-2][ei_temp+1]);
+                    P2 = box_Pcr[xi_temp-1][ei_temp+2] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Pcr[xi_temp-1][ei_temp+2] - box_Pcr[xi_temp-2][ei_temp+2]); 
+                    Pcr_new_temp = pow(10, log10(P1) + (box_E[ei_temp] - box_E[ei_temp-1])/(box_E[ei_temp-1] - box_E[ei_temp-2])*(log10(P1) - log10(P2)));
+
+                    //Ip1 = Ip_old[xi-1][ei+1] - (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Ip_old[xi-1][ei+1] - Ip_old[xi-2][ei+1]);
+                    //Ip2 = Ip_old[xi-1][ei+2] - (X[xi] - X[xi-1])/(X[xi-1] - X[xi-2])*(Ip_old[xi-1][ei+2] - Ip_old[xi-2][ei+2]); 
+                    //Ip_new_temp = pow(10, log10(Ip1) + (E[ei] - E[ei-1])/(E[ei-1] - E[ei-2])*(log10(Ip1) - log10(Ip2)));
+
+                    Ip1 = box_Ip[xi_temp-1][ei_temp+1] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Ip[xi_temp-1][ei_temp+1] - box_Ip[xi_temp-2][ei_temp+1]);
+                    Ip2 = box_Ip[xi_temp-1][ei_temp+2] - (box_X[xi_temp] - box_X[xi_temp-1])/(box_X[xi_temp-1] - box_X[xi_temp-2])*(box_Ip[xi_temp-1][ei_temp+2] - box_Ip[xi_temp-2][ei_temp+2]); 
+                    Ip_new_temp = pow(10, log10(Ip1) + (box_E[ei_temp] - box_E[ei_temp-1])/(box_E[ei_temp-1] - box_E[ei_temp-2])*(log10(Ip1) - log10(Ip2)));
+
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                }
+
+                
+
+                Pcr_new[xi][ei] = Pcr_new_temp;
+                Ip_new[xi][ei]  = Ip_new_temp;
+            }
+            
+        }*/
+
+
+
+        if (time > dat_output[out_Pcr_index] && out_Pcr_index < dat_output.size()) 
+        {
+            out_Ip_index  = writeXE("Ip", out_Ip_index, Ip_new, NX, NE);
+            out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
+        }
+
+        duration = omp_get_wtime();//( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+        showLog_0(time, Tmax, getLogOutput(), time_index, duration);
+        time += dt;
+        time_index += 1;
