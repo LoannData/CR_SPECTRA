@@ -1,0 +1,14 @@
+#==================================================#
+INSTRUCTIONS D'UTILISATION DU CODE
+#==================================================#
+
+- Se placer dans le dossier ./CRCode
+- Editer les fichiers ./namelist.py et ./setup.py
+- Executer le fichier setup.py avec la commande python3 ./setup.py (Python 3.7)
+- Créer un nouveau dossier de travail ailleurs dans l'ordinateur
+- Copier le dossier ./data_ini/ dans le nouveau dossier
+- Créer un sous dossier ./data_out/ dans le dossier de travail
+- Copier le fichier parameters.dat dans le dossier de travail
+- Editer le fichier ./src/constant.h 
+- Compiler avec la commande : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main.o
+- Copier le fichier ./main.o dans le dossier de travail, l'executer 
