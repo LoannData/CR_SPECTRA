@@ -32,14 +32,14 @@ const int solver_waves_source = 1; // Term of waves source (background turbulenc
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 6;                    // Number of processors for the run 
+const int nproc = 16;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 10.*kyr; // Instant of the last output data
-const int number_out_data   = 100;     // Total number of output data
+const double t_data_out_max = 100.*kyr; // Instant of the last output data
+const int number_out_data   = 1000;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 1000;      // Number of time-step between two LogOutput
-const double Tmax = 10.*kyr;           // Define the limit time of your simulation 
+const double Tmax = 101.*kyr;           // Define the limit time of your simulation 
 
 
 
