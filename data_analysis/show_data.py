@@ -110,21 +110,86 @@ def PlotESpace(var, file_number, position, fig_size_x=10, fig_size_y=6, xlabel="
     if (savefig) : 
         plt.savefig("./"+figname+".pdf")
 
+def PlotTSpaceE(var, file_number, position, fig_size_x=10, fig_size_y=6, xlabel="E [GeV]", ylabel="None",
+               savefig=False, figname="None") : 
+    
+    X, E, data = getData(var, file_number[0])
+    plt.figure(figsize=(fig_size_x, fig_size_y))
+    
+    e_id = 0
+    closest = np.inf 
+    for ii in range(len(X)) : 
+        if (abs(X[ii]-position) < closest) : 
+            e_id = ii
+            closest = abs(X[ii]-position)
+    
+    for ti in range(len(file_number)) : 
+        X, E, data = getData(var, file_number[ti])
+        plt.loglog(np.array(E)/cst.GeV, data[e_id], label="File "+str(int(ti)))
 
+
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.legend()
+    
+    if (savefig) : 
+        plt.savefig("./"+figname+".pdf")
+
+def PlotTSpaceX(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", ylabel="None",
+               savefig=False, figname="None") : 
+    X, E, data = getData(var, file_number[0])
+    plt.figure(figsize=(fig_size_x, fig_size_y))
+    
+    e_id = 0
+    closest = np.inf 
+    for ii in range(len(E)) : 
+        if (abs(E[ii]-energy) < closest) : 
+            e_id = ii
+            closest = abs(E[ii]-energy)
+
+    for ti in range(len(file_number)) : 
+        X, E, data = getData(var, file_number[ti])
+        plt.loglog(np.array(X)/cst.pc, data.T[e_id], 
+                   label="File "+str(int(ti)))
+    
+    
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.legend()
+    
+    if (savefig) : 
+        plt.savefig("./"+figname+".pdf")
 
 ###############################################################################
 # Put your instructions here !                                                #
 ###############################################################################
-PlotXSpace("Dcr", 0, np.logspace(np.log10(100.*cst.GeV), np.log10(10.*cst.TeV), 4),
-           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
+#PlotXSpace("Pcr", 200, np.logspace(np.log10(10.*cst.GeV), np.log10(10.*cst.TeV), 10),
+#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
+#
+#PlotXSpace("Dcr", 200, np.logspace(np.log10(1000.*cst.GeV), np.log10(10.*cst.TeV), 10),
+#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
+#
+#PlotESpace("Pcr", 200, np.logspace(np.log10(10.*cst.pc), np.log10(500.*cst.pc), 4),
+#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
 
-PlotESpace("Dcr", 0, np.logspace(np.log10(50.*cst.pc), np.log10(500.*cst.pc), 4),
-           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
+#Ecr = 9000.*cst.GeV
+#tfile = 1
+#
+#PlotXSpace("Pcr", tfile*10, [Ecr],
+#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
+#PlotXSpace("Dcr", tfile*10, [Ecr],
+#           ylabel="$D_\\mathrm{CR}$ [cm$^2$/s]")
 
 
+#PlotTSpaceE("Pcr", [10, 20, 30, 100, 200], 50.*cst.pc, fig_size_x=10, fig_size_y=6, 
+#            xlabel="E [GeV]", ylabel="None", savefig=False, figname="None")
 
+#PlotTSpaceX("Pcr", [10, 20, 30, 100, 200], 100.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
+#            ylabel="None", savefig=False, figname="None")
 
-
+#nfile = np.linspace(0, 200, 10, dtype=int)
+#PlotTSpaceX("Pcr", nfile, 1000.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
+#            ylabel="None", savefig=False, figname="None")
 
 #plt.figure(figsize=(6, 8))
 ##plt.loglog(E, data[500])
