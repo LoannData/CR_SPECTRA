@@ -52,15 +52,16 @@ int main()
     //--------------------------------------------------------//
     */
 
-    std::string parameters = "./parameters.dat";
+    /*std::string parameters = "./parameters.dat";
     std::string snx = search(parameters, "NX"); int nx = stoi(snx);
     std::string sne = search(parameters, "NE"); int ne = stoi(sne);
     std::string sni = search(parameters,"ni");        double ni = stod(sni);
     std::string sX  = search(parameters,"X");         double Xi = stod(sX); 
+    double nt = ni/Xi;
     std::string smn = search(parameters,"mn");        double m_neutral = stod(smn); 
-    std::string sT   = search(parameters,"T");        double T  = stod(sT);
+    std::string sT   = search(parameters,"T");        double T  = stod(sT);*/
 
-
+    
 
 
     //cout<<"DIMENSION = "<<DIMENSION<<endl;
@@ -192,12 +193,14 @@ int main()
 
     vector<double> Finj_temp(NE); 
     vector<double> Pcr_ini_temp(NE); 
+    vector<double> ttesc(NE);
     double temp_theta; 
 
 
     for (int j=0; j<NE; j++)
     {
-        Pcr_ini_temp[j] = Pcr_ini(E[j], ni, Xi, m_neutral, T);
+        Pcr_ini_temp[j] = Pcr_ini(E[j]);
+        ttesc[j] = tesc(E[j]);
     }
 
     int xi, ei; 
@@ -217,7 +220,7 @@ int main()
         #pragma omp for schedule(static, int(double(NE/nb))) private (g)
         for (g=0; g<NE; g++)
         {
-            Finj_temp[g] = Finj(time, dt, E[g], ni, Xi);
+            Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
         }
 
         //cout<<Ip_new[NX-1][0]<<endl;
@@ -226,7 +229,7 @@ int main()
         #pragma omp for schedule(static, int(double(NX/nb))) private(xi, ei, xi_box, ei_box, box_X, box_E, box_Pcr, box_Ip, box_Gd, box_Db, box_VA, loc_xi, loc_ei, lxi, lei, P1, P2, Ip1, Ip2, Pcr_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp, ei_temp, xi_temp, Qwaves, Pcr_new_temp, Ip_new_temp, t_NX, t_NE)
         for (xi = 0; xi<NX; xi++)
         {
-            temp_theta = theta(X[xi], time, ni, Xi, m_neutral, T);
+            temp_theta = theta(X[xi], time);
             for (ei = 0; ei<NE; ei++)
             {
                 //We load all the values we need 

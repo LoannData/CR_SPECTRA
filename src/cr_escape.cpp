@@ -356,6 +356,8 @@ for (int i = 0; i < loc_size; i++)
     r_new[i] = pow(10, logr_new[i]);
 }
 
+
+
 // We calculate the shock velocity 
 vector<double> u_sh; u_sh.resize(t_new.size());
 for (int i = 1; i < u_sh.size(); i++)
