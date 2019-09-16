@@ -139,7 +139,7 @@ int main()
     double maxVd = maxElement2D(VA);
     double maxDb = maxElement2D(Db);
     double minIp = minElement2D(Ip);
-    double maxD  = maxDb/minIp;
+    double maxD  = maxDb/minIp;// cout<<"Max D = "<<maxD<<endl;
     double maxGd = maxElement2D(Gd);
     double mindX = minElement1D(dX); double mindE = minElement1D(dE); 
 
@@ -216,11 +216,12 @@ int main()
         Ip_old  = Ip_new;
 
         
-        #pragma omp parallel num_threads(nb)
-        #pragma omp for schedule(static, int(double(NE/nb))) private (g)
+        //#pragma omp parallel num_threads(nb)
+        //#pragma omp for schedule(static, int(double(NE/nb))) private (g)
         for (g=0; g<NE; g++)
         {
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
+            //Finj_temp[g] = 0.;
         }
 
         //cout<<Ip_new[NX-1][0]<<endl;

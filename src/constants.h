@@ -32,7 +32,7 @@ const int solver_waves_source = 1; // Term of waves source (background turbulenc
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 16;                    // Number of processors for the run 
+const int nproc = 4;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
 const double t_data_out_max = 100.*kyr; // Instant of the last output data
 const int number_out_data   = 1000;     // Total number of output data

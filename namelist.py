@@ -33,7 +33,7 @@ NX = 12 # 2**NX is the X-size of the grid
 NE = 6  # 2**NE is the E-size of the grid 
 
 Xmin = 0.*cst.pc
-Xmax = 500.*cst.pc
+Xmax = 2000.*cst.pc
 xgridtype = "cartesian"
 
 Emin = 9.99*cst.GeV
@@ -58,7 +58,7 @@ Pcr_1GeV         = 1*cst.eV # [cm^-3] CR Pressure at 1 GeV
 phases = [] # Phases list
 # Append phases in the order of the setup you want to create
 phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=100.*cst.pc)]) 
-phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=500.*cst.pc)])
+phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=2000.*cst.pc)])
 smooth_width_transition = 3.*cst.pc # Smooth width transition between two phases
 # We calculate the smoothed variables
 T, B, ni, nn, nt, Xi, mi, mn = mh.SmoothPhaseTransition(X, phases, smooth_width_transition*5)

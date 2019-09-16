@@ -12,11 +12,13 @@ using namespace std;
 std::string parameters = "./parameters.dat";
 std::string snx = search(parameters, "NX"); int nx = stoi(snx);
 std::string sne = search(parameters, "NE"); int ne = stoi(sne);
-std::string sni = search(parameters,"ni");        double ni = stod(sni);
-std::string sX  = search(parameters,"X");         double Xi = stod(sX); 
+std::string sni = search(parameters,"ni");  double ni = stod(sni);
+std::string sX  = search(parameters,"X");   double Xi = stod(sX); 
 double nt = ni/Xi;
-std::string smn = search(parameters,"mn");        double m_neutral = stod(smn); 
-std::string sT   = search(parameters,"T");        double T  = stod(sT);
+std::string smn = search(parameters,"mn");  double m_neutral = stod(smn); 
+std::string sT   = search(parameters,"T");  double T  = stod(sT);
+
+
 
 
 
@@ -417,16 +419,16 @@ double Resc(double E)
     return RSNR(A);
 }
 
-double sigm(double E)
+double sigm(double E, double ttesc)
 {
-    return tesc(E)/injection_function_width;           // Corresponds approximately to the width of the escape time divided
+    return ttesc/injection_function_width;           // Corresponds approximately to the width of the escape time divided
 }
 
 
 // CRs time injection function. Very important ! 
 double Finj(double t, double dt, double E, double ttesc)
 {
-    double A = exp(-0.5*pow((t - ttesc)/sigm(E),2));
+    double A = exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
     //double A = exp(-0.5*pow((t - 0.01*kyr)/(0.001*kyr),2));
     double B;
 
@@ -441,7 +443,7 @@ double Finj(double t, double dt, double E, double ttesc)
     double C_a = 0;
     for (int ti = 0; ti < Na; ti++)
     {
-        C_a += exp(-0.5*pow((t - ttesc)/sigm(E),2));
+        C_a += exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
         //C_a += exp(-0.5*pow((t - 0.01*kyr)/(0.001*kyr),2));
 
     } 
