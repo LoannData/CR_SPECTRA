@@ -202,6 +202,75 @@ double InterpolatingSpline(vector<double> X, vector<double> Y, double x)
     }
 
 
+// Functions in order to calculate Emax(t) 
+// With Newton-Raphson method 
+double f1(double x, vector<double> cst)
+    {
+        double a = cst[0];
+        double c = cst[1];
+        return x*log(x/a) - c;
+    }
+
+double df1dx(double x, vector<double> cst)
+    {
+        double a = cst[0];
+        return log(x/a);        
+    }
+
+double f2(double x, vector<double> cst)
+    {
+        double a = cst[0];
+        double b = cst[1];
+        double c = cst[2];
+        return x*(pow(x/a, b) -1) - c;
+    }
+
+double df2dx(double x, vector<double> cst)
+    {
+        double a = cst[0];
+        double b = cst[1];
+        return b*pow(x/a,b) + pow(x/a,b) - 1;
+    }
+
+
+double NewtonRaphson(double f(double, vector<double>), double df(double, vector<double>), double x0, double eps, vector<double> cst)
+    {
+        double exp = 1e30;
+        int niter  = 0;
+        double x = x0; 
+        double xold;
+        while (exp > eps || niter < 50)
+        {
+            xold = x;
+            x = x - f(x, cst)/df(x, cst);
+            exp = abs(xold-x)/x;
+            niter ++;
+        }
+        return x;
+    }
+
+double GetMax(vector<double> V)
+    {
+        double max = 0.;
+        for (int i = 0; i < V.size(); i++)
+            {
+                if (V[i] >= max)
+                    {
+                        max = V[i];
+                    }
+            }
+        return max;
+    }
+
+double GetTesc(double E, double delta, vector<double> cst)
+    {
+        double tSed = cst[2];
+        double EM = cst[3]; 
+        double c = cst[0];
+        double mp = cst[1];
+
+        return tSed*pow((pow(E,2)/pow(c,2) - pow(mp*c,2))/(pow(EM/c,2) - pow(mp*c,2)), -1./(2.*delta));
+    }
 
 
 
@@ -216,6 +285,9 @@ double c  = 2.997e10;
 double yr = 362.25*86400;
 double kyr = yr*1e3;
 double pc   = 3.086e18;   // 1 pc in [cm]
+double GeV  = 0.00160218;
+double e = 4.80326e-10; 
+double mp = 1.6726219e-24;
 
 // We define the constants of our problem
 double nt    = 0.35;  // [atom/cm^-3] Density, here WNM
@@ -294,11 +366,55 @@ u_sh[0] = u_sh[1] - (u_sh[2] - u_sh[1]);
 
 
 
+double gamma = 2.2;
+double bbeta = gamma - 2.;
+double Emin = 0.1*GeV;
+
+vector<double> Emax; Emax.resize(t_new.size());
+double eps = 1e-4;
+double x0 = 10.*GeV;
+double a,b,cc;
+vector<double> cst; cst.resize(3);
+
+if (beta != 0)
+    {
+        for (int i = 0; i < t_new.size(); i++)
+            {
+                a = Emin;
+                b = bbeta;
+                cc = (bbeta/(1+bbeta))*e*sqrt(4*pi*nt*mp)/(10*c)*xhi_cr*pow(u_sh[i],2)*r_new[i];
+                cst[0] = a; cst[1] = b; cst[2] = cc;
+                Emax[i] = NewtonRaphson(f2, df2dx, x0, eps, cst);
+            }
+    }
+if (beta == 0)
+    {
+        for (int i = 0; i < t_new.size(); i++)
+            {
+                a = Emin;
+                b = e*sqrt(4*pi*nt*mp)/(10*c)*xhi_cr*pow(u_sh[i],2.)*r_new[i];
+                cst[0] = a; cst[1] = b;
+                Emax[i] = NewtonRaphson(f1, df1dx, x0, eps, cst);
+            }
+    }
 
 
+//for (int i = 0; i < Emax.size(); i++)
+//    {
+//        cout<<"t_new = "<<t_new[i]/kyr<<" kyr, Emax = "<<Emax[i]/GeV<<" GeV"<<endl;
+//    }
+
+double EM = GetMax(Emax);
+double delta = 3.;
+
+double tSed = tfree;
 
 
+vector<double>  cst2 = {c, mp, tSed, EM};
+double Etest = 100.*GeV;
+double tesc_test = GetTesc(Etest, delta, cst2);
 
+cout<<"Etest = "<<Etest/GeV<<" GeV, tesc = "<<tesc_test/kyr<<" kyr"<<endl;
 
 
 
