@@ -14,6 +14,7 @@
 using namespace std;
 
 
+#include "./mathematics.h"
 #include "./constants.h"
 #include "./read2D.h"
 #include "./freader.h"
@@ -201,6 +202,7 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
+        //cout<<"tesc = "<<ttesc[j]<<endl;
     }
 
     int xi, ei; 
@@ -221,6 +223,7 @@ int main()
         for (g=0; g<NE; g++)
         {
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
+            //cout<<"Finj_temp = "<<Finj_temp[g]<<endl;
             //Finj_temp[g] = 0.;
         }
 
@@ -262,6 +265,8 @@ int main()
                     // EQ. Solving 
                     Qwaves = box_Gd[2][2]*box_Ip[2][2];
                     Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];
+
+                    //cout<<"Qcrs_temp = "<<Qcrs_temp<<endl;
 
                     Pcr_new_temp = pressureSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, E_temp, Qcrs_temp);
                     Ip_new_temp  = wavesSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, B_temp, Qwaves);
