@@ -46,11 +46,15 @@ def indamping_alfven(position_index , E, medium_props) :
     # Some relations 
     rl = (E)/(cst.e*B)
     k = 1/rl
-    chi = (mn/mi)*(X**(-1.)-1.)
+#    chi = (mn/mi)*(X**(-1.)-1.)
+    rho_n = mn*nn
+    rho_i = mi*ni
+    chi = (mn*nn)/(mi*ni)
     VAi = B/np.sqrt(4*np.pi*mi*ni)
     if (T <= 50) : 
-        nu_in = nn*2.1e-9
-    else : 
+#        nu_in = nn*2.1e-9
+        nu_in = 2*nn*8.4e-9*(50/1e4)**0.4
+    if (T > 50) : 
         nu_in = 2*nn*8.4e-9*(T/1e4)**0.4
     nu_ni = chi**(-1.)*nu_in
     
@@ -74,7 +78,7 @@ def indamping_alfven(position_index , E, medium_props) :
     if (np.isnan(wr)) : 
         wr = 0.
     
-    return dict(wr=wr, wi=-wi, VA=wr/k)
+    return dict(wr=wr, wi=-wi, VA=wr/k, nu_ni=nu_ni, chi=chi, rho_n=rho_n, rho_i=rho_i)
 
 # Non-correlated interactions with large scale turbulence 
 

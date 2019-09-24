@@ -59,9 +59,9 @@ phases = [] # Phases list
 # Append phases in the order of the setup you want to create
 phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=100.*cst.pc)]) 
 phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=2000.*cst.pc)])
-smooth_width_transition = 3.*cst.pc # Smooth width transition between two phases
+smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases
 # We calculate the smoothed variables
-T, B, ni, nn, nt, Xi, mi, mn = mh.SmoothPhaseTransition(X, phases, smooth_width_transition*5)
+T, B, ni, nn, nt, Xi, mi, mn = mh.SmoothPhaseTransition(X, phases, smooth_width_transition)
 # ISM secondary variables 
 ism_values = dict(T=T, B=B, ni=ni, nn=nn, nt=nt, X=Xi, mi=mi, mn=mn)
 

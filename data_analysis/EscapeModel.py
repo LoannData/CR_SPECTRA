@@ -281,7 +281,7 @@ if (beta == 0.) :
 
 Emin = 0.001*cst.GeV
 EMAX = max(Emax)
-delta = 3.
+delta = 1.
 
 #tSed = 1e3*cst.yr*E51**(-0.5)*(Mej/10.)**(5./6)*(nt)**(-1./3) # [Celli et al. 2019]
 tSed = tfree # [Truelove & McKee 1997]
