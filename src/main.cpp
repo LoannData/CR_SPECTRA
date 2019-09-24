@@ -170,9 +170,9 @@ int main()
     int out_Pcr_index = 0;
     int out_Ip_index = 0;
 
-    vector<vector<double>> Pcr_new, Pcr_old, Ip_new, Ip_old, Pcr_background;
+    vector<vector<double>> Pcr_new, Pcr_old, Ip_new, Ip_old, Pcr_background, Ip_background;
 
-    Pcr_new = Pcr; Ip_new  = Ip; Pcr_background = Pcr;
+    Pcr_new = Pcr; Ip_new  = Ip; Pcr_background = Pcr, Ip_background = Ip;
 
 
     /*vector<vector<double>> Qcrs(NX); 
@@ -187,7 +187,7 @@ int main()
     int lxi, lei;
     double P1, P2, Ip1, Ip2;
     double Pcr_new_temp, Ip_new_temp;
-    double Pcr_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp;
+    double Pcr_background_temp, Ip_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp;
     int ei_temp, xi_temp, t_NX = NX, t_NE = NE;
     int xi_box, ei_box;
     double Qwaves;
@@ -230,7 +230,7 @@ int main()
         //cout<<Ip_new[NX-1][0]<<endl;
 
         #pragma omp parallel num_threads(nb)
-        #pragma omp for schedule(static, int(double(NX/nb))) private(xi, ei, xi_box, ei_box, box_X, box_E, box_Pcr, box_Ip, box_Gd, box_Db, box_VA, loc_xi, loc_ei, lxi, lei, P1, P2, Ip1, Ip2, Pcr_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp, ei_temp, xi_temp, Qwaves, Pcr_new_temp, Ip_new_temp, t_NX, t_NE)
+        #pragma omp for schedule(static, int(double(NX/nb))) private(xi, ei, xi_box, ei_box, box_X, box_E, box_Pcr, box_Ip, box_Gd, box_Db, box_VA, loc_xi, loc_ei, lxi, lei, P1, P2, Ip1, Ip2, Pcr_background_temp, Ip_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp, ei_temp, xi_temp, Qwaves, Pcr_new_temp, Ip_new_temp, t_NX, t_NE)
         for (xi = 0; xi<NX; xi++)
         {
             temp_theta = theta(X[xi], time);
@@ -242,6 +242,7 @@ int main()
                 E_temp = E[ei];
                 B_temp = B[xi];
                 Pcr_background_temp = Pcr_background[xi][ei];
+                Ip_background_temp = Pcr_background[xi][ei];
                 for (lxi = 0; lxi < 5; lxi++)
                 {
                     for (lei = 0; lei < 5; lei++)
@@ -271,6 +272,7 @@ int main()
                     Pcr_new_temp = pressureSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, E_temp, Qcrs_temp);
                     Ip_new_temp  = wavesSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, B_temp, Qwaves);
                     if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                    if (Ip_new_temp < Ip_background_temp) {Ip_new_temp = Ip_background_temp;}
 
                     if (xi == 0){Pcr_new_temp = Pcr_old[xi+1][ei]; Ip_new_temp = Ip_old[xi+1][ei];}
                     if (xi == NX-1){Pcr_new_temp = Pcr_new[xi-1][ei]; Ip_new_temp = Ip_new[xi-1][ei];}
