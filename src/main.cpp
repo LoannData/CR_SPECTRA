@@ -242,7 +242,7 @@ int main()
                 E_temp = E[ei];
                 B_temp = B[xi];
                 Pcr_background_temp = Pcr_background[xi][ei];
-                Ip_background_temp = Pcr_background[xi][ei];
+                Ip_background_temp = Ip_background[xi][ei];
                 for (lxi = 0; lxi < 5; lxi++)
                 {
                     for (lei = 0; lei < 5; lei++)
