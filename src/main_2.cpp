@@ -241,7 +241,7 @@ int main()
         //cout<<Ip_new[NX-1][0]<<endl;
 
         r_snr = RSNR(time);
-
+        //------------------------------------------------------------------------------------------------------------//
         #pragma omp parallel num_threads(nb)
         #pragma omp for schedule(static, int(double(NX/nb))) private(xi, ei, xi_box, ei_box, box_X, box_E, box_Pcr, box_Ip, box_Gd, box_Db, box_VA, loc_xi, loc_ei, lxi, lei, P1, P2, Ip1, Ip2, Pcr_background_temp, Ip_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp, ei_temp, xi_temp, Qwaves, Pcr_new_temp, Ip_new_temp, t_NX, t_NE, temp_theta)
         for (xi = 0; xi<NX; xi++)
@@ -306,7 +306,75 @@ int main()
             }
             
         }
+        //------------------------------------------------------------------------------------------------------------//
+        Pcr_old = Pcr_new;
+        Ip_old  = Ip_new;
 
+        #pragma omp parallel num_threads(nb)
+        #pragma omp for schedule(static, int(double(NX/nb))) private(xi, ei, xi_box, ei_box, box_X, box_E, box_Pcr, box_Ip, box_Gd, box_Db, box_VA, loc_xi, loc_ei, lxi, lei, P1, P2, Ip1, Ip2, Pcr_background_temp, Ip_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp, ei_temp, xi_temp, Qwaves, Pcr_new_temp, Ip_new_temp, t_NX, t_NE, temp_theta)
+        for (xi = 0; xi<NX; xi++)
+        {
+
+            temp_theta = theta(X[xi], time, r_snr);
+            //temp_theta = vec_theta[xi];
+
+            
+            //temp_theta = Pcr_old[xi][ei]/maxElement1D(Pcr_old);
+            for (ei = 0; ei<NE; ei++)
+            {
+
+                //We load all the values we need 
+                dX_temp = dX[xi];
+                dE_temp = dE[ei];
+                E_temp = E[ei];
+                B_temp = B[xi];
+                Pcr_background_temp = Pcr_background[xi][ei];
+                Ip_background_temp = Ip_background[xi][ei];
+                for (lxi = 0; lxi < 5; lxi++)
+                {
+                    for (lei = 0; lei < 5; lei++)
+                    {   
+
+                        if (xi-2+lxi >= 0 and xi+2+lxi < NX){xi_box = xi-2+lxi;}
+                        if (xi-2+lxi < 0)                   {xi_box = 0;}          //Absorbing left layer 
+                        if (xi+2+lxi >= NX)                 {xi_box = NX-1;}       //Absorbing right layer 
+                        if (ei-2+lei >= 0 and ei+2+lei < NE){ei_box = ei-2+lei;}
+                        if (ei-2+lei < 0)                   {ei_box = 0;}          //Absorbing low energy layer 
+                        if (ei+2+lei >= NE)                 {ei_box = NE-1;}       //Absorbing high energy layer 
+                                box_Pcr[lxi][lei] = Pcr_old[xi_box][ei_box];
+                                box_Ip[lxi][lei]  = Ip_old[xi_box][ei_box]; 
+                                box_VA[lxi][lei]  = VA[xi_box][ei_box]; 
+                                box_Gd[lxi][lei]  = Gd[xi_box][ei_box]; 
+                                box_Db[lxi][lei]  = Db[xi_box][ei_box];
+                        box_E[lei] = E[ei_box];
+                    }
+                    box_X[lxi] = X[xi_box];
+                }
+                    // EQ. Solving 
+                    Qwaves = box_Gd[2][2]*box_Ip[2][2];
+                    Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];
+
+                    //if (time_index == 0){Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];}
+                    
+
+
+                    Pcr_new_temp = advectPressure(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, E_temp, Qcrs_temp);
+                    Ip_new_temp  = advectWaves(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, B_temp, Qwaves);
+
+                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
+                    if (Ip_new_temp < Ip_background_temp) {Ip_new_temp = Ip_background_temp;}
+
+                    if (xi == 0){Pcr_new_temp = Pcr_old[xi+1][ei]; Ip_new_temp = Ip_old[xi+1][ei];}
+                    if (xi == NX-1){Pcr_new_temp = Pcr_new[xi-1][ei]; Ip_new_temp = Ip_new[xi-1][ei];}
+
+                    //if (time_index > 0){Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];}
+
+                Pcr_new[xi][ei] = Pcr_new_temp;
+                Ip_new[xi][ei]  = Ip_new_temp;
+            }
+            
+        }
+        //------------------------------------------------------------------------------------------------------------//
 
         if (time > dat_output[out_Pcr_index] && out_Pcr_index < dat_output.size()) 
         {

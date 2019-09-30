@@ -266,3 +266,21 @@ double GetMax(vector<double> V)
             }
         return max;
     }
+
+void transpose(vector<vector<double>> &b, vector<vector<double>> &c)
+{
+    if (b.size() == 0)
+        return;
+
+    vector<vector<double> > trans_vec(b[0].size(), vector<double>());
+
+    for (int i = 0; i < b.size(); i++)
+    {
+        for (int j = 0; j < b[i].size(); j++)
+        {
+            trans_vec[j].push_back(b[i][j]);
+        }
+    }
+
+    c = trans_vec;    // <--- reassign here
+}

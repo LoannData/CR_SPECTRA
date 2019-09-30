@@ -46,6 +46,7 @@ ni = ism_values.get("ni")
 mn = ism_values.get("mn")
 T  = ism_values.get("T")
 Xi = ism_values.get("X")
+va = ism_values.get("VA")
 
 # Calculation of the Alfven velocity and the ion-neutral damping 
 VA             = np.zeros((len(E), len(X)))
@@ -61,7 +62,8 @@ for e in range(len(E)) :
     print (e,"/",len(E))
     for xi in range(len(X)) : 
         in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
-        VA[e][xi] = in_damping.get('VA')
+#        VA[e][xi] = in_damping.get('VA')
+        VA[e][xi] = va[e][xi]
 #        nu_ni[e][xi] = in_damping.get('nu_ni')
 #        chi[e][xi] = in_damping.get('chi')
 #        rho_n[e][xi] = in_damping.get('rho_n')

@@ -32,14 +32,14 @@ const int solver_waves_source = 1; // Term of waves source (background turbulenc
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 4;                    // Number of processors for the run 
+const int nproc = 16;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 10.*kyr; // Instant of the last output data
-const int number_out_data   = 500;     // Total number of output data
+const double t_data_out_max = 100.*kyr; // Instant of the last output data
+const int number_out_data   = 100;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 1000;      // Number of time-step between two LogOutput
-const double Tmax = 10.1*kyr;           // Define the limit time of your simulation 
+const double Tmax = 100.1*kyr;           // Define the limit time of your simulation 
 
 
 
@@ -54,9 +54,10 @@ const double xhi_cr   = 0.1;   // Efficiency of CRs acceleration
 const double xhi_0    = 2.026; 
 const double gam      = 2.2;      // CRs injection energy power law index 
 const double Emin     = 0.1*GeV;  // Minimum accelered CRs during the Sedov phase 
-const double delta    = 3; 
+const double delta    = 2; 
 //const double Emax     = 2e5*GeV;  // Maximum CRs energy
 const double t_start_injection        = 1e-6*kyr; // Time start CRs injection function 
 const double t_end_injection          = 2;   // [in tesc[E] units] Time end CRs injection function (number of tesc)
 const double injection_function_width = 100. ; // Corresponds approximately to the width of the escape time divided 
 const int injection_function_norm     = 100; // Constant in order to easily and rapidly normalize the injection function 
+const double r_snr_thickness          = 100; // = R_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  

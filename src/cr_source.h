@@ -243,12 +243,22 @@ double Finj(double t, double dt, double E, double ttesc)
     //return A/intA;
 }*/
 
-double theta(double z, double t)
+/*double theta(double z, double t, double Rsnr)
 {
-    double Rsnr = RSNR(t);
+    //double Rsnr = RSNR(t);
+    
+
     //cout<<Rsnr/pc<<endl;
     if (z < Rsnr){return 1;}
     if (z > Rsnr){return 0;}
+}*/
+
+double theta(double z, double t, double Rsnr)
+{
+    //double Rsnr = RSNR(t);
+    double r_width = Rsnr/r_snr_thickness;
+
+    return (1 - tanh((z - Rsnr)/r_width))/2.;
 }
 
 double dNdE(double E)

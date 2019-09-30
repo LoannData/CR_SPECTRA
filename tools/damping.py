@@ -9,7 +9,7 @@ Created on Thu Dec 13 13:55:50 2018
 import numpy as np
 import matplotlib.pyplot as plt 
 import mathmethods as math
-import phases_collection as ism
+#import phases_collection as ism
 import constants as cst
 
 
@@ -79,6 +79,67 @@ def indamping_alfven(position_index , E, medium_props) :
         wr = 0.
     
     return dict(wr=wr, wi=-wi, VA=wr/k, nu_ni=nu_ni, chi=chi, rho_n=rho_n, rho_i=rho_i)
+
+
+
+
+
+
+def indamping_alfven_nopos(E, medium_props) : 
+    # Import values of phases_collection
+    T  = medium_props.get('T')
+    B  = medium_props.get('B')
+    mn = medium_props.get('mn')
+    mi = medium_props.get('mi') 
+    X  = medium_props.get('X')
+    ni = medium_props.get('ni')
+    nn = medium_props.get('nn')
+    
+#    print "T = ",T," K"
+#    print "B = ",B," G"
+#    print "mn = ",mn/cst.mp," mp"
+#    print "mi = ",mi/cst.mp," mp"
+#    print "X = ",X
+#    print "ni = ",ni," cm^-3"
+#    print "nn = ",nn," cm^-3"
+    
+    # Some relations 
+    rl = (E)/(cst.e*B)
+    k = 1/rl
+    chi = (mn/mi)*(X**(-1.)-1.)
+#    rho_n = mn*nn
+#    rho_i = mi*ni
+#    chi = (mn*nn)/(mi*ni)
+    VAi = B/np.sqrt(4*np.pi*mi*ni)
+    if (T <= 50) : 
+#        nu_in = nn*2.1e-9
+        nu_in = 2*nn*8.4e-9*(50/1e4)**0.4
+    if (T > 50) : 
+        nu_in = 2*nn*8.4e-9*(T/1e4)**0.4
+    nu_ni = chi**(-1.)*nu_in
+    
+#    print "E = ",E/cst.TeV," TeV"
+#    print "rl = ",rl/cst.pc," pc"
+#    
+#    print "chi = ",chi
+#    print "Vai = ",VAi," cm/s"
+#    print "nu_in = ",nu_in," s^-1"
+#    print "nu_ni = ",nu_ni," s^-1"
+    # We set these values to zero for the moment
+    nu_n  = 0.
+    theta = 0.
+    # We calculate these values 
+    a =  k**2*nu_n + (1 + chi)*nu_ni
+    b = (1/4.)*(k**2*np.cos(theta)**2*VAi**2 + chi*k**2*nu_n*nu_ni + (k**2*nu_n + (1 + chi)*nu_ni)**2)
+    c = (1/8.)*((k**2*nu_n + (1 + chi)*nu_ni)*chi*k**2*nu_n*nu_ni + chi*nu_ni*k**2*np.cos(theta)**2*VAi**2)
+    wi = math.cardano3(a, b, c)
+    wr = np.sqrt(3*wi**2 + 2*(k**2*nu_n + (1 + chi)*nu_ni)*wi + k**2*np.cos(theta)**2*VAi**2 + chi*k**2*nu_n*nu_ni)
+    
+    if (np.isnan(wr)) : 
+        wr = 0.
+    
+    return dict(wr=wr, wi=-wi, VA=wr/k, nu_ni=nu_ni, chi=chi)
+
 
 # Non-correlated interactions with large scale turbulence 
 

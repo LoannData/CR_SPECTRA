@@ -79,7 +79,7 @@ def g2(x, xt, l) :
 def f(x, xt, l, v1, v2) : 
     return g1(x, xt, l)*v1 + g2(x, xt, l)*v2
 
-def SmoothPhaseTransition(X, phases, smooth_width) : 
+def SmoothPhaseTransition(X, E, phases, smooth_width) : 
     T  = np.zeros(len(X))
     B  = np.zeros(len(X))
     ni = np.zeros(len(X))
@@ -88,6 +88,7 @@ def SmoothPhaseTransition(X, phases, smooth_width) :
     Xi  = np.zeros(len(X))
     mi = np.zeros(len(X))
     mn = np.zeros(len(X))
+    VA = np.zeros((len(E), len(X)))
     if (len(phases) == 1) : 
         for xi in range(len(X)) : 
             for pi in range(len(phases)) : 
@@ -100,6 +101,8 @@ def SmoothPhaseTransition(X, phases, smooth_width) :
                     Xi[xi] = phases[pi][0].get("X")
                     mi[xi] = phases[pi][0].get("mi")
                     mn[xi] = phases[pi][0].get("mn")
+                    for ei in range(len(E)) : 
+                        VA[ei][xi] = phases[pi][2][ei]
     if (len(phases) > 1) : 
         for xi in range(len(X)) :
             for pos in range(len(phases)) :        
@@ -109,9 +112,13 @@ def SmoothPhaseTransition(X, phases, smooth_width) :
                     if (pos == 0) :
                         v1 = phases[pos][0]
                         v2 = phases[pos][0]
+                        va1 = phases[pos][2]
+                        va2 = phases[pos][2]
                     else : 
                         v1 = phases[pos-1][0]
                         v2 = phases[pos][0]
+                        va1 = phases[pos-1][2]
+                        va2 = phases[pos][2]
                     T[xi]  = f(X[xi], xt, l, v1.get('T'), v2.get('T'))
                     B[xi]  = f(X[xi], xt, l, v1.get('B'), v2.get('B'))
                     ni[xi]  = f(X[xi], xt, l, v1.get('ni'), v2.get('ni'))
@@ -120,15 +127,21 @@ def SmoothPhaseTransition(X, phases, smooth_width) :
                     Xi[xi]  = f(X[xi], xt, l, v1.get('X'), v2.get('X'))
                     mi[xi]  = f(X[xi], xt, l, v1.get('mi'), v2.get('mi'))
                     mn[xi]  = f(X[xi], xt, l, v1.get('mn'), v2.get('mn'))
+                    for ei in range(len(E)) : 
+                        VA[ei][xi] = f(X[xi], xt, l, va1[ei], va2[ei])
                 if (X[xi] >= phases[pos][1].get('Xmin') + 0.5*(phases[pos][1].get('Xmax') - phases[pos][1].get('Xmin')) and X[xi] < phases[pos][1].get('Xmax')) :
                     xt = phases[pos][1].get('Xmax')
                     l  = smooth_width
                     if (pos == len(phases)-1) :
                         v1 = phases[pos][0]
                         v2 = phases[pos][0]
+                        va1 = phases[pos][2]
+                        va2 = phases[pos][2]
                     else : 
                         v1 = phases[pos][0]
                         v2 = phases[pos+1][0]
+                        va1 = phases[pos][2]
+                        va2 = phases[pos+1][2]
                     T[xi]  = f(X[xi], xt, l, v1.get('T'), v2.get('T'))
                     B[xi]  = f(X[xi], xt, l, v1.get('B'), v2.get('B'))
                     ni[xi]  = f(X[xi], xt, l, v1.get('ni'), v2.get('ni'))
@@ -137,6 +150,8 @@ def SmoothPhaseTransition(X, phases, smooth_width) :
                     Xi[xi]  = f(X[xi], xt, l, v1.get('X'), v2.get('X'))
                     mi[xi]  = f(X[xi], xt, l, v1.get('mi'), v2.get('mi'))
                     mn[xi]  = f(X[xi], xt, l, v1.get('mn'), v2.get('mn'))
-    return T, B, ni, nn, nt, Xi, mi, mn
+                    for ei in range(len(E)) : 
+                        VA[ei][xi] = f(X[xi], xt, l, va1[ei], va2[ei])
+    return T, B, ni, nn, nt, Xi, mi, mn, VA
 
 

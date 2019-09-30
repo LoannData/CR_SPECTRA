@@ -21,10 +21,17 @@ sys.path.append('./tools/')
 import constants as cst
 import d1_grid_generator as grid 
 import phases_collection as ism
+import damping as dmp
 #import damping as dp
 import mathmethods as mh
 
 
+# Function to get a mean VA in a given phase 
+def getVA(E, phase) : 
+    VA = []
+    for ii in range(2**NE) : 
+        VA.append(dmp.indamping_alfven_nopos(E[ii], phase).get("VA"))    
+    return VA
 
 ###############################################################################
 #      GRID PARAMETERS                                                        #
@@ -55,14 +62,15 @@ Pcr_1GeV         = 1*cst.eV # [cm^-3] CR Pressure at 1 GeV
 ###############################################################################
 #        ISM STRUCTURE                                                        #
 ###############################################################################
-phases = [] # Phases list
+phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=100.*cst.pc)]) 
-phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=2000.*cst.pc)])
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=100.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.CNM)])
 smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases
+
 # We calculate the smoothed variables
-T, B, ni, nn, nt, Xi, mi, mn = mh.SmoothPhaseTransition(X, phases, smooth_width_transition)
+T, B, ni, nn, nt, Xi, mi, mn, va = mh.SmoothPhaseTransition(X, E, phases, smooth_width_transition)
 # ISM secondary variables 
-ism_values = dict(T=T, B=B, ni=ni, nn=nn, nt=nt, X=Xi, mi=mi, mn=mn)
+ism_values = dict(T=T, B=B, ni=ni, nn=nn, nt=nt, X=Xi, mi=mi, mn=mn, VA=va)
 
 
