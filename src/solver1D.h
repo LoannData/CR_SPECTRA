@@ -57,7 +57,8 @@ double wavesSolver(double dt, double dX, double dE, double Pcr[5][5], double Ip[
                           V2 = - dt/dX*Ip[i][e]*0.5*(VA[i+1][e] - VA[i-1][e]);
                           // Waves Growth term
                           double ff = - 0.5*VA[i][e]/dX*0.5*(Pcr[i+1][e] - Pcr[i-1][e])/(pow(B,2)/(8*pi)); 
-                          V3 = ff*dt;
+                          //V3 = ff*dt; // Terme de taux de croissance linéaire 
+                          V3 = ff*dt*(log10(Ip[e][i] + 1)/Ip[e][i]); // Terme de taux de croissance avec une fin logarithmique
                           // Waves Damping term
                           V4 = - Gd[i][e]*Ip[i][e]*dt;
                           // Waves Source term
