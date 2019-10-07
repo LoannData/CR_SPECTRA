@@ -11,6 +11,7 @@ using namespace std;
 int writeXE(std::string filename, int index, vector<vector<double>> data, double NX, double NE)
 {
     ofstream data_file;
+    index += 1;
     std::string full_name = "./data_out/";
     std::string ext=".dat";
     full_name.append(filename); 

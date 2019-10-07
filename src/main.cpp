@@ -322,7 +322,6 @@ int main()
             //temp_theta = Pcr_old[xi][ei]/maxElement1D(Pcr_old);
             for (ei = 0; ei<NE; ei++)
             {
-
                 //We load all the values we need 
                 dX_temp = dX[xi];
                 dE_temp = dE[ei];
@@ -334,7 +333,6 @@ int main()
                 {
                     for (lei = 0; lei < 5; lei++)
                     {   
-
                         if (xi-2+lxi >= 0 and xi+2+lxi < NX){xi_box = xi-2+lxi;}
                         if (xi-2+lxi < 0)                   {xi_box = 0;}          //Absorbing left layer 
                         if (xi+2+lxi >= NX)                 {xi_box = NX-1;}       //Absorbing right layer 
@@ -383,6 +381,7 @@ int main()
         }
 
         duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
+        duration = duration / nb;
         showLog_0(time, Tmax, getLogOutput(), time_index, duration);
         time += dt;
         time_index += 1;
