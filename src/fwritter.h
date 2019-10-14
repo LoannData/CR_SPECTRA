@@ -17,10 +17,11 @@ int writeXE(std::string filename, int index, vector<vector<double>> data, double
     full_name.append(filename); 
     full_name.append("_");
     std::string idcomplement;
-    if (index < 10) {idcomplement = "000";}
-    if (index >= 10 && index < 100) {idcomplement = "00";}
-    if (index >= 100 && index < 1000) {idcomplement = "0";}
-    if (index >= 1000 && index < 10000) {idcomplement = "";}
+    if (index < 10) {idcomplement = "0000";}
+    if (index >= 10 && index < 100) {idcomplement = "000";}
+    if (index >= 100 && index < 1000) {idcomplement = "00";}
+    if (index >= 1000 && index < 10000) {idcomplement = "0";}
+    if (index >= 10000 && index < 100000) {idcomplement = "";}
 
     std::ostringstream istring;
     istring<<index;
@@ -44,6 +45,6 @@ int writeXE(std::string filename, int index, vector<vector<double>> data, double
     }
     data_file.close();
 
-    index += 1;
+    //index += 1;
     return index;
 }  
