@@ -32,14 +32,14 @@ const int solver_waves_source = 1; // Term of waves source (background turbulenc
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 16;                    // Number of processors for the run 
+const int nproc = 6;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 100.*kyr; // Instant of the last output data
-const int number_out_data   = 100;     // Total number of output data
+const double t_data_out_max = 1000.*kyr; // Instant of the last output data
+const int number_out_data   = 10000;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 1000;      // Number of time-step between two LogOutput
-const double Tmax = 100.1*kyr;           // Define the limit time of your simulation 
+const double Tmax = 1000.1*kyr;           // Define the limit time of your simulation 
 
 
 
@@ -48,7 +48,7 @@ const double Esn      = 1;      // 1e51 erg : total energy released by SNR
 const double Mej      = 1;      // Msun : total mass released by SNR in sun mass units 
 const double xi_n     = 1;      // For solar abundances 
 const double phi_c    = 1;      // Actual thermal cond. / the Sptitzer (1962) value 
-const double beta     = 2; 
+const double bbeta     = 2; 
 const double C06      = 1.;
 const double xhi_cr   = 0.1;   // Efficiency of CRs acceleration 
 const double xhi_0    = 2.026; 
