@@ -204,17 +204,24 @@ double Finj(double t, double dt, double E, double ttesc)
     double ratio = double(Nc)/double(Na);
 
     double C_a = 0;
+    double loc_dt = (time_max - time_min)/double(Na); 
     for (int ti = 0; ti < Na; ti++)
     {
-        C_a += exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
-        //C_a += exp(-0.5*pow((t - 0.01*kyr)/(0.001*kyr),2));
+        //C_a += exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
+        C_a += exp(-0.5*pow((time_min + ti*loc_dt - ttesc)/sigm(E, ttesc),2))*loc_dt;
 
     } 
     
-    //cout<<A<<endl;
+    //cout<<ratio<<endl;
 
     if (C_a == 0){return 0.;}
-    if (C_a > 0) {B = A/(C_a*ratio); return B;}
+    if (C_a > 0) 
+    {
+        //B = A/(C_a*ratio); 
+        B = A/C_a;
+        if (A > C_a*ratio) {return 0.;}
+        if (A < C_a*ratio) {return B;}
+    }
 }
 
 
@@ -257,8 +264,11 @@ double theta(double z, double t, double Rsnr)
 {
     //double Rsnr = RSNR(t);
     double r_width = Rsnr/r_snr_thickness;
+    double center  = snr_position_x;
+    double loc_z = z - center;
 
-    return (1 - tanh((z - Rsnr)/r_width))/2.;
+    //return (1 - tanh((z - Rsnr)/r_width))/2.;
+    return 0.5*(erf((Rsnr - loc_z)/(r_width)) + erf((Rsnr + loc_z)/(r_width)));
 }
 
 double dNdE(double E)

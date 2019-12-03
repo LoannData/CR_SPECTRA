@@ -63,7 +63,7 @@ for e in range(len(E)) :
     for xi in range(len(X)) : 
         in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
 #        VA[e][xi] = in_damping.get('VA')
-        VA[e][xi] = va[e][xi]
+        VA[e][xi] = +va[e][xi]*1e2
 #        nu_ni[e][xi] = in_damping.get('nu_ni')
 #        chi[e][xi] = in_damping.get('chi')
 #        rho_n[e][xi] = in_damping.get('rho_n')
@@ -72,6 +72,10 @@ for e in range(len(E)) :
         if (nml.lz_damping) : gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
         gamma_tot[e][xi] = gamma_in[e][xi] + gamma_lazarian[e][xi]
         Pcr[e][xi] = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
+        # Juste pour avoir une condition initiale, à dégager biensur ! 
+#        if (X[xi] > 450.*cst.pc and X[xi] < 550.*cst.pc) : 
+#            Pcr[e][xi] = Pcr[e][xi]*1e4
+#        Pcr[e][xi] = Pcr[e][xi]*(1 + 1e4*np.exp(-(X[xi]-500.*cst.pc)**2/(20.*cst.pc)**2))
 
 # Initial diffusion coefficients -> Initial waves I
 d00     = np.zeros(len(X)) # Spatial component of the background diffusion coefficient of CRs 
@@ -82,6 +86,8 @@ I       = np.zeros((len(E), len(X))) # Initial resonnant waves energy density
 
 for xi in range(len(X)) : 
     d00[xi] = 1e28
+#    if (X[xi] > 700.*cst.pc and X[xi] < 720.*cst.pc) : 
+#        d00[xi] = d00[xi]*1e-5
 
 
 for e in range(len(E)) : 

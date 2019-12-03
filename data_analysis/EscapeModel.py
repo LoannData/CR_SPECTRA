@@ -300,7 +300,7 @@ for ii in range(len(Ecr)) :
 ###############################################################################
 # Model figure                                                                #
 ###############################################################################
-plt.figure(figsize=(10,6))
+plt.figure(figsize=(8,4))
 for ii in range(len(t)) : 
     plt.loglog(t[ii]/cst.kyr, R[ii]/cst.pc, c="black", marker='o')
 plt.loglog(t_new/cst.kyr, r_new/cst.pc, c="blue", lw=2, label="Spline model")
@@ -308,25 +308,29 @@ plt.loglog(t_new/cst.kyr, r_new/cst.pc, c="blue", lw=2, label="Spline model")
 plt.legend()
 plt.xlabel("Time [kyr]")
 plt.ylabel("$R$ [pc]")
+plt.savefig("./SNR_evolution.pdf")
 
 
-plt.figure(figsize=(10,6))
+plt.figure(figsize=(8,4))
 plt.loglog(t_new/cst.kyr, u_sh/(100*1e3), c="blue", lw=2, label="Shock Velocity")
 plt.legend()
 plt.ylabel("$V_\\mathrm{sh}$ [km/s]")
 plt.xlabel("Time [kyr]")
+plt.savefig("./SNR_shock.pdf")
 
 
-plt.figure(figsize=(10,6))
+plt.figure(figsize=(8,4))
 plt.loglog(t_new/cst.kyr, Emax/cst.GeV, c="blue", lw=2, label="$\\Gamma = "+str(round(gamma,1))+" $")
 plt.axvline(tSed/cst.kyr, c="black")
 plt.legend()
 plt.ylabel("$E_\\mathrm{max,0}(t)$ [GeV]")
 plt.xlabel("Time [kyr]")
+plt.savefig("./SNR_Emax.pdf")
 
-plt.figure(figsize=(10,6))
+plt.figure(figsize=(8,4))
 plt.loglog(Ecr/cst.GeV, tesc/cst.kyr, c="blue", lw=2, label="Escape Time")
 plt.legend()
 plt.ylabel("$t_\\mathrm{esc}$ [kyr]")
 plt.xlabel("E [GeV]")
+plt.savefig("./SNR_escapetime.pdf")
 

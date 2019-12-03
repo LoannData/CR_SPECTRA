@@ -9,8 +9,37 @@
 using namespace std;
 
 
+// Thomas Algorithm (Trigonal matrix inversion O(N))
+vector<double> TDMA(vector<double> a, vector<double> b, vector<double> c, vector<double> d)
+    {
+        int n = d.size();
+        vector<double> w(n-1, 0);
+        vector<double> g(n, 0);
+        vector<double> p(n, 0);
 
-// TriDiagonal matrix inversion function
+        w[0] = c[0]/b[0];
+        g[0] = d[0]/b[0];
+
+        for (int i = 1; i < n-1; i++)
+            {
+                w[i] = c[i]/(b[i] - a[i-1]*w[i-1]);
+            }
+        for (int i = 1; i < n; i++)
+            {
+                g[i] = (d[i] - a[i-1]*g[i-1])/(b[i] - a[i-1]*w[i-1]);
+            }
+        p[n-1] = g[n-1]; 
+        for (int i = n-1; i > 0; i--)
+            {
+                p[i-1] = g[i-1] - w[i-1]*p[i]; 
+            }
+        return p;
+
+    }
+
+
+
+// TriDiagonal matrix inversion function O(N^3)
 void InverseTrigonalMatrix(vector<vector<double>> &T)
     {
     int n = T.size();
