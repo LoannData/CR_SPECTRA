@@ -281,11 +281,54 @@ void sourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, 
             NE = u_old[xi].size();
             for (int ei = 0; ei < NE; ei++)
             {
-                sum = factor*source[xi][ei];
+                sum = factor*source[xi][ei]*u_old[xi][ei];
                 u_new[xi][ei] = u_old[xi][ei] + sum*dt;
             }
         }
     }
+
+
+void sourceSolverDamp(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<vector<double>> source, vector<vector<double>> background, double factor)
+    {
+        int NX = u_old.size();
+        int NE;
+        double sum;
+        for (int xi = 0; xi < NX; xi++)
+        {
+            NE = u_old[xi].size();
+            for (int ei = 0; ei < NE; ei++)
+            {
+                sum = factor*source[xi][ei]*(u_old[xi][ei] - background[xi][ei]);
+                u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+            }
+        }
+    }
+
+
+void sourceGrowthRateSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, vector<vector<double>> &v_old, vector<double> X, double dt, vector<vector<double>> V, vector<double> B, double factor)
+    {
+        int NX = u_old.size();
+        int NE;
+        double sum;
+        double dudx; 
+        for (int xi = 0; xi < NX; xi++)
+        {
+            NE = u_old[xi].size();
+            for (int ei = 0; ei < NE; ei++)
+            {
+                dudx = 0.;
+                if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
+                sum = -0.5*V[xi][ei]*dudx/(pow(B[xi],2)/(8*pi))*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
+                //sum = factor*source[xi][ei]*u_old[xi][ei];
+                u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+            }
+        }
+    }
+                         /* // Waves Growth term
+                          double ff = - 0.5*VA[i][e]/dX*0.5*(Pcr[i+1][e] - Pcr[i-1][e])/(pow(B,2)/(8*pi)); 
+                          //V3 = ff*dt; // Terme de taux de croissance linéaire 
+                          V3 = ff*dt*(log10(Ip[e][i] + 1)/Ip[e][i]); // Terme de taux de croissance avec une fin logarithmique*/
+
 
 void CRsInjectionSourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> Pcr_ini, vector<double> Finj_temp, vector<double> vec_theta)
     {

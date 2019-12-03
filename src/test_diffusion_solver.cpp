@@ -154,7 +154,7 @@ int main()
             if (xi > 0 and xi < VA.size()-1)
             {
                 cdVAdX[xi][ei] = (VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1])/(3.*log(10.)); //1e-11 -> Test value
-                c2dVAdX[xi][ei] = -(VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1])*1.25;
+                c2dVAdX[xi][ei] = -(VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1]);
             }
             cdVAdX[0][ei] = cdVAdX[1][ei];
             cdVAdX[VA.size()-1][ei] = cdVAdX[VA.size()-2][ei];
@@ -273,7 +273,13 @@ int main()
         //----------------------------------------------------------------------//
         // Explicit Advection solver for Pcr by Alfvén velocity                 //
         //----------------------------------------------------------------------//
-        //advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA); Pcr_old = Pcr_new;
+        advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA); Pcr_old = Pcr_new;
+
+        //----------------------------------------------------------------------//
+        // Explicit Advection solver for Ip by Alfvén velocity                  //
+        // -> This term seems ok                                                //
+        //----------------------------------------------------------------------//
+        advectionSolverX(Ip_old, Ip_new, dt, X, NE, VA); Ip_old = Ip_new;
 
 
         //----------------------------------------------------------------------//
@@ -293,14 +299,32 @@ int main()
         // Source term effect due to the dependance of the Alfvén velocity to   //
         // the space                                                            //
         //----------------------------------------------------------------------//
-        //sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 1.); Pcr_old = Pcr_new;
+        //sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 4./3); Pcr_old = Pcr_new;
+
+        //----------------------------------------------------------------------//
+        // Source term effect due to the dependance of the Alfvén velocity to   //
+        // the space                                                            //
+        //----------------------------------------------------------------------//
+        //sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.); Ip_old = Ip_new;
+
+        //----------------------------------------------------------------------//
+        // Source term effect due to the damping of waves (Ip)                  //
+        // -> This term seems ok                                                // 
+        //----------------------------------------------------------------------//
+        sourceSolverDamp(Ip_old, Ip_new, dt, Gd, Ip_background, 1.); Ip_old = Ip_new;
+
+        //----------------------------------------------------------------------//
+        // Source term effect due to production of self-turbulence              //
+        // -> This term seems ok                                                //
+        //----------------------------------------------------------------------//
+        sourceGrowthRateSolver(Ip_old, Ip_new, Pcr_old, X, dt, VA, B, 1.);Ip_old = Ip_new;
+        //----------------------------------------------------------------------//
+
 
         //----------------------------------------------------------------------//
         // CRs injection term from SNRs                                         // 
         //----------------------------------------------------------------------//
-        //theta(X[xi], time, r_snr)
-        // temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];
-        CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; 
+        //CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; 
 
 
 
