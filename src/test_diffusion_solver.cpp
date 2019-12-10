@@ -172,6 +172,7 @@ int main()
     double maxVd = maxElement2D(abs_VA);
     double maxDb = maxElement2D(Db);
     double minIp = minElement2D(Ip);
+    double maxIp = maxElement2D(Ip);
     double maxD  = maxDb/minIp;// cout<<"Max D = "<<maxD<<endl;
     double maxGd = maxElement2D(Gd);
     double mindX = minElement1D(dX); double mindE = minElement1D(dE); 
@@ -181,7 +182,7 @@ int main()
     //cfl.push_back(C2*pow(mindX,2)/maxD);
     cfl.push_back(C3*mindE*mindX/(maxE*maxVd));
     cfl.push_back(C4*2*mindX/maxVd);
-    //cfl.push_back(C5/maxGd);
+    cfl.push_back(C5/(maxGd));
 
     cout<<"CFL Values : "<<endl;
     cout<<"Advection : "<<C1*mindX/maxVd<<" s"<<endl;
@@ -267,7 +268,7 @@ int main()
         //----------------------------------------------------------------------//
         // Spatially variable diffusion solver, implicit scheme for Pcr         //
         //----------------------------------------------------------------------//
-        //thetaDiffusionSolver(Pcr_old, Pcr_new, dt, X, NE, Ip_new, Db, Pcr_background); Pcr_old = Pcr_new;
+        thetaDiffusionSolver(Pcr_old, Pcr_new, dt, X, NE, Ip_new, Db, Pcr_background); Pcr_old = Pcr_new;
 
 
         //----------------------------------------------------------------------//
@@ -287,44 +288,44 @@ int main()
         // Alfvén velocity. Which seems to have no effects on the diffusion     //
         // Note : This term needs more studies ...                              //
         //----------------------------------------------------------------------//
-        //advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdlog10E); Pcr_old = Pcr_new;
+        advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdlog10E); Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
         // Explicit Advection solver for Pcr in energy cdVAdX
         // This value needs to be studied more in details 
         //----------------------------------------------------------------------//
-        //advectionSolverE(Pcr_old, Pcr_new, dt, log10E, NX, cdVAdX, Pcr_background); Pcr_old = Pcr_new;
+        advectionSolverE(Pcr_old, Pcr_new, dt, log10E, NX, cdVAdX, Pcr_background); Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
         // Source term effect due to the dependance of the Alfvén velocity to   //
         // the space                                                            //
         //----------------------------------------------------------------------//
-        //sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 4./3); Pcr_old = Pcr_new;
+        sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 4./3); Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
         // Source term effect due to the dependance of the Alfvén velocity to   //
         // the space                                                            //
         //----------------------------------------------------------------------//
-        //sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.); Ip_old = Ip_new;
+        sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.); Ip_old = Ip_new;
 
         //----------------------------------------------------------------------//
         // Source term effect due to the damping of waves (Ip)                  //
         // -> This term seems ok                                                // 
         //----------------------------------------------------------------------//
-        sourceSolverDamp(Ip_old, Ip_new, dt, Gd, Ip_background, 1.); Ip_old = Ip_new;
+        //sourceSolverDamp(Ip_old, Ip_new, dt, Gd, Ip_background, 1.); Ip_old = Ip_new; // old : do not use ! 
 
         //----------------------------------------------------------------------//
         // Source term effect due to production of self-turbulence              //
         // -> This term seems ok                                                //
         //----------------------------------------------------------------------//
-        sourceGrowthRateSolver(Ip_old, Ip_new, Pcr_old, X, dt, VA, B, 1.);Ip_old = Ip_new;
+        sourceGrowthDampRateSolver(Ip_old, Ip_new, Pcr_old, Gd, Ip_background, X, dt, VA, B, 1);Ip_old = Ip_new;
         //----------------------------------------------------------------------//
 
 
         //----------------------------------------------------------------------//
         // CRs injection term from SNRs                                         // 
         //----------------------------------------------------------------------//
-        //CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; 
+        CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; 
 
 
 

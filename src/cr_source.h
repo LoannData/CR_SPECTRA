@@ -17,6 +17,7 @@ std::string sX  = search(parameters,"X");   double Xi = stod(sX);
 double nt = ni/Xi;
 std::string smn = search(parameters,"mn");  double m_neutral = stod(smn); 
 std::string sT   = search(parameters,"T");  double T  = stod(sT);
+std::string scenter = search(parameters, "center"); double x_center = stod(scenter);
 
 
 
@@ -264,7 +265,7 @@ double theta(double z, double t, double Rsnr)
 {
     //double Rsnr = RSNR(t);
     double r_width = Rsnr/r_snr_thickness;
-    double center  = snr_position_x;
+    double center  = x_center;
     double loc_z = z - center;
 
     //return (1 - tanh((z - Rsnr)/r_width))/2.;

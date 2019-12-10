@@ -39,6 +39,8 @@ E         = nml.E
 nx        = nml.NX
 ne        = nml.NE
 
+x_center = nml.box_center
+
 # ISM secondary variables 
 ism_values = nml.ism_values
 B  = ism_values.get("B")
@@ -63,7 +65,10 @@ for e in range(len(E)) :
     for xi in range(len(X)) : 
         in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
 #        VA[e][xi] = in_damping.get('VA')
-        VA[e][xi] = +va[e][xi]
+        if (X[xi] >= x_center) : 
+            VA[e][xi] = +va[e][xi]
+        else : 
+            VA[e][xi] = -va[e][xi]
 #        nu_ni[e][xi] = in_damping.get('nu_ni')
 #        chi[e][xi] = in_damping.get('chi')
 #        rho_n[e][xi] = in_damping.get('rho_n')
@@ -75,7 +80,7 @@ for e in range(len(E)) :
         # Juste pour avoir une condition initiale, à dégager biensur ! 
 #        if (X[xi] > 450.*cst.pc and X[xi] < 550.*cst.pc) : 
 #            Pcr[e][xi] = Pcr[e][xi]*1e4
-        Pcr[e][xi] = Pcr[e][xi]*(1 + 1e4*np.exp(-(X[xi]-500.*cst.pc)**2/(20.*cst.pc)**2))
+#        Pcr[e][xi] = Pcr[e][xi]*(1 + 1e4*np.exp(-(X[xi]-500.*cst.pc)**2/(20.*cst.pc)**2))
 
 # Initial diffusion coefficients -> Initial waves I
 d00     = np.zeros(len(X)) # Spatial component of the background diffusion coefficient of CRs 
@@ -120,7 +125,8 @@ variables = {"NX"       : nx,
              "ni"       : ni[0],
              "X"        : Xi[0],
              "mn"       : mn[0],
-             "T"        : T[0]}
+             "T"        : T[0],
+             "center"   :x_center}
 
 fw.fileWrite("parameters", variables = variables, path='./', ext='.dat') 
 

@@ -36,16 +36,18 @@ def getVA(E, phase) :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX = 12 # 2**NX is the X-size of the grid
-NE = 5  # 2**NE is the E-size of the grid 
+NX = 13 # 2**NX is the X-size of the grid
+NE = 6  # 2**NE is the E-size of the grid 
 
 Xmin = 0.*cst.pc
-Xmax = 1000.*cst.pc
+Xmax = 2000.*cst.pc
 xgridtype = "cartesian"
 
-Emin = 9.99*cst.GeV
-Emax = 10.01*cst.TeV
+Emin = 0.99*cst.GeV
+Emax = 100.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended 
+
+box_center = 1000.*cst.pc 
 
 # Phase space 
 X = grid.grid(Xmin, Xmax, 2**NX, xgridtype)
@@ -64,11 +66,22 @@ Pcr_1GeV         = 1*cst.eV # [cm^-3] CR Pressure at 1 GeV
 ###############################################################################
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=1000.*cst.pc), getVA(E, ism.WNM)]) 
+#phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 #phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=200.*cst.pc), getVA(E, ism.CNM)])
 #phases.append([ism.DiM, dict(Xmin=510.*cst.pc, Xmax=1000.*cst.pc), getVA(E, ism.DiM)])
 #phases.append([ism.CNM, dict(Xmin=230.*cst.pc, Xmax=330.*cst.pc), getVA(E, ism.CNM)])
 #phases.append([ism.WNM, dict(Xmin=330.*cst.pc, Xmax=1000.*cst.pc), getVA(E, ism.WNM)])
+
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=300.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.CNM, dict(Xmin=300.*cst.pc, Xmax=500.*cst.pc), getVA(E, ism.CNM)])
+phases.append([ism.DiM, dict(Xmin=500.*cst.pc, Xmax=600.*cst.pc), getVA(E, ism.DiM)]) 
+phases.append([ism.CNM, dict(Xmin=600.*cst.pc, Xmax=800.*cst.pc), getVA(E, ism.CNM)])
+phases.append([ism.WNM, dict(Xmin=800.*cst.pc, Xmax=1200.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism.CNM)]) 
+phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
+phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
+phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
+
 smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases
 
 # We calculate the smoothed variables

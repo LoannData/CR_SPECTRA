@@ -107,11 +107,21 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
     for (int ei = 0; ei < NE; ei++)
     {
         int NX = X.size()-1; 
+        double u_c, u_l, u_r; 
         vector<double> R(NX+1, 0.);
         vector<double> aa(NX+1, 0.);
         vector<double> bb(NX+1, 0.);
         vector<double> cc(NX+1, 0.);
-        vector<double> loc_Pcr(NX+1,0.);
+        vector<double> loc_Pcr(NX+1, 0.);
+
+        for (int xi = 0; xi < Pcr_background.size(); xi++)
+        {
+            loc_Pcr[xi] = Pcr_background[xi][ei];
+            R[xi] = Pcr_background[xi][ei];
+        }
+
+        //cout<<R[R.size()-1]<<endl;
+        
 
 
 
@@ -128,7 +138,12 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
 
             an = -F1*alpha_m;
             bn = F1*alpha_p + F1*alpha_m + 1;
-            cn = -F1*alpha_p;
+            cn = -F1*alpha_p; 
+            //u_c = u[xi][ei] - Pcr_background[xi][ei];
+            //u_l = u[xi-1][ei] - Pcr_background[xi-1][ei];
+            //u_r = u[xi+1][ei] - Pcr_background[xi+1][ei];
+
+            //rn = u_c + (1-theta)*dt/pow(dx,2.)*(alpha_p*(u_r - u_c) - alpha_m*(u_c - u_l));
             rn = u[xi][ei] + (1-theta)*dt/pow(dx,2.)*(alpha_p*(u[xi+1][ei] - u[xi][ei]) - alpha_m*(u[xi][ei] - u[xi-1][ei]));
 
             aa[xi] = an;
@@ -145,29 +160,42 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
         dx = X[1] - X[0]; 
         F1 = theta*dt/pow(dx,2);
         alpha_m = 0.5*(Db[NX][ei]/I[NX][ei] + Db[NX-1][ei]/I[NX-1][ei]);
-        alpha_p = alpha_m;
+        alpha_p = 0.5*(Db[NX][ei]/I[NX][ei] + Db[0][ei]/I[0][ei]);//alpha_m;
         aa[NX] = -F1*alpha_m;
         bb[NX] = F1*alpha_p + F1*alpha_m +1; 
+        R[NX]  = u[NX][ei] + (1-theta)*dt/pow(dx,2.)*(alpha_p*(u[0][ei] - u[NX][ei]) - alpha_m*(u[NX][ei] - u[NX-1][ei]));
+        //R[NX] = u[NX-1][ei] - Pcr_background[NX-1][ei];
 
         // Cas xi = 0
         dx = X[1] - X[0];
         F1 = theta*dt/pow(dx,2);
         alpha_p = 0.5*(Db[0][ei]/I[0][ei] + Db[1][ei]/I[1][ei]);
-        alpha_m = alpha_p;
+        alpha_m = 0.5*(Db[NX][ei]/I[NX][ei] + Db[NX-1][ei]/I[NX-1][ei]);//alpha_p;
         cc[0] = -F1*alpha_p;
         bb[0] = F1*alpha_p + F1*alpha_m +1; 
+        R[0]  = u[0][ei] + (1-theta)*dt/pow(dx,2.)*(alpha_p*(u[1][ei] - u[0][ei]) - alpha_m*(u[0][ei] - u[NX][ei]));
+        //R[0]  = u[0][ei] - Pcr_background[0][ei];
 
         //cout<<aa[0]<<"   "<<cc[NX-1]<<endl;
 
         loc_Pcr = TDMA(aa, bb, cc, R);
 
-        loc_Pcr[0] = Pcr_background[0][ei];//loc_Pcr[1];
-        loc_Pcr[NX-1] = Pcr_background[NX-1][ei];//loc_Pcr[NX-1];
-        loc_Pcr[NX] = Pcr_background[NX][ei];
 
-        
+        //cout<<R[NX]<<" "<<R[0]<<endl;
+        //loc_Pcr[0] = Pcr_background[0][ei];//loc_Pcr[1];
+        //loc_Pcr[NX-1] = Pcr_background[NX-1][ei];//loc_Pcr[NX-1];
+        //loc_Pcr[NX+1] = Pcr_background[NX+1][ei];
 
-        for (int xi = 0; xi < NX+1; xi++){Pcr_new[xi][ei] = loc_Pcr[xi];}
+        //cout<<R[R.size()-1]<<", "<<loc_Pcr[loc_Pcr.size()-1]<<endl;
+
+        //cout<<Pcr_new.size()<<" "<<loc_Pcr.size()<<endl;
+
+        for (int xi = 0; xi < NX+1; xi++)
+        {
+            Pcr_new[xi][ei] = max(loc_Pcr[xi], Pcr_background[0][ei]);
+            //if (loc_Pcr[xi] >= Pcr_background[xi][ei]) {Pcr_new[xi][ei] = loc_Pcr[xi];} 
+            //else {Pcr_new[xi][ei] = Pcr_background[xi][ei];}
+        }
     }
 
     //return Pcr_new;
@@ -299,7 +327,11 @@ void sourceSolverDamp(vector<vector<double>> &u_old, vector<vector<double>> &u_n
             for (int ei = 0; ei < NE; ei++)
             {
                 sum = factor*source[xi][ei]*(u_old[xi][ei] - background[xi][ei]);
+                
+                //sum = -factor*source[xi][ei]*(u_old[xi][ei] - 1e-4);
                 u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+
+                //cout<<source[xi][ei]<<" "<<u_old[xi][ei]<<" "<<u_new[xi][ei]<<" "<<sum*dt<<endl;
             }
         }
     }
@@ -311,15 +343,19 @@ void sourceGrowthRateSolver(vector<vector<double>> &u_old, vector<vector<double>
         int NE;
         double sum;
         double dudx; 
+        double w0;
         for (int xi = 0; xi < NX; xi++)
         {
             NE = u_old[xi].size();
+            w0 = pow(B[xi],2)/(8*pi);
             for (int ei = 0; ei < NE; ei++)
             {
                 dudx = 0.;
                 if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
-                sum = -0.5*V[xi][ei]*dudx/(pow(B[xi],2)/(8*pi))*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
+                sum = -abs(V[xi][ei])*dudx/w0;///*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
                 //sum = factor*source[xi][ei]*u_old[xi][ei];
+                //if (sum*dt != 0){cout<<sum*dt<<endl;}
+                
                 u_new[xi][ei] = u_old[xi][ei] + sum*dt;
             }
         }
@@ -328,6 +364,37 @@ void sourceGrowthRateSolver(vector<vector<double>> &u_old, vector<vector<double>
                           double ff = - 0.5*VA[i][e]/dX*0.5*(Pcr[i+1][e] - Pcr[i-1][e])/(pow(B,2)/(8*pi)); 
                           //V3 = ff*dt; // Terme de taux de croissance linéaire 
                           V3 = ff*dt*(log10(Ip[e][i] + 1)/Ip[e][i]); // Terme de taux de croissance avec une fin logarithmique*/
+
+void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, vector<vector<double>> &v_old, vector<vector<double>> source, vector<vector<double>> background,  vector<double> X, double dt, vector<vector<double>> V, vector<double> B, int factor)
+    {
+        int NX = u_old.size();
+        int NE;
+        double sum;
+        double dudx; 
+        double w0;
+        for (int xi = 0; xi < NX; xi++)
+        {
+            NE = u_old[xi].size();
+            w0 = pow(B[xi],2)/(8*pi);
+            for (int ei = 0; ei < NE; ei++)
+            {
+                dudx = 0.;
+                if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
+
+                if (factor == 1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
+                if (factor == -1){if (dudx < 0.){dudx = 0.;}} // COndition Backward waves
+
+                sum = -abs(V[xi][ei])*dudx/w0 - factor*source[xi][ei]*(u_old[xi][ei] - background[xi][ei]);///*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
+                //sum = factor*source[xi][ei]*u_old[xi][ei];
+                //if (sum*dt != 0){cout<<sum*dt<<endl;}
+                
+                //if (sum != 0.){cout<<"Total sum : "<<sum<<", sum*dt =  "<<sum*dt<<", Gd = "<<source[xi][ei]<<" Ip-Ip0 = "<<u_old[xi][ei] - background[xi][ei]<<endl;}
+                u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+            }
+        }
+    }
+
+
 
 
 void CRsInjectionSourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> Pcr_ini, vector<double> Finj_temp, vector<double> vec_theta)
