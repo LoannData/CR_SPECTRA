@@ -91,7 +91,7 @@ double advectWaves(double dt, double dX, double dE, double Pcr[5][5], double Ip[
 
 
 // New functions !!! 
-void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr_new,   double dt, vector<double> X, int NE, vector<vector<double>> I, vector<vector<double>> Db, vector<vector<double>> &Pcr_background)
+void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr_new,   double dt, vector<double> X, int NE, vector<vector<double>> Ip, vector<vector<double>> Im, vector<vector<double>> Db, vector<vector<double>> &Pcr_background)
 {
     //cout<<"Yo!"<<endl;
     double theta = 1.;
@@ -131,8 +131,8 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
 
             dx = 0.5*(X[xi+1] - X[xi-1]);
             F1 = theta*dt/pow(dx, 2.);
-            alpha_m = 0.5*(Db[xi][ei]/I[xi][ei] + Db[xi-1][ei]/I[xi-1][ei]); 
-            alpha_p = 0.5*(Db[xi][ei]/I[xi][ei] + Db[xi+1][ei]/I[xi+1][ei]);
+            alpha_m = 0.5*(Db[xi][ei]/(Ip[xi][ei]+Im[xi][ei]) + Db[xi-1][ei]/(Ip[xi-1][ei]+Im[xi-1][ei])); 
+            alpha_p = 0.5*(Db[xi][ei]/(Ip[xi][ei]+Im[xi][ei]) + Db[xi+1][ei]/(Ip[xi+1][ei]+Im[xi+1][ei]));
 
             //cout<<"ei = "<<ei<<", xi = "<<xi<<"dx = "<<dx<<", F1 = "<<F1<<", alpha_m = "<<alpha_m<<", alpha_p = "<<alpha_p<<"I = "<<I[ei][xi]<<"Db = "<<Db[ei][xi]<<endl;
 
@@ -159,8 +159,8 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
         // Cas xi = NX
         dx = X[1] - X[0]; 
         F1 = theta*dt/pow(dx,2);
-        alpha_m = 0.5*(Db[NX][ei]/I[NX][ei] + Db[NX-1][ei]/I[NX-1][ei]);
-        alpha_p = 0.5*(Db[NX][ei]/I[NX][ei] + Db[0][ei]/I[0][ei]);//alpha_m;
+        alpha_m = 0.5*(Db[NX][ei]/(Ip[NX][ei]+Im[NX][ei]) + Db[NX-1][ei]/(Ip[NX-1][ei]+Im[NX-1][ei]));
+        alpha_p = 0.5*(Db[NX][ei]/(Ip[NX][ei]+Im[NX][ei]) + Db[0][ei]/(Ip[0][ei]+Im[0][ei]));//alpha_m;
         aa[NX] = -F1*alpha_m;
         bb[NX] = F1*alpha_p + F1*alpha_m +1; 
         R[NX]  = u[NX][ei] + (1-theta)*dt/pow(dx,2.)*(alpha_p*(u[0][ei] - u[NX][ei]) - alpha_m*(u[NX][ei] - u[NX-1][ei]));
@@ -169,8 +169,8 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
         // Cas xi = 0
         dx = X[1] - X[0];
         F1 = theta*dt/pow(dx,2);
-        alpha_p = 0.5*(Db[0][ei]/I[0][ei] + Db[1][ei]/I[1][ei]);
-        alpha_m = 0.5*(Db[NX][ei]/I[NX][ei] + Db[NX-1][ei]/I[NX-1][ei]);//alpha_p;
+        alpha_p = 0.5*(Db[0][ei]/(Ip[0][ei]+Im[0][ei]) + Db[1][ei]/(Ip[1][ei]+Im[1][ei]));
+        alpha_m = 0.5*(Db[NX][ei]/(Ip[NX][ei]+Im[NX][ei]) + Db[NX-1][ei]/(Ip[NX-1][ei]+Im[NX-1][ei]));//alpha_p;
         cc[0] = -F1*alpha_p;
         bb[0] = F1*alpha_p + F1*alpha_m +1; 
         R[0]  = u[0][ei] + (1-theta)*dt/pow(dx,2.)*(alpha_p*(u[1][ei] - u[0][ei]) - alpha_m*(u[0][ei] - u[NX][ei]));
@@ -204,12 +204,13 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
 
 
 
-void advectionSolverX(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> X, int NE, vector<vector<double>> V)
+void advectionSolverX(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> X, int NE, vector<vector<double>> V, int sign)
 {
     // Note : Problem with 2nd order scheme ! 
     int NX = X.size()-1;
     double ddx, ux_p, ux_m, a_p, a_m;
     int order = 1;
+    double V_loc;
     for (int ei = 0; ei < NE; ei++)
     {   
         if (order == 1)
@@ -218,8 +219,17 @@ void advectionSolverX(vector<vector<double>> &u_old, vector<vector<double>> &u_n
             {
                 ddx = (X[xi+1] - X[xi-1])/2.;
 
-                a_p = max(V[xi][ei], 0.);
-                a_m = min(V[xi][ei], 0.);
+                V_loc = V[xi][ei];
+                if (V_loc > 0){if (sign == -1){V_loc = - V_loc;}}
+                if (V_loc < 0){if (sign ==  1){V_loc = - V_loc;}}
+
+                a_p = max(V_loc, 0.);
+                a_m = min(V_loc, 0.);
+
+
+                
+
+
 
                 ux_p = (u_old[xi+1][ei] - u_old[xi][ei])/ddx;
                 ux_m = (u_old[xi][ei] - u_old[xi-1][ei])/ddx;
@@ -365,13 +375,14 @@ void sourceGrowthRateSolver(vector<vector<double>> &u_old, vector<vector<double>
                           //V3 = ff*dt; // Terme de taux de croissance linéaire 
                           V3 = ff*dt*(log10(Ip[e][i] + 1)/Ip[e][i]); // Terme de taux de croissance avec une fin logarithmique*/
 
-void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, vector<vector<double>> &v_old, vector<vector<double>> source, vector<vector<double>> background,  vector<double> X, double dt, vector<vector<double>> V, vector<double> B, int factor)
+void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, vector<vector<double>> v_old, vector<vector<double>> source, vector<vector<double>> background,  vector<double> X, double dt, vector<vector<double>> V, vector<double> B, int factor)
     {
         int NX = u_old.size();
         int NE;
         double sum;
         double dudx; 
         double w0;
+        double u_max = 1e4;
         for (int xi = 0; xi < NX; xi++)
         {
             NE = u_old[xi].size();
@@ -381,15 +392,21 @@ void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<dou
                 dudx = 0.;
                 if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
 
-                if (factor == 1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
-                if (factor == -1){if (dudx < 0.){dudx = 0.;}} // COndition Backward waves
 
-                sum = -abs(V[xi][ei])*dudx/w0 - factor*source[xi][ei]*(u_old[xi][ei] - background[xi][ei]);///*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
+                if (factor ==  1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
+                if (factor == -1){if (dudx < 0.){dudx = 0.;}} // Condition Backward waves
+
+                sum = abs(V[xi][ei]*dudx/w0) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
+
                 //sum = factor*source[xi][ei]*u_old[xi][ei];
                 //if (sum*dt != 0){cout<<sum*dt<<endl;}
                 
                 //if (sum != 0.){cout<<"Total sum : "<<sum<<", sum*dt =  "<<sum*dt<<", Gd = "<<source[xi][ei]<<" Ip-Ip0 = "<<u_old[xi][ei] - background[xi][ei]<<endl;}
+
                 u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+                if (u_new[xi][ei] < background[xi][ei]) {u_new[xi][ei] = background[xi][ei];}
+                if (u_new[xi][ei] > u_max) {u_new[xi][ei] = u_max;}
+                
             }
         }
     }

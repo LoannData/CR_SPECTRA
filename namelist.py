@@ -36,8 +36,8 @@ def getVA(E, phase) :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX = 13 # 2**NX is the X-size of the grid
-NE = 6  # 2**NE is the E-size of the grid 
+NX = 12 # 2**NX is the X-size of the grid
+NE = 5  # 2**NE is the E-size of the grid 
 
 Xmin = 0.*cst.pc
 Xmax = 2000.*cst.pc
@@ -47,7 +47,7 @@ Emin = 0.99*cst.GeV
 Emax = 100.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended 
 
-box_center = 1000.*cst.pc 
+box_center = 1000.*cst.pc  # Position of the center of the CR source 
 
 # Phase space 
 X = grid.grid(Xmin, Xmax, 2**NX, xgridtype)

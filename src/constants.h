@@ -35,10 +35,10 @@ const int solver_waves_source = 1; // Term of waves source (background turbulenc
 const int nproc = 1;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
 const double t_data_out_max = 200.*kyr; // Instant of the last output data
-const int number_out_data   = 200;     // Total number of output data
+const int number_out_data   = 2000;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
-const int delta_log_output = 1000;      // Number of time-step between two LogOutput
+const int delta_log_output = 100;      // Number of time-step between two LogOutput
 const double Tmax = 200.1*kyr;           // Define the limit time of your simulation 
 
 

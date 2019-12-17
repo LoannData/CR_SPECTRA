@@ -86,7 +86,8 @@ for e in range(len(E)) :
 d00     = np.zeros(len(X)) # Spatial component of the background diffusion coefficient of CRs 
 D       = np.zeros((len(E), len(X))) # Initial diffusion coefficient of CRs 
 Db      = np.zeros((len(E), len(X))) # Bohm diffusion coefficient of CRs 
-I       = np.zeros((len(E), len(X))) # Initial resonnant waves energy density 
+Ip       = np.zeros((len(E), len(X))) # Initial resonnant fowarding waves energy density 
+Im       = np.zeros((len(E), len(X))) # Initial resonnant backwarding waves energy density 
 
 
 for xi in range(len(X)) : 
@@ -100,7 +101,8 @@ for e in range(len(E)) :
     for xi in range(len(X)) : 
         Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[xi]))
         D[e][xi]  = d00[xi]*(E[e]/(10.*cst.GeV))**0.5
-        I[e][xi] = Db[e][xi]/D[e][xi]
+        Ip[e][xi] = Db[e][xi]/D[e][xi]*0.5
+        Im[e][xi] = Db[e][xi]/D[e][xi]*0.5
 
 
 
@@ -110,7 +112,8 @@ for e in range(len(E)) :
 fw.write1D( "Alfven.dat", nx=nx, ne=ne, variable=VA.T, path="./data_ini/") 
 fw.write1D("DCRpara.dat", nx=nx, ne=ne,  variable=D.T, path="./data_ini/")
 fw.write1D(  "DBohm.dat", nx=nx, ne=ne, variable=Db.T, path="./data_ini/")
-fw.write1D(     "Ip.dat", nx=nx, ne=ne,  variable=I.T, path="./data_ini/")   
+fw.write1D(     "Ip.dat", nx=nx, ne=ne,  variable=Ip.T, path="./data_ini/")   
+fw.write1D(     "Im.dat", nx=nx, ne=ne,  variable=Im.T, path="./data_ini/")  
 fw.write1D(    "Pcr.dat", nx=nx, ne=ne,variable=Pcr.T, path="./data_ini/")    
 fw.write1D("damping.dat", nx=nx, ne=ne, variable=gamma_tot.T, path="./data_ini/")  
 fw.write1Daxis("X.dat", variable=X, nx=nx, path="./data_ini/")

@@ -75,6 +75,7 @@ int main()
     vector<vector<double>> rVA  = parse2DCsvFile("./data_ini/Alfven.dat", 1);
     vector<vector<double>> rDb  = parse2DCsvFile("./data_ini/DBohm.dat", 1);
     vector<vector<double>> rIp  = parse2DCsvFile("./data_ini/Ip.dat", 1);
+    vector<vector<double>> rIm  = parse2DCsvFile("./data_ini/Im.dat", 1);
     vector<vector<double>> rPcr = parse2DCsvFile("./data_ini/Pcr.dat",1);
     vector<vector<double>> rGd  = parse2DCsvFile("./data_ini/damping.dat",1);
 
@@ -101,12 +102,13 @@ int main()
 
 
 
-    vector<vector<double>> VA(NX), Db(NX), Ip(NX), Pcr(NX), Gd(NX); 
+    vector<vector<double>> VA(NX), Db(NX), Ip(NX), Im(NX), Pcr(NX), Gd(NX); 
     for (int xi = 0; xi < NX; xi++)
     {
         VA[xi].resize(NE); 
         Db[xi].resize(NE);
         Ip[xi].resize(NE);
+        Im[xi].resize(NE);
         Pcr[xi].resize(NE);
         Gd[xi].resize(NE);
     }
@@ -118,6 +120,7 @@ int main()
             VA[xi][ei]  = rVA[xi][index_emin + ei]; 
             Db[xi][ei]  = rDb[xi][index_emin + ei];
             Ip[xi][ei]  = rIp[xi][index_emin + ei]; 
+            Im[xi][ei]  = rIm[xi][index_emin + ei]; 
             Pcr[xi][ei] = rPcr[xi][index_emin + ei];
             Gd[xi][ei]  = rGd[xi][index_emin + ei];
             //cout<<"Db["<<xi<<", "<<ei<<"] = "<<Db[xi][ei]<<endl;
@@ -194,34 +197,35 @@ int main()
     cout<<"Time-step = "<<dt<<" s"<<endl;
 
 
-    // SIMULATION
+    // SIMULATION ===========================================================================================================//
+    // Simulation output and time variables 
     double Tmax = setTmax();
     double time = 0.;
     int time_index = 0;
     vector<double> dat_output = getOutput();
-
     int out_Pcr_index = 0;
     int out_Ip_index = 0;
+    int out_Im_index = 0;
 
-    vector<vector<double>> Pcr_new, Pcr_old, Ip_new, Ip_old, Pcr_background, Ip_background;
-    vector<vector<double>> Pcr_temp;
+    // Main variables which we solve 
+    vector<vector<double>> Pcr_new, Pcr_old, Pcr_background;
+    vector<vector<double>> Ip_new, Ip_old, Ip_background;
+    vector<vector<double>> Im_new, Im_old, Im_background;
 
-    Pcr_new = Pcr; Ip_new  = Ip; Pcr_background = Pcr, Ip_background = Ip;
 
-    double box_Pcr[5][5], box_Ip[5][5], box_VA[5][5], box_Gd[5][5], box_Db[5][5], box_X[5], box_E[5]; 
-    int loc_xi, loc_ei;
-    int lxi, lei;
-    double P1, P2, Ip1, Ip2;
-    double Pcr_new_temp, Ip_new_temp;
-    double Pcr_background_temp, Ip_background_temp, B_temp, Qcrs_temp, dX_temp, dE_temp, E_temp;
-    int ei_temp, xi_temp, t_NX = NX, t_NE = NE;
-    int xi_box, ei_box;
-    double Qwaves;
+    // Initialization of the variables 
+    Pcr_background = Pcr;
+    Ip_background = Ip;
+    Im_background = Im; 
+    Pcr_new = Pcr; 
+    Ip_new  = Ip;  
+    Im_new  = Im;
 
+
+    // Variables for CRs injection in the simulation 
     vector<double> Finj_temp(NE); 
     vector<double> Pcr_ini_temp(NE); 
-    vector<double> ttesc(NE), norm_pcr(NE);
-    vector<vector<double>> t_Pcr;
+    vector<double> ttesc(NE);
     vector<double> vec_theta(NX);
     double temp_theta, r_snr;
 
@@ -230,7 +234,6 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
-        //cout<<Pcr_ini_temp[j]<<endl;
     }
 
 
@@ -244,8 +247,8 @@ int main()
         start = std::clock();
 
         Pcr_old = Pcr_new;
-        //cout<<"Hello"<<endl;
         Ip_old  = Ip_new;
+        Im_old  = Im_new;
 
         for (g=0; g<NE; g++)
         {
@@ -268,19 +271,20 @@ int main()
         //----------------------------------------------------------------------//
         // Spatially variable diffusion solver, implicit scheme for Pcr         //
         //----------------------------------------------------------------------//
-        thetaDiffusionSolver(Pcr_old, Pcr_new, dt, X, NE, Ip_new, Db, Pcr_background); Pcr_old = Pcr_new;
+        thetaDiffusionSolver(Pcr_old, Pcr_new, dt, X, NE, Ip_new, Im_new, Db, Pcr_background);        Pcr_old = Pcr_new;
 
 
         //----------------------------------------------------------------------//
         // Explicit Advection solver for Pcr by Alfvén velocity                 //
         //----------------------------------------------------------------------//
-        advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA); Pcr_old = Pcr_new;
+        advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA, 0);                                  Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
-        // Explicit Advection solver for Ip by Alfvén velocity                  //
+        // Explicit Advection solver for I by Alfvén velocity                   //
         // -> This term seems ok                                                //
         //----------------------------------------------------------------------//
-        advectionSolverX(Ip_old, Ip_new, dt, X, NE, VA); Ip_old = Ip_new;
+        advectionSolverX(Ip_old, Ip_new, dt, X, NE, VA,  1);                                   Ip_old = Ip_new;
+        advectionSolverX(Im_old, Im_new, dt, X, NE, VA, -1);                                   Im_old = Im_new;
 
 
         //----------------------------------------------------------------------//
@@ -288,39 +292,33 @@ int main()
         // Alfvén velocity. Which seems to have no effects on the diffusion     //
         // Note : This term needs more studies ...                              //
         //----------------------------------------------------------------------//
-        advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdlog10E); Pcr_old = Pcr_new;
+        advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdlog10E, 0);                          Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
         // Explicit Advection solver for Pcr in energy cdVAdX
         // This value needs to be studied more in details 
         //----------------------------------------------------------------------//
-        advectionSolverE(Pcr_old, Pcr_new, dt, log10E, NX, cdVAdX, Pcr_background); Pcr_old = Pcr_new;
+        advectionSolverE(Pcr_old, Pcr_new, dt, log10E, NX, cdVAdX, Pcr_background);         Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
         // Source term effect due to the dependance of the Alfvén velocity to   //
         // the space                                                            //
         //----------------------------------------------------------------------//
-        sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 4./3); Pcr_old = Pcr_new;
+        sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 4./3);                                  Pcr_old = Pcr_new;
 
         //----------------------------------------------------------------------//
         // Source term effect due to the dependance of the Alfvén velocity to   //
         // the space                                                            //
         //----------------------------------------------------------------------//
-        sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.); Ip_old = Ip_new;
+        sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.);                                      Ip_old = Ip_new;
+        sourceSolver(Im_old, Im_new, dt, c2dVAdX, 1.);                                      Im_old = Im_new;
 
         //----------------------------------------------------------------------//
-        // Source term effect due to the damping of waves (Ip)                  //
-        // -> This term seems ok                                                // 
-        //----------------------------------------------------------------------//
-        //sourceSolverDamp(Ip_old, Ip_new, dt, Gd, Ip_background, 1.); Ip_old = Ip_new; // old : do not use ! 
-
-        //----------------------------------------------------------------------//
-        // Source term effect due to production of self-turbulence              //
+        // Source term effect due to production of self-turbulence - damping    //
         // -> This term seems ok                                                //
         //----------------------------------------------------------------------//
-        sourceGrowthDampRateSolver(Ip_old, Ip_new, Pcr_old, Gd, Ip_background, X, dt, VA, B, 1);Ip_old = Ip_new;
-        //----------------------------------------------------------------------//
-
+        sourceGrowthDampRateSolver(Ip_old, Ip_new, Pcr_old, Gd, Ip_background, X, dt, VA, B,  1); Ip_old = Ip_new; 
+        sourceGrowthDampRateSolver(Im_old, Im_new, Pcr_old, Gd, Im_background, X, dt, VA, B, -1); Im_old = Im_new;
 
         //----------------------------------------------------------------------//
         // CRs injection term from SNRs                                         // 
@@ -330,87 +328,10 @@ int main()
 
 
 
-        //cout<<"size New = "<<Pcr_new[0].size()<<", size Old = "<<Pcr_old[0].size()<<endl;
-
-        //NotMove(Pcr_old, Pcr_new);
-        
-        
-        //cout<<"0 - "<<Pcr_new.size()<<endl;
-        //cout<<"1 - "<<Pcr_new[0].size()<<endl;
-
-        //implicitDiffusion(Pcr_old, Pcr_new, dt, X, Ip_new, Db);
-
-
-
-
-
-        //------------------------------------------------------------------------------------------------------------//
-        /*for (xi = 0; xi<NX; xi++)
-        {
-
-            temp_theta = theta(X[xi], time, r_snr);
-            //temp_theta = vec_theta[xi];
-
-            
-            //temp_theta = Pcr_old[xi][ei]/maxElement1D(Pcr_old);
-            for (ei = 0; ei<NE; ei++)
-            {
-
-                //We load all the values we need 
-                dX_temp = dX[xi];
-                dE_temp = dE[ei];
-                E_temp = E[ei];
-                B_temp = B[xi];
-                Pcr_background_temp = Pcr_background[xi][ei];
-                Ip_background_temp = Ip_background[xi][ei];
-                for (lxi = 0; lxi < 5; lxi++)
-                {
-                    for (lei = 0; lei < 5; lei++)
-                    {   
-
-                        if (xi-2+lxi >= 0 and xi+2+lxi < NX){xi_box = xi-2+lxi;}
-                        if (xi-2+lxi < 0)                   {xi_box = 0;}          //Absorbing left layer 
-                        if (xi+2+lxi >= NX)                 {xi_box = NX-1;}       //Absorbing right layer 
-                        if (ei-2+lei >= 0 and ei+2+lei < NE){ei_box = ei-2+lei;}
-                        if (ei-2+lei < 0)                   {ei_box = 0;}          //Absorbing low energy layer 
-                        if (ei+2+lei >= NE)                 {ei_box = NE-1;}       //Absorbing high energy layer 
-                                box_Pcr[lxi][lei] = Pcr_old[xi_box][ei_box];
-                                box_Ip[lxi][lei]  = Ip_old[xi_box][ei_box]; 
-                                box_VA[lxi][lei]  = VA[xi_box][ei_box]; 
-                                box_Gd[lxi][lei]  = Gd[xi_box][ei_box]; 
-                                box_Db[lxi][lei]  = Db[xi_box][ei_box];
-                        box_E[lei] = E[ei_box];
-                    }
-                    box_X[lxi] = X[xi_box];
-                }
-                    // EQ. Solving 
-                    Qwaves = box_Gd[2][2]*box_Ip[2][2];
-                    Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];
-
-                    //if (time_index == 0){Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];}
-                    
-
-
-                    Pcr_new_temp = pressureSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, E_temp, Qcrs_temp);
-                    Ip_new_temp  = wavesSolver(dt, dX_temp, dE_temp, box_Pcr, box_Ip, box_VA, box_Gd, box_Db, B_temp, Qwaves);
-
-                    if (Pcr_new_temp < Pcr_background_temp) {Pcr_new_temp = Pcr_background_temp;}
-                    if (Ip_new_temp < Ip_background_temp) {Ip_new_temp = Ip_background_temp;}
-
-                    if (xi == 0){Pcr_new_temp = Pcr_old[xi+1][ei]; Ip_new_temp = Ip_old[xi+1][ei];}
-                    if (xi == NX-1){Pcr_new_temp = Pcr_new[xi-1][ei]; Ip_new_temp = Ip_new[xi-1][ei];}
-
-                    //if (time_index > 0){Qcrs_temp = temp_theta*Finj_temp[ei]*Pcr_ini_temp[ei];}
-
-                Pcr_new[xi][ei] = Pcr_new_temp;
-                Ip_new[xi][ei]  = Ip_new_temp;
-            }
-            
-        }*/
-
         if (time > dat_output[out_Pcr_index] && out_Pcr_index < dat_output.size()) 
         {
             out_Ip_index  = writeXE("Ip", out_Ip_index, Ip_new, NX, NE);
+            out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
             out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
         }
 
