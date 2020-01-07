@@ -10,82 +10,81 @@ using namespace std;
 
 
 
-double pressureSolver(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double E,
-                      double Q)
-                      {
-                          double V1, V3, V4, V2A, V2B;
-                          int i = 2; int e = 2; 
-                          // Pressure advection term
-                          V1   = - VA[i][e]*(dt/dX)*0.5*(Pcr[i+1][e] - Pcr[i-1][e]);  
-                          // Pressure diffusion terms    
-                          V2A  = 0.5*((Db[i][e]/Ip[i][e]) + (Db[i+1][e]/Ip[i+1][e]))*(dt/pow(dX,2))*(Pcr[i+1][e] - Pcr[i][e]);
-                          V2B  = -0.5*((Db[i][e]/Ip[i][e]) + (Db[i-1][e]/Ip[i-1][e]))*(dt/pow(dX,2))*(Pcr[i][e] - Pcr[i-1][e]);
-                          // Adiabatic losses
-                          V3   = E/3.*(dt/(dE*dX))*(0.25*(VA[i+1][e] - VA[i-1][e])*(Pcr[i][e+1] - Pcr[i][e-1]) - 0.25*(VA[i][e+1] - VA[i][e-1])*(Pcr[i+1][e] - Pcr[i-1][e]));
-                          // Alfven velocity fluctuation in space 
-                          V4   = 0.5*4./3*(dt/dX)*Pcr[i][e]*(VA[i+1][e] - VA[i-1][e]);
-                          // Full term
-                          double Pcr_new = Pcr[e][i] + solver_PcrDiffusion*(V2A + V2B) + solver_energy*V3 + V4 + Q; 
+//double pressureSolver(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double E,
+//                      double Q)
+//                      {
+//                          double V1, V3, V4, V2A, V2B;
+//                          int i = 2; int e = 2; 
+//                          // Pressure advection term
+//                          V1   = - VA[i][e]*(dt/dX)*0.5*(Pcr[i+1][e] - Pcr[i-1][e]);  
+//                          // Pressure diffusion terms    
+//                          V2A  = 0.5*((Db[i][e]/Ip[i][e]) + (Db[i+1][e]/Ip[i+1][e]))*(dt/pow(dX,2))*(Pcr[i+1][e] - Pcr[i][e]);
+//                          V2B  = -0.5*((Db[i][e]/Ip[i][e]) + (Db[i-1][e]/Ip[i-1][e]))*(dt/pow(dX,2))*(Pcr[i][e] - Pcr[i-1][e]);
+//                          // Adiabatic losses
+//                          V3   = E/3.*(dt/(dE*dX))*(0.25*(VA[i+1][e] - VA[i-1][e])*(Pcr[i][e+1] - Pcr[i][e-1]) - 0.25*(VA[i][e+1] - VA[i][e-1])*(Pcr[i+1][e] - Pcr[i-1][e]));
+//                          // Alfven velocity fluctuation in space 
+//                          V4   = 0.5*4./3*(dt/dX)*Pcr[i][e]*(VA[i+1][e] - VA[i-1][e]);
+//                          // Full term
+//                          double Pcr_new = Pcr[e][i] + solver_PcrDiffusion*(V2A + V2B) + solver_energy*V3 + V4 + Q; 
+//
+//                          //Pcr_new = Pcr_new + solver_PcrAdvection*V1;
+//                         return Pcr_new;
+//                      }
 
-                          //Pcr_new = Pcr_new + solver_PcrAdvection*V1;
-                          return Pcr_new;
-                      }
+//double advectPressure(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double E,
+//                      double Q)
+//                      {
+//                          /*double V1;
+//                          int i = 2; int e = 2; 
+//                          // Pressure advection term
+//                          V1   = - VA[i][e]*(dt/dX)*0.5*(Pcr[i+1][e] - Pcr[i-1][e]);  
+//                          double Pcr_new = Pcr[e][i] + solver_PcrAdvection*V1;*/
+//                          
+//                          int i = 2; int e = 2;
+//                          double Pcr_new = pow(1 + VA[i][e]*dt/dX, -1)*(Pcr[e][i] + VA[i][e]*dt/dX*Pcr[e][i-1])*solver_PcrAdvection;
+//
+//                          return Pcr_new;
+//                      }
 
-double advectPressure(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double E,
-                      double Q)
-                      {
-                          /*double V1;
-                          int i = 2; int e = 2; 
-                          // Pressure advection term
-                          V1   = - VA[i][e]*(dt/dX)*0.5*(Pcr[i+1][e] - Pcr[i-1][e]);  
-                          double Pcr_new = Pcr[e][i] + solver_PcrAdvection*V1;*/
-                          
-                          int i = 2; int e = 2;
-                          double Pcr_new = pow(1 + VA[i][e]*dt/dX, -1)*(Pcr[e][i] + VA[i][e]*dt/dX*Pcr[e][i-1])*solver_PcrAdvection;
+//double wavesSolver(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double B,
+//                   double Q)
+//                      {
+//                          double V1, V2, V3, V4, V5; 
+//                          int i = 2; int e = 2;
+//                          // Waves advection term
+//                          V1 = - dt/dX*VA[i][e]*0.5*(Ip[i+1][e] - Ip[i-1][e]);
+//                          // Alfven velocity fluctuation in space 
+//                          V2 = - dt/dX*Ip[i][e]*0.5*(VA[i+1][e] - VA[i-1][e]);
+//                          // Waves Growth term
+//                          double ff = - 0.5*VA[i][e]/dX*0.5*(Pcr[i+1][e] - Pcr[i-1][e])/(pow(B,2)/(8*pi)); 
+//                          //V3 = ff*dt; // Terme de taux de croissance linéaire 
+//                          V3 = ff*dt*(log10(Ip[e][i] + 1)/Ip[e][i]); // Terme de taux de croissance avec une fin logarithmique
+//                          // Waves Damping term
+//                          V4 = - Gd[i][e]*Ip[i][e]*dt;
+//                         // Waves Source term
+//                          V5 = Q*dt;
+//                          //Full term
+//                          double Ip_new = Ip[e][i]  + V2 + solver_Ipgrowth*V3 + solver_damping*V4 + solver_waves_source*V5;
+//
+//                          //Ip_new  = Ip_new + solver_IpAdvection*V1;
+//                          return Ip_new;
+//                      }
 
-                          return Pcr_new;
-                      }
-
-double wavesSolver(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double B,
-                   double Q)
-                      {
-                          double V1, V2, V3, V4, V5; 
-                          int i = 2; int e = 2;
-                          // Waves advection term
-                          V1 = - dt/dX*VA[i][e]*0.5*(Ip[i+1][e] - Ip[i-1][e]);
-                          // Alfven velocity fluctuation in space 
-                          V2 = - dt/dX*Ip[i][e]*0.5*(VA[i+1][e] - VA[i-1][e]);
-                          // Waves Growth term
-                          double ff = - 0.5*VA[i][e]/dX*0.5*(Pcr[i+1][e] - Pcr[i-1][e])/(pow(B,2)/(8*pi)); 
-                          //V3 = ff*dt; // Terme de taux de croissance linéaire 
-                          V3 = ff*dt*(log10(Ip[e][i] + 1)/Ip[e][i]); // Terme de taux de croissance avec une fin logarithmique
-                          // Waves Damping term
-                          V4 = - Gd[i][e]*Ip[i][e]*dt;
-                          // Waves Source term
-                          V5 = Q*dt;
-                          //Full term
-                          double Ip_new = Ip[e][i]  + V2 + solver_Ipgrowth*V3 + solver_damping*V4 + solver_waves_source*V5;
-
-                          //Ip_new  = Ip_new + solver_IpAdvection*V1;
-                          return Ip_new;
-                      }
-
-double advectWaves(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double B,
-                   double Q)
-                      {
-                          /*double V1; 
-                          int i = 2; int e = 2;
-                          // Waves advection term
-                          V1 = - dt/dX*VA[i][e]*0.5*(Ip[i+1][e] - Ip[i-1][e]);
-
-                          double Ip_new  = Ip[i][e] + solver_IpAdvection*V1;*/
-
-                          int i = 2; int e = 2;
-                          double Ip_new = pow(1 + VA[i][e]*dt/dX, -1)*(Ip[e][i] + VA[i][e]*dt/dX*Ip[e][i-1])*solver_IpAdvection;
-
-                          return Ip_new;
-                      }
-
+//double advectWaves(double dt, double dX, double dE, double Pcr[5][5], double Ip[5][5], double VA[5][5], double Gd[5][5], double Db[5][5], double B,
+//                   double Q)
+//                      {
+//                          /*double V1; 
+//                          int i = 2; int e = 2;
+//                          // Waves advection term
+//                          V1 = - dt/dX*VA[i][e]*0.5*(Ip[i+1][e] - Ip[i-1][e]);
+//
+//                          double Ip_new  = Ip[i][e] + solver_IpAdvection*V1;*/
+//
+//                          int i = 2; int e = 2;
+//                          double Ip_new = pow(1 + VA[i][e]*dt/dX, -1)*(Ip[e][i] + VA[i][e]*dt/dX*Ip[e][i-1])*solver_IpAdvection;
+//
+//                          return Ip_new;
+//                      }
 
 
 
@@ -93,17 +92,12 @@ double advectWaves(double dt, double dX, double dE, double Pcr[5][5], double Ip[
 // New functions !!! 
 void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr_new,   double dt, vector<double> X, int NE, vector<vector<double>> Ip, vector<vector<double>> Im, vector<vector<double>> Db, vector<vector<double>> &Pcr_background)
 {
-    //cout<<"Yo!"<<endl;
     double theta = 1.;
-    //int nx = X.size();
     
-    //vector<vector<double>> Pcr_new(nx);
-    //for (int xi = 0; xi < nx; xi++)
-    //{
-    //    Pcr_new[xi].resize(NE);
-    //}
-    //cout << u.size()<<endl;
 
+
+    #pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NE/nproc))) //private()
     for (int ei = 0; ei < NE; ei++)
     {
         int NX = X.size()-1; 
@@ -211,6 +205,10 @@ void advectionSolverX(vector<vector<double>> &u_old, vector<vector<double>> &u_n
     double ddx, ux_p, ux_m, a_p, a_m;
     int order = 1;
     double V_loc;
+
+
+    #pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NE/nproc))) private(V_loc, ddx, ux_p, ux_m, a_p, a_m)
     for (int ei = 0; ei < NE; ei++)
     {   
         if (order == 1)
@@ -276,6 +274,9 @@ void advectionSolverE(vector<vector<double>> &u_old, vector<vector<double>> &u_n
     int NE = E.size()-1;
     double dde, ux_p, ux_m, a_p, a_m, ad0;
     int order = 1;
+
+    #pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NX/nproc))) private(dde, ux_p, ux_m, a_p, a_m, ad0)
     for (int xi = 0; xi < NX; xi++)
     {
         if (order == 1)
@@ -314,6 +315,9 @@ void sourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, 
         int NX = u_old.size();
         int NE;
         double sum;
+
+        #pragma omp parallel num_threads(nproc)
+        #pragma omp for schedule(static, int(double(NX/nproc))) private(sum, NE)
         for (int xi = 0; xi < NX; xi++)
         {
             NE = u_old[xi].size();
@@ -325,7 +329,7 @@ void sourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, 
         }
     }
 
-
+// Not used ... 
 void sourceSolverDamp(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<vector<double>> source, vector<vector<double>> background, double factor)
     {
         int NX = u_old.size();
@@ -346,7 +350,7 @@ void sourceSolverDamp(vector<vector<double>> &u_old, vector<vector<double>> &u_n
         }
     }
 
-
+// Not used ... 
 void sourceGrowthRateSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, vector<vector<double>> &v_old, vector<double> X, double dt, vector<vector<double>> V, vector<double> B, double factor)
     {
         int NX = u_old.size();
@@ -383,6 +387,9 @@ void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<dou
         double dudx; 
         double w0;
         double u_max = 1e4;
+
+        #pragma omp parallel num_threads(nproc)
+        #pragma omp for schedule(static, int(double(NX/nproc))) private(sum, NE, dudx, w0)
         for (int xi = 0; xi < NX; xi++)
         {
             NE = u_old[xi].size();
@@ -396,7 +403,7 @@ void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<dou
                 if (factor ==  1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
                 if (factor == -1){if (dudx < 0.){dudx = 0.;}} // Condition Backward waves
 
-                sum = abs(V[xi][ei]*dudx/w0) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///*(log10(u_old[xi][ei]+1)/u_old[xi][ei]);
+                sum = abs(0.5*V[xi][ei]*dudx/w0)*(log10(u_old[xi][ei]+1)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
 
                 //sum = factor*source[xi][ei]*u_old[xi][ei];
                 //if (sum*dt != 0){cout<<sum*dt<<endl;}
@@ -418,6 +425,9 @@ void CRsInjectionSourceSolver(vector<vector<double>> &u_old, vector<vector<doubl
     {
         int NX = u_old.size();
         int NE;
+
+        #pragma omp parallel num_threads(nproc)
+        #pragma omp for schedule(static, int(double(NX/nproc))) private(NE)
         for (int xi = 0; xi < NX; xi++)
         {   
             NE = u_old[xi].size();

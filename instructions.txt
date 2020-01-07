@@ -10,5 +10,5 @@ INSTRUCTIONS D'UTILISATION DU CODE
 - Créer un sous dossier ./data_out/ dans le dossier de travail
 - Copier le fichier parameters.dat dans le dossier de travail
 - Editer le fichier ./src/constant.h 
-- Compiler avec la commande : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main.o
+- Compiler avec la commande : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main.o (Note : Retirer la directive O3 pour le moment, elle fait n'importe quoi)
 - Copier le fichier ./main.o dans le dossier de travail, l'executer 
