@@ -18,6 +18,7 @@ double nt = ni/Xi;
 std::string smn = search(parameters,"mn");  double m_neutral = stod(smn); 
 std::string sT   = search(parameters,"T");  double T  = stod(sT);
 std::string scenter = search(parameters, "center"); double x_center = stod(scenter);
+std::string sBcenter = search(parameters, "B"); double Bcenter = stod(sBcenter);
 
 
 
@@ -172,6 +173,25 @@ double tesc(double E)
         //cout<<"-1./(2.*delta) = "<<-1./(2.*delta)<<endl;
         //cout<<"E = "<<E/GeV<<" GeV, tesc = "<<tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt )/kyr<<" kyr"<<endl;
         return tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt );
+    }
+
+
+double tesc_e(double E)
+    {
+        double tSed = GetTSed();
+        double EM = GetEM();
+        double ddelt = -1./(2.*delta); 
+        double tesc_p;
+        double tloss_e; 
+
+        tesc_p = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt );
+        tloss_e = 4*E/(c*sig_T*pow(Bcenter,2)*pow(1 + E/(me*pow(c,2)),2));
+
+
+        //cout<<"Tesc = "<<tesc_p<<" , tloss = "<<tloss_e<<endl;
+
+
+        return min(tesc_p, tloss_e);
     }
 
 

@@ -310,6 +310,55 @@ void advectionSolverE(vector<vector<double>> &u_old, vector<vector<double>> &u_n
     }
 }
 
+void advectionSolverE2(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double>> u_background)
+{
+    // Note : No 2nd order scheme ! 
+    // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
+    // We need to find a good method for the boundaries ...  
+    int NE = E.size()-1;
+    double dde, ux_p, ux_m, a_p, a_m, ad0;
+    int order = 1;
+
+    double C = c*sig_T/(4*log(10.));
+    double C_0 = c*sig_T/(4.*me*pow(c, 2.));
+    double C2, C3;
+
+    #pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NX/nproc))) private(dde, ux_p, ux_m, a_p, a_m, ad0)
+    for (int xi = 0; xi < NX; xi++)
+    {
+        if (order == 1)
+        {
+            for (int ei = 1; ei < NE; ei++)
+            {
+                dde = (E[ei+1] - E[ei-1])/2.;
+
+                C2 = C*pow(BB[xi],2.)/(EE[ei])*pow(1 + EE[ei]/(me*pow(c,2.)),2.);
+                C3 = C_0*pow(BB[xi],2.)*(1 + EE[ei]/(me*pow(c,2.)));
+
+                a_p = max(C2, 0.);
+                a_m = min(C2, 0.);
+
+                ux_p = (u_old[xi][ei+1] - u_old[xi][ei])/dde;
+                ux_m = (u_old[xi][ei] - u_old[xi][ei-1])/dde;
+
+                //cout<<a_p<<" "<<a_m<<" "<<ux_p<<" "<<ux_m<<endl;
+
+                u_new[xi][ei] = u_old[xi][ei] + dt*((a_p*ux_m + a_m*ux_p) - C3*u_old[xi][ei]);
+                if (ei == 1){ad0 = + dt*((a_p*ux_m + a_m*ux_p) - C3*u_old[xi][ei]);}
+                //cout<<dt<<"  "<<a_p<<" "<<a_m<<" "<<ux_p<<" "<<ux_m<<" "<<- dt*(a_p*ux_m + a_m*ux_p)<<endl;
+                if (u_new[xi][ei] < u_background[xi][ei]){u_new[xi][ei] = u_background[xi][ei];}
+            }
+
+            // Cas ei = 0
+            u_new[xi][0]  = u_old[xi][0] + ad0;
+            // Cas ei = NE
+            u_new[xi][NE] = u_old[xi][NE] + dt*((a_p*ux_m + a_m*ux_p) - C3*u_old[xi][NE]);
+
+        }
+    }
+}
+
 void sourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<vector<double>> source, double factor)
     {
         int NX = u_old.size();

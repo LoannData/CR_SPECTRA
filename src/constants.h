@@ -11,6 +11,7 @@ const double eV   = GeV*1e-9;   // 1 eV in [erg]
 const double MeV  = 1e-3*GeV;
 const double mp   = 1.6726219e-24; // Proton mass [g]
 const double mn   = 1.6749286e-24; // Neutron mass [g]
+const double me   = 9.1095e-28;    // Electron mass [g]
 const double mHI  = mp; // HI mass [g]
 const double mHII  = mp; // HII mass [g]
 const double mHeI = 2*mp + 2*mn; // HeI mass [g]
@@ -19,7 +20,8 @@ const double mH2  = 2*mp;        // H2 mass [g]
 const double e = 4.80326e-10; // e charge in [statC]
 const double c = 29979245800.; // light celerity in [cm/s]
 const double kbolz = 1.3807e-16; // Boltzmann constant in CGS
-const double kms = 1e5; // 1 km/s in cm/s 
+const double kms = 1e5; // 1 km/s in cm/s
+const double sig_T = 6.65e-25; // [cm^2] Thomson cross section (see Schlickeiser (2002) p.80) 
 
 // Solver Options (1 : On, 0 : Off)
 const int solver_PcrAdvection  = 1; // Advective term of the CR Pressure (the classical one -> V_A*grad ...)
@@ -28,6 +30,17 @@ const int solver_PcrAdvection2 = 1; // Explicit Advection solver for Pcr by the 
 const int solver_PcrAdvectionE = 1; // Explicit Advection solver for Pcr in energy cdVAdX
 const int solver_PcrSource1    = 1; // Source term effect due to the dependance of the Alfvén velocity to the space
 const int solver_PcrSource2    = 1; // Source term effect due to the CR injection from the source in the system  
+
+const int solver_PeAdvection   = 1; // Advective term of the e- Pressure (the classical one -> V_A*grad ...)
+const int solver_PeDiffusion   = 1; // Diffusive term of the e- Pressure
+const int solver_PeAdvection2  = 1; // Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
+const int solver_PeAdvectionE  = 1; // Explicit Advection solver for e- in energy cdVAdX
+
+const int solver_PeAdvectionE2 = 1; // Synchrotron radiations of e- (looses of energy)
+
+const int solver_PeSource1     = 1; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
+const int solver_PeSource2     = 1; // Source term effect due to the e- injection from the source in the system 
+
 const int solver_IpAdvection   = 1; // Advective term of the foward waves 
 const int solver_ImAdvection   = 1; // Advective term of the backward waves
 const int solver_IpSource1     = 1; // Source term effect applied on foward waves due to the dependance of the Alfvén velocity to the space

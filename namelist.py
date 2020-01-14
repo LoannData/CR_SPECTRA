@@ -59,6 +59,7 @@ E = grid.grid(Emin, Emax, 2**NE, egridtype)
 in_damping       = True # Ion neutral damping of waves
 lz_damping       = True # Lazarian damping of waves
 Pcr_1GeV         = 1*cst.eV # [cm^-3] CR Pressure at 1 GeV 
+Pe_1GeV          = 1*cst.eV # [cm^-3] e- Pressure at 1 GeV
 
 
 ###############################################################################

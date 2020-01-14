@@ -56,27 +56,23 @@ gamma_in       = np.zeros((len(E), len(X)))
 gamma_lazarian = np.zeros((len(E), len(X)))
 gamma_tot      = np.zeros((len(E), len(X)))
 Pcr            = np.zeros((len(E), len(X)))
-#nu_ni          = np.zeros((len(E), len(X)))
-#chi            = np.zeros((len(E), len(X)))
-#rho_n          = np.zeros((len(E), len(X)))
-#rho_i          = np.zeros((len(E), len(X)))
+Pe             = np.zeros((len(E), len(X))) # Electrons pressure distribution 
+
 for e in range(len(E)) : 
     print (e,"/",len(E))
     for xi in range(len(X)) : 
         in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
-#        VA[e][xi] = in_damping.get('VA')
+
         if (X[xi] >= x_center) : 
             VA[e][xi] = +va[e][xi]
         else : 
             VA[e][xi] = -va[e][xi]
-#        nu_ni[e][xi] = in_damping.get('nu_ni')
-#        chi[e][xi] = in_damping.get('chi')
-#        rho_n[e][xi] = in_damping.get('rho_n')
-#        rho_i[e][xi] = in_damping.get('rho_i')
+
         if (nml.in_damping) : gamma_in[e][xi] = in_damping.get('wi')
         if (nml.lz_damping) : gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
         gamma_tot[e][xi] = gamma_in[e][xi] + gamma_lazarian[e][xi]
         Pcr[e][xi] = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
+        Pe[e][xi]  = nml.Pe_1GeV*(E[e]/cst.GeV)**(-2.7)
         # Juste pour avoir une condition initiale, à dégager biensur ! 
 #        if (X[xi] > 450.*cst.pc and X[xi] < 550.*cst.pc) : 
 #            Pcr[e][xi] = Pcr[e][xi]*1e4
@@ -92,8 +88,6 @@ Im       = np.zeros((len(E), len(X))) # Initial resonnant backwarding waves ener
 
 for xi in range(len(X)) : 
     d00[xi] = 1e28
-#    if (X[xi] > 700.*cst.pc and X[xi] < 720.*cst.pc) : 
-#        d00[xi] = d00[xi]*1e-5
 
 
 for e in range(len(E)) : 
@@ -115,6 +109,7 @@ fw.write1D(  "DBohm.dat", nx=nx, ne=ne, variable=Db.T, path="./data_ini/")
 fw.write1D(     "Ip.dat", nx=nx, ne=ne,  variable=Ip.T, path="./data_ini/")   
 fw.write1D(     "Im.dat", nx=nx, ne=ne,  variable=Im.T, path="./data_ini/")  
 fw.write1D(    "Pcr.dat", nx=nx, ne=ne,variable=Pcr.T, path="./data_ini/")    
+fw.write1D(    "Pe.dat", nx=nx, ne=ne,variable=Pe.T, path="./data_ini/")   
 fw.write1D("damping.dat", nx=nx, ne=ne, variable=gamma_tot.T, path="./data_ini/")  
 fw.write1Daxis("X.dat", variable=X, nx=nx, path="./data_ini/")
 fw.write1Daxis("E.dat", variable=E, nx=ne, path="./data_ini/")
@@ -129,7 +124,8 @@ variables = {"NX"       : nx,
              "X"        : Xi[0],
              "mn"       : mn[0],
              "T"        : T[0],
-             "center"   :x_center}
+             "center"   :x_center,
+             "B"        : B[0]}
 
 fw.fileWrite("parameters", variables = variables, path='./', ext='.dat') 
 

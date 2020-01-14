@@ -77,6 +77,7 @@ int main()
     vector<vector<double>> rIp  = parse2DCsvFile("./data_ini/Ip.dat", 1);
     vector<vector<double>> rIm  = parse2DCsvFile("./data_ini/Im.dat", 1);
     vector<vector<double>> rPcr = parse2DCsvFile("./data_ini/Pcr.dat",1);
+    vector<vector<double>> rPe  = parse2DCsvFile("./data_ini/Pe.dat",1);
     vector<vector<double>> rGd  = parse2DCsvFile("./data_ini/damping.dat",1);
 
 
@@ -102,7 +103,7 @@ int main()
 
 
 
-    vector<vector<double>> VA(NX), Db(NX), Ip(NX), Im(NX), Pcr(NX), Gd(NX); 
+    vector<vector<double>> VA(NX), Db(NX), Ip(NX), Im(NX), Pcr(NX), Pe(NX), Gd(NX); 
     for (int xi = 0; xi < NX; xi++)
     {
         VA[xi].resize(NE); 
@@ -110,6 +111,7 @@ int main()
         Ip[xi].resize(NE);
         Im[xi].resize(NE);
         Pcr[xi].resize(NE);
+        Pe[xi].resize(NE);
         Gd[xi].resize(NE);
     }
 
@@ -122,6 +124,7 @@ int main()
             Ip[xi][ei]  = rIp[xi][index_emin + ei]; 
             Im[xi][ei]  = rIm[xi][index_emin + ei]; 
             Pcr[xi][ei] = rPcr[xi][index_emin + ei];
+            Pe[xi][ei] = rPe[xi][index_emin + ei];
             Gd[xi][ei]  = rGd[xi][index_emin + ei];
             //cout<<"Db["<<xi<<", "<<ei<<"] = "<<Db[xi][ei]<<endl;
         }
@@ -204,29 +207,37 @@ int main()
     int time_index = 0;
     vector<double> dat_output = getOutput();
     int out_Pcr_index = 0;
+    int out_Pe_index = 0;
     int out_Ip_index = 0;
     int out_Im_index = 0;
 
     // Main variables which we solve 
     vector<vector<double>> Pcr_new, Pcr_old, Pcr_background;
+    vector<vector<double>> Pe_new, Pe_old, Pe_background;
     vector<vector<double>> Ip_new, Ip_old, Ip_background;
     vector<vector<double>> Im_new, Im_old, Im_background;
 
 
     // Initialization of the variables 
     Pcr_background = Pcr;
+    Pe_background = Pe;
     Ip_background = Ip;
     Im_background = Im; 
     Pcr_new = Pcr; 
+    Pe_new = Pe; 
     Ip_new  = Ip;  
     Im_new  = Im;
 
 
     // Variables for CRs injection in the simulation 
-    vector<double> Finj_temp(NE); 
+    vector<double> Finj_temp(NE);
+    vector<double> Finj_temp_e(NE); // Finj of e-  
     vector<double> Pcr_ini_temp(NE); 
+    vector<double> Pe_ini_temp(NE);
     vector<double> ttesc(NE);
+    vector<double> ttesc_e(NE); // Escape time array of e- 
     vector<double> vec_theta(NX);
+    vector<double> vec_theta_e(NX); // vec theta of e-
     double temp_theta, r_snr;
 
 
@@ -234,6 +245,8 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
+        Pe_ini_temp[j] = Pcr_ini(E[j]);                    // A modifier, concerne les e- 
+        ttesc_e[j] = tesc_e(E[j]);                           // A modifier, concerne les e- -> C'est fait   
     }
 
 
@@ -247,16 +260,19 @@ int main()
         start = std::clock();
 
         Pcr_old = Pcr_new;
+        Pe_old  = Pe_new;
         Ip_old  = Ip_new;
         Im_old  = Im_new;
 
         for (g=0; g<NE; g++)
         {
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
+            Finj_temp_e[g] = Finj(time, dt, E[g], ttesc_e[g]);
         }
         for (g=0; g<NX; g++)
         {
             vec_theta[g] = theta(X[g], time, r_snr);
+            vec_theta_e[g] = theta(X[g], time, r_snr);
         }
 
         r_snr = RSNR(time);
@@ -269,17 +285,21 @@ int main()
 
 
         //----------------------------------------------------------------------//
-        // Spatially variable diffusion solver, implicit scheme for Pcr         //
+        // Spatially variable diffusion solver, implicit scheme for Pcr and Pe  //
         //----------------------------------------------------------------------//
         if (solver_PcrDiffusion == 1)
         {thetaDiffusionSolver(Pcr_old, Pcr_new, dt, X, NE, Ip_new, Im_new, Db, Pcr_background);        Pcr_old = Pcr_new;}
+        if (solver_PeDiffusion  == 1)
+        {thetaDiffusionSolver(Pe_old, Pe_new, dt, X, NE, Ip_new, Im_new, Db, Pe_background);        Pe_old = Pe_new;}
 
 
         //----------------------------------------------------------------------//
-        // Explicit Advection solver for Pcr by Alfvén velocity                 //
+        // Explicit Advection solver for Pcr and Pe by Alfvén velocity          //
         //----------------------------------------------------------------------//
         if (solver_PcrAdvection == 1)
         {advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA, 0);                                  Pcr_old = Pcr_new;}
+        if (solver_PeAdvection == 1)
+        {advectionSolverX(Pe_old, Pe_new, dt, X, NE, VA, 0);                                  Pe_old = Pe_new;}
 
         //----------------------------------------------------------------------//
         // Explicit Advection solver for I by Alfvén velocity                   //
@@ -293,26 +313,40 @@ int main()
 
 
         //----------------------------------------------------------------------//
-        // Explicit Advection solver for Pcr by the energy derivative of        //
+        // Explicit Advection solver for Pcr and Pe by the energy derivative of //
         // Alfvén velocity. Which seems to have no effects on the diffusion     //
         // Note : This term needs more studies ...                              //
         //----------------------------------------------------------------------//
         if (solver_PcrAdvection2 == 1)
         {advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdlog10E, 0);                          Pcr_old = Pcr_new;}
+        if (solver_PeAdvection2 == 1)
+        {advectionSolverX(Pe_old, Pe_new, dt, X, NE, dVAdlog10E, 0);                          Pe_old = Pe_new;}
 
         //----------------------------------------------------------------------//
-        // Explicit Advection solver for Pcr in energy cdVAdX
+        // Explicit Advection solver for Pcr and Pe in energy cdVAdX
         // This value needs to be studied more in details 
         //----------------------------------------------------------------------//
         if (solver_PcrAdvectionE == 1)
         {advectionSolverE(Pcr_old, Pcr_new, dt, log10E, NX, cdVAdX, Pcr_background);         Pcr_old = Pcr_new;}
+        if (solver_PeAdvectionE == 1)
+        {advectionSolverE(Pe_old, Pe_new, dt, log10E, NX, cdVAdX, Pe_background);         Pe_old = Pe_new;}
+
+        //----------------------------------------------------------------------//
+        // Source term from synchrotron radiation of e-. It contains a pure 
+        // source term and an energy advective term
+        //----------------------------------------------------------------------//
+        if (solver_PeAdvectionE2 == 1)
+        {advectionSolverE2(Pe_old, Pe_new, dt, log10E, NX, B, E, Pe_background);         Pe_old = Pe_new;}
+
 
         //----------------------------------------------------------------------//
         // Source term effect due to the dependance of the Alfvén velocity to   //
-        // the space                                                            //
+        // the space (for Pcr and Pe)                                           //
         //----------------------------------------------------------------------//
         if (solver_PcrSource1 == 1)
         {sourceSolver(Pcr_old, Pcr_new, dt, c2dVAdX, 4./3);                                  Pcr_old = Pcr_new;}
+        if (solver_PeSource1 == 1)
+        {sourceSolver(Pe_old, Pe_new, dt, c2dVAdX, 4./3);                                  Pe_old = Pe_new;}
 
         //----------------------------------------------------------------------//
         // Source term effect due to the dependance of the Alfvén velocity to   //
@@ -333,10 +367,12 @@ int main()
         {sourceGrowthDampRateSolver(Im_old, Im_new, Pcr_old, Gd, Im_background, X, dt, VA, B, -1); Im_old = Im_new;}
 
         //----------------------------------------------------------------------//
-        // CRs injection term from SNRs                                         // 
+        // CRs and e- injection term from SNRs                                  // 
         //----------------------------------------------------------------------//
         if (solver_PcrSource2 == 1)
         {CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; }
+        if (solver_PeSource2 == 1)
+        {CRsInjectionSourceSolver(Pe_old, Pe_new, dt, Pe_ini_temp, Finj_temp_e, vec_theta_e); Pe_old = Pe_new; }
 
 
 
@@ -346,6 +382,7 @@ int main()
             out_Ip_index  = writeXE("Ip", out_Ip_index, Ip_new, NX, NE);
             out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
             out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
+            out_Pe_index = writeXE("Pe", out_Pe_index, Pe_new, NX, NE);
         }
 
         
