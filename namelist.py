@@ -36,15 +36,15 @@ def getVA(E, phase) :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX = 12 # 2**NX is the X-size of the grid
+NX = 8 # 2**NX is the X-size of the grid
 NE = 7  # 2**NE is the E-size of the grid 
 
 Xmin = 0.*cst.pc
 Xmax = 2000.*cst.pc
 xgridtype = "cartesian"
 
-Emin = 0.99*cst.GeV
-Emax = 100.01*cst.TeV
+Emin = 9.99*cst.GeV
+Emax = 10.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended 
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 
@@ -82,6 +82,8 @@ phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism
 phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
 phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
 phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
+
+#phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 
 smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases
 

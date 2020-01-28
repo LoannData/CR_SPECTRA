@@ -74,8 +74,11 @@ for e in range(len(E)) :
         Pcr[e][xi] = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
         Pe[e][xi]  = nml.Pe_1GeV*(E[e]/cst.GeV)**(-2.7)
         # Juste pour avoir une condition initiale, à dégager biensur ! 
-#        if (X[xi] > 450.*cst.pc and X[xi] < 550.*cst.pc) : 
-#            Pcr[e][xi] = Pcr[e][xi]*1e4
+        if (X[xi] > 950.*cst.pc and X[xi] < 1050.*cst.pc) : 
+            Pcr[e][xi] = Pcr[e][xi]*1e4
+        if (X[xi] > 950.*cst.pc and X[xi] < 1050.*cst.pc) : 
+            Pe[e][xi] = Pe[e][xi]*1e4
+#        Pcr[e][xi] = Pcr[e][xi]*1e20*10**(1 - abs(1000.*cst.pc - X[xi])/(1000.*cst.pc)  ) + Pcr[e][xi]
 #        Pcr[e][xi] = Pcr[e][xi]*(1 + 1e4*np.exp(-(X[xi]-500.*cst.pc)**2/(20.*cst.pc)**2))
 
 # Initial diffusion coefficients -> Initial waves I

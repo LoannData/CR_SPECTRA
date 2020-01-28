@@ -77,7 +77,7 @@ delta_t = 0.1*cst.kyr  # Time distance between two plots
 x_center = 1000.
 
 
-time_test = 0.9*cst.kyr # We choose a fixed output time 
+time_test = 5.9*cst.kyr # We choose a fixed output time 
 out_id = getTimeID(time_test, delta_t, t_ini) # We convert it in an index number 
 
 #z_wnmcnm = 100.*cst.pc

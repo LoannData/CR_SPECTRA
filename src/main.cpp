@@ -31,7 +31,8 @@ int main()
 
     std::clock_t start;
     double duration;
-/*
+
+    /*
     // Script which defines the limit memory (here 64 MB)
     const rlim_t kStackSize = 64 * 1024 * 1024; 
     struct rlimit rl;
@@ -52,6 +53,7 @@ int main()
     }
     //--------------------------------------------------------//
     */
+    
 
     /*std::string parameters = "./parameters.dat";
     std::string snx = search(parameters, "NX"); int nx = stoi(snx);
@@ -254,9 +256,12 @@ int main()
     int xi, ei; 
     //int nb = nproc;
     int g;
-
     while (time < Tmax)
     {   
+    
+        
+
+
         start = std::clock();
 
         Pcr_old = Pcr_new;
@@ -264,11 +269,14 @@ int main()
         Ip_old  = Ip_new;
         Im_old  = Im_new;
 
+
         for (g=0; g<NE; g++)
         {
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
             Finj_temp_e[g] = Finj(time, dt, E[g], ttesc_e[g]);
         }
+
+
         for (g=0; g<NX; g++)
         {
             vec_theta[g] = theta(X[g], time, r_snr);
@@ -277,7 +285,8 @@ int main()
 
         r_snr = RSNR(time);
 
-        
+        #pragma omp parallel num_threads(nproc)
+        {
         //----------------------------------------------------------------------//
         // This solver do nothing, just lose your time                          //
         //----------------------------------------------------------------------//
@@ -374,6 +383,7 @@ int main()
         if (solver_PeSource2 == 1)
         {CRsInjectionSourceSolver(Pe_old, Pe_new, dt, Pe_ini_temp, Finj_temp_e, vec_theta_e); Pe_old = Pe_new; }
 
+        } // End pragma OMP parallel
 
 
 
@@ -392,5 +402,6 @@ int main()
         time += dt;
         time_index += 1;
 
+        
     }
 }

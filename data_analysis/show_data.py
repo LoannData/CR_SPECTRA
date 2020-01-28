@@ -37,26 +37,27 @@ def readAxis(file_name) :
 
 def getData(var, file_number) : 
     if (file_number < 10) : 
-        sfile_number = "000"+str(file_number)
+        sfile_number = "0000"+str(file_number)
     if (file_number >= 10 and file_number < 100) : 
-        sfile_number = "00"+str(file_number)
+        sfile_number = "000"+str(file_number)
     if (file_number >= 100 and file_number < 1000) : 
-        sfile_number = "0"+str(file_number)
+        sfile_number = "00"+str(file_number)
     if (file_number >= 1000) : 
-        sfile_number = str(file_number)
+        sfile_number = "0"+str(file_number)
     nx = fr.search("../parameters.dat", "NX")
     ne = fr.search("../parameters.dat", "NE")
     X = readAxis("../data_ini/X.dat")
     E = readAxis("../data_ini/E.dat")
-    if (var == "Pcr" or var == "Ip") : 
+    if (var == "Pcr" or var == "Ip" or var == "Im" or var == "Pe") : 
         data = readDataXE("../data_out/"+var+"_"+sfile_number+".dat", 2**int(nx), 2**int(ne))
     if (var == "Dcr") : 
         data = np.empty((len(X), len(E)))
         Ip = readDataXE("../data_out/"+"Ip"+"_"+sfile_number+".dat", 2**int(nx), 2**int(ne))
+        Im = readDataXE("../data_out/"+"Im"+"_"+sfile_number+".dat", 2**int(nx), 2**int(ne))
         Db = readDataXE("../data_ini/"+"DBohm"+".dat", 2**int(nx), 2**int(ne))
         for ii in range(len(Ip)) : 
             for jj in range(len(Ip[ii])) : 
-                data[ii][jj] = Db[ii][jj]/Ip[ii][jj]
+                data[ii][jj] = Db[ii][jj]/(Ip[ii][jj] + Im[ii][jj])
     return X, E, data
 
 def PlotXSpace(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", ylabel="None",
@@ -149,9 +150,45 @@ def PlotTSpaceX(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z
 
     for ti in range(len(file_number)) : 
         X, E, data = getData(var, file_number[ti])
-        plt.loglog(np.array(X)/cst.pc, data.T[e_id], 
+        plt.loglog(np.array(X)/cst.pc-1000., data.T[e_id], 
                    label="File "+str(int(ti)))
+#        plt.semilogy(np.array(X)/cst.pc, data.T[e_id])
+#        print (data.T[e_id])
     
+#    plt.ylim(1e-13, 1e-9)
+#    plt.xlim(900, 1100)
+    
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    plt.legend()
+    
+    if (savefig) : 
+        plt.savefig("./"+figname+".pdf")
+        
+def PlotTSpaceX_vec(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", ylabel="None",
+               savefig=False, figname="None") : 
+    X, E, data = getData(var[0], file_number[0])
+    plt.figure(figsize=(fig_size_x, fig_size_y))
+    
+    e_id = 0
+    closest = np.inf 
+    for ii in range(len(E)) : 
+        if (abs(E[ii]-energy) < closest) : 
+            e_id = ii
+            closest = abs(E[ii]-energy)
+
+    for ti in range(len(file_number)) : 
+        X, E, data0 = getData(var[0], file_number[ti])
+        X, E, data1 = getData(var[1], file_number[ti])
+        plt.loglog(np.array(X)/cst.pc-1000., data0.T[e_id], 
+                   label="File "+str(int(ti)))
+        plt.loglog(np.array(X)/cst.pc-1000., data1.T[e_id], 
+                   label="File "+str(int(ti)))
+#        plt.semilogy(np.array(X)/cst.pc, data.T[e_id])
+#        print (data.T[e_id])
+    
+#    plt.ylim(1e-13, 1e-9)
+#    plt.xlim(900, 1100)
     
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
@@ -181,15 +218,15 @@ def PlotTSpaceX(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z
 #           ylabel="$D_\\mathrm{CR}$ [cm$^2$/s]")
 
 
-#PlotTSpaceE("Pcr", [10, 20, 30, 100, 200], 50.*cst.pc, fig_size_x=10, fig_size_y=6, 
+#PlotTSpaceE("Pe", [3,4,5,6], 1100.*cst.pc, fig_size_x=10, fig_size_y=6, 
 #            xlabel="E [GeV]", ylabel="None", savefig=False, figname="None")
 
 #PlotTSpaceX("Pcr", [10, 20, 30, 100, 200], 100.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
 #            ylabel="None", savefig=False, figname="None")
 
-#nfile = np.linspace(0, 200, 10, dtype=int)
-#PlotTSpaceX("Pcr", nfile, 1000.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
-#            ylabel="None", savefig=False, figname="None")
+#nfile = np.linspace(1, 12, 4, dtype=int)
+PlotTSpaceX_vec(["Pcr"], [3,4,5,6], 100.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
+            ylabel="None", savefig=False, figname="None")
 
 #plt.figure(figsize=(6, 8))
 ##plt.loglog(E, data[500])
