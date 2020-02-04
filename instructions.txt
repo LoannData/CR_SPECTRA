@@ -1,14 +1,14 @@
 #==================================================#
-INSTRUCTIONS D'UTILISATION DU CODE
+INSTRUCTIONS
 #==================================================#
 
-- Se placer dans le dossier ./CRCode
-- Editer les fichiers ./namelist.py et ./setup.py
-- Executer le fichier setup.py avec la commande python3 ./setup.py (Python 3.7)
-- Créer un nouveau dossier de travail ailleurs dans l'ordinateur
-- Copier le dossier ./data_ini/ dans le nouveau dossier
-- Créer un sous dossier ./data_out/ dans le dossier de travail
-- Copier le fichier parameters.dat dans le dossier de travail
-- Editer le fichier ./src/constant.h 
-- Compiler avec la commande : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main.o (Note : Retirer la directive O3 pour le moment, elle fait n'importe quoi)
-- Copier le fichier ./main.o dans le dossier de travail, l'executer 
+- Go in the folder ./CRCode
+- Edit ./namelist.py file (Note : Chose the ouput folder name and location !)
+- Edit ./setup.py file 
+- Execute setup.py with Python 3.7 (python3 ./setup.py)
+- Edit the file ./src/constant.h
+- Go in the folder ./src/ and compile the C++ code with the command : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main.o
+  Note : It is working with g++ 7.4.0. Type : g++ --version to know your gcc version. Other compilers are not garanteed to work.
+- Copy the file ./main.o in your working file, then execute using the command : ./main.o 
+
+

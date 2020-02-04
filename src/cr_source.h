@@ -154,7 +154,7 @@ double GetEM()
     }
 
 
-// CRs Escape time function !!! 
+// CRs Escape time function (according to Celli et al. 2019) 
 double tesc(double E)
     {
         double tSed = GetTSed();

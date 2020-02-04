@@ -61,7 +61,7 @@ const double Tmax = 100.01*kyr;//200.1*kyr;           // Define the limit time o
 
 
 
-// SNR Properties
+// SNR Properties (Model from Cioffi et al. 2012 & ...)
 //const double snr_position_x = 500*pc; // Position of the center of the source on the grid
 const double Esn      = 1;      // 1e51 erg : total energy released by SNR
 const double Mej      = 1;      // Msun : total mass released by SNR in sun mass units 

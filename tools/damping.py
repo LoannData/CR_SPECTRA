@@ -185,6 +185,8 @@ def damping_lazarian(position_index, E, medium_props) :
     lA = L*MA**(-3.)
     Lcm = L
     
+    if (nu_n == 0) : 
+        return 0 
     
     kdampar_sub = (-(nu_n + pow(cai,2.)/coll) + pow(pow(nu_n + pow(cai,2.)/coll,2) + 8*can*nu_n*Lcm*pow(MA,-4.)/xi_n, 0.5))/(2*nu_n*Lcm*pow(MA,-4.))
     lmin_sub = pow(kdampar_sub*np.sqrt(1 + Lcm*pow(MA,-4.)*kdampar_sub),-1.)
@@ -193,7 +195,7 @@ def damping_lazarian(position_index, E, medium_props) :
     lmin_super = pow(kdampar_super*np.sqrt(1 + lA*kdampar_super),-1.)
     
     
-
+    
     if (MA <= 1.) : 
         if (rl < pow(lmin_sub,4./3)*pow(MA,4./3)*pow(Lcm,-1./3)) : 
             damp_lz = 0.
@@ -201,7 +203,7 @@ def damping_lazarian(position_index, E, medium_props) :
             damp_lz = -ca*pow(MA,2.)*pow(rl, -1./2)*pow(Lcm,-1./2)
         if (rl >= Lcm*pow(MA,4.) and rl < Lcm*MA) : 
             damp_lz = -ca*pow(MA, 8./3)*pow(rl, -2./3)*pow(Lcm, -1./3)
-        if (rl > Lcm*MA) : 
+        if (rl >= Lcm*MA) : 
             if (rl < Lcm) : 
                 damp_lz = -pow(MA,2.)*ca/Lcm
             if (rl >= Lcm) : 
@@ -211,6 +213,16 @@ def damping_lazarian(position_index, E, medium_props) :
             damp_lz = 0.
         if (rl >= pow(lmin_super,4./3)*MA*pow(Lcm,-1./3) and rl < Lcm*pow(MA,-3.)) :
             damp_lz = -ca*pow(MA,3./2)*pow(Lcm,-1./2)*pow(rl,-1./2)
-        if (rl > Lcm*pow(MA,-3.)) : 
+        if (rl >= Lcm*pow(MA,-3.)) : 
             damp_lz = -ca*MA*pow(Lcm,-1./3)*pow(rl,-2./3)
+    
     return damp_lz
+
+
+
+def non_linear_landau_damping(T, Ip, Im, mi, q, B0, Ecr) : 
+    vi = np.sqrt(cst.kbolz*T/mi)
+    dB2 = Ip**2 + Im**2
+    kr  = q*B0/Ecr
+    gamma_nlld = - np.sqrt(np.pi/8.)*vi*kr*dB2
+    return gamma_nlld

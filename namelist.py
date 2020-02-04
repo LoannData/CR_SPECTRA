@@ -5,15 +5,9 @@ Created on Fri Sep  6 08:10:35 2019
 
 @author: lbrahimi
 """
-#import numpy as np
-#import matplotlib.pyplot as plt 
-#from matplotlib.patches import Rectangle
-#import matplotlib.gridspec as gridspec
-#from scipy import interpolate
-
-
 # We refers to the tools setup folder
 import sys
+import os 
 sys.path.append('./tools/')
  
 #import freader as fr 
@@ -34,18 +28,40 @@ def getVA(E, phase) :
     return VA
 
 ###############################################################################
+#      OUTPUT FOLDER CREATOR                                                  #
+###############################################################################
+# Relative position of the ouput folder
+folder_name = "Last_test_before_V1"
+folder_path = "../WorkFolder/" # The path containing the folder
+
+total_path = folder_path+folder_name
+
+try : 
+    os.mkdir(total_path)
+    os.mkdir(total_path+"/data_out")
+    os.mkdir(total_path+"/data_ini")
+    os.mkdir(total_path+"/data_analysis")
+    os.mkdir(total_path+"/tools")
+except : 
+    print ("!!! The output folder already exists, remove it if you want to create a new one !!!")
+    None 
+
+
+
+
+###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX = 8 # 2**NX is the X-size of the grid
-NE = 7  # 2**NE is the E-size of the grid 
+NX        = 12  # 2**NX is the X-size of the grid
+NE        = 7  # 2**NE is the E-size of the grid 
 
-Xmin = 0.*cst.pc
-Xmax = 2000.*cst.pc
+Xmin      = 0.*cst.pc
+Xmax      = 2000.*cst.pc
 xgridtype = "cartesian"
 
-Emin = 9.99*cst.GeV
-Emax = 10.01*cst.TeV
-egridtype = "logspace" # Type of grid - # logspace type recomended 
+Emin      = 9.99*cst.GeV
+Emax      = 10.01*cst.TeV
+egridtype = "logspace" # Type of grid - # logspace type recomended (only option for the moment)
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 
 
@@ -56,10 +72,11 @@ E = grid.grid(Emin, Emax, 2**NE, egridtype)
 ###############################################################################
 #       OTHER TERMS                                                           #
 ###############################################################################
-in_damping       = True # Ion neutral damping of waves
-lz_damping       = True # Lazarian damping of waves
-Pcr_1GeV         = 1*cst.eV # [cm^-3] CR Pressure at 1 GeV 
-Pe_1GeV          = 1*cst.eV # [cm^-3] e- Pressure at 1 GeV
+in_damping       = True     # Ion neutral damping of waves
+lz_damping       = True     # Lazarian damping of waves
+nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
+Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
+Pe_1GeV          = 1*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
 
 
 ###############################################################################
@@ -67,13 +84,7 @@ Pe_1GeV          = 1*cst.eV # [cm^-3] e- Pressure at 1 GeV
 ###############################################################################
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-#phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
-#phases.append([ism.CNM, dict(Xmin=100.*cst.pc, Xmax=200.*cst.pc), getVA(E, ism.CNM)])
-#phases.append([ism.DiM, dict(Xmin=510.*cst.pc, Xmax=1000.*cst.pc), getVA(E, ism.DiM)])
-#phases.append([ism.CNM, dict(Xmin=230.*cst.pc, Xmax=330.*cst.pc), getVA(E, ism.CNM)])
-#phases.append([ism.WNM, dict(Xmin=330.*cst.pc, Xmax=1000.*cst.pc), getVA(E, ism.WNM)])
-
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=300.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.HII, dict(Xmin=0.*cst.pc, Xmax=300.*cst.pc), getVA(E, ism.WNM)]) 
 phases.append([ism.CNM, dict(Xmin=300.*cst.pc, Xmax=500.*cst.pc), getVA(E, ism.CNM)])
 phases.append([ism.DiM, dict(Xmin=500.*cst.pc, Xmax=600.*cst.pc), getVA(E, ism.DiM)]) 
 phases.append([ism.CNM, dict(Xmin=600.*cst.pc, Xmax=800.*cst.pc), getVA(E, ism.CNM)])
@@ -83,9 +94,7 @@ phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism
 phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
 phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 
-#phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
-
-smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases
+smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases (10 pc min to avoid jumps)
 
 # We calculate the smoothed variables
 T, B, ni, nn, nt, Xi, mi, mn, va = mh.SmoothPhaseTransition(X, E, phases, smooth_width_transition)
