@@ -213,6 +213,10 @@ int main()
     int out_Ip_index = 0;
     int out_Im_index = 0;
 
+    // Other important variables 
+    double B_sat;
+
+
     // Main variables which we solve 
     vector<vector<double>> Pcr_new, Pcr_old, Pcr_background;
     vector<vector<double>> Pe_new, Pe_old, Pe_background;
@@ -284,6 +288,8 @@ int main()
         }
 
         r_snr = RSNR(time);
+
+        //B_sat = Bsat(Pcr_old, X, log10E, r_snr); // A coder !!! 
 
         #pragma omp parallel num_threads(nproc)
         {
@@ -399,6 +405,7 @@ int main()
         duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
         duration = duration / nproc;
         showLog_0(time, Tmax, getLogOutput(), time_index, duration);
+        //showLog_1(getLogOutput(), time_index, B_sat);
         time += dt;
         time_index += 1;
 

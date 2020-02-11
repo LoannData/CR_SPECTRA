@@ -29,17 +29,16 @@ const int solver_PcrDiffusion  = 1; // Diffusive term of the CR Pressure
 const int solver_PcrAdvection2 = 1; // Explicit Advection solver for Pcr by the energy derivative of Alfvén velocity.
 const int solver_PcrAdvectionE = 1; // Explicit Advection solver for Pcr in energy cdVAdX
 const int solver_PcrSource1    = 1; // Source term effect due to the dependance of the Alfvén velocity to the space
-const int solver_PcrSource2    = 0; // Source term effect due to the CR injection from the source in the system  
+const int solver_PcrSource2    = 1; // Source term effect due to the CR injection from the source in the system  
 
 const int solver_PeAdvection   = 1; // Advective term of the e- Pressure (the classical one -> V_A*grad ...)
 const int solver_PeDiffusion   = 1; // Diffusive term of the e- Pressure
 const int solver_PeAdvection2  = 1; // Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
 const int solver_PeAdvectionE  = 1; // Explicit Advection solver for e- in energy cdVAdX
-
 const int solver_PeAdvectionE2 = 1; // Synchrotron radiations of e- (looses of energy)
 
 const int solver_PeSource1     = 1; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
-const int solver_PeSource2     = 0; // Source term effect due to the e- injection from the source in the system 
+const int solver_PeSource2     = 1; // Source term effect due to the e- injection from the source in the system 
 
 const int solver_IpAdvection   = 1; // Advective term of the foward waves 
 const int solver_ImAdvection   = 1; // Advective term of the backward waves
@@ -50,10 +49,10 @@ const int solver_ImDampGrowth  = 1; // Source term effect due to production of s
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 4;                    // Number of processors for the run 
+const int nproc = 1;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 100.*kyr;//200.*kyr; // Instant of the last output data
-const int number_out_data   = 100;     // Total number of output data
+const double t_data_out_max = 100.*kyr; //200.*kyr; // Instant of the last output data
+const int number_out_data   = 1000;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 100;      // Number of time-step between two LogOutput
@@ -69,11 +68,11 @@ const double xi_n     = 1;      // For solar abundances
 const double phi_c    = 1;      // Actual thermal cond. / the Sptitzer (1962) value 
 const double bbeta    = 2; 
 const double C06      = 1.;
-const double xhi_cr   = 0.1;   // Efficiency of CRs acceleration 
+const double xhi_cr   = 0.1;    // Efficiency of CRs acceleration 
 const double xhi_0    = 2.026; 
 const double gam      = 2.2;      // CRs injection energy power law index 
 const double Emin     = 0.1*GeV;  // Minimum accelered CRs during the Sedov phase 
-const double delta    = 2; 
+const double delta    = 2;       // From Celli et al. (2019) - see Brahimi et al. (2020)
 //const double Emax     = 2e5*GeV;  // Maximum CRs energy
 const double t_start_injection        = 1e-6*kyr; // Time start CRs injection function 
 const double t_end_injection          = 2;   // [in tesc[E] units] Time end CRs injection function (number of tesc)

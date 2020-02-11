@@ -42,6 +42,8 @@ nx        = nml.NX
 ne        = nml.NE
 
 x_center = nml.box_center
+x_center_index = int(x_center/(X[1] - X[0]))
+
 
 # ISM secondary variables 
 ism_values = nml.ism_values
@@ -150,12 +152,12 @@ fw.write1Daxis("B.dat", variable=B, nx=nx, path=nml.total_path+"/data_ini/")
 
 variables = {"NX"       : nx,
              "NE"       : ne,
-             "ni"       : ni[0],
-             "X"        : Xi[0],
-             "mn"       : mn[0],
-             "T"        : T[0],
+             "ni"       : ni[x_center_index],
+             "X"        : Xi[x_center_index],
+             "mn"       : mn[x_center_index],
+             "T"        : T[x_center_index],
              "center"   :x_center,
-             "B"        : B[0]}
+             "B"        : B[x_center_index]}
 
 fw.fileWrite("parameters", variables = variables, path=nml.total_path+"/", ext='.dat') 
 ###############################################################################

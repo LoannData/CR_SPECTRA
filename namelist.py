@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Last_test_before_V1"
+folder_name = "Test_folder_1"
 folder_path = "../WorkFolder/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -52,12 +52,12 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 12  # 2**NX is the X-size of the grid
-NE        = 7  # 2**NE is the E-size of the grid 
+NX        = 10  # 2**NX is the X-size of the grid
+NE        = 6  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc
-xgridtype = "cartesian"
+xgridtype = "cartesian" # No choice
 
 Emin      = 9.99*cst.GeV
 Emax      = 10.01*cst.TeV
@@ -84,7 +84,7 @@ Pe_1GeV          = 1*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
 ###############################################################################
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-phases.append([ism.HII, dict(Xmin=0.*cst.pc, Xmax=300.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=300.*cst.pc), getVA(E, ism.WNM)]) 
 phases.append([ism.CNM, dict(Xmin=300.*cst.pc, Xmax=500.*cst.pc), getVA(E, ism.CNM)])
 phases.append([ism.DiM, dict(Xmin=500.*cst.pc, Xmax=600.*cst.pc), getVA(E, ism.DiM)]) 
 phases.append([ism.CNM, dict(Xmin=600.*cst.pc, Xmax=800.*cst.pc), getVA(E, ism.CNM)])

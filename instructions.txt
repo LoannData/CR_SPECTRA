@@ -9,7 +9,7 @@
 INSTRUCTIONS
 #==================================================#
 
-- Go in the folder ./CRCode
+- Go in the folder ./CR_SPECTRA
 - Edit ./namelist.py file (Note : Chose the ouput folder name and location !)
 - Edit ./setup.py file 
 - Execute setup.py with Python 3.7 (python3 ./setup.py)

@@ -176,6 +176,40 @@ double tesc(double E)
     }
 
 
+
+double Bsat(vector<vector<double>> &Pcr, vector<double> X, vector<double> Y, double r_snr)
+    {
+        double dX = X[1] - X[0]; 
+        double dY = Y[1] - Y[0];
+        double shock_pos = (x_center+r_snr)/dX;
+        int index_pos_sh = int(shock_pos);
+
+        //cout<<"shock_pos = "<<shock_pos<<" float, index = "<<index_pos_sh<<endl;
+
+
+        //double B_sat= 0;
+
+        double Int = 0.; 
+        for (int ei = 0; ei < Y.size(); ei++)
+        {
+            Int += Pcr[index_pos_sh][ei]*log(10.)*pow(10., Y[ei])*abs(dY); 
+        }
+
+        double B_sat = pow(24*pi*Int,0.5);
+        
+
+        //cout<<"r_snr = "<<r_snr/pc<<" pc"<<endl;
+        //cout<<"dY0 = "<<abs(Y[1] - Y[0])<<", dY1 = "<<abs(Y[10] - Y[9])<<endl;
+        cout<<"Shock_pos_int = "<<X[index_pos_sh]/pc<<" pc, Bsat = "<<B_sat<<" G, X_sh = "<<(r_snr+x_center)/pc<<" pc, DX = "<<dX/pc<<" pc"<<endl;
+        //cout<<"Bsat = "<<B_sat<<endl;
+
+        return B_sat;
+
+
+
+    }
+
+
 double tesc_e(double E)
     {
         double tSed = GetTSed();

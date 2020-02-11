@@ -1,0 +1,242 @@
+\section{Introduction \& Quick tutorial}
+
+
+    \subsection{Presentation of the CR SPECTRA code}
+
+
+    \subsection{Structure of the code}
+
+
+
+        The ./CR\_SPECTRA/ code is structured in the following way. In the ./CR\_SPECTRA/ folder, we have two Python3.7 files : "namelist.py" and "setup.py" which allow to 
+        generate the initial conditions of the problem such as : the ISM model, the CRs initial pressure and turbulent background. These files make use of the folder "tools" 
+        which contains all the stuff in term of mathematics and physical models in order to generate the initial conditions. The ./CR\_SPECTRA/src folder contains the C++ core of 
+        the code which allows to solve numerically the propagation of CRs and the turbulence it generate according to the initial ISM conditions. The "./CR\_SPECTRA/data\_analysis"
+        folder contains some files which allows to read the outputs of the code. 
+
+        \subsubsection{The input files}
+
+            The input files contains the files {\bf{./CR\_SPECTRA/namelist.py}} and \\ {\bf{./CR\_SPECTRA/setup.py}} which allow to generate the initial coniditions of the 
+            simulation and produce the initial data in the work folder. These data are located in the folder {\bf{WorkFolder/data\_ini}} and are named : {\bf{Alfven.dat}}
+             (which corresponds to the Alfven velocity in space and energy), {\bf{B.dat}} which corresponds to the background magnetic field in space, 
+            {\bf{damping.dat}} which corresponds to the self-generated turbulence damping rate in space and energy, 
+            {\bf{DBohm.dat}} which correspond to the Bohm diffusion coefficient in space and energy, 
+            {\bf{DCRpara.dat}} which correspond to the background diffusion coefficient of CRs in space and energy, 
+            {\bf{E.dat}} which correspond to the energy scale in ergs, 
+            {\bf{Im.dat}} which corresponds to the backward Alfvén perturbations energy density in space and energy,
+             {\bf{Ip.dat}} which corresponds to the forward Alfvén perturbations energy density in space and energy, 
+             {\bf{Pcr.dat}} which corresponds to the protons pressure in space and energy, 
+             {\bf{Pe.dat}} which corresponds to the electrons pressure in space and energy and
+            {\bf{X.dat}} which corresponds to the space scale grid in cm. \\ 
+
+            A {\bf{./WorkFolder/parameters.dat}} file is also generated and put in the workfolder. It contains other important informations for the simulation. 
+
+        \subsubsection{The calculation files}
+
+            All the calculation files can be found in the folder {\bf{./CR\_SPECTRA/src}}, they play the following roles 
+
+            \begin{itemize}
+                \item {\bf{main.cpp}} : This file is the main file of the simulation which contains the time-loop. 
+                \item {\bf{constants.h}} : This file contains all the important parameters of the simulation such as the CRs injection model, solvers properties, output 
+                                            parameters ... 
+                \item {\bf{cr\_source.h}} : This file contains all the CRs injection models functions
+                \item {\bf{solver1D.h}} : This file contains all the solver functions of the simulation 
+                \item {\bf{tools.h \& mathematics.h}} : These files contains important mathematical functions used in the simulation
+                \item {\bf{fwritter.h \& freader.h}} : These files allow to read/write data 
+                \item {\bf{out.h}} : This file allows to write the ouput data 
+                \item {\bf{logmaker.h}} : This file allows to create the log output of the code to show during the simulation 
+            \end{itemize}
+            
+
+        \subsubsection{The output files}
+
+            During the simulation, the code will print outputs. They will be printed in the folder {\bf{./WorkFolder/data\_out/}}. And they 
+            are of the form : 
+
+            \begin{center}
+                {\bf{VariableName\_XXXXX.dat}}
+            \end{center}
+
+            \noi where XXXXX correspond to the number of ouput. 
+
+        \subsubsection{The tools files}
+
+
+    \subsection{The initial conditions python files}
+
+        The initial conditions files are located in the main folder : "./CR\_SPECTRA/" and are named as following : 
+                
+        \begin{itemize}
+            \item [$\rightarrow$] namelist.py 
+            \item [$\rightarrow$] setup.py 
+        \end{itemize}
+        
+        \noi They need to be executed with Python3.7 using the terminal command 
+
+        \begin{lstlisting}[language=Bash]
+            python ./setup.py
+        \end{lstlisting}
+
+        \noi Let is describe both files. First, we start with the "namelist.py" file 
+
+        \paragraph*{namelist.py} \\ 
+
+        \noi This file contains all the variables allowing to basically structure the simulation. It is divided in different part : 
+        the {\bf{Output folder creator}} part which allows to create the output folder and contains the following variables
+
+        \begin{itemize}
+            \item {\bf{folder\_name}} : Name of the current work folder.  
+            \item {\bf{folder\_path}} : The relative (or absolute) path of the work folder on your computer.
+        \end{itemize}
+
+        \noi The code will create the folder a the location you choosed and in this folder it will create sub-folders "data\_out", "data\_ini", "data\_analysis" and 
+        "tools" in order to put the initial conditions and read the outputs of the simulation. The {\bf{Grid parameters}} part leads the size of the simulation grid and 
+        contains the following variables 
+        
+        \begin{itemize}
+            \item {\bf{NX, NE}} : Correspond to the number of bins of space and energy respectively in terms of power of two. For example, NX = 12 corresponds to 
+                                $2^{12} = 4096$ bins. 
+            \item {\bf{Xmin, Xmax}} : Correspond to the minimum (maximum) value of the space grid bin. 
+            \item {\bf{xgridtype}} : Corresponds to the type of the grid, cartesian is the only choice for instance. 
+            \item {\bf{Emin, Emax}} : Correspond to the minimum (maximum) value of the energy grid bin. 
+            \item {\bf{egridtype}} : Corresponds to the type of the grid, logspace is the only choice for instance.  
+            \item {\bf{box\_center}} : Corresponds to the space position center of the CRs source according to the {\bf{Xmin}} and {\bf{Xmax}} values. Example, if 
+                                    Xmin = 200.*cst.pc and Xmax = 2200.*cst.pc, if box\_center = 100.*cst.pc, the CRs source will be outside the simulation box which will
+                                    lead to an error in the code.  
+        \end{itemize}
+
+        \noi All these variables allow to build a space and energy grid according to the {\bf{grid}} function in the file {\bf{./CR\_SPECTRA/tools/d1\_grid\_generator.py}}.
+        The {\bf{Other terms}} part allows to select or unselect some turbulent damping parameters {\bf{in\_damping}} (Ion-Neutral damping), {\bf{lz\_damping}} (Lazarian 
+        damping, see Lazarian 2016) and {\bf{nlld\_damping}} (Non-linear Landau damping, see Wiener et al. 2013). The variables {\bf{Pcr\_1GeV}} and {\bf{Pe\_1GeV}}
+        allow to fix the Protons and electrons pressure at 1 GeV (in CGS units). The {\bf{ISM Structure}} part allows to generate the ISM model as a combinaison of 
+        phase layers listed in the variable {\bf{phase}}. The layers are defined as a list of the following variables : 
+
+        \begin{itemize}
+            \item {\bf{ism.layer\_phase\_name}} : This variable can be (HII, WIM, WNM, CNM, DiM ...) and correspond to a python dictionnary of phase defined in the file 
+                                                {\bf{./CR\_SPECTRA/tools/phases\_collection.py}}. You can add your own phases with their own parameters. 
+            \item {\bf{dict\{Xmin = a, Xmax = b\}}} : Corresponds to a Python dictionnary describing the minimum position and maximum position of the given phase in the 
+                                                    simulation box. You need to fill all the box with a phase, otherwise the code will lead to an error. 
+            \item {\bf{getVA{E, ism.layer\_phase\_name}}} : Except the name to the layer, you don't need to change this variable. It allows to obtain a smoother value of 
+                                                        the Alfvén velocity between the different phases. Indeed, without this function, one can observe strong jumps 
+                                                        in the Alfvén velocity between two phases which can lead to a numerical error.  
+        \end{itemize}
+
+        \noi Finally, the variable {\bf{smooth\_width\_transition}} allows to fix the transition size between the different layers in order to avoid jumps. It is 
+        suggested to avoid values lower than 10 pc for a spatial grid of 2048 bins. 
+
+        \paragraph*{setup.py} \\
+
+        The {\bf{setup.py}} file allows to generate the initial CRs and turbulence conditions and write the input files in the chosen work folder. It is divided in 
+        different part such as {\bf{Informations coming from the namelist}} which retrieve all the data coming from the file {\bf{namelist.py}} in the same folder, 
+        the {\bf{Initial ISM conditions}} which you can adapt with your own models and which is basically generate the following variables 
+
+        \begin{itemize}
+            \item {\bf{d00}} [list, X] : Corresponds to a background value of the CRs diffusion coefficient. This value is only space dependent and can be refined according to a 
+                            model of turbulence in the different ISM phases. 
+            \item {\bf{D, Db}} [list, (E, X)]: Corresponds to the value of the CRs diffusion coefficient (Bohm diffusion coefficient). 
+            \item {\bf{Ip, Im}} [list, (E, X)] : Corresponds to the value of the magnetic perturbations energy density of foward (backward) Alfvén waves 
+                                            ($I = (\delta B / B_0)^2$).  
+            \item {\bf{VA}} [list, (E, X)] : Corresponds to the vectorial Alfvén velocity 
+            \item {\bf{gamma\_in, gamma\_lazarian, gamma\_nlld, gamma\_tot}} [list, (E, X)] : Corresponds to the damping terms in space and energy of the generated resonnant 
+                                            Alfvén waves (Im and Ip) and $\Gamma_\mathrm{tot} = \Gamma_\mathrm{in} + \Gamma_\mathrm{lz}  +\Gamma_\mathrm{nlld}$. 
+            \item {\bf{Pcr, Pe}} [list, (E, X)] : Correspond to the protons and electrons pressure. 
+        \end{itemize}
+
+        \noi This part contains two important double loops. The first one allow to calculate the turbulent background while the second one allows to calculate the 
+        damping terms and the initial protons and electrons space and energy distribution (only of the background, not the source). The {\bf{Write the initial conditions}}
+        and {\bf{Copy tools and analysis files}} allow to put in the work folder all the important files for the simulation. 
+
+
+    \subsection{The initial condition C++ file}
+
+        The inital condition C++ file are found in the folder {\bf{CR\_SPECTRA/src/}}. It is named {\bf{constants.h}} and allows to fix all the important parameters 
+        of the simulation such as : the parallelisation of the code, the equations terms to use, the CRs injection parameters (CR Source) and the data output frequency 
+        and the simulation duration. The file is decompsed in different parameters : The first part is the constant values of the simulation which can be refined if necessary 
+        of even changed into an SI metric system. The second is the {\bf{Solver options}}. Let remind quickly the equations solved by the CR\_SPECTRA code 
+        
+        \begin{eqnarray*}
+            \underbrace{\pdv{P_\mathrm{cr}}{t}}_\text{CR.0} + 
+            \underbrace{V_\mathrm{A} \pdv{P_\mathrm{cr}}{x}}_\text{CR.1} 
+            & = & 
+            \underbrace{\pdv{}{x} D \pdv{P_\mathrm{cr}}{x}}_\text{CR.2} + 
+            \underbrace{\frac{E}{3}  \pdv{V_\mathrm{A}}{x} \pdv{P_\mathrm{cr}}{E}}_\text{CR.3} - 
+            \underbrace{\frac{E}{3}  \pdv{V_\mathrm{A}}{E} \pdv{P_\mathrm{cr}}{x}}_\text{CR.4} -
+            \underbrace{\frac{4}{3} \pdv{V_\mathrm{A}}{x} P_\mathrm{cr}}_\text{CR.5} + 
+            \underbrace{Q_\mathrm{cr}}_\text{CR.6} \nonumber \\ 
+
+            \underbrace{\pdv{P_\mathrm{e}}{t}}_\text{E.0} + 
+            \underbrace{V_\mathrm{A} \pdv{P_\mathrm{e}}{x}}_\text{E.1} 
+            & = & 
+            \underbrace{\pdv{}{x} D \pdv{P_\mathrm{e}}{x}}_\text{E.2} + 
+            \underbrace{\frac{E}{3}  \pdv{V_\mathrm{A}}{x} \pdv{P_\mathrm{e}}{E}}_\text{E.3} - 
+            \underbrace{\frac{E}{3}  \pdv{V_\mathrm{A}}{E} \pdv{P_\mathrm{e}}{x}}_\text{E.4} -
+            \underbrace{\frac{4}{3} \pdv{V_\mathrm{A}}{x} P_\mathrm{e}}_\text{E.5} + 
+            \underbrace{Q_\mathrm{e}}_\text{E.6} + 
+            \underbrace{Q_\mathrm{sync}}_\text{E.7} \nonumber \\ 
+
+            \underbrace{\pdv{I_p}{t}}_\text{IP.0}  + 
+            \underbrace{V_\mathrm{A} \pdv{I_p}{x}}_\text{IP.1} 
+            & = & 
+            \underbrace{- I_p \pdv{V_\mathrm{A}}{x}}_\text{IP.2} + 
+            \underbrace{(\Gamma_g - \Gamma_d)(I_p - I_p^0)}_\text{IP.3} \nonumber \\ 
+
+            \underbrace{\pdv{I_m}{t}}_\text{IM.0}  + 
+            \underbrace{V_\mathrm{A} \pdv{I_m}{x}}_\text{IM.1} 
+            & = & 
+            \underbrace{- I_m \pdv{V_\mathrm{A}}{x}}_\text{IM.2} + 
+            \underbrace{(\Gamma_g - \Gamma_d)(I_m - I_m^0)}_\text{IM.3} \nonumber \\ 
+        \end{eqnarray*}
+
+        \noi In the {\bf{constants.h}} file, each term relies to the following parameters whose their value can be 1 (for on) and 0 (for off). Here P refers to the Protons 
+        pressure (Pcr) and also the electrons pressure (Pe), I refers to the fowarding (Ip) and backwarding (Im) Alfvén turbulence.
+
+        \begin{itemize}
+            \item {\bf{solver\_PAdvection}} [CR.1 \& E.1] : Explicit
+            \item {\bf{solver\_PDiffusion}} [CR.2 \& E.2]: Fully Implicit
+            \item {\bf{solver\_PAdvection2}} [CR.4 \& E.4]: Explicit 
+            \item {\bf{solver\_PAdvectionE}} [CR.3 \& E.3]: Explicit 
+            \item {\bf{solver\_PSource1}} [CR.5 \& E.5]: Source 
+            \item {\bf{solver\_PSource2}} [CR.6 \& E.6]: Source
+            \item {\bf{solver\_PeAdvectionE2}} [E.7] : Explicit 
+            \item {\bf{solver\_IAdvection}} [IP.1 \& IM.1]: Explicit 
+            \item {\bf{solver\_ISource1}}  [IP.2 \& IM.2]: Source 
+            \item {\bf{solver\_IDampGrowth}} [IP.3 \& IM.3]: Source 
+        \end{itemize}
+
+        \noi The part {\bf{Run \& Output parameters}} provides th following parameters 
+
+        \begin{itemize}
+            \item {\bf{nproc}} [integer] : Number of processors if OpenMP is activated. Otherwise, we recommend to let it equals to 0. 
+            \item {\bf{t\_data\_out\_min}} [double] : Instant - dt of the first output of the code 
+            \item {\bf{t\_data\_out\_max}} [double] : Instant of the last output of the code
+            \item {\bf{number\_out\_data}} [int] : Number of output data we want between {\bf{t\_data\_out\_min}} and {\bf{t\_data\_out\_max}}
+            \item {\bf{time\_distrib\_of\_data}} [int] (0: linspace, 1: logspace) : Corresponds to the way (in terms of time) we want to output the simulation data
+            \item {\bf{log\_first\_data}} [double] : Parameters allowing to choose the first time of data ouput in the case where {\bf{time\_distrib\_of\_data}} = 1 because t = 0
+                                                    does not exist in a such case. 
+            \item {\bf{delta\_log\_output}} [int] : This parameter specifies the number of time-step of the code between each log output. 
+            \item {\bf{Tmax}} [double] : Corresponds to the maximum time of the simulation. 
+        \end{itemize}
+
+        \noi The part {\bf{SNR Properties}} deals with the CRs injection models. The parameters are the following 
+
+        \begin{itemize}
+            \item {\bf{Esn}} [double] : Corresponds to the total energy released from the SNR (in unit of 1e51 erg)
+            \item {\bf{Mej}} [double] : Corresponds to the total mass released by the SNR in Sun mass units 
+            \item {\bf{xi\_n}} [double] : Parameter = 1 for solar abundance metallicity 
+            \item {\bf{phi\_c}} [double] : Actual thermal conductivity, the Sptitzer (1962) value 
+            \item {\bf{bbeta}} [double] : 
+            \item {\bf{C06}} [double] : 
+            \item {\bf{xhi\_cr}} [double] : Efficiency of CRs acceleration (0.1 by default)
+            \item {\bf{xhi\_0}} [double] : 
+            \item {\bf{gam}} [double] : CRs injection energy power law index (2.2 by default)
+            \item {\bf{Emin}} [double] : Minimum value of energy of accelerated CRs 
+            \item {\bf{delta}} [double] : Free parameter for the CRs escape time calculation (from Celli et al. 2019)
+            \item {\bf{t\_start\_injection}} [double] : Time start CRs injection function ($10^{-6}$ kyrs)
+            \item {\bf{t\_end\_injection}} [double] : in tesc[E] units, Time end CRs injection function (number of tesc)
+            \item {\bf{injection\_function\_width}} [double] : Allows to calculate the Half-width value of the CRs time injection function : $\sigma = t_\mathrm{esc}/\mathrm{width}$ 
+            \item {\bf{injection\_function\_norm}} [integer] : Number of bins for the numerical integral in order to normalize the injection function
+            \item {\bf{r\_snr\_thickness}} [double] : = R\_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  
+        \end{itemize}
+
+
+
