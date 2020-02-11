@@ -252,7 +252,7 @@ int main()
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
         Pe_ini_temp[j] = Pcr_ini(E[j]);                    // A modifier, concerne les e- 
-        ttesc_e[j] = tesc_e(E[j]);                           // A modifier, concerne les e- -> C'est fait   
+        ttesc_e[j] = tesc(E[j]);                           // A modifier, concerne les e- -> C'est fait   
     }
 
 
@@ -262,10 +262,6 @@ int main()
     int g;
     while (time < Tmax)
     {   
-    
-        
-
-
         start = std::clock();
 
         Pcr_old = Pcr_new;
@@ -273,9 +269,19 @@ int main()
         Ip_old  = Ip_new;
         Im_old  = Im_new;
 
+        r_snr = RSNR(time);
+        //if (isnan(r_snr)){
+        //cout<<"r_snr = "<<r_snr<<endl;}
+        B_sat = Bsat(Pcr_new, X, log10E, r_snr); // It is working 
+
+
+
 
         for (g=0; g<NE; g++)
         {
+            // We actualise the escape time of the electrons
+            ttesc_e[g] = tesc_e(ttesc[g], B_sat, E[g]);
+            //cout<<"Bsat = "<<B_sat*1e6<<", tesc = "<<ttesc[g]/kyr<<" kyrs, tesc_e = "<<ttesc_e[g]/kyr<<" kyrs"<<endl;
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
             Finj_temp_e[g] = Finj(time, dt, E[g], ttesc_e[g]);
         }
@@ -287,9 +293,11 @@ int main()
             vec_theta_e[g] = theta(X[g], time, r_snr);
         }
 
-        r_snr = RSNR(time);
+        
 
-        //B_sat = Bsat(Pcr_old, X, log10E, r_snr); // A coder !!! 
+        //cout<<"r_snr = "<<r_snr<<endl;
+
+         
 
         #pragma omp parallel num_threads(nproc)
         {

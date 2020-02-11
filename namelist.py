@@ -52,8 +52,8 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 10  # 2**NX is the X-size of the grid
-NE        = 6  # 2**NE is the E-size of the grid 
+NX        = 11  # 2**NX is the X-size of the grid
+NE        = 4  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc
