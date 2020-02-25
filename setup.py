@@ -87,7 +87,7 @@ for e in range(len(E)) :
         print ("Initialisation : "+str(round(e/len(E)*100.,2))+" %")
     for xi in range(len(X)) : 
         # Bohm diffusion coefficient
-        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[xi]))
+        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[0]))
         # Background diffusion coefficient
         D[e][xi]  = d00[xi]*(E[e]/(10.*cst.GeV))**0.5
         # Background rates of turbulence

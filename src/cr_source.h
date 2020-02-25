@@ -242,13 +242,46 @@ double Bsat(vector<vector<double>> &Pcr, vector<double> X, vector<double> Y, dou
     }
 
 
+double B_sat(double time)
+    {
+        double B_ISM = Bcenter;
 
-double tesc_e(double tesc_p, double B_sat, double E)
+        // See Ohira et al. (2012), eq. 20
+        double t_sed  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
+        double R_sed  = 5.0*pow(Esn/nt,1./5)*pow(1 - (0.05*pow(Mej,5./6))/(pow(Esn,0.5)*pow(nt,1./3)*(t_sed/kyr)), 2./5)*pow(t_sed/kyr,2./5)*pc; // [cm]
+        
+        double Bfree = eta_gfree*eta_acc*c*t_sed*Eknee/(3*e*pow(R_sed,2));
+
+        double alpha_B, t_B;
+        if (oh_model == 1){alpha_B = alpha - 1./5;}
+        if (oh_model == 2){alpha_B = 9./10;}
+        if (oh_model == 3){alpha_B = 3./5;}
+
+        t_B = t_sed*pow(Bfree/B_ISM, 1./alpha_B);
+
+        if (time <= t_sed)              {return Bfree;}
+        if (time > t_sed & time <= t_B) {return pow(Bfree/B_ISM, alpha_B);}
+        if (time > t_B)                 {return B_ISM;}
+    }
+
+double tesc_e(double E)
+    {
+        double tesc_p = tesc(E);
+        double Bsat  = B_sat(tesc_p); 
+        //cout<<" Bsat = "<<Bsat*1e6<<" muG"<<endl;
+        double tloss_e = 4*E/(c*sig_T*pow(Bsat,2)*pow(1 + E/(me*pow(c,2)),2));
+
+        return min(tesc_p, tloss_e);
+    }
+
+
+
+/*double tesc_e(double tesc_p, double B_sat, double E)
     {
         double tloss_e = 4*E/(c*sig_T*pow(B_sat,2)*pow(1 + E/(me*pow(c,2)),2));
         //return tesc_p; 
         return min(tesc_p, tloss_e);
-    }
+    }*/
 
 
 

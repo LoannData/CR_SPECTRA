@@ -251,9 +251,10 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
-        cout<<"E = "<<E[j]/GeV<<" GeV, tesc = "<<ttesc[j]/kyr<<" kyr"<<endl;
+        
         Pe_ini_temp[j] = Pcr_ini(E[j]);                    // A modifier, concerne les e- 
-        ttesc_e[j] = tesc(E[j]);                           // A modifier, concerne les e- -> C'est fait   
+        ttesc_e[j] = tesc_e(E[j]);                           // A modifier, concerne les e- -> C'est fait 
+        //cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, t_esc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;  
     }
 
 
@@ -273,7 +274,7 @@ int main()
         r_snr = RSNR(time);
         //if (isnan(r_snr)){
         //cout<<"r_snr = "<<r_snr<<endl;}
-        B_sat = Bsat(Pcr_new, X, log10E, r_snr); // It is working 
+        //B_sat = Bsat(Pcr_new, X, log10E, r_snr); // It is working 
 
 
 
@@ -282,7 +283,7 @@ int main()
         {
             // We actualise the escape time of the electrons
             // 
-            ttesc_e[g] = min(max(tesc_e(ttesc[g], B_sat, E[g]), time), ttesc[g]);
+            //ttesc_e[g] = min(max(tesc_e(ttesc[g], B_sat, E[g]), time), ttesc[g]);
             //cout<<"Bsat = "<<B_sat*1e6<<", tesc = "<<ttesc[g]/kyr<<" kyrs, tesc_e = "<<ttesc_e[g]/kyr<<" kyrs"<<endl;
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
             Finj_temp_e[g] = Finj(time, dt, E[g], ttesc_e[g]);
