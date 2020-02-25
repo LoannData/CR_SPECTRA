@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Oct 31 11:21:55 2019
+Created on Tue Feb 18 10:36:52 2020
 
 @author: lbrahimi
 """
-
 import numpy as np 
 import matplotlib.pyplot as plt
+
+import sys 
+sys.path.append("../")
+import constants as cst
 
 ###############################################################################
 # FUNCTIONS IN ORDER TO CREATE A GOOD SPLINE !!!                              #
@@ -206,31 +209,180 @@ def Rsh(nt) :
         r_new[ii] = 10**(logr_new[ii])
         
     return t, R, t_new, r_new
+
+
+
+###############################################################################
+# ELECTRON ESCAPE MODEL (from Ohira et al. (2012))                            # 
+###############################################################################
+
+
+# Some important functions 
+
+def B(t, ts, tB, alpha_B, BISM, Bfree) :
+    if (t <= ts) : 
+        return Bfree
+    if (t > ts and t <= tB) : 
+        return Bfree*(t/ts)**(-alpha_B)
+    if (t > tB) : 
+        return BISM
+
+
+def eta_g(t, ts, tB, alpha, alpha_B, eta_free) : 
+    if (t <= ts) : 
+        return eta_free
+    if (t > ts and t <= tB) : 
+        return eta_free*(t/ts)**(alpha - alpha_B - 1./5)
+    if (t > tB) : 
+        return eta_free*(tB/ts)**(-alpha_B)*(t/ts)**(alpha - 1./5)
+
+def Em_age(t, ts, tB, alpha_B, alpha, BISM, Bfree, eta_acc, eta_free, Rs) : 
+    C = 3*cst.e*B(t, ts, tB, alpha_B, BISM, Bfree)*Rs**2/(eta_acc*eta_g(t, ts, tB, alpha, alpha_B, eta_free)*cst.c*ts)
+    if (t <= ts) : 
+        return C*(t/ts)
+    if (t > ts) : 
+        return C*(t/ts)**(-1./5)
+
+def Em_cool(t, ts, tB, alpha_B, alpha, BISM, Bfree, Ems) : 
+    if (t <= ts) : 
+        return Ems
+    if (t > ts and t <= tB) : 
+        return Ems*(t/ts)**((2*alpha_B - alpha - 1)/2.)
+    if (t > tB) : 
+        return (tB/ts)**(alpha_B)*(t/ts)**(-(alpha + 1)/2.)
+
+def Em_esc(t, ts, tB, alpha_B, alpha, BISM, Bfree, eta_acc, eta_free, eta_esc, Rs) : 
+    return np.sqrt(eta_esc*eta_acc)*Em_age(t, ts, tB, alpha_B, alpha, BISM, Bfree, eta_acc, eta_free, Rs)
+
+
+
+
+def Emax_electrons(time) : 
+
+# time = 12.5*cst.kyr 
+
+    E51   = 1 # [10^51 erg] Total energy released by the SNR
+    Mej   = 1 # [Msum] Total mass released by the SNR
+    nt    = 0.35 # [cm^{-3}] Total ISM density 
+    B0    = 6e-6 # [G] Mean magnetic field density in the ISM
+    
+    eta_acc   = 10  # Numerical factor depending on the shock compression ratio 
+    eta_free = 1   # Gyrofactor during the free expansion phase
+    eta_esc   = 0.1 # Numerical factor for the escape time 
+    Eknee     = 10**(15.5)*cst.eV
+    
+    # alpha_B coefficient 
+    alpha = 2.6
+    # alpha_B   =  alpha - 1./5
+    alpha_B   =  9./10
+    # alpha_B   =  3./5
     
     
-t_WNM, R_WNM, t_new_WNM, r_new_WNM = Rsh(0.35)
-t_CNM, R_CNM, t_new_CNM, r_new_CNM = Rsh(30.)
-t_DiM, R_DiM, t_new_DiM, r_new_DiM = Rsh(300.)
+    # We define the time corresponding to the beginning of the Sedov phase 
+    ts  = 0.3*E51**(-0.5)*Mej*nt**(-1./3)*cst.kyr # [s]
+    Rs = 5.0*(E51/nt)**(1./5)*(1 - (0.05*Mej**(5./6))/(E51**0.5*nt**(1./3)*(ts/cst.kyr)))**(2./5)*(ts/cst.kyr)**(2./5)*cst.pc
+    
+    # Amplified magnetic field during the free expansion phase 
+    Bfree = eta_free*eta_acc*cst.c*ts*Eknee/(3*cst.e*Rs**2) 
+    
+    tB = ts*(Bfree/B0)**(1./alpha_B)
+    
+    Em_s = 9*cst.me**2*cst.c**(5./2)*Rs**2/(8*eta_free*eta_acc*cst.e*ts**(3./2)*Eknee**(1./2))
+    
+    
+    EM_age  = Em_age(time, ts, tB, alpha_B, alpha, B0, Bfree, eta_acc, eta_free, Rs)
+    EM_cool = Em_cool(time, ts, tB, alpha_B, alpha, B0, Bfree, Em_s)
+    EM_esc  = Em_esc(time, ts, tB, alpha_B, alpha, B0, Bfree, eta_acc, eta_free, eta_esc, Rs)
+    
+    Em_e = min(min(EM_age, EM_cool), min(EM_cool, EM_esc))
+
+    return Em_e 
 
 
-plt.figure(figsize=(10,6))
-
-plt.loglog(t_new_WNM/cst.kyr, r_new_WNM/cst.pc, c="green", label="WNM", lw=2)
-plt.loglog(t_new_CNM/cst.kyr, r_new_CNM/cst.pc, c="blue", label="CNM", lw=2)
-plt.loglog(t_new_DiM/cst.kyr, r_new_DiM/cst.pc, c="red", label="DiM", lw=2)
-
-for ii in range(len(t_WNM)) : 
-    plt.loglog(t_WNM[ii]/cst.kyr, R_WNM[ii]/cst.pc, c="black", marker='o')
-    plt.loglog(t_CNM[ii]/cst.kyr, R_CNM[ii]/cst.pc, c="black", marker='o')
-    plt.loglog(t_DiM[ii]/cst.kyr, R_DiM[ii]/cst.pc, c="black", marker='o')
 
 
-plt.xlim(1e-2, 1e4)
-plt.ylim(4e-1, 1.5e2)
+def escape_time(E, tSed, EM, delta) : 
+    return tSed*((E**2/cst.c**2 - cst.me**2*cst.c**2)/(EM**2/cst.c**2 - cst.me**2*cst.c**2))**(-1/(2*delta))
 
-plt.xlabel("Time [kyr]")
-plt.ylabel("R$_{sh}$ [pc]")
-plt.legend(loc="best")
 
-plt.savefig("./R_SNR.pdf")
+
+# time = np.logspace(np.log10(1e-3*cst.kyr), np.log10(1e3*cst.kyr), num=100)
+# Em_e = np.zeros(len(time)) 
+# for ii in range(len(time)) : 
+#     Em_e[ii] = Emax_electrons(time[ii])
+# plt.figure()
+# plt.loglog(time/cst.kyr, Em_e/cst.GeV)
+    
+# alpha_B coefficient 
+alpha = 2.6
+# alpha_B   =  alpha - 1./5
+alpha_B   =  9./10
+# alpha_B   =  3./5
+
+
+
+xhi_m = 1 # Metallicity (1 for solar abundances)
+xhi_cr= 0.1
+E51   = 1 # [10^51 erg] Total energy released by the SNR
+Mej   = 1 # [Msum] Total mass released by the SNR
+C06   = 1 # 
+beta  = 1 #
+phi_c = 1 # Ratio of the thermal conductivity to the Spitzer (1962) value
+vej8  = 10.*(E51/Mej)**(0.5)
+
+nt = 0.35
+###############################################################################
+# FUNCTIONS IN ORDER TO MAKE OUR SNR EXPAND IN THE ISM                        #
+###############################################################################
+# We define the characteristic times of our problem
+tsed  = 0.3*E51**(-0.5)*Mej*nt**(-1./3)*cst.kyr # [s]
+
+
+EM = Emax_electrons(tsed)
+
+
+E     = np.logspace(np.log10(1*cst.GeV), np.log10(100*cst.TeV), num=100)
+tesc  = np.zeros(len(E))
+
+for ii in range(len(E)) :
+    tesc[ii] = escape_time(E[ii], tsed, EM, 0.25*(alpha + 2*alpha_B - 1))
+
+
+plt.figure()
+plt.loglog(E/cst.GeV, tesc/cst.kyr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

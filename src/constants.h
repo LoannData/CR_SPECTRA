@@ -3,6 +3,7 @@
 const double pi   = 3.1472;
 const double yr   = 3.154e+7;   // 1 yr in [s]
 const double kyr  = 1e3*yr;     // 1 kyr in [s]
+const double km   = 1e5;        // 1 km in [cm]
 const double pc   = 3.086e18;   // 1 pc in [cm]
 const double kpc  = 1.e3*pc;    // 1 kpc in [cm]
 const double GeV  = 0.00160218; // 1 GeV in [erg] 
@@ -79,3 +80,5 @@ const double t_end_injection          = 2;   // [in tesc[E] units] Time end CRs 
 const double injection_function_width = 100. ; // Corresponds approximately to the width of the escape time divided 
 const int injection_function_norm     = 100; // Constant in order to easily and rapidly normalize the injection function 
 const double r_snr_thickness          = 100; // = R_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  
+
+const int tesc_model  = 2; // CR escape time model (1 : All CRs escape at the begining of the radiative phase, 2 : If v_sh < 110 km/s, all CRs escape)

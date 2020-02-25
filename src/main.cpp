@@ -251,6 +251,7 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
+        cout<<"E = "<<E[j]/GeV<<" GeV, tesc = "<<ttesc[j]/kyr<<" kyr"<<endl;
         Pe_ini_temp[j] = Pcr_ini(E[j]);                    // A modifier, concerne les e- 
         ttesc_e[j] = tesc(E[j]);                           // A modifier, concerne les e- -> C'est fait   
     }
@@ -280,7 +281,8 @@ int main()
         for (g=0; g<NE; g++)
         {
             // We actualise the escape time of the electrons
-            ttesc_e[g] = tesc_e(ttesc[g], B_sat, E[g]);
+            // 
+            ttesc_e[g] = min(max(tesc_e(ttesc[g], B_sat, E[g]), time), ttesc[g]);
             //cout<<"Bsat = "<<B_sat*1e6<<", tesc = "<<ttesc[g]/kyr<<" kyrs, tesc_e = "<<ttesc_e[g]/kyr<<" kyrs"<<endl;
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
             Finj_temp_e[g] = Finj(time, dt, E[g], ttesc_e[g]);

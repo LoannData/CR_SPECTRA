@@ -9,6 +9,10 @@ Created on Tue Sep 10 11:14:36 2019
 import numpy as np 
 import matplotlib.pyplot as plt
 
+import sys 
+sys.path.append("../")
+import constants as cst
+
 ###############################################################################
 # FUNCTIONS IN ORDER TO CREATE A GOOD SPLINE !!!                              #
 ###############################################################################
@@ -281,7 +285,7 @@ if (beta == 0.) :
 
 Emin = 0.001*cst.GeV
 EMAX = max(Emax)
-delta = 1.
+delta = 2.
 
 #tSed = 1e3*cst.yr*E51**(-0.5)*(Mej/10.)**(5./6)*(nt)**(-1./3) # [Celli et al. 2019]
 tSed = tfree # [Truelove & McKee 1997]
@@ -308,7 +312,7 @@ plt.loglog(t_new/cst.kyr, r_new/cst.pc, c="blue", lw=2, label="Spline model")
 plt.legend()
 plt.xlabel("Time [kyr]")
 plt.ylabel("$R$ [pc]")
-plt.savefig("./SNR_evolution.pdf")
+plt.savefig("./figures/SNR_evolution.pdf")
 
 
 plt.figure(figsize=(8,4))
@@ -316,7 +320,7 @@ plt.loglog(t_new/cst.kyr, u_sh/(100*1e3), c="blue", lw=2, label="Shock Velocity"
 plt.legend()
 plt.ylabel("$V_\\mathrm{sh}$ [km/s]")
 plt.xlabel("Time [kyr]")
-plt.savefig("./SNR_shock.pdf")
+plt.savefig("./figures/SNR_shock.pdf")
 
 
 plt.figure(figsize=(8,4))
@@ -325,12 +329,12 @@ plt.axvline(tSed/cst.kyr, c="black")
 plt.legend()
 plt.ylabel("$E_\\mathrm{max,0}(t)$ [GeV]")
 plt.xlabel("Time [kyr]")
-plt.savefig("./SNR_Emax.pdf")
+plt.savefig("./figures/SNR_Emax.pdf")
 
 plt.figure(figsize=(8,4))
 plt.loglog(Ecr/cst.GeV, tesc/cst.kyr, c="blue", lw=2, label="Escape Time")
 plt.legend()
 plt.ylabel("$t_\\mathrm{esc}$ [kyr]")
 plt.xlabel("E [GeV]")
-plt.savefig("./SNR_escapetime.pdf")
+plt.savefig("./figures/SNR_escapetime.pdf")
 

@@ -159,11 +159,11 @@ double GetEM()
 
 
 // CRs Escape time function (according to Celli et al. 2019) 
-double tesc(double E)
+/*double tesc(double E)
     {
         double tSed = GetTSed();
         double EM = GetEM();
-        double ddelt = -1./(2.*delta); 
+        double ddelt = -1./(delta); 
 
         //cout<<"EM = "<<EM/GeV<<" GeV"<<endl;
 
@@ -177,6 +177,43 @@ double tesc(double E)
         //cout<<"-1./(2.*delta) = "<<-1./(2.*delta)<<endl;
         //cout<<"E = "<<E/GeV<<" GeV, tesc = "<<tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt )/kyr<<" kyr"<<endl;
         return tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt );
+    }*/
+
+
+double tesc(double E)
+    {
+        double tSed = GetTSed();
+        double EM = GetEM();
+        double ddelt = -1./(delta); 
+
+        double tPDS   = exp(-1.)*3.61e4*pow(Esn,3./14)/(pow(xi_n,5./14)*pow(nt,4./7))*yr; // [s]
+        
+        double loc_tesc = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt);
+        double tfree  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
+
+        double v_sh = u_sh(loc_tesc);
+
+        if (tesc_model == 1) // if t >= tPDS
+        {
+            return min(tPDS, loc_tesc); 
+        }
+        if (tesc_model == 2) // if vsh <= 110 km.s^-1
+        {
+            if (v_sh <= 110*km) 
+                {
+                    double loc_time = loc_tesc; 
+                    double delta_time = 100.*yr;
+                    double loc_vsh = u_sh(loc_time);
+                    while(loc_vsh < 110*km)
+                    {
+                        loc_time -= delta_time; 
+                        loc_vsh = u_sh(loc_time); 
+                        //cout<<"loc_time = "<<loc_time/kyr<<" kyr, loc_vsh = "<<loc_vsh/km<<" km/s"<<endl;
+                    }
+                    return loc_time; 
+                }
+            if (v_sh > 110*km)  {return loc_tesc;}
+        }
     }
 
 
@@ -209,8 +246,8 @@ double Bsat(vector<vector<double>> &Pcr, vector<double> X, vector<double> Y, dou
 double tesc_e(double tesc_p, double B_sat, double E)
     {
         double tloss_e = 4*E/(c*sig_T*pow(B_sat,2)*pow(1 + E/(me*pow(c,2)),2));
-        return tesc_p; 
-        //return min(tesc_p, tloss_e);
+        //return tesc_p; 
+        return min(tesc_p, tloss_e);
     }
 
 

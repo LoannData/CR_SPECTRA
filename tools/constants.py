@@ -17,6 +17,7 @@ GeV  = 0.00160218 # 1 GeV in [erg]
 TeV  = 1e3*GeV    # 1 TeV in [erg]
 eV   = GeV*1e-9   # 1 eV in [erg]
 MeV  = 1e-3*GeV
+me   = 9.10938e-28   # Electron mass [g]
 mp   = 1.6726219e-24 # Proton mass [g]
 mn   = 1.6749286e-24 # Neutron mass [g]
 mHI  = mp # HI mass [g]
