@@ -29,7 +29,7 @@ def ism_phase(Temp, Bfiel, nion, ntot, mion, mneutral) :
 
 
 # Collection of phases 
-HII = ism_phase(8000, 10.e-6,  100, 100, cst.mHII, 0.93*cst.mHI+0.07*cst.mHeI)
+HII = ism_phase(8000, 10.e-6,  100, 99.9, cst.mHII, 0.93*cst.mHI+0.07*cst.mHeI)
 WIM = ism_phase(8000, 5.00001e-6,  0.315, 0.35, cst.mHII, 0.93*cst.mHI+0.07*cst.mHeI)
 WNM = ism_phase(8000, 5.00001e-6,   7e-3, 0.35, cst.mHII, 0.93*cst.mHI+0.07*cst.mHeI)
 CNM = ism_phase(  50, 6.00001e-6, 2.3e-2, 30.0, cst.mCII, 0.93*cst.mHI+0.07*cst.mHeI)

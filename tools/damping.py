@@ -16,6 +16,47 @@ import constants as cst
 
 
 
+def IonNeutral_Damping(k, medium_props, nu_n = 0, theta = 0) : 
+    T  = medium_props.get('T')
+    B  = medium_props.get('B')
+    mn = medium_props.get('mn')
+    mi = medium_props.get('mi') 
+    X  = medium_props.get('X')
+    ni = medium_props.get('ni')
+    nn = medium_props.get('nn')    
+    
+    
+    # Some relations 
+    # rl = (E)/(cst.e*B)
+    # k = 1/rl
+    chi = (mn/mi)*(X**(-1.)-1.)
+    
+    VAi = B/np.sqrt(4*np.pi*mi*ni)
+    if (T <= 50) : 
+        nu_in = 2*nn*8.4e-9*(50/1e4)**0.4
+    if (T > 50) : 
+        nu_in = 2*nn*8.4e-9*(T/1e4)**0.4
+    nu_ni = chi**(-1.)*nu_in
+    
+    kz = k*np.cos(theta)
+    
+    a = 1 
+    b = (1 + chi)*nu_ni
+    c = kz**2*VAi**2
+    d = nu_ni*kz**2*VAi**2
+    
+    roots = mt.Cubic3(a, b, c, d)
+    
+    wR = abs(roots[2].imag)
+    wI = abs(roots[2].real)
+    cA = wR/k 
+    
+    return dict(wr=wR, wi=-wI, VA=cA)
+
+
+
+
+
 
 
 # Ion-neutral damping of Alfven waves 
