@@ -8,7 +8,7 @@
 #include <sstream>
 using namespace std;
 
-int writeXE(std::string filename, int index, vector<vector<double>> data, double NX, double NE)
+int writeXE(std::string filename, int index, vector<vector<double> > data, double NX, double NE)
 {
     ofstream data_file;
     index += 1;

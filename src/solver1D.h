@@ -9,7 +9,7 @@
 using namespace std;
 
 
-void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr_new,   double dt, vector<double> X, int NE, vector<vector<double>> Ip, vector<vector<double>> Im, vector<vector<double>> Db, vector<vector<double>> &Pcr_background)
+void thetaDiffusionSolver(vector<vector<double> > &u, vector<vector<double> > &Pcr_new,   double dt, vector<double> X, int NE, vector<vector<double> > Ip, vector<vector<double> > Im, vector<vector<double> > Db, vector<vector<double> > &Pcr_background)
 {
     double theta = 1.;
     int NX = X.size() - 1;
@@ -101,7 +101,7 @@ void thetaDiffusionSolver(vector<vector<double>> &u, vector<vector<double>> &Pcr
 
 
 
-void advectionSolverX(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> X, int NE, vector<vector<double>> V, int sign)
+void advectionSolverX(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> X, int NE, vector<vector<double> > V, int sign)
 {
     // Upwind advection scheme
     // CF : https://en.wikipedia.org/wiki/Upwind_scheme
@@ -153,7 +153,7 @@ void advectionSolverX(vector<vector<double>> &u_old, vector<vector<double>> &u_n
     }
 }
 
-void advectionSolverE(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> E, int NX, vector<vector<double>> V, vector<vector<double>> u_background)
+void advectionSolverE(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<vector<double> > V, vector<vector<double> > u_background)
 {
     // Note : No 2nd order scheme ! 
     // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
@@ -183,7 +183,7 @@ void advectionSolverE(vector<vector<double>> &u_old, vector<vector<double>> &u_n
     }
 }
 
-void advectionSolverE2(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double>> u_background)
+void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double> > u_background)
 {
     // Note : No 2nd order scheme ! 
     // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
@@ -218,7 +218,7 @@ void advectionSolverE2(vector<vector<double>> &u_old, vector<vector<double>> &u_
     }
 }
 
-void sourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<vector<double>> source, double factor)
+void sourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<vector<double> > source, double factor)
     {
         int NX = u_old.size();
         int NE = u_old[0].size();;
@@ -237,7 +237,7 @@ void sourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, 
         }
     }
 
-void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, vector<vector<double>> v_old, vector<vector<double>> source, vector<vector<double>> background,  vector<double> X, double dt, vector<vector<double>> V, vector<double> B, int factor)
+void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > v_old, vector<vector<double> > source, vector<vector<double> > background,  vector<double> X, double dt, vector<vector<double> > V, vector<double> B, int factor)
     {
         int NX = u_old.size();
         int NE = u_old[0].size();
@@ -269,7 +269,7 @@ void sourceGrowthDampRateSolver(vector<vector<double>> &u_old, vector<vector<dou
 
 
 
-void CRsInjectionSourceSolver(vector<vector<double>> &u_old, vector<vector<double>> &u_new, double dt, vector<double> Pcr_ini, vector<double> Finj_temp, vector<double> vec_theta)
+void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> Pcr_ini, vector<double> Finj_temp, vector<double> vec_theta)
     {
         int NX = u_old.size();
         int NE = u_old[0].size();;
@@ -290,7 +290,7 @@ void CRsInjectionSourceSolver(vector<vector<double>> &u_old, vector<vector<doubl
 
 
 
-void NotMove(vector<vector<double>> u, vector<vector<double>> u_new)
+void NotMove(vector<vector<double> > u, vector<vector<double> > u_new)
 {
     for (int ei = 0; ei < u.size(); ei++)
     {

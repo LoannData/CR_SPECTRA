@@ -14,9 +14,9 @@ using namespace std;
  * @param inputFileName input file name (full path).
  * @return data as vector of vector of doubles.
  */
-vector<vector<double>> parse2DCsvFile(string inputFileName, int start) {
+vector<vector<double> > parse2DCsvFile(string inputFileName, int start) {
  
-    vector<vector<double>> data;
+    vector<vector<double> > data;
     ifstream inputFile(inputFileName);
     int l = 0;
  
@@ -57,7 +57,7 @@ vector<vector<double>> parse2DCsvFile(string inputFileName, int start) {
 
 /*int main()
 {
-    vector<vector<double>> data = parse2DCsvFile("./data_ini/Alfven.dat", 1);
+    vector<vector<double> > data = parse2DCsvFile("./data_ini/Alfven.dat", 1);
 
     for (int line=0; line<data.size(); line++)
     {

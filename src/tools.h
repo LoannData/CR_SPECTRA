@@ -32,7 +32,7 @@ double minElement1D(vector<double> data)
     return min_element; 
 }
 
-double maxElement2D(vector<vector<double>> data)
+double maxElement2D(vector<vector<double> > data)
 {
     int size_1 = data.size();
     double max_element = 0.;
@@ -47,7 +47,7 @@ double maxElement2D(vector<vector<double>> data)
     return max_element;
 }
 
-double minElement2D(vector<vector<double>> data)
+double minElement2D(vector<vector<double> > data)
 {
     int size_1 = data.size();
     double min_element = pow(10,300);

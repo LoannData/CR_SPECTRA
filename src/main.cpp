@@ -74,13 +74,13 @@ int main()
 
 
     // We get the initial conditions in the ISM
-    vector<vector<double>> rVA  = parse2DCsvFile("./data_ini/Alfven.dat", 1);
-    vector<vector<double>> rDb  = parse2DCsvFile("./data_ini/DBohm.dat", 1);
-    vector<vector<double>> rIp  = parse2DCsvFile("./data_ini/Ip.dat", 1);
-    vector<vector<double>> rIm  = parse2DCsvFile("./data_ini/Im.dat", 1);
-    vector<vector<double>> rPcr = parse2DCsvFile("./data_ini/Pcr.dat",1);
-    vector<vector<double>> rPe  = parse2DCsvFile("./data_ini/Pe.dat",1);
-    vector<vector<double>> rGd  = parse2DCsvFile("./data_ini/damping.dat",1);
+    vector<vector<double> > rVA  = parse2DCsvFile("./data_ini/Alfven.dat", 1);
+    vector<vector<double> > rDb  = parse2DCsvFile("./data_ini/DBohm.dat", 1);
+    vector<vector<double> > rIp  = parse2DCsvFile("./data_ini/Ip.dat", 1);
+    vector<vector<double> > rIm  = parse2DCsvFile("./data_ini/Im.dat", 1);
+    vector<vector<double> > rPcr = parse2DCsvFile("./data_ini/Pcr.dat",1);
+    vector<vector<double> > rPe  = parse2DCsvFile("./data_ini/Pe.dat",1);
+    vector<vector<double> > rGd  = parse2DCsvFile("./data_ini/damping.dat",1);
 
 
 
@@ -105,7 +105,7 @@ int main()
 
 
 
-    vector<vector<double>> VA(NX), Db(NX), Ip(NX), Im(NX), Pcr(NX), Pe(NX), Gd(NX); 
+    vector<vector<double> > VA(NX), Db(NX), Ip(NX), Im(NX), Pcr(NX), Pe(NX), Gd(NX); 
     for (int xi = 0; xi < NX; xi++)
     {
         VA[xi].resize(NE); 
@@ -149,7 +149,7 @@ int main()
 
     vector<double> Vdminvec(NE), Dminvec(NE), Gammadminvec(NE);
 
-    vector<vector<double>> abs_VA = VA, dVAdlog10E = VA, cdVAdX = VA, c2dVAdX = VA;
+    vector<vector<double> > abs_VA = VA, dVAdlog10E = VA, cdVAdX = VA, c2dVAdX = VA;
     for (int xi = 0; xi < VA.size(); xi++)
     {
         for (int ei = 0; ei < VA[xi].size(); ei++)
@@ -218,10 +218,10 @@ int main()
 
 
     // Main variables which we solve 
-    vector<vector<double>> Pcr_new, Pcr_old, Pcr_background;
-    vector<vector<double>> Pe_new, Pe_old, Pe_background;
-    vector<vector<double>> Ip_new, Ip_old, Ip_background;
-    vector<vector<double>> Im_new, Im_old, Im_background;
+    vector<vector<double> > Pcr_new, Pcr_old, Pcr_background;
+    vector<vector<double> > Pe_new, Pe_old, Pe_background;
+    vector<vector<double> > Ip_new, Ip_old, Ip_background;
+    vector<vector<double> > Im_new, Im_old, Im_background;
 
 
     // Initialization of the variables 

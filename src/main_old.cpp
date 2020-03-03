@@ -72,11 +72,11 @@ int main()
 
 
     // We get the initial conditions in the ISM
-    vector<vector<double>> rVA  = parse2DCsvFile("./data_ini/Alfven.dat", 1);
-    vector<vector<double>> rDb  = parse2DCsvFile("./data_ini/DBohm.dat", 1);
-    vector<vector<double>> rIp  = parse2DCsvFile("./data_ini/Ip.dat", 1);
-    vector<vector<double>> rPcr = parse2DCsvFile("./data_ini/Pcr.dat",1);
-    vector<vector<double>> rGd  = parse2DCsvFile("./data_ini/damping.dat",1);
+    vector<vector<double> > rVA  = parse2DCsvFile("./data_ini/Alfven.dat", 1);
+    vector<vector<double> > rDb  = parse2DCsvFile("./data_ini/DBohm.dat", 1);
+    vector<vector<double> > rIp  = parse2DCsvFile("./data_ini/Ip.dat", 1);
+    vector<vector<double> > rPcr = parse2DCsvFile("./data_ini/Pcr.dat",1);
+    vector<vector<double> > rGd  = parse2DCsvFile("./data_ini/damping.dat",1);
 
 
 
@@ -95,7 +95,7 @@ int main()
 
 
 
-    vector<vector<double>> VA(NX), Db(NX), Ip(NX), Pcr(NX), Gd(NX); 
+    vector<vector<double> > VA(NX), Db(NX), Ip(NX), Pcr(NX), Gd(NX); 
     for (int xi = 0; xi < NX; xi++)
     {
         VA[xi].resize(NE); 
@@ -170,12 +170,12 @@ int main()
     int out_Pcr_index = 0;
     int out_Ip_index = 0;
 
-    vector<vector<double>> Pcr_new, Pcr_old, Ip_new, Ip_old, Pcr_background, Ip_background;
+    vector<vector<double> > Pcr_new, Pcr_old, Ip_new, Ip_old, Pcr_background, Ip_background;
 
     Pcr_new = Pcr; Ip_new  = Ip; Pcr_background = Pcr, Ip_background = Ip;
 
 
-    /*vector<vector<double>> Qcrs(NX); 
+    /*vector<vector<double> > Qcrs(NX); 
     for (int xi = 0; xi < NX; xi++)
     {
         Qcrs[xi].resize(NE); 
@@ -195,7 +195,7 @@ int main()
     vector<double> Finj_temp(NE); 
     vector<double> Pcr_ini_temp(NE); 
     vector<double> ttesc(NE), norm_pcr(NE);
-    vector<vector<double>> t_Pcr;
+    vector<vector<double> > t_Pcr;
     vector<double> vec_theta(NX);
     double temp_theta, r_snr;
 

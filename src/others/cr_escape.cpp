@@ -10,7 +10,7 @@ using namespace std;
 
 
 // TriDiagonal matrix inversion function
-void InverseTrigonalMatrix(vector<vector<double>> &T)
+void InverseTrigonalMatrix(vector<vector<double> > &T)
     {
     int n = T.size();
 
@@ -49,7 +49,7 @@ void InverseTrigonalMatrix(vector<vector<double>> &T)
             phi[i] = b[i]*phi[i+1] - c[i]*a[i+1]*phi[i+2];
         }
     
-    vector<vector<double>> Tinv;
+    vector<vector<double> > Tinv;
     double Tij;
     Tinv.resize(n);
     for (int i = 0; i < n; i++)
@@ -99,7 +99,7 @@ void InverseTrigonalMatrix(vector<vector<double>> &T)
         T = Tinv;
     }
 
-void ProductMatrix(vector<vector<double>> A, vector<vector<double>> B, vector<vector<double>> &C)
+void ProductMatrix(vector<vector<double> > A, vector<vector<double> > B, vector<vector<double> > &C)
     {
         int A_l = A.size();
         int A_c = A[0].size();
@@ -141,7 +141,7 @@ double InterpolatingSpline(vector<double> X, vector<double> Y, double x)
         
         double lowF = 0.;
         double highF = 0.;
-        vector<vector<double>> F; 
+        vector<vector<double> > F; 
         F.resize(N);
         for (int i = 0; i < N; i++)
             {
@@ -155,7 +155,7 @@ double InterpolatingSpline(vector<double> X, vector<double> Y, double x)
         F[N-1][0] = highF;
 
         
-        vector<vector<double>> R;
+        vector<vector<double> > R;
         R.resize(N);
         for (int i = 0; i < N; i++)
             {
@@ -171,11 +171,11 @@ double InterpolatingSpline(vector<double> X, vector<double> Y, double x)
             }
         
         
-        vector<vector<double>> Rinv;
+        vector<vector<double> > Rinv;
         InverseTrigonalMatrix(R);
         Rinv = R;
 
-        vector<vector<double>> M; 
+        vector<vector<double> > M; 
         
         ProductMatrix(Rinv, F, M);
         

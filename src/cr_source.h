@@ -217,8 +217,8 @@ double tesc(double E)
     }
 
 
-
-double Bsat(vector<vector<double>> &Pcr, vector<double> X, vector<double> Y, double r_snr)
+// Old-function, useless ... 
+double Bsat(vector<vector<double> > &Pcr, vector<double> X, vector<double> Y, double r_snr)
     {
         double dX = X[1] - X[0]; 
         double dY = Y[1] - Y[0];
