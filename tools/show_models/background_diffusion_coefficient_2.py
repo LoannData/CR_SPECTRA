@@ -65,7 +65,7 @@ def IonNeutral_Damping(k, medium_props, nu_n = 0, theta = 0) :
 medium_props = ism.WNM
 
 
-E = 10*cst.GeV
+E = 0.001*cst.GeV
 m = cst.mp
 gamma = 1 + (E /(m*cst.c**2))
 v = cst.c*np.sqrt(1 - (1/(E/(m*cst.c**2) + 1))**2)
@@ -100,6 +100,7 @@ def g_s(k, kmin, q, medium_props) :
 
 mu = np.linspace(-0.99, 0.99, 100)
 k = np.logspace(-20, -10, 100)
+D_uu = np.zeros(len(mu))
 kmin = 1e-17
 q = 1.5
 
@@ -107,7 +108,7 @@ q = 1.5
 k_zz = 0.
 
 for jj in range(len(mu)) : 
-    D_uu = 0. 
+    D_uu[jj] = 0. 
     for ii in range(1, len(k)-1) : 
         dk = 0.5*(k[ii+1] - k[ii-1])
         
@@ -117,14 +118,16 @@ for jj in range(len(mu)) :
         w = IonNeutral_Damping(k[ii], medium_props)
         wtot = w.get("wr") + 1j*w.get("wi")
         
-        I = dk*g_s(k[ii], kmin, q, medium_props)*(1 - (mu[jj]*wtot)/(k*v))**2
+        I = dk*g_s(k[ii], kmin, q, medium_props)*(1 - (mu[jj]*wtot)/(k[ii]*v))**2
         I = I*(R(k[ii], medium_props, particles_props, mu[jj], kind = "+") + R(k[ii], medium_props, particles_props, mu[jj], kind = "-"))
+        I = I.real
         
-        D_uu += np.pi*Omega**2*(1 - mu[jj]**2)/B0**2
-    k_zz += v**2/8*(1 - mu[jj]**2)**2/D_uu
+        D_uu[jj] += -np.pi*Omega**2*(1 - mu[jj]**2)/B0**2*I
+    k_zz += v**2/8*(1 - mu[jj]**2)**2/D_uu[jj]
     
     
 print ("k_zz = ",np.log10(k_zz)," cm^2/s")
+plt.plot(mu, D_uu)
 
 # k = np.logspace(-20, -10, 1000)
 # roots = []

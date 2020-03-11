@@ -149,6 +149,106 @@ def histogram(data, xi, xf, nbin, scale, normalization) :
         return xnew, distribution
 
 
+# Routine d'integration de simpson avec un pas en log.
+def g(f,t) :
+    if (math.isnan(t) == True) : 
+        return 0.0
+    else: 
+        return np.exp(t)*f(np.exp(t))
+    
+def simpson_log(f,a,b,N) : 
+    a = np.log(a)
+    b = np.log(b)
+    S = 0. 
+#    N = 1e3 # Nombre d'intervales de largeur h
+    h = (b-a)/N 
+    t = a
+# Première partie    
+    t1 = t
+    t2 = t+h
+    t3 = t+2*h
+    t4 = t+3*h
+    t5 = t+4*h
+    
+    S1 = h*g(f,t1)
+    S2 = h*(17/48.)*g(f,t2)
+    S3 = h*(59/48.)*g(f,t3)
+    S4 = h*(43/48.)*g(f,t4)
+    S5 = h*(49/48.)*g(f,t5) 
+    
+    t += 5*h
+    S += S1 + S2 + S3 + S4 + S5
+# Boucle pour les termes suivants    
+    while (t <= b-4*h) : 
+        Si = h*g(f,t)
+        t += h
+        S += Si   
+# Dernière partie pour les derniers termes 
+    t1 = t
+    t2 = t+h
+    t3 = t+2*h
+    t4 = t+3*h
+    t5 = t+4*h
+    
+    S1 = h*g(f,t1)
+    S2 = h*(49/48.)*g(f,t2)
+    S3 = h*(43/48.)*g(f,t3)
+    S4 = h*(59/48.)*g(f,t4)
+    S5 = h*(17/48.)*g(f,t5) 
+    
+    t += 5*h
+    S += S1 + S2 + S3 + S4 + S5
+        
+    return S
+
+# Routine d'integration de simpson avec un pas linéaire
+def glin(f,t) : 
+    return f(t)
+    
+def simpson_lin(f,a,b,N) : 
+#    a = np.log(a)
+#    b = np.log(b)
+    S = 0. 
+#    N = 1e3 # Nombre d'intervales de largeur h
+    h = (b-a)/N 
+    t = a
+# Première partie    
+    t1 = t
+    t2 = t+h
+    t3 = t+2*h
+    t4 = t+3*h
+    t5 = t+4*h
+    
+    S1 = h*glin(f,t1)
+    S2 = h*(17/48.)*glin(f,t2)
+    S3 = h*(59/48.)*glin(f,t3)
+    S4 = h*(43/48.)*glin(f,t4)
+    S5 = h*(49/48.)*glin(f,t5) 
+    
+    t += 5*h
+    S += S1 + S2 + S3 + S4 + S5
+# Boucle pour les termes suivants    
+    while (t <= b-4*h) : 
+        Si = h*glin(f,t)
+        t += h
+        S += Si   
+# Dernière partie pour les derniers termes 
+    t1 = t
+    t2 = t+h
+    t3 = t+2*h
+    t4 = t+3*h
+    t5 = t+4*h
+    
+    S1 = h*glin(f,t1)
+    S2 = h*(49/48.)*glin(f,t2)
+    S3 = h*(43/48.)*glin(f,t3)
+    S4 = h*(59/48.)*glin(f,t4)
+    S5 = h*(17/48.)*glin(f,t5) 
+    
+    t += 5*h
+    S += S1 + S2 + S3 + S4 + S5
+        
+    return S
 
 
 # Methode permettant d'adoucir la transition entre deux phases suivant une 

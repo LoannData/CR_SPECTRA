@@ -66,13 +66,15 @@ dmu = mu[1] - mu[0]
 Itot = 1e-1#(1e-2)**2*(k_max - k_cp)
 
 for ii in range(len(mu)) : 
-    q = 5./3
+    q = 1.5
 
     a = (v*mu[ii] - VA)**2
     b = 2*Omega*(v*mu[ii] - VA)
     c = Omega**2 + (- nu_in/2)**2
     #d = 2*a*mu[ii] + b 
     D = b**2 - 4*a*c
+    
+    print (a, b, c, D)
     
     eps = VA/v
     gs0 = 2*(q-1)*(B0**2/(8*np.pi))*Itot*k_cp**(q - 1)
