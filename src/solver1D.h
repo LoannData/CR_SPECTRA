@@ -236,7 +236,7 @@ void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &
     {
             for (ei = 0; ei < NE; ei++)
             {
-                C3 = c*sig_T*pow(2*BB[xi], 2)*E[ei]/(4*pi*me*me*pow(c, 4)); 
+                C3 = c*sig_T*pow(2*BB[xi], 2)*E[ei]/(4*pi*me*me*pow(c, 4))*dt; 
                 u_new[xi][ei] = max(u_old[xi][ei]*(1 - C3*dt), u_background[xi][ei]);
             }
     }

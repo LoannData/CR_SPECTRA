@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Mon Sep  9 16:27:43 2019
+Created on Mon Mar 23 14:24:07 2020
 
 @author: lbrahimi
 """
 
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt 
 import pandas as pd 
 
@@ -15,6 +16,24 @@ sys.path.append('../tools/')
 import freader as fr 
 import constants as cst
 
+import matplotlib.gridspec as gridspec
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
+
+def colorFader(c1,c2,mix=0): #fade (linear interpolate) from color c1 (at mix=0) to c2 (mix=1)
+    c1=np.array(mpl.colors.to_rgb(c1))
+    c2=np.array(mpl.colors.to_rgb(c2))
+    return mpl.colors.to_hex((1-mix)*c1 + mix*c2)
+
+def colorArray(c1, c2, n = 10) : 
+    colors = []
+    for ii in range(n) : 
+        colors.append(colorFader(c1, c2, mix = ii/(n-1)))
+    return colors 
+
+###############################################################################
+# DATA READING ROUTINES                                                       #
+###############################################################################
+# !!! DO NOT MODIFY !!!                                                       # 
 
 def readDataXE(file_name, NX, NE) : 
     e_cols = []
@@ -60,12 +79,18 @@ def getData(var, file_number) :
                 data[ii][jj] = Db[ii][jj]/(Ip[ii][jj] + Im[ii][jj])
     return X, E, data
 
-def PlotXSpace(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", ylabel="None",
-               savefig=False, figname="None") : 
-    X, E, data = getData(var, file_number)
+
+
+def show(variable, time, position, energy, 
+         xlim = None, elim = None, 
+         vlim = None, 
+         source_center = 0, 
+         fig_save = False) : 
     
-    plt.figure(figsize=(fig_size_x, fig_size_y))
+    X, E, data = getData(variable[0], 1)
     
+    position_index = []
+    energy_index   = []
     
     for ei in range(len(energy)) : 
         e_id = 0
@@ -74,161 +99,107 @@ def PlotXSpace(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z 
             if (abs(E[ii]-energy[ei]) < closest) : 
                 e_id = ii
                 closest = abs(E[ii]-energy[ei])
+        energy_index.append(e_id)
     
-        plt.loglog(np.array(X)/cst.pc, data.T[e_id], 
-                   label="$E_\\mathrm{CR} = $"+str(round(E[e_id]/cst.GeV,2))+" GeV")
-    
-    
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.legend()
-    
-    if (savefig) : 
-        plt.savefig("./"+figname+".pdf")
-
-def PlotESpace(var, file_number, position, fig_size_x=10, fig_size_y=6, xlabel="E [GeV]", ylabel="None",
-               savefig=False, figname="None") : 
-    X, E, data = getData(var, file_number)
-    
-    plt.figure(figsize=(fig_size_x, fig_size_y))
-    
-    
-    for ei in range(len(position)) : 
-        e_id = 0
+    for xi in range(len(position)) : 
+        x_id = 0
         closest = np.inf 
         for ii in range(len(X)) : 
-            if (abs(X[ii]-position[ei]) < closest) : 
-                e_id = ii
-                closest = abs(X[ii]-position[ei])
+            if (abs(X[ii]-position[xi]) < closest) : 
+                x_id = ii
+                closest = abs(X[ii]-position[xi])
+        position_index.append(x_id)
     
-        plt.loglog(np.array(E)/cst.GeV, data[e_id], 
-                   label="$X = $"+str(round(X[e_id]/cst.pc,2))+" pc")
+    
+    
+    
+    color = colorArray("blue", "red", n = len(time))
+    
+    
+    
+    
+    size_x = 6
+    size_y = 4
+    sub_x  = 2
+    sub_y  = max(len(position), len(energy))
+    
+    
 
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.legend()
     
-    if (savefig) : 
-        plt.savefig("./"+figname+".pdf")
+    e_index = 1 
+    x_index = 0 
+    
+    
+    for vi in range(len(variable)) : 
+        fig = plt.figure(figsize=(size_x*sub_x,size_y*sub_y))
+        gs = gridspec.GridSpec(ncols= sub_x, nrows = sub_y, figure = fig )
+        gs.update(wspace=0.2, hspace=0.1) # set the spacing between axes. 
+        for ei in range(len(energy)) : 
+                ax = fig.add_subplot(gs[ei, e_index])
+                for ti in range(len(time)) : 
+                    X, E, data = getData(variable[vi], time[ti])
+                    if (source_center > 0) : 
+                        ax.loglog(np.array(X)/cst.pc - source_center, data.T[energy_index[ei]], c = color[ti])
+                    else : 
+                        ax.semilogy(np.array(X)/cst.pc, data.T[energy_index[ei]], c = color[ti])
+                        if (xlim) : ax.set_xlim(xlim[0], xlim[1])
+                    if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+        for xi in range(len(position)) : 
+                ax = fig.add_subplot(gs[xi, x_index])
+                for ti in range(len(time)) : 
+                    X, E, data = getData(variable[vi], time[ti])
+                    ax.loglog(np.array(E)/cst.GeV, data[position_index[xi]], c = color[ti])
+                    if (elim) : ax.set_xlim(elim[0], elim[1])
+                    if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+    
+    
 
-def PlotTSpaceE(var, file_number, position, fig_size_x=10, fig_size_y=6, xlabel="E [GeV]", ylabel="None",
-               savefig=False, figname="None") : 
-    
-    X, E, data = getData(var, file_number[0])
-    plt.figure(figsize=(fig_size_x, fig_size_y))
-    
-    e_id = 0
-    closest = np.inf 
-    for ii in range(len(X)) : 
-        if (abs(X[ii]-position) < closest) : 
-            e_id = ii
-            closest = abs(X[ii]-position)
-    
-    for ti in range(len(file_number)) : 
-        X, E, data = getData(var, file_number[ti])
-        plt.loglog(np.array(E)/cst.GeV, data[e_id], label="File "+str(int(ti)))
-
-
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.legend()
-    
-    if (savefig) : 
-        plt.savefig("./"+figname+".pdf")
-
-def PlotTSpaceX(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", ylabel="None",
-               savefig=False, figname="None") : 
-    X, E, data = getData(var, file_number[0])
-    plt.figure(figsize=(fig_size_x, fig_size_y))
-    
-    e_id = 0
-    closest = np.inf 
-    for ii in range(len(E)) : 
-        if (abs(E[ii]-energy) < closest) : 
-            e_id = ii
-            closest = abs(E[ii]-energy)
-
-    for ti in range(len(file_number)) : 
-        X, E, data = getData(var, file_number[ti])
-        plt.loglog(np.array(X)/cst.pc-1000., data.T[e_id], 
-                   label="File "+str(int(ti)))
-#        plt.semilogy(np.array(X)/cst.pc, data.T[e_id])
-#        print (data.T[e_id])
-    
-#    plt.ylim(1e-13, 1e-9)
-#    plt.xlim(900, 1100)
-    
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.legend()
-    
-    if (savefig) : 
-        plt.savefig("./"+figname+".pdf")
         
-def PlotTSpaceX_vec(var, file_number, energy, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", ylabel="None",
-               savefig=False, figname="None") : 
-    X, E, data = getData(var[0], file_number[0])
-    plt.figure(figsize=(fig_size_x, fig_size_y))
-    
-    e_id = 0
-    closest = np.inf 
-    for ii in range(len(E)) : 
-        if (abs(E[ii]-energy) < closest) : 
-            e_id = ii
-            closest = abs(E[ii]-energy)
+        if (fig_save) : 
+            plt.savefig(variable[vi]+".pdf")
 
-    for ti in range(len(file_number)) : 
-        X, E, data0 = getData(var[0], file_number[ti])
-        X, E, data1 = getData(var[1], file_number[ti])
-        plt.loglog(np.array(X)/cst.pc-1000., data0.T[e_id], 
-                   label="File "+str(int(ti)))
-        plt.loglog(np.array(X)/cst.pc-1000., data1.T[e_id], 
-                   label="File "+str(int(ti)))
-#        plt.semilogy(np.array(X)/cst.pc, data.T[e_id])
-#        print (data.T[e_id])
-    
-#    plt.ylim(1e-13, 1e-9)
-#    plt.xlim(900, 1100)
-    
-    plt.xlabel(xlabel)
-    plt.ylabel(ylabel)
-    plt.legend()
-    
-    if (savefig) : 
-        plt.savefig("./"+figname+".pdf")
+
+
+
+
+
+
 
 ###############################################################################
-# Put your instructions here !                                                #
+# SHOW DATA                                                                   #
 ###############################################################################
-#PlotXSpace("Pcr", 200, np.logspace(np.log10(10.*cst.GeV), np.log10(10.*cst.TeV), 10),
-#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
-#
-#PlotXSpace("Dcr", 200, np.logspace(np.log10(1000.*cst.GeV), np.log10(10.*cst.TeV), 10),
-#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
-#
-#PlotESpace("Pcr", 200, np.logspace(np.log10(10.*cst.pc), np.log10(500.*cst.pc), 4),
-#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
-
-#Ecr = 9000.*cst.GeV
-#tfile = 1
-#
-#PlotXSpace("Pcr", tfile*10, [Ecr],
-#           ylabel="$P_\\mathrm{CR}$ [erg/cm$^3$]")
-#PlotXSpace("Dcr", tfile*10, [Ecr],
-#           ylabel="$D_\\mathrm{CR}$ [cm$^2$/s]")
 
 
-#PlotTSpaceE("Pe", [3,4,5,6], 1100.*cst.pc, fig_size_x=10, fig_size_y=6, 
-#            xlabel="E [GeV]", ylabel="None", savefig=False, figname="None")
+# Experiments 
+show(["Pcr", "Pe"], [15, 50, 71, 83], 
+     [1100.*cst.pc, 1500.*cst.pc],
+     [15.*cst.GeV, 5000.*cst.GeV, 7000.*cst.GeV, 9000.*cst.GeV],
+     xlim = [750., 1250.], 
+     elim = [1e1, 1e4],
+     vlim = [[1e-20, 1e-8], [1e-20, 1e-8]],
+     source_center = 1000.,
+     fig_save = True)
 
-#PlotTSpaceX("Pcr", [10, 20, 30, 100, 200], 100.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
-#            ylabel="None", savefig=False, figname="None")
 
-#nfile = np.linspace(1, 12, 4, dtype=int)
-PlotTSpaceX_vec(["Pcr"], [3,4,5,6], 100.*cst.GeV, fig_size_x=10, fig_size_y=6, xlabel="z [pc]", 
-            ylabel="None", savefig=False, figname="None")
 
-#plt.figure(figsize=(6, 8))
-##plt.loglog(E, data[500])
-#plt.loglog(np.array(X)/3.086e18, data.T[1])
-#plt.show()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
