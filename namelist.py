@@ -52,7 +52,7 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 11  # 2**NX is the X-size of the grid
+NX        = 10  # 2**NX is the X-size of the grid
 NE        = 7  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc
@@ -77,7 +77,7 @@ lz_damping       = True     # Lazarian damping of waves
 nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
 Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
 Pe_1GeV          = 1*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
-bdiff_model      = "ISM_independant" #ISM_(independant, dependant) 
+bdiff_model      = "ISM_dependant" #ISM_(independant, dependant) 
 
 
 

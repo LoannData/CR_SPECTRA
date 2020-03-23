@@ -183,7 +183,7 @@ void advectionSolverE(vector<vector<double> > &u_old, vector<vector<double> > &u
     }
 }
 
-void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double> > u_background)
+/*void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double> > u_background)
 {
     // Note : No 2nd order scheme ! 
     // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
@@ -215,6 +215,30 @@ void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &
             }
             u_new[xi][0]  = u_old[xi][0] + ad0; // Cas ei = 0
             u_new[xi][NE] = u_old[xi][NE] + dt*((a_p*ux_m + a_m*ux_p) - C3*u_old[xi][NE]); // Cas ei = NE
+    }
+}*/
+
+void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double> > u_background)
+{
+    // Note : No 2nd order scheme ! 
+    // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
+    // We need to find a good method for the boundaries ...  
+    int NE = E.size()-1;
+    double dde, ux_p, ux_m, a_p, a_m, ad0;
+    //double C = c*sig_T/(4*log(10.));
+    //double C_0 = c*sig_T/(4.*me*pow(c, 2.));
+    double C2, C3;
+    int xi, ei;
+
+    //#pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NX/nproc))) private(xi ,ei, C3)
+    for (xi = 0; xi < NX; xi++)
+    {
+            for (ei = 0; ei < NE; ei++)
+            {
+                C3 = c*sig_T*pow(2*BB[xi], 2)*E[ei]/(4*pi*me*me*pow(c, 4)); 
+                u_new[xi][ei] = max(u_old[xi][ei]*(1 - C3*dt), u_background[xi][ei]);
+            }
     }
 }
 
