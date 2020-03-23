@@ -26,6 +26,7 @@ import constants as cst
 import d1_grid_generator as grid 
 import phases_collection as ism
 import damping as dp
+import background_diffusion_coefficient as bdc
 
 
 
@@ -48,6 +49,7 @@ x_center_index = int(x_center/(X[1] - X[0]))
 # ISM secondary variables 
 ism_values = nml.ism_values
 B  = ism_values.get("B")
+nn = ism_values.get("nn")
 ni = ism_values.get("ni")
 mn = ism_values.get("mn")
 mi = ism_values.get("mi")
@@ -83,13 +85,27 @@ for xi in range(len(X)) :
     d00[xi] = 1e28
 
 for e in range(len(E)) : 
-    if (e % 100 == 0) : 
+    if (e % 1 == 0) : 
         print ("Initialisation : "+str(round(e/len(E)*100.,2))+" %")
     for xi in range(len(X)) : 
         # Bohm diffusion coefficient
-        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[0]))
+        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index]))
+        
         # Background diffusion coefficient
-        D[e][xi]  = d00[xi]*(E[e]/(10.*cst.GeV))**0.5
+        if (nml.bdiff_model == "ISM_independant") : 
+            D[e][xi]  = d00[xi]*(E[e]/(10.*cst.GeV))**0.5                      # ISM independant method
+        if (nml.bdiff_model == "ISM_dependant") : 
+            medium_props = {"B"  : B[xi], 
+                            "mn" : mn[xi],
+                            "nn" : nn[xi],
+                            "mi" : mi[xi],
+                            "ni" : ni[xi]}
+            D[e][xi]  = bdc.Kappa_zz(E[e], 
+                                     medium_props, 
+                                     mass = cst.mp, 
+                                     kmin = 1e-20, 
+                                     q = 5./3, 
+                                     I = d00[xi])                              # ISM dependant method
         # Background rates of turbulence
         Ip[e][xi] = Db[e][xi]/D[e][xi]*0.5
         Im[e][xi] = Db[e][xi]/D[e][xi]*0.5
@@ -115,12 +131,12 @@ for e in range(len(E)) :
             gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
         if (nml.nlld_damping) : 
             gamma_nlld[e][xi]     = -dp.non_linear_landau_damping( T[xi], Ip[e][xi], Im[e][xi], 
-                                                                 mi[xi],     cst.e, 
-                                                                  B[xi],      E[e])
+                                                                  mi[xi],     cst.e, 
+                                                                   B[xi],      E[e])
         gamma_tot[e][xi]          = gamma_in[e][xi] + gamma_lazarian[e][xi] + gamma_nlld[e][xi]
         # Background CRs spectra
         Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
-        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-2.7)
+        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)
 
 
 

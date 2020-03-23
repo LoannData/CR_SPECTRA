@@ -77,6 +77,8 @@ lz_damping       = True     # Lazarian damping of waves
 nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
 Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
 Pe_1GeV          = 1*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
+bdiff_model      = "ISM_independant" #ISM_(independant, dependant) 
+
 
 
 ###############################################################################

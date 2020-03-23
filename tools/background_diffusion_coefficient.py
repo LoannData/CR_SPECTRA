@@ -11,8 +11,8 @@ import matplotlib.pyplot as plt
 import scipy.special as sc
 import math 
 
-import sys 
-sys.path.append("../")
+# import sys 
+# sys.path.append("../")
 import constants as cst
 import phases_collection as ism 
 import mathmethods as mt 
