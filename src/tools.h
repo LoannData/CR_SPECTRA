@@ -61,3 +61,18 @@ double minElement2D(vector<vector<double> > data)
     }
     return min_element;
 }
+
+double absmaxElement2D(vector<vector<double> > data)
+{
+    int size_1 = data.size();
+    double max_element = 0.;
+    for (int ii=0; ii<size_1; ii++)
+    {
+        int size_2 = data[ii].size();
+        for (int jj=0; jj<size_2; jj++)
+        {
+            if (abs(data[ii][jj]) > max_element) {max_element = abs(data[ii][jj]);}
+        }
+    }
+    return max_element;
+}

@@ -134,11 +134,11 @@ int main()
 
 
     // Initialisation des vecteurs de variance d'espace 
-    vector<double> dX(NX), dE(NE); 
+    vector<double> dX(NX), dE(NE), lindE(NE); 
     for (int xi=1; xi<NX-1; xi++){dX[xi] = 0.5*abs(X[xi+1] - X[xi-1]);}
     dX[0] = dX[1]; dX[NX-1] = dX[NX-2]; 
-    for (int e=1; e<NE-1; e++){dE[e] = 0.5*abs(log10E[e+1] - log10E[e-1]);}
-    dE[0] = dE[1]; dE[NE-1] = dE[NE-2];
+    for (int e=1; e<NE-1; e++){dE[e] = 0.5*abs(log10E[e+1] - log10E[e-1]); lindE[e] = 0.5*abs(E[e+1] - E[e-1]);}
+    dE[0] = dE[1]; dE[NE-1] = dE[NE-2]; lindE[0] = lindE[1]; lindE[NE-1] = lindE[NE-2]; 
 
     // CFL Conditions 
     double C1 = 0.5;
@@ -176,6 +176,7 @@ int main()
 
 
     double maxE  = maxElement1D(log10E);
+    double minE  = minElement1D(log10E);
     double minW0 = minElement1D(B); minW0 = pow(minW0,2)/(8*pi);
     double maxVd = maxElement2D(abs_VA);
     double maxDb = maxElement2D(Db);
@@ -184,20 +185,38 @@ int main()
     double maxD  = maxDb/minIp;// cout<<"Max D = "<<maxD<<endl;
     double maxGd = maxElement2D(Gd);
     double mindX = minElement1D(dX); double mindE = minElement1D(dE); 
+    double maxdX = maxElement1D(dX); double maxdE = maxElement1D(dE);
+    double minlindE = minElement1D(lindE);
+
+    double maxdVddX = absmaxElement2D(cdVAdX); 
+
+
+    double maxdVddE = absmaxElement2D(dVAdlog10E); 
+    
 
     vector<double> cfl;
     cfl.push_back(C1*mindX/maxVd); 
+
+    //cfl.push_back(C2/maxdVddX*mindE); 
+    //cfl.push_back(C3/maxdVddE*mindX); 
+
+
+
     //cfl.push_back(C2*pow(mindX,2)/maxD);
-    cfl.push_back(C3*mindE*mindX/(maxE*maxVd));
-    cfl.push_back(C4*2*mindX/maxVd);
-    cfl.push_back(C5/(maxGd));
+
+
+    cfl.push_back(C3*minlindE*mindX/(maxE*maxVd));
+    //cfl.push_back(C4*2*mindX/maxVd);
+    //cfl.push_back(C5/(maxGd));
 
     cout<<"CFL Values : "<<endl;
     cout<<"Advection : "<<C1*mindX/maxVd<<" s"<<endl;
     cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD<<" s"<<endl;
-    cout<<"Energy    : "<<C3*mindE*mindX/(maxE*maxVd)<<" s"<<endl;
-    cout<<"Growth    : "<<C4*2*mindX/maxVd<<" s"<<endl;
-    cout<<"Damping   : "<<C5/maxGd<<" s"<<endl;
+    //cout<<"Advection dVA/dX : "<<C2/maxdVddX*mindE<<endl;
+    //cout<<"Advection dVA/dE : "<<C3/maxdVddE*mindX<<endl;
+    cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)<<" s"<<endl;
+    //cout<<"Growth    : "<<C4*2*mindX/maxVd<<" s"<<endl;
+    //cout<<"Damping   : "<<C5/maxGd<<" s"<<endl;
     double dt = minElement1D(cfl);
     cout<<"Time-step = "<<dt<<" s"<<endl;
 
@@ -406,6 +425,7 @@ int main()
 
         if (time > dat_output[out_Pcr_index] && out_Pcr_index < dat_output.size()) 
         {
+            //createFolder(int index); 
             out_Ip_index  = writeXE("Ip", out_Ip_index, Ip_new, NX, NE);
             out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
             out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);

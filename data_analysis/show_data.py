@@ -131,32 +131,41 @@ def show(variable, time, position, energy,
     
     
     for vi in range(len(variable)) : 
+        print ("We are preparing the variable : "+str(variable[vi]))
         fig = plt.figure(figsize=(size_x*sub_x,size_y*sub_y))
         gs = gridspec.GridSpec(ncols= sub_x, nrows = sub_y, figure = fig )
-        gs.update(wspace=0.2, hspace=0.1) # set the spacing between axes. 
+        gs.update(wspace=0.2, hspace=0.3) # set the spacing between axes. 
         for ei in range(len(energy)) : 
-                ax = fig.add_subplot(gs[ei, e_index])
-                for ti in range(len(time)) : 
-                    X, E, data = getData(variable[vi], time[ti])
-                    if (source_center > 0) : 
-                        ax.loglog(np.array(X)/cst.pc - source_center, data.T[energy_index[ei]], c = color[ti])
-                    else : 
-                        ax.semilogy(np.array(X)/cst.pc, data.T[energy_index[ei]], c = color[ti])
-                        if (xlim) : ax.set_xlim(xlim[0], xlim[1])
-                    if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+            print ("Spatial distribution subplot n°"+str(int(ei+1))+" over "+str(len(energy)))
+            ax = fig.add_subplot(gs[ei, e_index])
+            for ti in range(len(time)) : 
+                X, E, data = getData(variable[vi], time[ti])
+                if (source_center > 0) : 
+                    ax.loglog(np.array(X)/cst.pc - source_center, data.T[energy_index[ei]], c = color[ti])
+                else : 
+                    ax.semilogy(np.array(X)/cst.pc, data.T[energy_index[ei]], c = color[ti])
+                    if (xlim) : ax.set_xlim(xlim[0], xlim[1])
+                if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+            ax.set_title("Energy = "+str(round(E[energy_index[ei]]/cst.GeV,3))+" GeV")
         for xi in range(len(position)) : 
-                ax = fig.add_subplot(gs[xi, x_index])
-                for ti in range(len(time)) : 
-                    X, E, data = getData(variable[vi], time[ti])
-                    ax.loglog(np.array(E)/cst.GeV, data[position_index[xi]], c = color[ti])
-                    if (elim) : ax.set_xlim(elim[0], elim[1])
-                    if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+            print ("Energy spectra subplot n°"+str(int(xi+1))+" over "+str(len(position)))
+            ax = fig.add_subplot(gs[xi, x_index])
+            for ti in range(len(time)) : 
+                X, E, data = getData(variable[vi], time[ti])
+                ax.loglog(np.array(E)/cst.GeV, data[position_index[xi]], c = color[ti])
+                if (elim) : ax.set_xlim(elim[0], elim[1])
+                if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+            ax.set_title("Position = "+str(round(X[position_index[xi]]/cst.pc,1))+" pc")
     
     
 
         
         if (fig_save) : 
+            print ("Saving data as : "+variable[vi]+".pdf")
             plt.savefig(variable[vi]+".pdf")
+            
+        
+        print ("========================================")
 
 
 
@@ -171,12 +180,18 @@ def show(variable, time, position, energy,
 
 
 # Experiments 
-show(["Pcr", "Pe"], [15, 50, 71, 83], 
+show(["Pcr", "Pe"], [50, 100, 200, 500, 900], 
      [1100.*cst.pc, 1500.*cst.pc],
-     [15.*cst.GeV, 5000.*cst.GeV, 7000.*cst.GeV, 9000.*cst.GeV],
+     [10.*cst.GeV, 100.*cst.GeV, 5000.*cst.GeV, 9000.*cst.GeV],
      xlim = [750., 1250.], 
      elim = [1e1, 1e4],
-     vlim = [[1e-20, 1e-8], [1e-20, 1e-8]],
+     vlim = [[1e-22, 1e-8], [1e-22, 1e-8]],
+     source_center = 1000.,
+     fig_save = True)
+
+show(["Dcr", "Ip", "Im"], [50, 100, 200, 500, 900], 
+     [1100.*cst.pc, 1500.*cst.pc],
+     [10.*cst.GeV, 100.*cst.GeV, 5000.*cst.GeV, 9000.*cst.GeV],
      source_center = 1000.,
      fig_save = True)
 

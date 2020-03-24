@@ -6,7 +6,29 @@
 #include <tuple>
 #include <cmath>
 #include <sstream>
+
 using namespace std;
+
+/*void createFolder(int index)
+{
+    std::string full_name = "./data_out/output_";
+
+    std::string idcomplement;
+    if (index < 10) {idcomplement = "0000";}
+    if (index >= 10 && index < 100) {idcomplement = "000";}
+    if (index >= 100 && index < 1000) {idcomplement = "00";}
+    if (index >= 1000 && index < 10000) {idcomplement = "0";}
+    if (index >= 10000 && index < 100000) {idcomplement = "";}
+
+    std::ostringstream istring;
+    istring<<index;
+    full_name.append(idcomplement);
+    full_name.append(istring.str());
+
+    mkdir(full_name, 0777); 
+}*/
+
+
 
 int writeXE(std::string filename, int index, vector<vector<double> > data, double NX, double NE)
 {

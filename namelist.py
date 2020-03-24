@@ -86,11 +86,11 @@ bdiff_model      = "ISM_dependant" #ISM_(independant, dependant)
 ###############################################################################
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc, Xmax=300.*cst.pc), getVA(E, ism.WNM)]) 
-phases.append([ism.CNM, dict(Xmin=300.*cst.pc, Xmax=500.*cst.pc), getVA(E, ism.CNM)])
-phases.append([ism.DiM, dict(Xmin=500.*cst.pc, Xmax=600.*cst.pc), getVA(E, ism.DiM)]) 
-phases.append([ism.CNM, dict(Xmin=600.*cst.pc, Xmax=800.*cst.pc), getVA(E, ism.CNM)])
-phases.append([ism.WNM, dict(Xmin=800.*cst.pc, Xmax=1200.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=300.*cst.pc),  getVA(E, ism.WNM)]) 
+phases.append([ism.CNM, dict(Xmin=300.*cst.pc,  Xmax=500.*cst.pc),  getVA(E, ism.CNM)])
+phases.append([ism.DiM, dict(Xmin=500.*cst.pc,  Xmax=600.*cst.pc),  getVA(E, ism.DiM)]) 
+phases.append([ism.CNM, dict(Xmin=600.*cst.pc,  Xmax=800.*cst.pc),  getVA(E, ism.CNM)])
+phases.append([ism.WNM, dict(Xmin=800.*cst.pc,  Xmax=1200.*cst.pc), getVA(E, ism.WNM)]) 
 phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism.CNM)]) 
 phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
 phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
