@@ -52,14 +52,18 @@ const int solver_ImDampGrowth  = 1; // Source term effect due to production of s
 // (Note ! For more options, you can directly edit the ./src/out.h file)
 const int nproc = 1;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 100.*kyr; //200.*kyr; // Instant of the last output data
-const int number_out_data   = 1000;     // Total number of output data
+const double t_data_out_max = 500.*kyr; //200.*kyr; // Instant of the last output data
+const int number_out_data   = 500;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 100;      // Number of time-step between two LogOutput
-const double Tmax = 100.01*kyr;//200.1*kyr;           // Define the limit time of your simulation 
+const double Tmax = 500.01*kyr;//200.1*kyr;           // Define the limit time of your simulation 
 
 
+
+
+// Growth waves saturation rate
+const double ttau_sat = - log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b 
 
 // SNR Properties (Model from Cioffi et al. 2012 & ...)
 //const double snr_position_x = 500*pc; // Position of the center of the source on the grid

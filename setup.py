@@ -89,7 +89,7 @@ for e in range(len(E)) :
         print ("Initialisation : "+str(round(e/len(E)*100.,2))+" %")
     for xi in range(len(X)) : 
         # Bohm diffusion coefficient
-        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index]))
+        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index])) # B corresponds to the magnetic field in the turbulent source (so very high !!)
         
         # Background diffusion coefficient
         if (nml.bdiff_model == "ISM_independant") : 
