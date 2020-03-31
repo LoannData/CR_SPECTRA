@@ -412,6 +412,7 @@ def damping_lazarian_nopos(E, medium_props) :
     if (ca < 1e-30) : 
         damp_lz = 0.
     
+    Xc = 1. # Neutral viscosity damping strength (free parameter)
     L = 50*cst.pc # Turbulence scale injection
     rl = (E)/(cst.e*B)
 #    rl = E*1e9/B/300
@@ -430,16 +431,21 @@ def damping_lazarian_nopos(E, medium_props) :
     xi_n  = (nn*mi)/(nn*mn + ni*mi)
     nu_ndamp = 0
     ln = c_n*(eps/coll + 1./(nn*nu_nn))
-    if (X < 0.2) : nu_n = nn/(nn + ni)*c_n*ln
-    if (X >= 0.2) : nu_n = 0
+    if (X < 0.2) : 
+        nu_n = nn/(nn + ni)*c_n*ln
+    if (X >= 0.2) : 
+        nu_n = nn/(nn + ni)*c_n*ln*np.exp((0.2 - X)*Xc)
+
     
     VL = max(can, c_n)
     MA = VL/can
     lA = L*MA**(-3.)
     Lcm = L
     
-    if (nu_n == 0) : 
-        return 0 
+    # if (nu_n == 0) : 
+    #     return 0 
+    
+    # print (nu_n, coll)
     
     kdampar_sub = (-(nu_n + pow(cai,2.)/coll) + pow(pow(nu_n + pow(cai,2.)/coll,2) + 8*can*nu_n*Lcm*pow(MA,-4.)/xi_n, 0.5))/(2*nu_n*Lcm*pow(MA,-4.))
     lmin_sub = pow(kdampar_sub*np.sqrt(1 + Lcm*pow(MA,-4.)*kdampar_sub),-1.)
@@ -447,8 +453,11 @@ def damping_lazarian_nopos(E, medium_props) :
     kdampar_super = (-(nu_n + pow(cai,2.)/coll) + pow(pow(nu_n + pow(cai,2.)/coll,2) + 8*can*nu_n*lA/xi_n, 0.5))/(2*nu_n*lA)
     lmin_super = pow(kdampar_super*np.sqrt(1 + lA*kdampar_super),-1.)
     
+     
+        
     
     
+    # damp_lz = 0.
     if (MA <= 1.) : 
         r_min = pow(lmin_sub,4./3)*pow(MA,4./3)*pow(Lcm,-1./3)
         if (rl < pow(lmin_sub,4./3)*pow(MA,4./3)*pow(Lcm,-1./3)) : 
@@ -470,6 +479,16 @@ def damping_lazarian_nopos(E, medium_props) :
             damp_lz = -ca*pow(MA,3./2)*pow(Lcm,-1./2)*pow(rl,-1./2)
         if (rl >= Lcm*pow(MA,-3.)) : 
             damp_lz = -ca*MA*pow(Lcm,-1./3)*pow(rl,-2./3)
+    
+    # Case of a fully ionized gas 
+    # See Schlickeiser 2002 Chap 13.2.2.6
+    # print (nu_n, coll, lmin_sub, lmin_super)
+    # if (nu_n == 0. or coll == 0.) :
+    #     w_Rc = 1 # s^-1
+    #     # k_Rc = 
+    #     r_min = (w_Rc/cai)**(-1)*1e6
+    #     print (w_Rc, cai, r_min)
+    #     damp_lz = 0.
     
     Emin = r_min*(cst.e*B)
     return [damp_lz, Emin]
