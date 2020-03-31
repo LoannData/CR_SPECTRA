@@ -89,7 +89,7 @@ for e in range(len(E)) :
         print ("Initialisation : "+str(round(e/len(E)*100.,2))+" %")
     for xi in range(len(X)) : 
         # Bohm diffusion coefficient
-        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index])) # B corresponds to the magnetic field in the turbulent source (so very high !!)
+        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index])) 
         
         # Background diffusion coefficient
         if (nml.bdiff_model == "ISM_independant") : 
@@ -99,13 +99,15 @@ for e in range(len(E)) :
                             "mn" : mn[xi],
                             "nn" : nn[xi],
                             "mi" : mi[xi],
-                            "ni" : ni[xi]}
+                            "ni" : ni[xi],
+                            "X"  : Xi[xi],
+                            "T"  : T[xi]}
             D[e][xi]  = bdc.Kappa_zz(E[e], 
                                      medium_props, 
                                      mass = cst.mp, 
-                                     kmin = 1e-20, 
+                                     kmin = (50.*cst.pc)**(-1), 
                                      q = 5./3, 
-                                     I = d00[xi])                              # ISM dependant method
+                                     I = 1e-4)                              # ISM dependant method
         # Background rates of turbulence
         Ip[e][xi] = Db[e][xi]/D[e][xi]*0.5
         Im[e][xi] = Db[e][xi]/D[e][xi]*0.5

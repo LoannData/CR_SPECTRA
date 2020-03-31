@@ -16,6 +16,7 @@ sys.path.append("../")
 import constants as cst
 import phases_collection as ism 
 import mathmethods as mt 
+import damping as dp 
 
 
 def IonNeutral_Damping(k, medium_props, nu_n = 0, theta = 0) : 
@@ -84,7 +85,8 @@ def Duu_Alfven_Slab_Linear_Undamped(mu, E, medium_props, mass = cst.mp, kmin = 1
         B0 = medium_props.get("B")
         W0 = B0**2/(8*np.pi)
         I  = I
-        g_s0 = 2*(q - 1)*W0*I*kmin
+        g_s0 = 2*(q - 1)*W0*I*kmin**(q - 1)
+        # g_s0 = I*W0*kmin
         if (k >= 0) : 
             if (k >= kmin) : 
                 return g_s0*k**(-q)
@@ -161,7 +163,9 @@ def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) :
 
     """
     
-    I = (2.2345649450772952e28*1e6/I)
+    # I = (2.2345649450772952e28*1e6/I)
+    
+    
     
     m = mass
     gamma = 1 + (E /(m*cst.c**2))
@@ -169,6 +173,13 @@ def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) :
     p = gamma*m*v 
     Omega0 = cst.e*medium_props.get("B")/(m*cst.c)
     Omega  = Omega0/gamma 
+    
+    lz_damping = dp.damping_lazarian_nopos(E, medium_props)
+    kmax = (lz_damping[1])**(-1)
+    
+    # print (kmax)
+    
+    I = I*kmax
     
     k_zz = 0.
     mu = np.linspace(-1, 1, 100)
@@ -182,16 +193,16 @@ def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) :
 
 
 # Experiment 
-# Emin = 0.1*cst.GeV
-# Emax = 100*cst.TeV
-# E = np.logspace(np.log10(Emin), np.log10(Emax), 100)
-# K_zz_1 = np.zeros(len(E))
-# K_zz_2 = np.zeros(len(E))
+Emin = 0.1*cst.GeV
+Emax = 100*cst.TeV
+E = np.logspace(np.log10(Emin), np.log10(Emax), 100)
+K_zz_1 = np.zeros(len(E))
+K_zz_2 = np.zeros(len(E))
 
-# for ii in range(len(E)) : 
-#     K_zz_1[ii] = Kappa_zz(E[ii], ism.WNM, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28)
-#     K_zz_2[ii] = Kappa_zz(E[ii], ism.WNM, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28)
+for ii in range(len(E)) : 
+    K_zz_1[ii] = Kappa_zz(E[ii], ism.WNM, mass = cst.mp, kmin = (50*cst.pc)**(-1), q = 5./3, I = 1e-4)
+    K_zz_2[ii] = Kappa_zz(E[ii], ism.WNM, mass = cst.mp, kmin = (50*cst.pc)**(-1), q = 5./3, I = 1e-4)
 
-# plt.loglog(E/cst.GeV, K_zz_1, c="green")
-# plt.loglog(E/cst.GeV, K_zz_2, c="blue")
+plt.loglog(E/cst.GeV, K_zz_1, c="green")
+plt.loglog(E/cst.GeV, K_zz_2, c="blue")
 

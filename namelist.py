@@ -77,7 +77,7 @@ lz_damping       = True     # Lazarian damping of waves
 nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
 Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
 Pe_1GeV          = 1*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
-bdiff_model      = "ISM_independant" #ISM_(independant, dependant) 
+bdiff_model      = "ISM_dependant" #ISM_(independant, dependant) 
 
 
 
@@ -86,17 +86,17 @@ bdiff_model      = "ISM_independant" #ISM_(independant, dependant)
 ###############################################################################
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-# phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=300.*cst.pc),  getVA(E, ism.WNM)]) 
-# phases.append([ism.CNM, dict(Xmin=300.*cst.pc,  Xmax=500.*cst.pc),  getVA(E, ism.CNM)])
-# phases.append([ism.DiM, dict(Xmin=500.*cst.pc,  Xmax=600.*cst.pc),  getVA(E, ism.DiM)]) 
-# phases.append([ism.CNM, dict(Xmin=600.*cst.pc,  Xmax=800.*cst.pc),  getVA(E, ism.CNM)])
-# phases.append([ism.WNM, dict(Xmin=800.*cst.pc,  Xmax=1200.*cst.pc), getVA(E, ism.WNM)]) 
-# phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism.CNM)]) 
-# phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
-# phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
-# phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=300.*cst.pc),  getVA(E, ism.WNM)]) 
+phases.append([ism.CNM, dict(Xmin=300.*cst.pc,  Xmax=500.*cst.pc),  getVA(E, ism.CNM)])
+phases.append([ism.DiM, dict(Xmin=500.*cst.pc,  Xmax=600.*cst.pc),  getVA(E, ism.DiM)]) 
+phases.append([ism.CNM, dict(Xmin=600.*cst.pc,  Xmax=800.*cst.pc),  getVA(E, ism.CNM)])
+phases.append([ism.WNM, dict(Xmin=800.*cst.pc,  Xmax=1200.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism.CNM)]) 
+phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
+phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
+phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
+# phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
 
 smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases (10 pc min to avoid jumps)
 

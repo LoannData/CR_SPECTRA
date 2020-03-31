@@ -16,6 +16,7 @@ import math
 import constants as cst
 import phases_collection as ism 
 import mathmethods as mt 
+import damping as dp
 
 
 def IonNeutral_Damping(k, medium_props, nu_n = 0, theta = 0) : 
@@ -84,7 +85,7 @@ def Duu_Alfven_Slab_Linear_Undamped(mu, E, medium_props, mass = cst.mp, kmin = 1
         B0 = medium_props.get("B")
         W0 = B0**2/(8*np.pi)
         I  = I
-        g_s0 = 2*(q - 1)*W0*I*kmin
+        g_s0 = 2*(q - 1)*W0*I*kmin**(q - 1)
         if (k >= 0) : 
             if (k >= kmin) : 
                 return g_s0*k**(-q)
@@ -134,7 +135,7 @@ def Duu_Alfven_Slab_Linear_Undamped(mu, E, medium_props, mass = cst.mp, kmin = 1
 
 
 
-def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) : 
+def Kappa_zz(E, medium_props, mass = cst.mp, kmin = (50.*cst.pc)**(-1), q = 5./3, I = 1e-4) : 
     """
     
 
@@ -147,12 +148,12 @@ def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) :
     mass : TYPE float, optional
         Mass of the diffusin particle. The defaut is m_proton
     kmin : TYPE float, optional
-        Minimun length in cm^-1 for the turbulence spectra. The default is 1e-20.
+        Minimun length in cm^-1 for the turbulence spectra -> Injection length. The default is 50pc**(-1)
     q : TYPE float, optional
         Spectral index of the Kolmogorov-like turbulence 
         spectrum. The default is 5./3.
     I : TYPE float, optional
-        Diffusion coefficient normalization value for 1GeV particle and 5./3 spectrum. The default is 1e28.
+        Turbulence average level. Defaut is 10^-4
 
     Returns
     -------
@@ -161,7 +162,7 @@ def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) :
 
     """
     
-    I = (2.2345649450772952e28*1e6/I)
+    # I = (2.2345649450772952e28*1e6/I)
     
     m = mass
     gamma = 1 + (E /(m*cst.c**2))
@@ -169,6 +170,10 @@ def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) :
     p = gamma*m*v 
     Omega0 = cst.e*medium_props.get("B")/(m*cst.c)
     Omega  = Omega0/gamma 
+    
+    lz_damping = dp.damping_lazarian_nopos(E, medium_props)
+    kmax = (lz_damping[1])**(-1)
+    I = I*kmax
     
     k_zz = 0.
     mu = np.linspace(-1, 1, 100)
