@@ -188,10 +188,24 @@ double tesc(double E)
 
         double tPDS   = exp(-1.)*3.61e4*pow(Esn,3./14)/(pow(xi_n,5./14)*pow(nt,4./7))*yr; // [s]
         
-        double loc_tesc = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt);
+        //double loc_tesc = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt);
+        double loc_tesc = tSed*pow( (pow(E/c,2)) / (pow(EM/c,2)) , ddelt);
         double tfree  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
 
         double v_sh = u_sh(loc_tesc);
+
+        double t_sh_lib   = tSed;
+        double v_sh_110 = u_sh(t_sh_lib); 
+        double delta_t    = 100.*yr;
+        // We calculate the time at which u_sh = 110 km/s 
+        while(v_sh_110 > 110*km)
+        {
+            t_sh_lib += delta_t;
+            v_sh_110 = u_sh(t_sh_lib); 
+        }
+
+
+
 
         if (tesc_model == 1) // if t >= tPDS
         {
@@ -199,20 +213,29 @@ double tesc(double E)
         }
         if (tesc_model == 2) // if vsh <= 110 km.s^-1
         {
-            if (v_sh <= 110*km) 
-                {
-                    double loc_time = loc_tesc; 
-                    double delta_time = 100.*yr;
-                    double loc_vsh = u_sh(loc_time);
-                    while(loc_vsh < 110*km)
-                    {
-                        loc_time -= delta_time; 
-                        loc_vsh = u_sh(loc_time); 
-                        //cout<<"loc_time = "<<loc_time/kyr<<" kyr, loc_vsh = "<<loc_vsh/km<<" km/s"<<endl;
-                    }
-                    return loc_time; 
-                }
-            if (v_sh > 110*km)  {return loc_tesc;}
+            if (loc_tesc > tPDS)
+            {
+                return t_sh_lib;
+                //if (v_sh <= 110*km) 
+                //    {
+                        //double loc_time = loc_tesc; 
+                        //double delta_time = 100.*yr;
+                        //double loc_vsh = u_sh(loc_time);
+                        //while(loc_vsh < 110*km)
+                        //{
+                        //    loc_time -= delta_time; 
+                        //    loc_vsh = u_sh(loc_time); 
+                        //    //cout<<"loc_time = "<<loc_time/kyr<<" kyr, loc_vsh = "<<loc_vsh/km<<" km/s"<<endl;
+                        //}
+                        //return loc_time; 
+                //        return t_sh_lib; 
+                //    }
+                //if (v_sh > 110*km)  {return t_sh_lib;} // We return the time at which v_sh will be equal to 110 km/s
+            }
+            else 
+            {
+                return loc_tesc;
+            }
         }
     }
 
@@ -269,7 +292,10 @@ double tesc_e(double E)
         double tesc_p = tesc(E);
         double Bsat  = B_sat(tesc_p); 
         //cout<<" Bsat = "<<Bsat*1e6<<" muG"<<endl;
-        double tloss_e = 4*E/(c*sig_T*pow(Bsat,2)*pow(1 + E/(me*pow(c,2)),2));
+        //double tloss_e = 4*E/(c*sig_T*pow(Bsat,2)*pow(1 + E/(me*pow(c,2)),2));
+        double tloss_e = 9*pow(me, 4)*pow(c, 7)/(4*16*pow(e, 4)*pow(Bsat,2)*E);
+
+        //cout <<"tloss_e = "<<tloss_e/kyr<<" kyr"<<endl;
 
         return min(tesc_p, tloss_e);
     }

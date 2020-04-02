@@ -283,7 +283,7 @@ if (beta == 0.) :
         Emax[ii], niter = NewtonRaphson(f1, df1dx, x0, eps, [a, b, c])
 
 
-Emin = 0.001*cst.GeV
+Emin = 0.01*cst.GeV
 EMAX = max(Emax)
 delta = 2.
 

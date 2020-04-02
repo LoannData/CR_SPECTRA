@@ -85,7 +85,7 @@ const double injection_function_width = 100. ; // Corresponds approximately to t
 const int injection_function_norm     = 100; // Constant in order to easily and rapidly normalize the injection function 
 const double r_snr_thickness          = 100; // = R_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  
 
-const int tesc_model  = 2; // CR escape time model (1 : All CRs escape at the begining of the radiative phase, 2 : If v_sh < 110 km/s, all CRs escape)
+const int tesc_model  = 1; // CR escape time model (1 : All CRs escape at the begining of the radiative phase, 2 : If v_sh < 110 km/s, all CRs escape)
 
 
 // Electrons escape model (from Ohira et al. 2018)
@@ -93,7 +93,7 @@ const int tesc_model  = 2; // CR escape time model (1 : All CRs escape at the be
 // Model 1 : eta_g = eta_g,free -> 1
 // Model 2 : B^2 = u_sh^3       -> 2
 // Model 3 : B^2 = u_sh^2       -> 3
-const int oh_model = 1;
+const int oh_model = 3;
 
 const double eta_gfree = 1;
 const double eta_acc = 10;
