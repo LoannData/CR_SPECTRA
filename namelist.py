@@ -53,14 +53,14 @@ except :
 #      GRID PARAMETERS                                                        #
 ###############################################################################
 NX        = 11  # 2**NX is the X-size of the grid
-NE        = 6  # 2**NE is the E-size of the grid 
+NE        = 7  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc
 xgridtype = "cartesian" # No choice
 
-Emin      = 9.99*cst.GeV
-Emax      = 10.01*cst.TeV
+Emin      = 0.99*cst.GeV
+Emax      = 100.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended (only option for the moment)
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 

@@ -275,6 +275,10 @@ int main()
         
         Pe_ini_temp[j] = Pcr_ini(E[j]);                    // A modifier, concerne les e- 
         ttesc_e[j] = tesc_e(E[j]);                           // A modifier, concerne les e- -> C'est fait 
+
+
+        cout<<"Escape time E = "<<E[j]/GeV<<" GeV - tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;
+
         //cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, t_esc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;  
     }
 

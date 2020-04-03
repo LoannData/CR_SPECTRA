@@ -50,7 +50,7 @@ const int solver_ImDampGrowth  = 1; // Source term effect due to production of s
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 1;                    // Number of processors for the run 
+const int nproc = 2;                    // Number of processors for the run 
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
 const double t_data_out_max = 500.*kyr; //200.*kyr; // Instant of the last output data
 const int number_out_data   = 500;     // Total number of output data
@@ -92,7 +92,7 @@ const int tesc_model  = 1; // CR escape time model (1 : All CRs escape at the be
 
 // Model 1 : eta_g = eta_g,free -> 1
 // Model 2 : B^2 = u_sh^3       -> 2
-// Model 3 : B^2 = u_sh^2       -> 3
+// Model 3 : B^2 = u_sh^2       -> 3 (Best model)
 const int oh_model = 3;
 
 const double eta_gfree = 1;

@@ -204,6 +204,10 @@ double tesc(double E)
             v_sh_110 = u_sh(t_sh_lib); 
         }
 
+        if (E > EM || E < Emin)
+        {
+            return pow(10,20)*kyr; 
+        }
 
 
 
@@ -241,7 +245,7 @@ double tesc(double E)
 
 
 // Old-function, useless ... 
-double Bsat(vector<vector<double> > &Pcr, vector<double> X, vector<double> Y, double r_snr)
+double Bsat_old(vector<vector<double> > &Pcr, vector<double> X, vector<double> Y, double r_snr)
     {
         double dX = X[1] - X[0]; 
         double dY = Y[1] - Y[0];
@@ -282,22 +286,31 @@ double B_sat(double time)
 
         t_B = t_sed*pow(Bfree/B_ISM, 1./alpha_B);
 
+        //cout<<"tesc_p = "<<time/kyr<<" kyr"<<endl;
+
+        //cout<<Bfree<<", "<<B_ISM<<", "<<Bfree*pow(time/t_sed, -alpha_B)<<endl;
+
         if (time <= t_sed)              {return Bfree;}
-        if (time > t_sed & time <= t_B) {return pow(Bfree/B_ISM, alpha_B);}
+        if (time > t_sed & time <= t_B) {return Bfree*pow(time/t_sed, -alpha_B);}
         if (time > t_B)                 {return B_ISM;}
     }
 
 double tesc_e(double E)
     {
+        double t_sed  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
         double tesc_p = tesc(E);
         double Bsat  = B_sat(tesc_p); 
-        //cout<<" Bsat = "<<Bsat*1e6<<" muG"<<endl;
+        double EM = GetEM();
+        //cout<<"tesc_p = "<<tesc_p/kyr<<" kyr, Bsat = "<<Bsat*1e6<<" muG"<<endl;
         //double tloss_e = 4*E/(c*sig_T*pow(Bsat,2)*pow(1 + E/(me*pow(c,2)),2));
         double tloss_e = 9*pow(me, 4)*pow(c, 7)/(4*16*pow(e, 4)*pow(Bsat,2)*E);
 
+
         //cout <<"tloss_e = "<<tloss_e/kyr<<" kyr"<<endl;
 
-        return min(tesc_p, tloss_e);
+        if (E > EM || E < Emin){return pow(10,20)*kyr;}
+
+        return max(min(tesc_p, tloss_e), t_sed);
     }
 
 
