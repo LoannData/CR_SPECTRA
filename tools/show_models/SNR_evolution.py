@@ -8,6 +8,8 @@ Created on Thu Oct 31 11:21:55 2019
 
 import numpy as np 
 import matplotlib.pyplot as plt
+import matplotlib.gridspec as gridspec
+from mpl_toolkits.axes_grid1.inset_locator import inset_axes
 
 import sys 
 sys.path.append("../")
@@ -209,32 +211,91 @@ def Rsh(nt) :
         t_new[ii] = 10**(logt_new[ii])
         r_new[ii] = 10**(logr_new[ii])
         
-    return t, R, t_new, r_new
+    # We calculate the SNR Shock velocity
+    u_sh = np.empty(len(r_new))
+    for ii in range(1, len(r_new)) : 
+        u_sh[ii] = (r_new[ii] - r_new[ii-1])/(t_new[ii] - t_new[ii-1])
+    u_sh[0] = u_sh[1] - (u_sh[2] - u_sh[1])
     
+    u_sh_c = np.empty(len(t))
+    for jj in range(len(u_sh_c)-1) : 
+        for ii in range(1, len(u_sh)) : 
+            if (t_new[ii-1] < t[jj] and t_new[ii] >= t[jj]) : 
+                u_sh_c[jj] = 0.5*(u_sh[ii] + u_sh[ii-1])
+    u_sh_c[-1] = u_sh[-1]
+        
     
-t_WNM, R_WNM, t_new_WNM, r_new_WNM = Rsh(0.35)
-t_CNM, R_CNM, t_new_CNM, r_new_CNM = Rsh(30.)
-t_DiM, R_DiM, t_new_DiM, r_new_DiM = Rsh(300.)
+        
+    return t, R, t_new, r_new, u_sh, u_sh_c
+    
+
+t_HII, R_HII, t_new_HII, r_new_HII, u_sh_HII, u_sh_c_HII = Rsh(100.)
+t_WNM, R_WNM, t_new_WNM, r_new_WNM, u_sh_WNM, u_sh_c_WNM = Rsh(0.35)
+t_CNM, R_CNM, t_new_CNM, r_new_CNM, u_sh_CNM, u_sh_c_CNM = Rsh(30.)
+t_DiM, R_DiM, t_new_DiM, r_new_DiM, u_sh_DiM, u_sh_c_DiM = Rsh(300.)
+
+marker = ['X', 'o', 's', 'v']
 
 
-plt.figure(figsize=(10,6))
+size_x = 6
+size_y = 4
+sub_x  = 1
+sub_y  = 2
+fig = plt.figure(figsize=(size_x*sub_x,size_y*sub_y))
 
-plt.loglog(t_new_WNM/cst.kyr, r_new_WNM/cst.pc, c="green", label="WNM", lw=2)
-plt.loglog(t_new_CNM/cst.kyr, r_new_CNM/cst.pc, c="blue", label="CNM", lw=2)
-plt.loglog(t_new_DiM/cst.kyr, r_new_DiM/cst.pc, c="red", label="DiM", lw=2)
+gs = gridspec.GridSpec(ncols= sub_x, nrows = sub_y, figure = fig )
+gs.update(wspace=0.05, hspace=0.05) # set the spacing between axes.
+
+
+ax0 = fig.add_subplot(gs[0])
+
+ax0.loglog(t_new_WNM/cst.kyr, r_new_WNM/cst.pc, c="green", label="$n_T = 0.35$ cm$^{-3}$ (WNM)", lw=2)
+ax0.loglog(t_new_CNM/cst.kyr, r_new_CNM/cst.pc, c="deepskyblue", label="$n_T = 30.0$ cm$^{-3}$ (CNM)", lw=2)
+ax0.loglog(t_new_HII/cst.kyr, r_new_HII/cst.pc, c="red", label="$n_T = 100$  cm$^{-3}$ (HII)", lw=2)
+ax0.loglog(t_new_DiM/cst.kyr, r_new_DiM/cst.pc, c="blue", label="$n_T = 300$  cm$^{-3}$ (DiM)", lw=2)
 
 for ii in range(len(t_WNM)) : 
-    plt.loglog(t_WNM[ii]/cst.kyr, R_WNM[ii]/cst.pc, c="black", marker='o')
-    plt.loglog(t_CNM[ii]/cst.kyr, R_CNM[ii]/cst.pc, c="black", marker='o')
-    plt.loglog(t_DiM[ii]/cst.kyr, R_DiM[ii]/cst.pc, c="black", marker='o')
+    ax0.loglog(t_HII[ii]/cst.kyr, R_HII[ii]/cst.pc, c="black", marker=marker[ii])
+    ax0.loglog(t_WNM[ii]/cst.kyr, R_WNM[ii]/cst.pc, c="black", marker=marker[ii])
+    ax0.loglog(t_CNM[ii]/cst.kyr, R_CNM[ii]/cst.pc, c="black", marker=marker[ii])
+    ax0.loglog(t_DiM[ii]/cst.kyr, R_DiM[ii]/cst.pc, c="black", marker=marker[ii])
 
 
-plt.xlim(1e-2, 1e4)
-plt.ylim(4e-1, 1.5e2)
 
-plt.xlabel("Time [kyr]")
-plt.ylabel("R$_{sh}$ [pc]")
-plt.legend(loc="best")
+
+
+
+ax0.set_ylabel("R$_{sh}$ [pc]")
+ax0.legend(loc="upper left", ncol = 2 , bbox_to_anchor=(0.03, 1.25))
+
+
+ax1 = fig.add_subplot(gs[1])
+
+ax1.loglog(t_new_WNM/cst.kyr, u_sh_WNM/cst.kms, c="green", lw=2)
+ax1.loglog(t_new_CNM/cst.kyr, u_sh_CNM/cst.kms, c="deepskyblue", lw=2)
+ax1.loglog(t_new_HII/cst.kyr, u_sh_HII/cst.kms, c="red", lw=2)
+ax1.loglog(t_new_DiM/cst.kyr, u_sh_DiM/cst.kms, c="blue", lw=2)
+
+for ii in range(len(t_WNM)) : 
+    ax1.loglog(t_HII[ii]/cst.kyr, u_sh_c_HII[ii]/cst.kms, c="black", marker=marker[ii])
+    ax1.loglog(t_WNM[ii]/cst.kyr, u_sh_c_WNM[ii]/cst.kms, c="black", marker=marker[ii])
+    ax1.loglog(t_CNM[ii]/cst.kyr, u_sh_c_CNM[ii]/cst.kms, c="black", marker=marker[ii])
+    ax1.loglog(t_DiM[ii]/cst.kyr, u_sh_c_DiM[ii]/cst.kms, c="black", marker=marker[ii])
+
+ax1.scatter([],[],marker="o",c="black",label="$t_\\mathrm{PDS}$")
+ax1.scatter([],[],marker="s",c="black",label="$t_\\mathrm{MCS}$")
+ax1.scatter([],[],marker="v",c="black",label="$t_\\mathrm{merge}$")
+
+ax1.legend(ncol = 3)
+
+ax1.set_ylabel("$u_\\mathrm{sh}$ [km/s]")
+
+
+ax0.set_xlim(1e-2, 1e4)
+ax1.set_xlim(1e-2, 1e4)
+ax0.get_xaxis().set_visible(False)
+ax1.set_xlabel("Time [kyr]")
+ax0.set_ylim(4e-1, 1.5e2)
 
 plt.savefig("./figures/R_SNR.pdf")
 
