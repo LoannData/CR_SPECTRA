@@ -180,18 +180,17 @@ def show(variable, time, position, energy,
 
 
 # Experiments 
-show(["Pcr", "Pe"], [50, 100, 200, 500, 900], 
-     [1100.*cst.pc, 1500.*cst.pc],
-     [10.*cst.GeV, 100.*cst.GeV, 5000.*cst.GeV, 9000.*cst.GeV],
-     xlim = [750., 1250.], 
-     elim = [1e1, 1e4],
+show(["Pcr", "Pe"], [2, 3, 4], 
+     [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
+     [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
+     elim = [1e0, 1e5],
      vlim = [[1e-22, 1e-8], [1e-22, 1e-8]],
      source_center = 1000.,
      fig_save = True)
 
-show(["Dcr", "Ip", "Im"], [50, 100, 200, 500, 900], 
-     [1100.*cst.pc, 1500.*cst.pc],
-     [10.*cst.GeV, 100.*cst.GeV, 5000.*cst.GeV, 9000.*cst.GeV],
+show(["Dcr", "Ip", "Im"], [2, 3, 4], 
+     [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
+     [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
      source_center = 1000.,
      fig_save = True)
 

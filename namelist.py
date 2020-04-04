@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Test_saturation_nonlinear"
+folder_name = "High_resolution"
 folder_path = "../WorkFolder/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -44,7 +44,6 @@ try :
     os.mkdir(total_path+"/tools")
 except : 
     print ("!!! The output folder already exists, remove it if you want to create a new one !!!")
-    None 
 
 
 
@@ -52,15 +51,15 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 11  # 2**NX is the X-size of the grid
+NX        = 11  # 2**NX is the X-size of the grid 
 NE        = 7  # 2**NE is the E-size of the grid 
 
-Xmin      = 0.*cst.pc
+Xmin      = 1.*cst.pc
 Xmax      = 2000.*cst.pc
 xgridtype = "cartesian" # No choice
 
 Emin      = 0.99*cst.GeV
-Emax      = 100.01*cst.TeV
+Emax      = 30.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended (only option for the moment)
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 
@@ -90,7 +89,9 @@ phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=300.*cst.pc),  getVA(E, ism
 phases.append([ism.CNM, dict(Xmin=300.*cst.pc,  Xmax=500.*cst.pc),  getVA(E, ism.CNM)])
 phases.append([ism.DiM, dict(Xmin=500.*cst.pc,  Xmax=600.*cst.pc),  getVA(E, ism.DiM)]) 
 phases.append([ism.CNM, dict(Xmin=600.*cst.pc,  Xmax=800.*cst.pc),  getVA(E, ism.CNM)])
-phases.append([ism.WNM, dict(Xmin=800.*cst.pc,  Xmax=1200.*cst.pc), getVA(E, ism.WNM)]) 
+phases.append([ism.WNM, dict(Xmin=800.*cst.pc,  Xmax=950.*cst.pc),  getVA(E, ism.WNM)])
+phases.append([ism.HII, dict(Xmin=950.*cst.pc,  Xmax=1050.*cst.pc), getVA(E, ism.HII)]) 
+phases.append([ism.WNM, dict(Xmin=1050.*cst.pc, Xmax=1200.*cst.pc), getVA(E, ism.WNM)])
 phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism.CNM)]) 
 phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
 phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 

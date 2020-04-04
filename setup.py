@@ -59,6 +59,7 @@ va = ism_values.get("VA")
 ###############################################################################
 
 
+
 ###############################################################################
 #   INITIAL ISM CONDITIONS                                                    #
 ###############################################################################
@@ -86,7 +87,7 @@ for xi in range(len(X)) :
 
 for e in range(len(E)) : 
     if (e % 1 == 0) : 
-        print ("Initialisation : "+str(round(e/len(E)*100.,2))+" %")
+        print ("Background diffusion model : "+str(round(e/len(E)*100.,2))+" %")
     for xi in range(len(X)) : 
         # Bohm diffusion coefficient
         Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index])) 
@@ -116,7 +117,7 @@ for e in range(len(E)) :
 
 for e in range(len(E)) : 
     if (e % 10 == 0) : 
-        print ("ISM model generation : "+str(round(e/len(E)*100.,2))+" %")
+        print ("Waves damping and initial CRs distributions : "+str(round(e/len(E)*100.,2))+" %")
     for xi in range(len(X)) : 
         in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
         

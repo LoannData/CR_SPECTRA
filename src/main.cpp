@@ -32,12 +32,12 @@ int main()
     std::clock_t start;
     double duration;
 
+    
     /*
-    // Script which defines the limit memory (here 64 MB)
-    const rlim_t kStackSize = 64 * 1024 * 1024; 
+    // Script which defines the limit memory (here 256 MB)
+    const rlim_t kStackSize = 16 * 1024 * 1024; 
     struct rlimit rl;
     int result;
-
     result = getrlimit(RLIMIT_STACK, &rl);
     if (result == 0)
     {
@@ -53,6 +53,7 @@ int main()
     }
     //--------------------------------------------------------//
     */
+    
     
 
     /*std::string parameters = "./parameters.dat";
@@ -192,33 +193,19 @@ int main()
 
 
     double maxdVddE = absmaxElement2D(dVAdlog10E); 
+
     
 
     vector<double> cfl;
     cfl.push_back(C1*mindX/maxVd); 
-
-    //cfl.push_back(C2/maxdVddX*mindE); 
-    //cfl.push_back(C3/maxdVddE*mindX); 
-
-
-
-    //cfl.push_back(C2*pow(mindX,2)/maxD);
-
-
     cfl.push_back(C3*minlindE*mindX/(maxE*maxVd));
-    //cfl.push_back(C4*2*mindX/maxVd);
-    //cfl.push_back(C5/(maxGd));
+    double dt = minElement1D(cfl);
 
     cout<<"CFL Values : "<<endl;
-    cout<<"Advection : "<<C1*mindX/maxVd<<" s"<<endl;
-    cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD<<" s"<<endl;
-    //cout<<"Advection dVA/dX : "<<C2/maxdVddX*mindE<<endl;
-    //cout<<"Advection dVA/dE : "<<C3/maxdVddE*mindX<<endl;
-    cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)<<" s"<<endl;
-    //cout<<"Growth    : "<<C4*2*mindX/maxVd<<" s"<<endl;
-    //cout<<"Damping   : "<<C5/maxGd<<" s"<<endl;
-    double dt = minElement1D(cfl);
-    cout<<"Time-step = "<<dt<<" s"<<endl;
+    cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
+    cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr"<<endl;
+    cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
+    cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
 
 
     // SIMULATION ===========================================================================================================//
@@ -270,26 +257,25 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
-
-        //cout<<"E = "<<E[j]/GeV<<" GeV -> t_esc = "<<ttesc[j]/kyr<<" kyr"<<endl;
-        
-        Pe_ini_temp[j] = Pcr_ini(E[j]);                    // A modifier, concerne les e- 
-        ttesc_e[j] = tesc_e(E[j]);                           // A modifier, concerne les e- -> C'est fait 
-
-
-        cout<<"Escape time E = "<<E[j]/GeV<<" GeV - tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;
-
-        //cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, t_esc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;  
+        Pe_ini_temp[j] = Pcr_ini(E[j]);                    
+        ttesc_e[j] = tesc_e(E[j]);                           
     }
 
 
 
     int xi, ei; 
+    int useless; 
     //int nb = nproc;
     int g;
     while (time < Tmax)
     {   
         start = std::clock();
+
+        if (time_index == 0){
+            useless  = writeXE("Ip", -1, Ip_new, NX, NE);
+            useless  = writeXE("Im", -1, Im_new, NX, NE);
+            useless = writeXE("Pcr", -1, Pcr_new, NX, NE);
+            useless  = writeXE("Pe", -1, Pe_new, NX, NE);}
 
         Pcr_old = Pcr_new;
         Pe_old  = Pe_new;
@@ -297,35 +283,18 @@ int main()
         Im_old  = Im_new;
 
         r_snr = RSNR(time);
-        //if (isnan(r_snr)){
-        //cout<<"r_snr = "<<r_snr<<endl;}
-        //B_sat = Bsat(Pcr_new, X, log10E, r_snr); // It is working 
-
-
-
 
         for (g=0; g<NE; g++)
         {
-            // We actualise the escape time of the electrons
-            // 
-            //ttesc_e[g] = min(max(tesc_e(ttesc[g], B_sat, E[g]), time), ttesc[g]);
-            //cout<<"Bsat = "<<B_sat*1e6<<", tesc = "<<ttesc[g]/kyr<<" kyrs, tesc_e = "<<ttesc_e[g]/kyr<<" kyrs"<<endl;
             Finj_temp[g] = Finj(time, dt, E[g], ttesc[g]);
             Finj_temp_e[g] = Finj(time, dt, E[g], ttesc_e[g]);
         }
-
-
         for (g=0; g<NX; g++)
         {
             vec_theta[g] = theta(X[g], time, r_snr);
             vec_theta_e[g] = theta(X[g], time, r_snr);
         }
 
-        
-
-        //cout<<"r_snr = "<<r_snr<<endl;
-
-         
 
         #pragma omp parallel num_threads(nproc)
         {
@@ -429,19 +398,29 @@ int main()
 
 
 
+        if (output_freq == 0){
         if (time > dat_output[out_Pcr_index] && out_Pcr_index < dat_output.size()) 
         {
             //createFolder(int index); 
             out_Ip_index  = writeXE("Ip", out_Ip_index, Ip_new, NX, NE);
             out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
             out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
-            out_Pe_index = writeXE("Pe", out_Pe_index, Pe_new, NX, NE);
-        }
+            out_Pe_index  = writeXE("Pe", out_Pe_index, Pe_new, NX, NE);
+        }}
+
+
+        if (output_freq == 1){
+        if (time_index % number_out_data == 0)
+        {
+            out_Ip_index  = writeXE("Ip", out_Ip_index, Ip_new, NX, NE);
+            out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
+            out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
+            out_Pe_index  = writeXE("Pe", out_Pe_index, Pe_new, NX, NE);
+        }}
 
         
         duration = ( std::clock() - start ) / (double) CLOCKS_PER_SEC;
-        duration = duration / nproc;
-        showLog_0(time, Tmax, getLogOutput(), time_index, duration);
+        showLog_0(time, Tmax, getLogOutput(), time_index, duration, dt);
         //showLog_1(getLogOutput(), time_index, B_sat);
         time += dt;
         time_index += 1;
