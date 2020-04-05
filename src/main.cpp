@@ -176,6 +176,7 @@ int main()
     }
 
 
+    double maxlinE = maxElement1D(E); 
     double maxE  = maxElement1D(log10E);
     double minE  = minElement1D(log10E);
     double minW0 = minElement1D(B); minW0 = pow(minW0,2)/(8*pi);
@@ -198,13 +199,20 @@ int main()
 
     vector<double> cfl;
     cfl.push_back(C1*mindX/maxVd); 
-    cfl.push_back(C3*minlindE*mindX/(maxE*maxVd));
+
+
+    //if (solver_PcrAdvection2 == 1 || solver_PcrAdvectionE == 1 || solver_PeAdvection2 == 1 || solver_PeAdvectionE == 1){
+    //cfl.push_back(C3*minlindE*mindX/(maxE*maxVd));}
+    cfl.push_back(C3*minlindE/(maxlinE*maxdVddX)); 
+    cfl.push_back(C4*mindX/(maxlinE*maxdVddE)); 
     double dt = minElement1D(cfl);
 
     cout<<"CFL Values : "<<endl;
     cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
     cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr"<<endl;
     cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
+    cout<<"Energy 2  : "<<C3*minlindE/(maxlinE*maxdVddX)/yr<<" yr"<<endl;
+    cout<<"Energy 3  : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
     cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
 
 

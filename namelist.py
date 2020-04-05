@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "High_resolution"
+folder_name = "Variable_Grid"
 folder_path = "../WorkFolder/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -51,15 +51,15 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 11  # 2**NX is the X-size of the grid 
+NX        = 10  # 2**NX is the X-size of the grid 
 NE        = 7  # 2**NE is the E-size of the grid 
 
-Xmin      = 1.*cst.pc
+Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc
-xgridtype = "cartesian" # No choice
+xgridtype = "gaussian"#"cartesian" # No choice
 
 Emin      = 0.99*cst.GeV
-Emax      = 30.01*cst.TeV
+Emax      = 100.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended (only option for the moment)
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 
