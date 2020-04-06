@@ -151,6 +151,7 @@ int main()
     vector<double> Vdminvec(NE), Dminvec(NE), Gammadminvec(NE);
 
     vector<vector<double> > abs_VA = VA, dVAdlog10E = VA, cdVAdX = VA, c2dVAdX = VA;
+    vector<vector<double> > dVAdE_E = VA;
     for (int xi = 0; xi < VA.size(); xi++)
     {
         for (int ei = 0; ei < VA[xi].size(); ei++)
@@ -158,11 +159,14 @@ int main()
             abs_VA[xi][ei] = abs(VA[xi][ei]);
             if (ei > 0 and ei < VA[xi].size()-1)
             {
+                dVAdE_E[xi][ei] = E[ei]/3.*(VA[xi][ei+1] - VA[xi][ei-1])/(E[ei+1] - E[ei-1]);
+                //cout<<dVAdlog10E[xi][ei]<<endl;
                 dVAdlog10E[xi][ei] = -1./3*1./log(10)*(VA[xi][ei+1] - VA[xi][ei-1])/(log10E[ei+1] - log10E[ei-1]);
             }
             if (xi > 0 and xi < VA.size()-1)
             {
                 cdVAdX[xi][ei] = (VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1])/(3.*log(10.)); //1e-11 -> Test value
+                //cdVAdX[xi][ei] = E[ei]/3.*(VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1]);
                 c2dVAdX[xi][ei] = -(VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1]);
             }
             cdVAdX[0][ei] = cdVAdX[1][ei];
@@ -170,6 +174,8 @@ int main()
             c2dVAdX[0][ei] = c2dVAdX[1][ei];
             c2dVAdX[VA.size()-1][ei] = c2dVAdX[VA.size()-2][ei];
         }
+        dVAdE_E[xi][0] = dVAdE_E[xi][1];
+        dVAdE_E[xi][VA[xi].size()-1] = dVAdE_E[xi][VA[xi].size()-2];
         dVAdlog10E[xi][0] = 0.;
         dVAdlog10E[xi][VA[xi].size()-1] = 0.;
 
@@ -198,14 +204,24 @@ int main()
     
 
     vector<double> cfl;
-    cfl.push_back(C1*mindX/maxVd); 
+
+    if (solver_PcrAdvection == 1 || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd);}
+    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*minlindE/(maxlinE*maxdVddX));}
+    if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
+     
+    double dt = minElement1D(cfl);
+
+    //cout<<"Max V = "<<maxVd<<endl;
+    //cout<<"Max dVdE = "<<maxdVddE<<endl;
+    //cout<<"min DX = "<<mindX<<endl;
+    //cout<<"max lin DE = "<<maxlinE<<endl;
 
 
     //if (solver_PcrAdvection2 == 1 || solver_PcrAdvectionE == 1 || solver_PeAdvection2 == 1 || solver_PeAdvectionE == 1){
     //cfl.push_back(C3*minlindE*mindX/(maxE*maxVd));}
-    cfl.push_back(C3*minlindE/(maxlinE*maxdVddX)); 
-    cfl.push_back(C4*mindX/(maxlinE*maxdVddE)); 
-    double dt = minElement1D(cfl);
+     
+     
+    
 
     cout<<"CFL Values : "<<endl;
     cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
@@ -325,19 +341,19 @@ int main()
         // Explicit Advection solver for Pcr and Pe by Alfvén velocity          //
         //----------------------------------------------------------------------//
         if (solver_PcrAdvection == 1)
-        {advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA, 0);                                  Pcr_old = Pcr_new;}
+        {advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, VA, 0, 1);                                  Pcr_old = Pcr_new;}
         if (solver_PeAdvection == 1)
-        {advectionSolverX(Pe_old, Pe_new, dt, X, NE, VA, 0);                                  Pe_old = Pe_new;}
+        {advectionSolverX(Pe_old, Pe_new, dt, X, NE, VA, 0, 1);                                  Pe_old = Pe_new;}
 
         //----------------------------------------------------------------------//
         // Explicit Advection solver for I by Alfvén velocity                   //
         // -> This term seems ok                                                //
         //----------------------------------------------------------------------//
         if (solver_IpAdvection == 1)
-        {advectionSolverX(Ip_old, Ip_new, dt, X, NE, VA,  1);                                   Ip_old = Ip_new;}
+        {advectionSolverX(Ip_old, Ip_new, dt, X, NE, VA,  1, 1);                                   Ip_old = Ip_new;}
 
         if (solver_ImAdvection == 1)
-        {advectionSolverX(Im_old, Im_new, dt, X, NE, VA, -1);                                   Im_old = Im_new;}
+        {advectionSolverX(Im_old, Im_new, dt, X, NE, VA, -1, 1);                                   Im_old = Im_new;}
 
 
         //----------------------------------------------------------------------//
@@ -346,9 +362,9 @@ int main()
         // Note : This term needs more studies ...                              //
         //----------------------------------------------------------------------//
         if (solver_PcrAdvection2 == 1)
-        {advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdlog10E, 0);                          Pcr_old = Pcr_new;}
+        {advectionSolverX(Pcr_old, Pcr_new, dt, X, NE, dVAdE_E, 0, 1);                          Pcr_old = Pcr_new;}
         if (solver_PeAdvection2 == 1)
-        {advectionSolverX(Pe_old, Pe_new, dt, X, NE, dVAdlog10E, 0);                          Pe_old = Pe_new;}
+        {advectionSolverX(Pe_old, Pe_new, dt, X, NE, dVAdE_E, 0, 1);                          Pe_old = Pe_new;}
 
         //----------------------------------------------------------------------//
         // Explicit Advection solver for Pcr and Pe in energy cdVAdX

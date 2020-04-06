@@ -40,11 +40,12 @@ void thetaDiffusionSolver(vector<vector<double> > &u, vector<vector<double> > &P
         loc_Pcr = loc_empty; 
 
 
+        if (set_background == 1){
         for (xi = 0; xi < NX+1; xi++)
         {
             loc_Pcr[xi] = Pcr_background[xi][ei];
             R[xi] = Pcr_background[xi][ei];
-        }
+        }}
 
         
         for (xi = 1; xi < NX; xi++)
@@ -92,16 +93,17 @@ void thetaDiffusionSolver(vector<vector<double> > &u, vector<vector<double> > &P
 
         loc_Pcr = TDMA(aa, bb, cc, R);
 
+        if (set_background == 1){
         for (xi = 0; xi < NX+1; xi++)
         {
             Pcr_new[xi][ei] = max(loc_Pcr[xi], Pcr_background[0][ei]);
-        }
+        }}
     }
 }
 
 
 
-void advectionSolverX(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> X, int NE, vector<vector<double> > V, int sign)
+void advectionSolverX(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> X, int NE, vector<vector<double> > V, int sign, int border)
 {
     // Upwind advection scheme
     // CF : https://en.wikipedia.org/wiki/Upwind_scheme
@@ -128,8 +130,38 @@ void advectionSolverX(vector<vector<double> > &u_old, vector<vector<double> > &u
                 ux_m = (u_old[xi][ei] - u_old[xi-1][ei])/ddx;
                 u_new[xi][ei] = u_old[xi][ei] - dt*(a_p*ux_m + a_m*ux_p);
             }
+
+            if (border == 0){
+            // Absorbing boundaries
             u_new[0][ei]  = u_old[0][ei]; // Cas xi = 0
             u_new[NX][ei] = u_old[NX][ei]; // Cas xi = NX
+            }
+
+            if (border == 1){
+            // Looped boundaries 
+            // Case xi = NX
+            ddx = (X[NX] - X[NX-1]);
+            V_loc = V[NX][ei];
+            if (V_loc > 0){if (sign == -1){V_loc = - V_loc;}}
+            if (V_loc < 0){if (sign ==  1){V_loc = - V_loc;}}
+            a_p = max(V_loc, 0.);
+            a_m = min(V_loc, 0.);
+            ux_p = (u_old[0][ei] - u_old[NX][ei])/ddx;
+            ux_m = (u_old[NX][ei] - u_old[NX-1][ei])/ddx;
+            u_new[NX][ei] = u_old[NX][ei] - dt*(a_p*ux_m + a_m*ux_p);
+            
+            // Case xi = 0
+            ddx = (X[1] - X[0]);
+            V_loc = V[0][ei];
+            if (V_loc > 0){if (sign == -1){V_loc = - V_loc;}}
+            if (V_loc < 0){if (sign ==  1){V_loc = - V_loc;}}
+            a_p = max(V_loc, 0.);
+            a_m = min(V_loc, 0.);
+            ux_p = (u_old[1][ei] - u_old[0][ei])/ddx;
+            ux_m = (u_old[0][ei] - u_old[NX][ei])/ddx;
+            u_new[0][ei] = u_old[0][ei] - dt*(a_p*ux_m + a_m*ux_p);
+            }
+            
         }
         if (order == 2)
         {
@@ -176,7 +208,8 @@ void advectionSolverE(vector<vector<double> > &u_old, vector<vector<double> > &u
                 u_new[xi][ei] = u_old[xi][ei] - dt*(a_p*ux_m + a_m*ux_p);
                 if (ei == 1){ad0 = - dt*(a_p*ux_m + a_m*ux_p);}
                 //cout<<dt<<"  "<<a_p<<" "<<a_m<<" "<<ux_p<<" "<<ux_m<<" "<<- dt*(a_p*ux_m + a_m*ux_p)<<endl;
-                if (u_new[xi][ei] < u_background[xi][ei]){u_new[xi][ei] = u_background[xi][ei];}
+                if (set_background == 1){
+                    if (u_new[xi][ei] < u_background[xi][ei]){u_new[xi][ei] = u_background[xi][ei];}}
             }
             u_new[xi][0]  = u_old[xi][0] + ad0; // Cas ei = 0
             u_new[xi][NE] = u_old[xi][NE] - dt*(a_p*ux_m + a_m*ux_p); // Cas ei = NE
