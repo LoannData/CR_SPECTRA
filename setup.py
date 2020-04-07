@@ -108,7 +108,7 @@ for e in range(len(E)) :
                                      mass = cst.mp, 
                                      kmin = (50.*cst.pc)**(-1), 
                                      q = 5./3, 
-                                     I = 1e-4)                              # ISM dependant method
+                                     I = 1e-2)                              # ISM dependant method
         # Background rates of turbulence
         Ip[e][xi] = Db[e][xi]/D[e][xi]*0.5
         Im[e][xi] = Db[e][xi]/D[e][xi]*0.5
@@ -176,6 +176,7 @@ variables = {"NX"       : nx,
              "mn"       : mn[x_center_index],
              "T"        : T[x_center_index],
              "center"   :x_center,
+             "center_index":x_center_index,
              "B"        : B[x_center_index]}
 
 fw.fileWrite("parameters", variables = variables, path=nml.total_path+"/", ext='.dat') 

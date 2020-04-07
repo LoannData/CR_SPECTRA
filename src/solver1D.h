@@ -73,7 +73,7 @@ void thetaDiffusionSolver(vector<vector<double> > &u, vector<vector<double> > &P
         cc.erase(cc.begin()+NX);
 
         // Cas xi = NX
-        dx = X[1] - X[0]; 
+        dx = X[NX] - X[NX-1]; 
         F1 = theta*dt/pow(dx,2);
         alpha_m = 0.5*(Db[NX][ei]/(Ip[NX][ei]+Im[NX][ei]) + Db[NX-1][ei]/(Ip[NX-1][ei]+Im[NX-1][ei]));
         alpha_p = 0.5*(Db[NX][ei]/(Ip[NX][ei]+Im[NX][ei]) + Db[0][ei]/(Ip[0][ei]+Im[0][ei]));//alpha_m;
@@ -98,8 +98,14 @@ void thetaDiffusionSolver(vector<vector<double> > &u, vector<vector<double> > &P
         {
             Pcr_new[xi][ei] = max(loc_Pcr[xi], Pcr_background[0][ei]);
         }}
+        if (set_background == 0){
+        for (xi = 0; xi < NX+1; xi++)
+        {
+            Pcr_new[xi][ei] = loc_Pcr[xi]; 
+        }}
     }
 }
+
 
 
 
@@ -162,25 +168,6 @@ void advectionSolverX(vector<vector<double> > &u_old, vector<vector<double> > &u
             u_new[0][ei] = u_old[0][ei] - dt*(a_p*ux_m + a_m*ux_p);
             }
             
-        }
-        if (order == 2)
-        {
-            for (int xi = 2; xi < NX-1; xi++)
-            {
-                ddx = (X[xi+1] - X[xi-1])/2.;
-                V_loc = V[xi][ei];
-                if (V_loc > 0){if (sign == -1){V_loc = - V_loc;}}
-                if (V_loc < 0){if (sign ==  1){V_loc = - V_loc;}}
-                a_p = max(V_loc, 0.);
-                a_m = min(V_loc, 0.);
-                ux_m = 0.5*(3*u_old[xi][ei] - 4*u_old[xi-1][ei] + u_old[xi-2][ei])/ddx;
-                ux_p = 0.5*(-u_old[xi+2][ei] + 4*u_old[xi+1][ei] - 3*u_old[xi][ei])/ddx;
-                u_new[xi][ei] = u_old[xi][ei] - dt*(a_p*ux_m + a_m*ux_p);
-            }
-            u_new[0][ei] = u_old[0][ei];
-            u_new[1][ei] = u_old[1][ei];
-            u_new[NX][ei] = u_old[NX][ei];
-            u_new[NX-1][ei] = u_old[NX-1][ei];
         }
     }
 }
@@ -299,7 +286,7 @@ void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<do
 void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> Pcr_ini, vector<double> Finj_temp, vector<double> vec_theta)
     {
         int NX = u_old.size();
-        int NE = u_old[0].size();;
+        int NE = u_old[0].size();
 
         //#pragma omp parallel num_threads(nproc)
         #pragma omp for schedule(static, int(double(NX/nproc))) //private(NE)
@@ -314,6 +301,22 @@ void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<doub
     }
 
 
+
+
+void dilute_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > u_background, double r_new, double r_old)
+{
+    int NX = u_old.size();
+    int NE = u_old[0].size();
+        #pragma omp for schedule(static, int(double(NX/nproc))) 
+        for (int xi = 0; xi < NX; xi++)
+        {   
+            //NE = u_old[xi].size();
+            for (int ei = 0; ei < NE; ei++)
+            {
+                u_new[xi][ei] = max(u_old[xi][ei]*pow(r_old/r_new,2.), u_background[xi][ei]);
+            }
+        }
+}
 
 
 

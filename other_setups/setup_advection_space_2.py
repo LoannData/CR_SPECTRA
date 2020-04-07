@@ -202,6 +202,7 @@ variables = {"NX"       : nx,
              "mn"       : mn[x_center_index],
              "T"        : T[x_center_index],
              "center"   :x_center,
+             "center_index":x_center_index,
              "B"        : B[x_center_index]}
 
 fw.fileWrite("parameters", variables = variables, path=nml.total_path+"/", ext='.dat') 

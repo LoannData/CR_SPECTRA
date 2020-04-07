@@ -18,6 +18,7 @@ double nt = ni/Xi;
 std::string smn = search(parameters,"mn");  double m_neutral = stod(smn); 
 std::string sT   = search(parameters,"T");  double T  = stod(sT);
 std::string scenter = search(parameters, "center"); double x_center = stod(scenter);
+std::string scenter_index = search(parameters, "center_index"); int x_center_index = stod(scenter_index);
 std::string sBcenter = search(parameters, "B"); double Bcenter = stod(sBcenter);
 
 

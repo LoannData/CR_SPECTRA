@@ -22,8 +22,8 @@ using namespace std;
 #include "./out.h"
 #include "./logmaker.h"
 #include "./tools.h"
-#include "./solver1D.h"
 #include "./cr_source.h"
+#include "./solver1D.h"
 
 // Main function 
 int main()
@@ -225,10 +225,10 @@ int main()
 
     cout<<"CFL Values : "<<endl;
     cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
-    cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr"<<endl;
-    cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
-    cout<<"Energy 2  : "<<C3*minlindE/(maxlinE*maxdVddX)/yr<<" yr"<<endl;
-    cout<<"Energy 3  : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
+    cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr (Implicit term)"<<endl;
+    //cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
+    cout<<"Energy Advection  : "<<C3*minlindE/(maxlinE*maxdVddX)/yr<<" yr"<<endl;
+    cout<<"Advection dVdX  : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
     cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
 
 
@@ -274,7 +274,7 @@ int main()
     vector<double> ttesc_e(NE); // Escape time array of e- 
     vector<double> vec_theta(NX);
     vector<double> vec_theta_e(NX); // vec theta of e-
-    double temp_theta, r_snr;
+    double temp_theta, r_snr, r_snr_old;
 
 
     for (int j=0; j<NE; j++)
@@ -291,6 +291,7 @@ int main()
     int useless; 
     //int nb = nproc;
     int g;
+    r_snr = RSNR(time);
     while (time < Tmax)
     {   
         start = std::clock();
@@ -306,6 +307,7 @@ int main()
         Ip_old  = Ip_new;
         Im_old  = Im_new;
 
+        r_snr_old = r_snr;
         r_snr = RSNR(time);
 
         for (g=0; g<NE; g++)
@@ -417,6 +419,22 @@ int main()
         {CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; }
         if (solver_PeSource2 == 1)
         {CRsInjectionSourceSolver(Pe_old, Pe_new, dt, Pe_ini_temp, Finj_temp_e, vec_theta_e); Pe_old = Pe_new; }
+
+        //----------------------------------------------------------------------//
+        // Time dilution terms                                                  // 
+        //----------------------------------------------------------------------//
+        if (solver_Dilution == 1)
+        {
+            dilute_solver(Pcr_old, Pcr_new, Pcr_background, r_snr, r_snr_old); Pcr_old = Pcr_new; 
+            dilute_solver(Pe_old, Pe_new, Pe_background, r_snr, r_snr_old);    Pe_old = Pe_new;
+            dilute_solver(Ip_old, Ip_new, Ip_background, r_snr, r_snr_old);    Ip_old = Ip_new;
+            dilute_solver(Im_old, Im_new, Im_background, r_snr, r_snr_old);    Im_old = Im_new;
+        
+        }
+
+
+
+
 
         } // End pragma OMP parallel
 

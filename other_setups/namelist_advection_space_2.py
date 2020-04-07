@@ -56,7 +56,7 @@ NE        = 7  # 2**NE is the E-size of the grid
 
 Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc
-xgridtype = "erf"#"cartesian" # No choice
+xgridtype = "cartesian"#"cartesian" # No choice
 
 Emin      = 10.*cst.GeV
 Emax      = 10.*cst.TeV
