@@ -282,7 +282,8 @@ int main()
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
         Pe_ini_temp[j] = Pcr_ini(E[j]);                    
-        ttesc_e[j] = tesc_e(E[j]);                           
+        ttesc_e[j] = tesc_e(E[j]);     
+        cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;                      
     }
 
 

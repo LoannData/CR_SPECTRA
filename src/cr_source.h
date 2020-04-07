@@ -159,6 +159,9 @@ double GetEM()
     }
 
 
+
+
+
 // CRs Escape time function (according to Celli et al. 2019) 
 /*double tesc(double E)
     {
@@ -280,6 +283,8 @@ double B_sat(double time)
         
         double Bfree = eta_gfree*eta_acc*c*t_sed*Eknee/(3*e*pow(R_sed,2));
 
+        //cout<<"Bfree = "<<Bfree*1e6<<endl; 
+
         double alpha_B, t_B;
         if (oh_model == 1){alpha_B = alpha - 1./5;}
         if (oh_model == 2){alpha_B = 9./10;}
@@ -296,7 +301,84 @@ double B_sat(double time)
         if (time > t_B)                 {return B_ISM;}
     }
 
+
+double GetEM_e()
+    {
+        double t_sed  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
+        double Bsat = B_sat(t_sed);
+        double EM = 9*pow(me, 4)*pow(c, 7)/(4*16*pow(e, 4)*pow(Bsat,2)*t_sed);
+        //cout<<"EM electrons = "<<EM/GeV<<endl;
+        double EM_p = GetEM();
+
+        return min(EM, EM_p);
+    }
+
 double tesc_e(double E)
+    {
+        double tSed = GetTSed();
+        double EM = GetEM_e();
+        double EM_p = GetEM();
+        double ddelt = -1./(delta); 
+
+        double tPDS   = exp(-1.)*3.61e4*pow(Esn,3./14)/(pow(xi_n,5./14)*pow(nt,4./7))*yr; // [s]
+        
+        //double loc_tesc = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt);
+        double loc_tesc = tSed*pow( (pow(E/c,2)) / (pow(EM_p/c,2)) , ddelt);
+        double tfree  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
+
+        double v_sh = u_sh(loc_tesc);
+
+        double t_sh_lib   = tSed;
+        double v_sh_110 = u_sh(t_sh_lib); 
+        double delta_t    = 100.*yr;
+        // We calculate the time at which u_sh = 110 km/s 
+        while(v_sh_110 > 110*km)
+        {
+            t_sh_lib += delta_t;
+            v_sh_110 = u_sh(t_sh_lib); 
+        }
+
+        if (E > EM || E < Emin)
+        {
+            return pow(10,20)*kyr; 
+        }
+
+
+
+        if (tesc_model == 1) // if t >= tPDS
+        {
+            return min(tPDS, loc_tesc); 
+        }
+        if (tesc_model == 2) // if vsh <= 110 km.s^-1
+        {
+            if (loc_tesc > tPDS)
+            {
+                return t_sh_lib;
+                //if (v_sh <= 110*km) 
+                //    {
+                        //double loc_time = loc_tesc; 
+                        //double delta_time = 100.*yr;
+                        //double loc_vsh = u_sh(loc_time);
+                        //while(loc_vsh < 110*km)
+                        //{
+                        //    loc_time -= delta_time; 
+                        //    loc_vsh = u_sh(loc_time); 
+                        //    //cout<<"loc_time = "<<loc_time/kyr<<" kyr, loc_vsh = "<<loc_vsh/km<<" km/s"<<endl;
+                        //}
+                        //return loc_time; 
+                //        return t_sh_lib; 
+                //    }
+                //if (v_sh > 110*km)  {return t_sh_lib;} // We return the time at which v_sh will be equal to 110 km/s
+            }
+            else 
+            {
+                return loc_tesc;
+            }
+        }
+    }
+
+
+/*double tesc_e(double E)
     {
         double t_sed  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
         double tesc_p = tesc(E);
@@ -312,36 +394,10 @@ double tesc_e(double E)
         if (E > EM || E < Emin){return pow(10,20)*kyr;}
 
         return max(min(tesc_p, tloss_e), t_sed);
-    }
-
-
-
-/*double tesc_e(double tesc_p, double B_sat, double E)
-    {
-        double tloss_e = 4*E/(c*sig_T*pow(B_sat,2)*pow(1 + E/(me*pow(c,2)),2));
-        //return tesc_p; 
-        return min(tesc_p, tloss_e);
     }*/
 
 
 
-/*double tesc_e(double E)
-    {
-        double tSed = GetTSed();
-        double EM = GetEM();
-        double ddelt = -1./(2.*delta); 
-        double tesc_p;
-        double tloss_e; 
-
-        tesc_p = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt );
-        tloss_e = 4*E/(c*sig_T*pow(Bcenter,2)*pow(1 + E/(me*pow(c,2)),2));
-
-
-        //cout<<"Tesc = "<<tesc_p<<" , tloss = "<<tloss_e<<endl;
-
-
-        return min(tesc_p, tloss_e);
-    }*/
 
 
 //####################################################################################################//

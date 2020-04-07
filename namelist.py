@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Test_Standard_1_with_dilution"
+folder_name = "Test_Standard_1_testElectronsEscape"
 folder_path = "../WorkFolder/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -76,7 +76,7 @@ lz_damping       = True     # Lazarian damping of waves
 nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
 Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
 Pe_1GeV          = 1e-2*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
-bdiff_model      = "ISM_dependant" #ISM_(independant, dependant) 
+bdiff_model      = "ISM_independant" #ISM_(independant, dependant) 
 
 
 
@@ -98,7 +98,7 @@ phases  = [] # Phases list
 # phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
 # phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
+phases.append([ism.HII, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.HII)]) 
 
 
 
