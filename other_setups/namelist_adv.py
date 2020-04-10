@@ -31,8 +31,8 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Test_SpatialAdvection_VariableSpeed"
-folder_path = "../../WorkFolder/" # The path containing the folder
+folder_name = "advc_z_X12"
+folder_path = "../../WorkFolder/Fiducial_tests_for_thesis/" # The path containing the folder
 
 total_path = folder_path+folder_name
 
@@ -51,8 +51,8 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 7  # 2**NX is the X-size of the grid 
-NE        = 7  # 2**NE is the E-size of the grid 
+NX        = 12  # 2**NX is the X-size of the grid 
+NE        = 4  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc

@@ -14,7 +14,7 @@ INSTRUCTIONS
 - Edit ./setup.py file 
 - Execute setup.py with Python 3.7 (python3 ./setup.py)
 - Edit the file ./src/constant.h
-- Go in the folder ./src/ and compile the C++ code with the command : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main.o
+- Go in the folder ./src/ and compile the C++ code with the command : g++ -O3 ./main.cpp -fopenmp -fno-stack-protector -o main
   Note : It is working with g++ 7.4.0. Type : g++ --version to know your gcc version. Other compilers are not garanteed to work.
 - Copy the file ./main.o in your working file, then execute using the command : ./main.o 
 

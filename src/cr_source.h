@@ -60,13 +60,35 @@ double RSNR(double time)
         double R_merge = R_MCS*pow(tmerge/tMCS, 1./4); // [cm]
         if (tMCS < tmerge)
         {
-            t = {1e-6*kyr, tini, tfree, tPDS, tMCS, tmerge};
-            r = {1.e-6*pc ,R_ini, R_free, R_PDS, R_MCS, R_merge};
+            t.push_back(1e-6*kyr); 
+            t.push_back(tini); 
+            t.push_back(tfree); 
+            t.push_back(tPDS); 
+            t.push_back(tMCS); 
+            t.push_back(tmerge); 
+            //t = {1e-6*kyr, tini, tfree, tPDS, tMCS, tmerge};
+            r.push_back(1e-6*pc);
+            r.push_back(R_ini);
+            r.push_back(R_free);
+            r.push_back(R_PDS);
+            r.push_back(R_MCS);
+            r.push_back(R_merge);
+            //r = {1.e-6*pc ,R_ini, R_free, R_PDS, R_MCS, R_merge};
         }
         if (tMCS >= tmerge)
         {
-            t = {1e-6*kyr ,tini, tfree, tPDS, tmerge};
-            r = {1.e-6*pc, R_ini, R_free, R_PDS, R_merge};
+            t.push_back(1e-6*kyr); 
+            t.push_back(tini); 
+            t.push_back(tfree); 
+            t.push_back(tPDS); 
+            t.push_back(tmerge);
+            //t = {1e-6*kyr ,tini, tfree, tPDS, tmerge};
+            r.push_back(1e-6*pc);
+            r.push_back(R_ini);
+            r.push_back(R_free);
+            r.push_back(R_PDS);
+            r.push_back(R_merge);
+            //r = {1.e-6*pc, R_ini, R_free, R_PDS, R_merge};
         }
     
         vector<double> logt; logt.resize(t.size());

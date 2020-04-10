@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Test_Standard_1_testElectronsEscape"
+folder_name = "Test_avec_Alexandre"
 folder_path = "../WorkFolder/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -59,7 +59,7 @@ Xmax      = 2000.*cst.pc
 xgridtype = "cartesian"#"cartesian" # No choice
 
 Emin      = 0.99*cst.GeV
-Emax      = 100.01*cst.TeV
+Emax      = 50.01*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended (only option for the moment)
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 
@@ -98,7 +98,7 @@ phases  = [] # Phases list
 # phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
 # phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 
-phases.append([ism.HII, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.HII)]) 
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
 
 
 

@@ -34,7 +34,7 @@ import background_diffusion_coefficient as bdc
 #   INFORMATIONS COMING FROM THE NAMELIST                                     #
 ###############################################################################
 # !!! Do not modify this part !!! #
-import namelist_advection_space_2 as nml
+import namelist_adv as nml
 
 # Phase space 
 X         = nml.X
@@ -92,13 +92,15 @@ def door(X, X1, X2, V) :
 
 
 for ei in range(len(E)) : 
+    print (ei,"over ",len(E))
     for xi in range(len(X)) : 
+        # VA[ei][xi] = 1.*cst.pc/cst.yr
         if (X[xi] >= x_center) : 
-            VA[ei][xi] = 1.*cst.pc/cst.yr*(E[ei]/E[0])*(1 + 4*(X[xi]-X[x_center_index])/(X[-1]-X[0]))
+            VA[ei][xi] = 0.5*cst.pc/cst.yr
         else : 
-            VA[ei][xi] = -1.*cst.pc/cst.yr*(E[ei]/E[0])*(1 - 4*(X[xi]-X[x_center_index])/(X[-1]-X[0]))
+            VA[ei][xi] = -0.5*cst.pc/cst.yr
         
-        Pcr[ei][xi] = 1e-15 + door(X[xi], 900.*cst.pc, 1100.*cst.pc, 1e-10)
+        Pcr[ei][xi] = 0. + door(X[xi], 950.*cst.pc, 1050.*cst.pc, 1.)
         
         D[ei] = (5*cst.pc)**2/cst.yr
         Db[ei][xi] = (4*cst.c)/(3*np.pi)*(E[ei]/(cst.e*B[x_center_index])) 

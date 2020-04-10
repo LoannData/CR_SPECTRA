@@ -26,32 +26,32 @@ const double sig_T = 6.65e-25; // [cm^2] Thomson cross section (see Schlickeiser
 
 // Solver Options (1 : On, 0 : Off)
 const int solver_PcrAdvection  = 1; // Advective term of the CR Pressure (the classical one -> V_A*grad ...)
-const int solver_PcrDiffusion  = 1; // Diffusive term of the CR Pressure
-const int solver_PcrAdvection2 = 1; // Explicit Advection solver for Pcr by the energy derivative of Alfvén velocity.
-const int solver_PcrAdvectionE = 1; // Explicit Advection solver for Pcr in energy cdVAdX
-const int solver_PcrSource1    = 1; // Source term effect due to the dependance of the Alfvén velocity to the space
-const int solver_PcrSource2    = 1; // Source term effect due to the CR injection from the source in the system  
+const int solver_PcrDiffusion  = 0; // Diffusive term of the CR Pressure
+const int solver_PcrAdvection2 = 0; // Explicit Advection solver for Pcr by the energy derivative of Alfvén velocity.
+const int solver_PcrAdvectionE = 0; // Explicit Advection solver for Pcr in energy cdVAdX
+const int solver_PcrSource1    = 0; // Source term effect due to the dependance of the Alfvén velocity to the space
+const int solver_PcrSource2    = 0; // Source term effect due to the CR injection from the source in the system  
 
-const int solver_PeAdvection   = 1; // Advective term of the e- Pressure (the classical one -> V_A*grad ...)
-const int solver_PeDiffusion   = 1; // Diffusive term of the e- Pressure
-const int solver_PeAdvection2  = 1; // Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
-const int solver_PeAdvectionE  = 1; // Explicit Advection solver for e- in energy cdVAdX
-const int solver_PeAdvectionE2 = 1; // Synchrotron radiations of e- (looses of energy)
+const int solver_PeAdvection   = 0; // Advective term of the e- Pressure (the classical one -> V_A*grad ...)
+const int solver_PeDiffusion   = 0; // Diffusive term of the e- Pressure
+const int solver_PeAdvection2  = 0; // Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
+const int solver_PeAdvectionE  = 0; // Explicit Advection solver for e- in energy cdVAdX
+const int solver_PeAdvectionE2 = 0; // Synchrotron radiations of e- (looses of energy)
 
-const int solver_PeSource1     = 1; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
-const int solver_PeSource2     = 1; // Source term effect due to the e- injection from the source in the system 
+const int solver_PeSource1     = 0; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
+const int solver_PeSource2     = 0; // Source term effect due to the e- injection from the source in the system 
 
-const int solver_IpAdvection   = 1; // Advective term of the foward waves 
-const int solver_ImAdvection   = 1; // Advective term of the backward waves
-const int solver_IpSource1     = 1; // Source term effect applied on foward waves due to the dependance of the Alfvén velocity to the space
-const int solver_ImSource1     = 1; // Source term effect applied on backward waves due to the dependance of the Alfvén velocity to the space
-const int solver_IpDampGrowth  = 1; // Source term effect due to production of self-turbulence - damping applied on foward waves 
-const int solver_ImDampGrowth  = 1; // Source term effect due to production of self-turbulence - damping applied on backward waves 
+const int solver_IpAdvection   = 0; // Advective term of the foward waves 
+const int solver_ImAdvection   = 0; // Advective term of the backward waves
+const int solver_IpSource1     = 0; // Source term effect applied on foward waves due to the dependance of the Alfvén velocity to the space
+const int solver_ImSource1     = 0; // Source term effect applied on backward waves due to the dependance of the Alfvén velocity to the space
+const int solver_IpDampGrowth  = 0; // Source term effect due to production of self-turbulence - damping applied on foward waves 
+const int solver_ImDampGrowth  = 0; // Source term effect due to production of self-turbulence - damping applied on backward waves 
 
-const int solver_Dilution      = 1; // Time dilution term according to the SNR shock evolution in the flux tube approx. ie. R_sh^2(t0) P(t0) = R_sh^2(t1) P(t1) if conserved energy 
+const int solver_Dilution      = 0; // Time dilution term according to the SNR shock evolution in the flux tube approx. ie. R_sh^2(t0) P(t0) = R_sh^2(t1) P(t1) if conserved energy 
 
 // Other parameters 
-const int set_background = 1; // If need to perform some test without background conditions (1 : On, 0 : off)
+const int set_background = 0; // If need to perform some test without background conditions (1 : On, 0 : off)
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
@@ -59,18 +59,18 @@ const int nproc = 1;                    // Number of processors for the run
 
 const int output_freq = 0;               // Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 2000.*kyr; //200.*kyr; // Instant of the last output data
-const int number_out_data   = 1000;     // Total number of output data
+const double t_data_out_max = 2.*kyr; //200.*kyr; // Instant of the last output data
+const int number_out_data   = 2;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 100;      // Number of time-step between two LogOutput
-const double Tmax = 2000.01*kyr;//200.1*kyr;           // Define the limit time of your simulation 
+const double Tmax = 2.01*kyr;//200.1*kyr;           // Define the limit time of your simulation 
 
 
 
 
 // Growth waves saturation rate
-const double ttau_sat = - log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b 
+const double ttau_sat = - log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b, ttau_sat = 0 -> Linear growth 
 
 // SNR Properties (Model from Cioffi et al. 2012 & ...)
 //const double snr_position_x = 500*pc; // Position of the center of the source on the grid
