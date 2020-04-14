@@ -102,7 +102,10 @@ int main()
         log10E[ei] = log10(E[ei]);
     }
 
-    vector<double> B = readAxis("B", NX);
+    vector<double> B = readAxis("B", NX); B[0] = B[1]; 
+
+    //cout<<X[0]/pc<<", "<<X[1]/pc<<endl;
+    //cout<<B[0]<<", "<<B[1]<<endl;
 
 
 
@@ -179,11 +182,14 @@ int main()
         dVAdlog10E[xi][0] = 0.;
         dVAdlog10E[xi][VA[xi].size()-1] = 0.;
 
+
+
     }
 
 
     double maxlinE = maxElement1D(E); 
     double maxE  = maxElement1D(log10E);
+    double maxB  = maxElement1D(B);
     double minE  = minElement1D(log10E);
     double minW0 = minElement1D(B); minW0 = pow(minW0,2)/(8*pi);
     double maxVd = maxElement2D(abs_VA);
@@ -195,18 +201,27 @@ int main()
     double mindX = minElement1D(dX); double mindE = minElement1D(dE); 
     double maxdX = maxElement1D(dX); double maxdE = maxElement1D(dE);
     double minlindE = minElement1D(lindE);
+    double minlogdE = minElement1D(dE);
 
     double maxdVddX = absmaxElement2D(cdVAdX); 
 
 
     double maxdVddE = absmaxElement2D(dVAdlog10E); 
 
+    // CFL condition over synchrotron solvers 
+    //double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 2.))*minlindE;        // Linear solver
+    double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 1.))*minlogdE*log(10.); // Log solver
+
+    // CFL condition over energy adevtion terms from dV/dX
+    //double adv_ener_cfl = minlindE/(maxlinE*maxdVddX)*3.)  // Linear solver
+    double adv_ener_cfl = 3*log(10.)/(maxdVddX)*minlogdE;    // Log solver 
     
 
     vector<double> cfl;
 
     if (solver_PcrAdvection == 1 || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd);}
-    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*minlindE/(maxlinE*maxdVddX));}
+    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);}
+    if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
     if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
      
     double dt = minElement1D(cfl);
@@ -227,9 +242,12 @@ int main()
     cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
     cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr (Implicit term)"<<endl;
     //cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
-    cout<<"Energy Advection  : "<<C3*minlindE/(maxlinE*maxdVddX)/yr<<" yr"<<endl;
+    cout<<"Energy Advection  : "<<C3*minlindE/(maxlinE*maxdVddX)*3./yr<<" yr"<<endl;
     cout<<"Advection dVdX  : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
+    cout<<"Synchrotron advection : "<<C5*adv_sync_cfl/yr<<" yr"<<endl;
     cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
+
+    cout<<"maxVd = "<<maxVd<<"cm/s"<<endl;
 
 
     // SIMULATION ===========================================================================================================//
@@ -276,7 +294,7 @@ int main()
     vector<double> vec_theta_e(NX); // vec theta of e-
     double temp_theta, r_snr, r_snr_old;
 
-
+    if (solver_PeSource2 == 1 || solver_PcrSource2 == 1){
     for (int j=0; j<NE; j++)
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
@@ -284,7 +302,7 @@ int main()
         Pe_ini_temp[j] = Pcr_ini(E[j]);                    
         ttesc_e[j] = tesc_e(E[j]);     
         //cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;                      
-    }
+    }}
 
 
 
@@ -382,6 +400,8 @@ int main()
         // Source term from synchrotron radiation of e-. It contains a pure 
         // source term and an energy advective term
         //----------------------------------------------------------------------//
+        if (solver_PeAdvectionE1 == 1)
+        {advectionSolverE1(Pe_old, Pe_new, dt, log10E, B, E, NX, Pe_background);         Pe_old = Pe_new;}
         if (solver_PeAdvectionE2 == 1)
         {advectionSolverE2(Pe_old, Pe_new, dt, log10E, NX, B, E, Pe_background);         Pe_old = Pe_new;}
 

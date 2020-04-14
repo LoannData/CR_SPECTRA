@@ -314,7 +314,7 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                     mn[xi]  = f(X[xi], xt, l, v1.get('mn'), v2.get('mn'))
                     for ei in range(len(E)) : 
                         VA[ei][xi] = f(X[xi], xt, l, va1[ei], va2[ei])
-                if (X[xi] >= phases[pos][1].get('Xmin') + 0.5*(phases[pos][1].get('Xmax') - phases[pos][1].get('Xmin')) and X[xi] < phases[pos][1].get('Xmax')) :
+                if (X[xi] >= phases[pos][1].get('Xmin') + 0.5*(phases[pos][1].get('Xmax') - phases[pos][1].get('Xmin')) and X[xi] <= phases[pos][1].get('Xmax')) :
                     xt = phases[pos][1].get('Xmax')
                     l  = smooth_width
                     if (pos == len(phases)-1) :
