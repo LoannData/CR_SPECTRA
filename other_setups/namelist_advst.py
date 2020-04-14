@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "adv_ss_E6"
+folder_name = "adv_sss_E6"
 folder_path = "../../WorkFolder/Fiducial_tests_for_thesis/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -51,7 +51,7 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 5  # 2**NX is the X-size of the grid 
+NX        = 4  # 2**NX is the X-size of the grid 
 NE        = 6  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc

@@ -381,6 +381,9 @@ void dilute_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_ne
 
 
 
+
+
+
 void NotMove(vector<vector<double> > u, vector<vector<double> > u_new)
 {
     for (int ei = 0; ei < u.size(); ei++)
@@ -392,4 +395,26 @@ void NotMove(vector<vector<double> > u, vector<vector<double> > u_new)
     }
 }
 
+//=============================================//
+// OTHER SOLVERS OPTIONNAL                     //
+//=============================================//
+void electron_source(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<double> E, double dt, int NE, int NX, vector<vector<double> > u_background)
+{ 
+    double Q;
+    int xi, ei;
 
+    //#pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NX/nproc))) private(xi ,ei, Q)
+    for (xi = 0; xi < NX; xi++)
+    {
+            for (ei = 0; ei < NE; ei++)
+            {
+                Q = 1e-14*pow(E[ei]/(10.*GeV), -3.1);
+
+                if (set_background == 1){
+                u_new[xi][ei] = max(u_old[xi][ei] + Q*dt, u_background[xi][ei]);}
+                else {u_new[xi][ei] = u_old[xi][ei] + Q*dt;} 
+                //cout<<dt<<" "<<BB[xi]<<" "<<E[ei]<<" "<<sig_T<<endl;
+            }
+    }
+}

@@ -404,6 +404,7 @@ int main()
         {advectionSolverE1(Pe_old, Pe_new, dt, log10E, B, E, NX, Pe_background);         Pe_old = Pe_new;}
         if (solver_PeAdvectionE2 == 1)
         {advectionSolverE2(Pe_old, Pe_new, dt, log10E, NX, B, E, Pe_background);         Pe_old = Pe_new;}
+        //electron_source(Pe_old, Pe_new, E, dt, NE, NX, Pe_background); Pe_old = Pe_new; 
 
 
         //----------------------------------------------------------------------//
