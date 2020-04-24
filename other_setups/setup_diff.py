@@ -18,7 +18,7 @@ from scipy import interpolate
 # import sys
 import os 
 import shutil 
-sys.path.append('./tools/')
+sys.path.append('../tools/')
  
 import freader as fr 
 import fwritter as fw
@@ -34,7 +34,7 @@ import background_diffusion_coefficient as bdc
 #   INFORMATIONS COMING FROM THE NAMELIST                                     #
 ###############################################################################
 # !!! Do not modify this part !!! #
-import namelist as nml
+import namelist_diff as nml
 
 # Phase space 
 X         = nml.X
@@ -81,65 +81,93 @@ gamma_tot      = np.zeros((len(E), len(X)))
 Pcr            = np.zeros((len(E), len(X)))
 Pe             = np.zeros((len(E), len(X))) # Electrons pressure distribution 
 
-for xi in range(len(X)) : 
-    # Normalisation of the background diffusion coefficient
-    d00[xi] = 1e28
 
-for e in range(len(E)) : 
-    if (e % 1 == 0) : 
-        print ("Background diffusion model : "+str(round(e/len(E)*100.,2))+" %")
+
+def door(X, X1, X2, V) : 
+    if (X > X1 and X < X2) : 
+        return V
+    else : 
+        return 0. 
+
+
+
+for ei in range(len(E)) : 
+    print (ei,"over ",len(E))
     for xi in range(len(X)) : 
-        # Bohm diffusion coefficient
-        Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index])) 
-        
-        # Background diffusion coefficient
-        if (nml.bdiff_model == "ISM_independant") : 
-            D[e][xi]  = d00[xi]*(E[e]/(10.*cst.GeV))**0.5                      # ISM independant method
-        if (nml.bdiff_model == "ISM_dependant") : 
-            medium_props = {"B"  : B[xi], 
-                            "mn" : mn[xi],
-                            "nn" : nn[xi],
-                            "mi" : mi[xi],
-                            "ni" : ni[xi],
-                            "X"  : Xi[xi],
-                            "T"  : T[xi]}
-            D[e][xi]  = bdc.Kappa_zz(E[e], 
-                                     medium_props, 
-                                     mass = cst.mp, 
-                                     kmin = (50.*cst.pc)**(-1), 
-                                     q = 5./3, 
-                                     I = 1e-2)                              # ISM dependant method
-        # Background rates of turbulence
-        Ip[e][xi] = Db[e][xi]/D[e][xi]*0.5
-        Im[e][xi] = Db[e][xi]/D[e][xi]*0.5
-
-
-
-for e in range(len(E)) : 
-    if (e % 10 == 0) : 
-        print ("Waves damping and initial CRs distributions : "+str(round(e/len(E)*100.,2))+" %")
-    for xi in range(len(X)) : 
-        in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
-        
-        # VA is a vectorial field
-        # Advection append from the center of the source to the edges of the simulation
+        # VA[ei][xi] = 1.*cst.pc/cst.yr
         if (X[xi] >= x_center) : 
-            VA[e][xi] = +va[e][xi]
+            VA[ei][xi] = 0.5*cst.pc/cst.yr
         else : 
-            VA[e][xi] = -va[e][xi]
+            VA[ei][xi] = -0.5*cst.pc/cst.yr
+        
+        Pcr[ei][xi] = 0. + door(X[xi], 950.*cst.pc, 1050.*cst.pc, 1.)
+        
+        D[ei] = (5*cst.pc)**2/cst.yr
+        Db[ei][xi] = 1.
+        Ip[ei][xi] = 10**(-29)
+        Im[ei][xi] = 0.
 
-        if (nml.in_damping) : 
-            gamma_in[e][xi]       = in_damping.get('wi')
-        if (nml.lz_damping) : 
-            gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
-        if (nml.nlld_damping) : 
-            gamma_nlld[e][xi]     = -dp.non_linear_landau_damping( T[xi], Ip[e][xi], Im[e][xi], 
-                                                                  mi[xi],     cst.e, 
-                                                                   B[xi],      E[e])
-        gamma_tot[e][xi]          = gamma_in[e][xi] + gamma_lazarian[e][xi] + gamma_nlld[e][xi]
-        # Background CRs spectra
-        Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
-        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)
+
+
+# for xi in range(len(X)) : 
+#     # Normalisation of the background diffusion coefficient
+#     d00[xi] = 1e28
+
+# for e in range(len(E)) : 
+#     if (e % 1 == 0) : 
+#         print ("Background diffusion model : "+str(round(e/len(E)*100.,2))+" %")
+#     for xi in range(len(X)) : 
+#         # Bohm diffusion coefficient
+#         Db[e][xi] = (4*cst.c)/(3*np.pi)*(E[e]/(cst.e*B[x_center_index])) 
+        
+#         # Background diffusion coefficient
+#         if (nml.bdiff_model == "ISM_independant") : 
+#             D[e][xi]  = d00[xi]*(E[e]/(10.*cst.GeV))**0.5                      # ISM independant method
+#         if (nml.bdiff_model == "ISM_dependant") : 
+#             medium_props = {"B"  : B[xi], 
+#                             "mn" : mn[xi],
+#                             "nn" : nn[xi],
+#                             "mi" : mi[xi],
+#                             "ni" : ni[xi],
+#                             "X"  : Xi[xi],
+#                             "T"  : T[xi]}
+#             D[e][xi]  = bdc.Kappa_zz(E[e], 
+#                                      medium_props, 
+#                                      mass = cst.mp, 
+#                                      kmin = (50.*cst.pc)**(-1), 
+#                                      q = 5./3, 
+#                                      I = 1e-4)                              # ISM dependant method
+#         # Background rates of turbulence
+#         Ip[e][xi] = Db[e][xi]/D[e][xi]*0.5
+#         Im[e][xi] = Db[e][xi]/D[e][xi]*0.5
+
+
+
+# for e in range(len(E)) : 
+#     if (e % 10 == 0) : 
+#         print ("Waves damping and initial CRs distributions : "+str(round(e/len(E)*100.,2))+" %")
+#     for xi in range(len(X)) : 
+#         in_damping = dp.indamping_alfven(xi , E[e], ism_values) 
+        
+#         # VA is a vectorial field
+#         # Advection append from the center of the source to the edges of the simulation
+#         if (X[xi] >= x_center) : 
+#             VA[e][xi] = +va[e][xi]
+#         else : 
+#             VA[e][xi] = -va[e][xi]
+
+#         if (nml.in_damping) : 
+#             gamma_in[e][xi]       = in_damping.get('wi')
+#         if (nml.lz_damping) : 
+#             gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
+#         if (nml.nlld_damping) : 
+#             gamma_nlld[e][xi]     = -dp.non_linear_landau_damping( T[xi], Ip[e][xi], Im[e][xi], 
+#                                                                   mi[xi],     cst.e, 
+#                                                                    B[xi],      E[e])
+#         gamma_tot[e][xi]          = gamma_in[e][xi] + gamma_lazarian[e][xi] + gamma_nlld[e][xi]
+#         # Background CRs spectra
+#         Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
+#         Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)
 
 
 
@@ -167,12 +195,7 @@ fw.write1D(    "Pe.dat", nx=nx, ne=ne,variable=Pe.T, path=nml.total_path+"/data_
 fw.write1D("damping.dat", nx=nx, ne=ne, variable=gamma_tot.T, path=nml.total_path+"/data_ini/")  
 fw.write1Daxis("X.dat", variable=X, nx=nx, path=nml.total_path+"/data_ini/")
 fw.write1Daxis("E.dat", variable=E, nx=ne, path=nml.total_path+"/data_ini/")
-fw.write1Daxis("T.dat", variable=T, nx=nx, path=nml.total_path+"/data_ini/")
 fw.write1Daxis("B.dat", variable=B, nx=nx, path=nml.total_path+"/data_ini/")
-fw.write1Daxis("nn.dat", variable=nn, nx=nx, path=nml.total_path+"/data_ini/")
-fw.write1Daxis("ni.dat", variable=ni, nx=nx, path=nml.total_path+"/data_ini/")
-fw.write1Daxis("mn.dat", variable=mn, nx=nx, path=nml.total_path+"/data_ini/")
-fw.write1Daxis("mi.dat", variable=mi, nx=nx, path=nml.total_path+"/data_ini/")
 
 variables = {"NX"       : nx,
              "NE"       : ne,
@@ -192,11 +215,11 @@ fw.fileWrite("parameters", variables = variables, path=nml.total_path+"/", ext='
 #      COPY TOOLS AND ANALYSIS FILES                                          #
 ###############################################################################
 # !!! Do not modify this part !!! #
-shutil.copy("./data_analysis/show_data.py", nml.total_path+"/data_analysis/") 
-shutil.copy("./data_analysis/pcr_ip_2D.py", nml.total_path+"/data_analysis/") 
+shutil.copy("../data_analysis/show_data.py", nml.total_path+"/data_analysis/") 
+shutil.copy("../data_analysis/pcr_ip_2D.py", nml.total_path+"/data_analysis/") 
 
-shutil.copy("./tools/freader.py", nml.total_path+"/tools/") 
-shutil.copy("./tools/constants.py", nml.total_path+"/tools/") 
+shutil.copy("../tools/freader.py", nml.total_path+"/tools/") 
+shutil.copy("../tools/constants.py", nml.total_path+"/tools/") 
 
 
 

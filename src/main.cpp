@@ -102,7 +102,13 @@ int main()
         log10E[ei] = log10(E[ei]);
     }
 
-    vector<double> B = readAxis("B", NX); B[0] = B[1]; 
+    // Other static gas values 
+    vector<double> B  = readAxis("B", NX); B[0] = B[1]; 
+    vector<double> T  = readAxis("T", NX);
+    vector<double> mn = readAxis("mn", NX); //B[0] = B[1]; 
+    vector<double> mi = readAxis("mi", NX);
+    vector<double> nn = readAxis("nn", NX);
+    vector<double> ni = readAxis("ni", NX);
 
     //cout<<X[0]/pc<<", "<<X[1]/pc<<endl;
     //cout<<B[0]<<", "<<B[1]<<endl;
@@ -223,6 +229,8 @@ int main()
     if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);}
     if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
     if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
+    if ((solver_PcrDiffusion == 1 || solver_PeDiffusion == 1) && cfl.size() == 0) {cfl.push_back(step_implicit);}
+    cfl.push_back(step_implicit);
      
     double dt = minElement1D(cfl);
 
@@ -247,7 +255,7 @@ int main()
     cout<<"Synchrotron advection : "<<C5*adv_sync_cfl/yr<<" yr"<<endl;
     cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
 
-    cout<<"maxVd = "<<maxVd<<"cm/s"<<endl;
+    //cout<<"maxVd = "<<maxVd<<"cm/s"<<endl;
 
 
     // SIMULATION ===========================================================================================================//
@@ -299,7 +307,7 @@ int main()
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
-        Pe_ini_temp[j] = Pcr_ini(E[j]);                    
+        Pe_ini_temp[j] = electron_injection_rate*Pcr_ini(E[j]);                    
         ttesc_e[j] = tesc_e(E[j]);     
         //cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;                      
     }}
@@ -447,10 +455,15 @@ int main()
         //----------------------------------------------------------------------//
         if (solver_Dilution == 1)
         {
-            dilute_solver(Pcr_old, Pcr_new, Pcr_background, r_snr, r_snr_old); Pcr_old = Pcr_new; 
+            /*dilute_solver(Pcr_old, Pcr_new, Pcr_background, r_snr, r_snr_old); Pcr_old = Pcr_new; 
             dilute_solver(Pe_old, Pe_new, Pe_background, r_snr, r_snr_old);    Pe_old = Pe_new;
             dilute_solver(Ip_old, Ip_new, Ip_background, r_snr, r_snr_old);    Ip_old = Ip_new;
-            dilute_solver(Im_old, Im_new, Im_background, r_snr, r_snr_old);    Im_old = Im_new;
+            dilute_solver(Im_old, Im_new, Im_background, r_snr, r_snr_old);    Im_old = Im_new;*/
+
+            dilute_solver(Pcr_old, Pcr_new, Pcr_background, r_snr, r_snr_old, nn, ni, mn, mi, B, T); Pcr_old = Pcr_new; 
+            dilute_solver(Pe_old, Pe_new, Pe_background, r_snr, r_snr_old, nn, ni, mn, mi, B, T);    Pe_old = Pe_new;
+            dilute_solver(Ip_old, Ip_new, Ip_background, r_snr, r_snr_old, nn, ni, mn, mi, B, T);    Ip_old = Ip_new;
+            dilute_solver(Im_old, Im_new, Im_background, r_snr, r_snr_old, nn, ni, mn, mi, B, T);    Im_old = Im_new;
         
         }
 

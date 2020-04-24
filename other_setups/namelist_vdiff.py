@@ -8,7 +8,7 @@ Created on Fri Sep  6 08:10:35 2019
 # We refers to the tools setup folder
 import sys
 import os 
-sys.path.append('./tools/')
+sys.path.append('../tools/')
  
 #import freader as fr 
 #import fwritter as fw
@@ -31,8 +31,8 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Test_standard_dilution"
-folder_path = "../WorkFolder/" # The path containing the folder
+folder_name = "vdiff_z_X14"
+folder_path = "../../WorkFolder/Fiducial_tests_for_thesis/" # The path containing the folder
 
 total_path = folder_path+folder_name
 
@@ -51,21 +51,22 @@ except :
 ###############################################################################
 #      GRID PARAMETERS                                                        #
 ###############################################################################
-NX        = 10  # 2**NX is the X-size of the grid 
-NE        = 7  # 2**NE is the E-size of the grid 
+NX        = 14  # 2**NX is the X-size of the grid 
+NE        = 4  # 2**NE is the E-size of the grid 
 
 Xmin      = 0.*cst.pc
 Xmax      = 2000.*cst.pc
 xgridtype = "cartesian"#"cartesian" # No choice
 
-Emin      = 0.99*cst.GeV
-Emax      = 50.01*cst.TeV
+Emin      = 10.*cst.GeV
+Emax      = 10.*cst.TeV
 egridtype = "logspace" # Type of grid - # logspace type recomended (only option for the moment)
 
 box_center = 1000.*cst.pc  # Position of the center of the CR source 
 
 # Phase space 
-X = grid.grid(Xmin, Xmax, 2**NX, xgridtype, s_center = box_center)
+X = grid.grid(Xmin, Xmax, 2**NX, xgridtype, 
+              s_center = box_center, width = 200.*cst.pc, smooth = 20.*cst.pc, dXmin = 1.*cst.pc)
 E = grid.grid(Emin, Emax, 2**NE, egridtype)  
 
 ###############################################################################
@@ -75,7 +76,7 @@ in_damping       = True     # Ion neutral damping of waves
 lz_damping       = True     # Lazarian damping of waves
 nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
 Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
-Pe_1GeV          = 1e-2*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
+Pe_1GeV          = 1*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
 bdiff_model      = "ISM_independant" #ISM_(independant, dependant) 
 
 
@@ -85,7 +86,6 @@ bdiff_model      = "ISM_independant" #ISM_(independant, dependant)
 ###############################################################################
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
-
 # phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=300.*cst.pc),  getVA(E, ism.WNM)]) 
 # phases.append([ism.CNM, dict(Xmin=300.*cst.pc,  Xmax=500.*cst.pc),  getVA(E, ism.CNM)])
 # phases.append([ism.DiM, dict(Xmin=500.*cst.pc,  Xmax=600.*cst.pc),  getVA(E, ism.DiM)]) 
@@ -98,7 +98,7 @@ phases  = [] # Phases list
 # phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
 # phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
 
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
+phases.append([ism.WNM, dict(Xmin=Xmin,    Xmax=Xmax),  getVA(E, ism.WNM)]) 
 
 
 

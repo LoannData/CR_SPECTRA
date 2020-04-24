@@ -280,16 +280,22 @@ void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &
     {
             for (ei = 0; ei < NE+1; ei++)
             {
-                C3 = 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4)); 
-                //cout<<BB[0]<<", "<<BB[1]<<endl;
-
-                if (set_background == 1){
-                u_new[xi][ei] = max(u_old[xi][ei]*(1 - C3*dt), u_background[xi][ei]);}
-                else {u_new[xi][ei] = u_old[xi][ei]*(1 - C3*dt);} 
-                //cout<<dt<<" "<<BB[xi]<<" "<<E[ei]<<" "<<sig_T<<endl;
+                C3 = 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4));
+                if (source_terms_exact == 0)
+                {
+                    if (set_background == 1){u_new[xi][ei] = max(u_old[xi][ei]*(1 - C3*dt), u_background[xi][ei]);}
+                    else {u_new[xi][ei] = u_old[xi][ei]*(1 - C3*dt);} 
+                }
+                if (source_terms_exact == 1)
+                {
+                    if (set_background == 1){u_new[xi][ei] = max(u_old[xi][ei]*exp(-C3*dt), u_background[xi][ei]);}
+                    else {u_new[xi][ei] = u_old[xi][ei]*exp(-C3*dt);}
+                }
             }
     }
 }
+
+
 
 void sourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<vector<double> > source, double factor)
     {
@@ -304,8 +310,15 @@ void sourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new
         {
             for (ei = 0; ei < NE; ei++)
             {
-                sum = factor*source[xi][ei]*u_old[xi][ei];
-                u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+                if (source_terms_exact == 0)
+                {
+                    sum = factor*source[xi][ei]*u_old[xi][ei];
+                    u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+                }
+                if (source_terms_exact == 1)
+                {
+                    u_new[xi][ei] = u_old[xi][ei]*exp(factor*source[xi][ei]*dt);
+                }
             }
         }
     }
@@ -328,15 +341,15 @@ void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<do
             w0 = B[xi]*B[xi]/(8*pi);
             for (ei = 0; ei < NE; ei++)
             {
-                dudx = 0.;
-                if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
-                if (factor ==  1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
-                if (factor == -1){if (dudx < 0.){dudx = 0.;}} // Condition Backward waves
-                //sum = abs(0.5*V[xi][ei]*dudx/w0)*(log10(u_old[xi][ei]+1)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
-                sum = abs(0.5*V[xi][ei]*dudx/w0)*(exp(-u_old[xi][ei]*ttau_sat)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
-                u_new[xi][ei] = u_old[xi][ei] + sum*dt;
-                if (u_new[xi][ei] < background[xi][ei]) {u_new[xi][ei] = background[xi][ei];}
-                if (u_new[xi][ei] > u_max) {u_new[xi][ei] = u_max;}
+                    dudx = 0.;
+                    if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
+                    if (factor ==  1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
+                    if (factor == -1){if (dudx < 0.){dudx = 0.;}} // Condition Backward waves
+                    //sum = abs(0.5*V[xi][ei]*dudx/w0)*(log10(u_old[xi][ei]+1)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
+                    sum = abs(0.5*V[xi][ei]*dudx/w0)*(exp(-u_old[xi][ei]*ttau_sat)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
+                    u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+                    if (u_new[xi][ei] < background[xi][ei]) {u_new[xi][ei] = background[xi][ei];}
+                    if (u_new[xi][ei] > u_max) {u_new[xi][ei] = u_max;}
             }
         }
     }
@@ -356,7 +369,7 @@ void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<doub
             //NE = u_old[xi].size();
             for (int ei = 0; ei < NE; ei++)
             {
-                u_new[xi][ei] = u_old[xi][ei] + dt*Pcr_ini[ei]*Finj_temp[ei]*vec_theta[xi];
+                u_new[xi][ei] = u_old[xi][ei] + dt*Pcr_ini[ei]*Finj_temp[ei]*vec_theta[xi]; 
             }
         }
     }
@@ -364,6 +377,7 @@ void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<doub
 
 
 
+/*
 void dilute_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > u_background, double r_new, double r_old)
 {
     int NX = u_old.size();
@@ -375,6 +389,43 @@ void dilute_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_ne
             for (int ei = 0; ei < NE; ei++)
             {
                 u_new[xi][ei] = max(u_old[xi][ei]*pow(r_old/r_new,2.), u_background[xi][ei]);
+            }
+        }
+}
+*/
+
+
+void dilute_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > u_background, double r_new, double r_old, vector<double> nn, vector<double> ni, vector<double> mn, vector<double> mi, vector<double> B, vector<double> T)
+{
+    int NX = u_old.size();
+    int NE = u_old[0].size();
+    double rho_g, Cma, Pc, Pg, Pm;
+    double n_tot; 
+    double gamma_m = 2; 
+    double gamma_g = 5./3; 
+    double gamma_c = 4./3; 
+        #pragma omp for schedule(static, int(double(NX/nproc))) private(rho_g, Cma, Pc, Pg, Pm, n_tot)
+        for (int xi = 0; xi < NX; xi++)
+        {   
+            rho_g = mn[xi]*nn[xi] + mi[xi]*ni[xi]; 
+            n_tot = nn[xi] + ni[xi]; 
+            Pg = n_tot*kbolz*T[xi]; 
+            Pm = pow(B[xi],2)/(8*pi); 
+
+            
+
+            //cout<<"Cma = "<<Cma<<", Pg = "<<Pg<<", Pm = "<<Pm<<", rho_g = "<<rho_g<<" T = "<<T[xi]<<endl;
+
+            //NE = u_old[xi].size();
+            for (int ei = 0; ei < NE; ei++)
+            {
+                Cma = pow((gamma_g*Pg + gamma_c*u_background[xi][ei] + gamma_m*Pm)/rho_g, 0.5); 
+                //u_new[xi][ei] = max(u_old[xi][ei]*pow(r_old/r_new,2.), u_background[xi][ei]);
+
+                u_new[xi][ei] = u_old[xi][ei]/(1 + (u_old[xi][ei] - u_background[xi][ei])/(rho_g*pow(Cma,2.))); 
+
+                //cout<<"r = "<<u_new[xi][ei]/u_old[xi][ei]<<endl;
+                //cout<<"r = "<<(u_old[xi][ei] - u_background[xi][0])/(rho_g*pow(Cma,2.))<<endl;
             }
         }
 }
@@ -410,6 +461,7 @@ void electron_source(vector<vector<double> > &u_old, vector<vector<double> > &u_
             for (ei = 0; ei < NE; ei++)
             {
                 Q = 1e-14*pow(E[ei]/(10.*GeV), -3.1);
+
 
                 if (set_background == 1){
                 u_new[xi][ei] = max(u_old[xi][ei] + Q*dt, u_background[xi][ei]);}

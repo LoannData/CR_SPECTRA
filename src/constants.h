@@ -50,10 +50,12 @@ const int solver_ImSource1     = 1; // Source term effect applied on backward wa
 const int solver_IpDampGrowth  = 1; // Source term effect due to production of self-turbulence - damping applied on foward waves 
 const int solver_ImDampGrowth  = 1; // Source term effect due to production of self-turbulence - damping applied on backward waves 
 
-const int solver_Dilution      = 1; // Time dilution term according to the SNR shock evolution in the flux tube approx. ie. R_sh^2(t0) P(t0) = R_sh^2(t1) P(t1) if conserved energy 
+const int solver_Dilution      = 0; // Time dilution term according to the SNR shock evolution in the flux tube approx. ie. R_sh^2(t0) P(t0) = R_sh^2(t1) P(t1) if conserved energy 
 
 // Other parameters 
 const int set_background = 1; // If need to perform some test without background conditions (1 : On, 0 : off)
+const double step_implicit = 10.*yr; // Time step of the simulation if only implicit solvers are used and maximum time step value.
+const int source_terms_exact = 1; // The way to solve the source terms : 1 -> Exact solutions, 0 -> 1st order numerical solution  
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
@@ -61,12 +63,12 @@ const int nproc = 1;                    // Number of processors for the run
 
 const int output_freq = 0;               // Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data
 const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 8.*kyr; //200.*kyr; // Instant of the last output data
-const int number_out_data   = 16;     // Total number of output data
+const double t_data_out_max = 100.*kyr; //200.*kyr; // Instant of the last output data
+const int number_out_data   = 100;     // Total number of output data
 const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
 const double log_first_data = 1.001;    // 
 const int delta_log_output = 100;      // Number of time-step between two LogOutput
-const double Tmax = 8.1*kyr;//200.1*kyr;           // Define the limit time of your simulation 
+const double Tmax = 100.1*kyr;//200.1*kyr;           // Define the limit time of your simulation 
 
 
 
@@ -93,6 +95,7 @@ const double t_end_injection          = 2;   // [in tesc[E] units] Time end CRs 
 const double injection_function_width = 100. ; // Corresponds approximately to the width of the escape time divided 
 const int injection_function_norm     = 100; // Constant in order to easily and rapidly normalize the injection function 
 const double r_snr_thickness          = 100; // = R_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  
+const double electron_injection_rate  = 1e-2; // Corresponds to the energy injected in the electron spectrum compared to the energy injected in the proton spectrum
 
 const int tesc_model  = 1; // CR escape time model (1 : All CRs escape at the begining of the radiative phase, 2 : If v_sh < 110 km/s, all CRs escape)
 
