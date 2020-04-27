@@ -150,12 +150,7 @@ int main()
     for (int e=1; e<NE-1; e++){dE[e] = 0.5*abs(log10E[e+1] - log10E[e-1]); lindE[e] = 0.5*abs(E[e+1] - E[e-1]);}
     dE[0] = dE[1]; dE[NE-1] = dE[NE-2]; lindE[0] = lindE[1]; lindE[NE-1] = lindE[NE-2]; 
 
-    // CFL Conditions 
-    double C1 = 0.5;
-    double C2 = 0.5;
-    double C3 = 0.5;
-    double C4 = 0.5;
-    double C5 = 0.5;
+
 
     vector<double> Vdminvec(NE), Dminvec(NE), Gammadminvec(NE);
 
@@ -219,17 +214,25 @@ int main()
     double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 1.))*minlogdE*log(10.); // Log solver
 
     // CFL condition over energy adevtion terms from dV/dX
-    //double adv_ener_cfl = minlindE/(maxlinE*maxdVddX)*3.)  // Linear solver
-    double adv_ener_cfl = 3*log(10.)/(maxdVddX)*minlogdE;    // Log solver 
+    //double adv_ener_cfl = minlindE/(maxlinE*maxdVddX)*3.;  // Linear solver
+    //double adv_ener_cfl = 3*log(10.)/(maxdVddX)*minlogdE;    // Log solver 
+    double adv_ener_cfl = 1./(maxdVddX)*minlogdE;    // Log solver 
+
+    // CFL Conditions 
+    double C1 = 0.5;
+    double C2 = 0.5;
+    double C3 = 0.5;
+    double C4 = 0.5;
+    double C5 = 0.5;
     
 
     vector<double> cfl;
 
-    if (solver_PcrAdvection == 1 || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd);}
-    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);}
-    if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
-    if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
-    if ((solver_PcrDiffusion == 1 || solver_PeDiffusion == 1) && cfl.size() == 0) {cfl.push_back(step_implicit);}
+    if (solver_PcrAdvection == 1  || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd); cout<<C1*mindX/maxVd/yr<<endl;}
+    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);cout<<C3*adv_ener_cfl/yr<<endl;}
+    if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);cout<<C5*adv_sync_cfl/yr<<endl;}
+    if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));cout<<C4*mindX/(maxlinE*maxdVddE)/yr<<endl;}
+    //if ((solver_PcrDiffusion == 1 || solver_PeDiffusion == 1) && cfl.size() == 0) {cfl.push_back(step_implicit);}
     cfl.push_back(step_implicit);
      
     double dt = minElement1D(cfl);
@@ -250,7 +253,7 @@ int main()
     cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
     cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr (Implicit term)"<<endl;
     //cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
-    cout<<"Energy Advection  : "<<C3*minlindE/(maxlinE*maxdVddX)*3./yr<<" yr"<<endl;
+    cout<<"Energy Advection  : "<<C3*adv_ener_cfl/yr<<" yr"<<endl;
     cout<<"Advection dVdX  : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
     cout<<"Synchrotron advection : "<<C5*adv_sync_cfl/yr<<" yr"<<endl;
     cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
@@ -357,6 +360,8 @@ int main()
         //NotMove(Ip_old, Ip_new);
 
 
+
+
         //----------------------------------------------------------------------//
         // Spatially variable diffusion solver, implicit scheme for Pcr and Pe  //
         //----------------------------------------------------------------------//
@@ -442,6 +447,7 @@ int main()
         if (solver_ImDampGrowth == 1)
         {sourceGrowthDampRateSolver(Im_old, Im_new, Pcr_old, Gd, Im_background, X, dt, VA, B, -1); Im_old = Im_new;}
 
+
         //----------------------------------------------------------------------//
         // CRs and e- injection term from SNRs                                  // 
         //----------------------------------------------------------------------//
@@ -449,6 +455,8 @@ int main()
         {CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; }
         if (solver_PeSource2 == 1)
         {CRsInjectionSourceSolver(Pe_old, Pe_new, dt, Pe_ini_temp, Finj_temp_e, vec_theta_e); Pe_old = Pe_new; }
+
+
 
         //----------------------------------------------------------------------//
         // Time dilution terms                                                  // 

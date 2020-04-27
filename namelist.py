@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "Test_standard_dilution"
+folder_name = "Test_standard_full"
 folder_path = "../WorkFolder/" # The path containing the folder
 
 total_path = folder_path+folder_name
