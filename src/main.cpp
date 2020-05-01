@@ -228,10 +228,10 @@ int main()
 
     vector<double> cfl;
 
-    if (solver_PcrAdvection == 1  || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd); cout<<C1*mindX/maxVd/yr<<endl;}
-    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);cout<<C3*adv_ener_cfl/yr<<endl;}
-    if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);cout<<C5*adv_sync_cfl/yr<<endl;}
-    if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));cout<<C4*mindX/(maxlinE*maxdVddE)/yr<<endl;}
+    if (solver_PcrAdvection == 1  || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd);}
+    if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);}
+    if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
+    if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
     //if ((solver_PcrDiffusion == 1 || solver_PeDiffusion == 1) && cfl.size() == 0) {cfl.push_back(step_implicit);}
     cfl.push_back(step_implicit);
      
@@ -271,6 +271,7 @@ int main()
     int out_Pe_index = 0;
     int out_Ip_index = 0;
     int out_Im_index = 0;
+    int out_info_index = 0; 
 
     // Other important variables 
     double B_sat;
@@ -322,15 +323,25 @@ int main()
     //int nb = nproc;
     int g;
     r_snr = RSNR(time);
+
+    vector<double> info; 
+    vector<std::string> s_info;
+
     while (time < Tmax)
     {   
         start = std::clock();
 
         if (time_index == 0){
+            // We write the initial info file 
+            s_info.push_back("timestep"); info.push_back(0);
+            s_info.push_back("time");     info.push_back(0);
+            s_info.push_back("R_sh");     info.push_back(0); 
+
             useless  = writeXE("Ip", -1, Ip_new, NX, NE);
             useless  = writeXE("Im", -1, Im_new, NX, NE);
             useless = writeXE("Pcr", -1, Pcr_new, NX, NE);
-            useless  = writeXE("Pe", -1, Pe_new, NX, NE);}
+            useless  = writeXE("Pe", -1, Pe_new, NX, NE);
+            useless  = writeInfo("info", -1, info, s_info);}
 
         Pcr_old = Pcr_new;
         Pe_old  = Pe_new;
@@ -359,7 +370,13 @@ int main()
         //----------------------------------------------------------------------//
         //NotMove(Ip_old, Ip_new);
 
-
+        //----------------------------------------------------------------------//
+        // CRs and e- injection term from SNRs                                  // 
+        //----------------------------------------------------------------------//
+        if (solver_PcrSource2 == 1)
+        {CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; }
+        if (solver_PeSource2 == 1)
+        {CRsInjectionSourceSolver(Pe_old, Pe_new, dt, Pe_ini_temp, Finj_temp_e, vec_theta_e); Pe_old = Pe_new; }
 
 
         //----------------------------------------------------------------------//
@@ -448,14 +465,6 @@ int main()
         {sourceGrowthDampRateSolver(Im_old, Im_new, Pcr_old, Gd, Im_background, X, dt, VA, B, -1); Im_old = Im_new;}
 
 
-        //----------------------------------------------------------------------//
-        // CRs and e- injection term from SNRs                                  // 
-        //----------------------------------------------------------------------//
-        if (solver_PcrSource2 == 1)
-        {CRsInjectionSourceSolver(Pcr_old, Pcr_new, dt, Pcr_ini_temp, Finj_temp, vec_theta); Pcr_old = Pcr_new; }
-        if (solver_PeSource2 == 1)
-        {CRsInjectionSourceSolver(Pe_old, Pe_new, dt, Pe_ini_temp, Finj_temp_e, vec_theta_e); Pe_old = Pe_new; }
-
 
 
         //----------------------------------------------------------------------//
@@ -491,6 +500,13 @@ int main()
             out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
             out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
             out_Pe_index  = writeXE("Pe", out_Pe_index, Pe_new, NX, NE);
+
+            // We write the info file 
+            s_info.clear();               info.clear();
+            s_info.push_back("timestep"); info.push_back(time_index);
+            s_info.push_back("time");     info.push_back(time);
+            s_info.push_back("R_sh");     info.push_back(r_snr); 
+            out_info_index = writeInfo("info", out_info_index, info, s_info);
         }}
 
 
@@ -501,6 +517,13 @@ int main()
             out_Im_index  = writeXE("Im", out_Im_index, Im_new, NX, NE);
             out_Pcr_index = writeXE("Pcr", out_Pcr_index, Pcr_new, NX, NE);
             out_Pe_index  = writeXE("Pe", out_Pe_index, Pe_new, NX, NE);
+
+            // We write the info file 
+            s_info.clear();               info.clear();
+            s_info.push_back("timestep"); info.push_back(time_index);
+            s_info.push_back("time");     info.push_back(time);
+            s_info.push_back("R_sh");     info.push_back(r_snr); 
+            out_info_index = writeInfo("info", out_info_index, info, s_info);
         }}
 
         

@@ -40,11 +40,26 @@ def readDataXE(file_name, NX, NE) :
     for ei in range(NE) : 
         e_cols.append(str(ei))
     df = pd.read_csv(file_name, usecols=e_cols)
-    var = np.empty((NX, NE))
-    for xi in range(NX) : 
-        for ei in range(NE) : 
-            var[xi][ei] = df[str(ei)].iloc[xi]
-    return var
+    var = df.values.tolist()
+    return np.array(var)
+
+def readInfo(file_number) : 
+    if (file_number < 10) : 
+        sfile_number = "0000"+str(file_number)
+    if (file_number >= 10 and file_number < 100) : 
+        sfile_number = "000"+str(file_number)
+    if (file_number >= 100 and file_number < 1000) : 
+        sfile_number = "00"+str(file_number)
+    if (file_number >= 1000) : 
+        sfile_number = "0"+str(file_number)
+    
+    file_name = "../data_out/"+"info"+"_"+sfile_number+".dat"
+    df = open(file_name, "r").readlines()
+    dic = {}
+    for ii in range(len(df)) : 
+        df[ii] = df[ii].replace("\n","").split(",")
+        dic.update({df[ii][0]:df[ii][1]})
+    return dic 
 
 def readAxis(file_name) : 
     myfile = open(file_name,"r").readlines()
@@ -74,9 +89,10 @@ def getData(var, file_number) :
         Ip = readDataXE("../data_out/"+"Ip"+"_"+sfile_number+".dat", 2**int(nx), 2**int(ne))
         Im = readDataXE("../data_out/"+"Im"+"_"+sfile_number+".dat", 2**int(nx), 2**int(ne))
         Db = readDataXE("../data_ini/"+"DBohm"+".dat", 2**int(nx), 2**int(ne))
-        for ii in range(len(Ip)) : 
-            for jj in range(len(Ip[ii])) : 
-                data[ii][jj] = Db[ii][jj]/(Ip[ii][jj] + Im[ii][jj])
+        # for ii in range(len(Ip)) : 
+        #     for jj in range(len(Ip[ii])) : 
+        #         data[ii][jj] = Db[ii][jj]/(Ip[ii][jj] + Im[ii][jj])
+        data = Db/(Ip + Im)
     return X, E, data
 
 
@@ -85,7 +101,8 @@ def show(variable, time, position, energy,
          xlim = None, elim = None, 
          vlim = None, 
          source_center = 0, 
-         fig_save = False) : 
+         fig_save = False, 
+         info = False) : 
     
     X, E, data = getData(variable[0], 1)
     
@@ -142,11 +159,17 @@ def show(variable, time, position, energy,
                 X, E, data = getData(variable[vi], time[ti])
                 if (source_center > 0) : 
                     ax.loglog(np.array(X)/cst.pc - source_center, data.T[energy_index[ei]], c = color[ti])
+                    if (info) : 
+                        loc_info = readInfo(time[ti])
+                        # print ("Rsh = ",float(loc_info.get("R_sh"))/cst.pc," pc")
+                        ax.axvline(float(loc_info.get("R_sh"))/cst.pc, c = color[ti])
                 else : 
                     ax.semilogy(np.array(X)/cst.pc, data.T[energy_index[ei]], c = color[ti])
                     if (xlim) : ax.set_xlim(xlim[0], xlim[1])
                 if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+                del data
             ax.set_title("Energy = "+str(round(E[energy_index[ei]]/cst.GeV,3))+" GeV")
+             
         for xi in range(len(position)) : 
             print ("Energy spectra subplot n°"+str(int(xi+1))+" over "+str(len(position)))
             ax = fig.add_subplot(gs[xi, x_index])
@@ -155,7 +178,9 @@ def show(variable, time, position, energy,
                 ax.loglog(np.array(E)/cst.GeV, data[position_index[xi]], c = color[ti])
                 if (elim) : ax.set_xlim(elim[0], elim[1])
                 if (vlim) : ax.set_ylim(vlim[vi][0], vlim[vi][1])
+                del data 
             ax.set_title("Position = "+str(round(X[position_index[xi]]/cst.pc,1))+" pc")
+            
     
     
 
@@ -180,28 +205,36 @@ def show(variable, time, position, energy,
 
 
 # Experiments 
-show(["Pcr", "Pe"], [2, 3, 4], 
-     [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
-     [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
-     elim = [1e0, 1e5],
-     vlim = [[1e-22, 1e-8], [1e-22, 1e-8]],
-     source_center = 1000.,
-     fig_save = True)
+show(["Pcr", "Pe"], [0, 1, 2, 3, 4, 5, 6, 7], 
+      [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
+      [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
+      elim = [1e0, 1e5],
+      vlim = [[1e-26, 1e-8], [1e-26, 1e-8]],
+      source_center = 1000.,
+      fig_save = True)
 
-show(["Dcr", "Ip", "Im"], [2, 3, 4], 
-     [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
-     [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
-     source_center = 1000.,
-     fig_save = True)
-
-
+show(["Dcr", "Ip", "Im"], [0, 1, 2, 3, 4, 5, 6, 7], 
+      [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
+      [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
+      source_center = 1000.,
+      fig_save = True)
 
 
 
 
 
+# file_name = "../data_out/"+"info"+"_"+"00002"+".dat"
+# df = open(file_name, "r").readlines()
+# dic = {}
+# for ii in range(len(df)) : 
+#     df[ii] = df[ii].replace("\n","").split(",")
+#     dic.update({df[ii][0]:df[ii][1]})
+# NX = 2**12
+# NE = 2**8
 
+# data = readDataXE(file_name, NX, NE)
 
+# data = readInfo(1)
 
 
 

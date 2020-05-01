@@ -27,26 +27,26 @@ const double sig_T = 6.65e-25; // [cm^2] Thomson cross section (see Schlickeiser
 // Solver Options (1 : On, 0 : Off)
 const int solver_PcrAdvection  = 1; // Advective term of the CR Pressure (the classical one -> V_A*grad ...)
 const int solver_PcrDiffusion  = 1; // Diffusive term of the CR Pressure
-const int solver_PcrAdvection2 = 1; // Explicit Advection solver for Pcr by the energy derivative of Alfvén velocity.
-const int solver_PcrAdvectionE = 1; // Explicit Advection solver for Pcr in energy cdVAdX
-const int solver_PcrSource1    = 1; // Source term effect due to the dependance of the Alfvén velocity to the space
+const int solver_PcrAdvection2 = 0; // Explicit Advection solver for Pcr by the energy derivative of Alfvén velocity.
+const int solver_PcrAdvectionE = 0; // Explicit Advection solver for Pcr in energy cdVAdX
+const int solver_PcrSource1    = 0; // Source term effect due to the dependance of the Alfvén velocity to the space
 const int solver_PcrSource2    = 1; // Source term effect due to the CR injection from the source in the system  
 
 const int solver_PeAdvection   = 1; // Advective term of the e- Pressure (the classical one -> V_A*grad ...)
 const int solver_PeDiffusion   = 1; // Diffusive term of the e- Pressure
-const int solver_PeAdvection2  = 1; // Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
-const int solver_PeAdvectionE  = 1; // Explicit Advection solver for e- in energy cdVAdX
+const int solver_PeAdvection2  = 0; // Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
+const int solver_PeAdvectionE  = 0; // Explicit Advection solver for e- in energy cdVAdX
 
-const int solver_PeAdvectionE1 = 1; // Sychrotron radiations of e- (looses of energy) - Advection term 
-const int solver_PeAdvectionE2 = 1; // Synchrotron radiations of e- (looses of energy) - source term
+const int solver_PeAdvectionE1 = 0; // Sychrotron radiations of e- (looses of energy) - Advection term 
+const int solver_PeAdvectionE2 = 0; // Synchrotron radiations of e- (looses of energy) - source term
 
-const int solver_PeSource1     = 1; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
+const int solver_PeSource1     = 0; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
 const int solver_PeSource2     = 1; // Source term effect due to the e- injection from the source in the system 
 
 const int solver_IpAdvection   = 1; // Advective term of the foward waves 
 const int solver_ImAdvection   = 1; // Advective term of the backward waves
-const int solver_IpSource1     = 1; // Source term effect applied on foward waves due to the dependance of the Alfvén velocity to the space
-const int solver_ImSource1     = 1; // Source term effect applied on backward waves due to the dependance of the Alfvén velocity to the space
+const int solver_IpSource1     = 0; // Source term effect applied on foward waves due to the dependance of the Alfvén velocity to the space
+const int solver_ImSource1     = 0; // Source term effect applied on backward waves due to the dependance of the Alfvén velocity to the space
 const int solver_IpDampGrowth  = 1; // Source term effect due to production of self-turbulence - damping applied on foward waves 
 const int solver_ImDampGrowth  = 1; // Source term effect due to production of self-turbulence - damping applied on backward waves 
 
@@ -54,22 +54,24 @@ const int solver_Dilution      = 0; // Time dilution term according to the SNR s
                                     // Still experimental !!! 
 
 // Other parameters 
-const int set_background = 1; // If need to perform some test without background conditions (1 : On, 0 : off)
-const double step_implicit = 500.*yr; // Time step of the simulation if only implicit solvers are used and maximum time step value.
-const int source_terms_exact = 1; // The way to solve the source terms : 1 -> Exact solutions, 0 -> 1st order numerical solution  
+const int set_background     = 1;           // If need to perform some test without background conditions (1 : On, 0 : off)
+const double step_implicit   = 20.*yr;      // Time step of the simulation if only implicit solvers are used and maximum time step value.
+                                            // This timestep has to be > than 10 x min(tesc(E))
+                                            // Example : If min(tesc) ~ 500 yrs, then dt < 500/10 = 50 yrs 
+const int source_terms_exact = 1;           // The way to solve the source terms : 1 -> Exact solutions, 0 -> 1st order numerical solution  
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc = 4;                    // Number of processors for the run (! Still experimental)
+const int nproc              = 1;           // Number of processors for the run (! Still experimental)
 
-const int output_freq = 0;               // Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data
-const double t_data_out_min = 0.*kyr;   // Instant of the first output data 
-const double t_data_out_max = 500.*kyr; //200.*kyr; // Instant of the last output data
-const int number_out_data   = 100;     // Total number of output data
-const int time_distrib_of_data = 0;     // Time distribution of output data (0 : linspace, 1 : log10-space)
-const double log_first_data = 1.001;    // 
-const int delta_log_output = 100;      // Number of time-step between two LogOutput
-const double Tmax = 500.1*kyr;//200.1*kyr;           // Define the limit time of your simulation 
+const int output_freq          = 0;         // Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data
+const double t_data_out_min    = 0.*kyr;    // Instant of the first output data 
+const double t_data_out_max    = 500.*kyr;  //200.*kyr; // Instant of the last output data
+const int number_out_data      = 100;       // Total number of output data
+const int time_distrib_of_data = 0;         // Time distribution of output data (0 : linspace, 1 : log10-space)
+const double log_first_data    = 1.001;     // 
+const int delta_log_output     = 100;       // Number of time-step between two LogOutput
+const double Tmax              = 500.1*kyr; //200.1*kyr;           // Define the limit time of your simulation 
 
 
 

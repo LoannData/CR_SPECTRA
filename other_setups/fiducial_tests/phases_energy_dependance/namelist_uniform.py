@@ -31,7 +31,7 @@ def getVA(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "WNM-CNM_all_dependant"
+folder_name = "WNM-CNM-DiM_all_dependant"
 folder_path = "../../../../WorkFolder/Fiducial_tests_for_thesis_2/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -103,22 +103,22 @@ phases  = [] # Phases list
 # phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
 
 # Setup : WNM-CNM-WNM-CNM-WNM 
-phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), getVA(E, ism.WNM)])
-phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 950.*cst.pc), getVA(E, ism.CNM)])
-phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), getVA(E, ism.WNM)])
-phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1130.*cst.pc), getVA(E, ism.CNM)])
-phases.append([ism.WNM, dict(Xmin = 1130.*cst.pc, Xmax = 2000.*cst.pc), getVA(E, ism.WNM)])
+# phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), getVA(E, ism.WNM)])
+# phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 950.*cst.pc), getVA(E, ism.CNM)])
+# phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), getVA(E, ism.WNM)])
+# phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1130.*cst.pc), getVA(E, ism.CNM)])
+# phases.append([ism.WNM, dict(Xmin = 1130.*cst.pc, Xmax = 2000.*cst.pc), getVA(E, ism.WNM)])
 
 # Setup : WNM-CNM-DiM-CNM-WNM-CNM-DiM-CNM-WNM 
-# phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), getVA(E, ism.WNM)])
-# phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 899.*cst.pc), getVA(E, ism.CNM)])
-# phases.append([ism.DiM, dict(Xmin = 899.*cst.pc, Xmax = 921.*cst.pc), getVA(E, ism.DiM)])
-# phases.append([ism.CNM, dict(Xmin = 921.*cst.pc, Xmax = 950.*cst.pc), getVA(E, ism.CNM)])
-# phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), getVA(E, ism.WNM)])
-# phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1079.*cst.pc), getVA(E, ism.CNM)])
-# phases.append([ism.DiM, dict(Xmin = 1079.*cst.pc, Xmax = 1101.*cst.pc), getVA(E, ism.DiM)])
-# phases.append([ism.CNM, dict(Xmin = 1101.*cst.pc, Xmax = 1130.*cst.pc), getVA(E, ism.CNM)])
-# phases.append([ism.WNM, dict(Xmin = 1130.*cst.pc, Xmax = 2000.*cst.pc), getVA(E, ism.WNM)])
+phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), getVA(E, ism.WNM)])
+phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 899.*cst.pc), getVA(E, ism.CNM)])
+phases.append([ism.DiM, dict(Xmin = 899.*cst.pc, Xmax = 921.*cst.pc), getVA(E, ism.DiM)])
+phases.append([ism.CNM, dict(Xmin = 921.*cst.pc, Xmax = 950.*cst.pc), getVA(E, ism.CNM)])
+phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), getVA(E, ism.WNM)])
+phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1079.*cst.pc), getVA(E, ism.CNM)])
+phases.append([ism.DiM, dict(Xmin = 1079.*cst.pc, Xmax = 1101.*cst.pc), getVA(E, ism.DiM)])
+phases.append([ism.CNM, dict(Xmin = 1101.*cst.pc, Xmax = 1130.*cst.pc), getVA(E, ism.CNM)])
+phases.append([ism.WNM, dict(Xmin = 1130.*cst.pc, Xmax = 2000.*cst.pc), getVA(E, ism.WNM)])
 
 
 
