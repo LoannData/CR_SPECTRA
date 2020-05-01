@@ -55,7 +55,10 @@ mn = ism_values.get("mn")
 mi = ism_values.get("mi")
 T  = ism_values.get("T")
 Xi = ism_values.get("X")
-va = ism_values.get("VA")
+
+va   = ism_values.get("VA")
+g_in = ism_values.get("gamma_in")
+g_lz = ism_values.get("gamma_lz")
 ###############################################################################
 
 
@@ -129,9 +132,11 @@ for e in range(len(E)) :
             VA[e][xi] = -va[e][xi]
 
         if (nml.in_damping) : 
-            gamma_in[e][xi]       = in_damping.get('wi')
+            # gamma_in[e][xi]       = in_damping.get('wi')
+            gamma_in[e][xi]       = g_in[e][xi]
         if (nml.lz_damping) : 
-            gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
+            # gamma_lazarian[e][xi] = -dp.damping_lazarian(xi, E[e], ism_values)
+            gamma_lazarian[e][xi] = g_lz[e][xi]
         if (nml.nlld_damping) : 
             gamma_nlld[e][xi]     = -dp.non_linear_landau_damping( T[xi], Ip[e][xi], Im[e][xi], 
                                                                   mi[xi],     cst.e, 

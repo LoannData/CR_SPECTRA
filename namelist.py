@@ -27,6 +27,14 @@ def getVA(E, phase) :
         VA.append(dmp.indamping_alfven_nopos(E[ii], phase).get("VA"))    
     return VA
 
+def getDamping(E, phase) : 
+    damping_in   = []
+    damping_lz   = []
+    for ii in range(2**NE) : 
+        damping_in.append(abs(dmp.IonNeutral_Damping(E[ii], phase, nu_n = 0, theta = 0).get("wi")))
+        damping_lz.append(abs(dmp.damping_lazarian_nopos(E[ii], phase)[0]))
+    return [damping_in, damping_lz]
+
 ###############################################################################
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
@@ -86,19 +94,8 @@ bdiff_model      = "ISM_independant" #ISM_(independant, dependant)
 phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
 
-# phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=300.*cst.pc),  getVA(E, ism.WNM)]) 
-# phases.append([ism.CNM, dict(Xmin=300.*cst.pc,  Xmax=500.*cst.pc),  getVA(E, ism.CNM)])
-# phases.append([ism.DiM, dict(Xmin=500.*cst.pc,  Xmax=600.*cst.pc),  getVA(E, ism.DiM)]) 
-# phases.append([ism.CNM, dict(Xmin=600.*cst.pc,  Xmax=800.*cst.pc),  getVA(E, ism.CNM)])
-# phases.append([ism.WNM, dict(Xmin=800.*cst.pc,  Xmax=950.*cst.pc),  getVA(E, ism.WNM)])
-# phases.append([ism.HII, dict(Xmin=950.*cst.pc,  Xmax=1050.*cst.pc), getVA(E, ism.HII)]) 
-# phases.append([ism.WNM, dict(Xmin=1050.*cst.pc, Xmax=1200.*cst.pc), getVA(E, ism.WNM)])
-# phases.append([ism.CNM, dict(Xmin=1200.*cst.pc, Xmax=1400.*cst.pc), getVA(E, ism.CNM)]) 
-# phases.append([ism.DiM, dict(Xmin=1400.*cst.pc, Xmax=1500.*cst.pc), getVA(E, ism.DiM)]) 
-# phases.append([ism.CNM, dict(Xmin=1500.*cst.pc, Xmax=1700.*cst.pc), getVA(E, ism.CNM)]) 
-# phases.append([ism.WNM, dict(Xmin=1700.*cst.pc, Xmax=2000.*cst.pc), getVA(E, ism.WNM)]) 
-
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, ism.WNM)]) 
+phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),
+               getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]]) 
 
 
 
@@ -107,8 +104,8 @@ phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  getVA(E, is
 smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases (10 pc min to avoid jumps)
 
 # We calculate the smoothed variables
-T, B, ni, nn, nt, Xi, mi, mn, va = mh.SmoothPhaseTransition(X, E, phases, smooth_width_transition)
+T, B, ni, nn, nt, Xi, mi, mn, va, gamma_in, gamma_lz = mh.SmoothPhaseTransition(X, E, phases, smooth_width_transition)
 # ISM secondary variables 
-ism_values = dict(T=T, B=B, ni=ni, nn=nn, nt=nt, X=Xi, mi=mi, mn=mn, VA=va)
+ism_values = dict(T=T, B=B, ni=ni, nn=nn, nt=nt, X=Xi, mi=mi, mn=mn, VA=va, gamma_in = gamma_in, gamma_lz = gamma_lz)
 
 

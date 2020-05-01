@@ -274,6 +274,8 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
     mi = np.zeros(len(X))
     mn = np.zeros(len(X))
     VA = np.zeros((len(E), len(X)))
+    gamma_in = np.zeros((len(E), len(X)))
+    gamma_lz = np.zeros((len(E), len(X)))
     if (len(phases) == 1) : 
         for xi in range(len(X)) : 
             for pi in range(len(phases)) : 
@@ -287,7 +289,9 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                     mi[xi] = phases[pi][0].get("mi")
                     mn[xi] = phases[pi][0].get("mn")
                     for ei in range(len(E)) : 
-                        VA[ei][xi] = phases[pi][2][ei]
+                        VA[ei][xi]         = phases[pi][2][ei]
+                        gamma_in[ei][xi]   = phases[pi][3][ei]
+                        gamma_lz[ei][xi]   = phases[pi][4][ei]
     if (len(phases) > 1) : 
         for xi in range(len(X)) :
             for pos in range(len(phases)) :        
@@ -299,11 +303,19 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                         v2 = phases[pos][0]
                         va1 = phases[pos][2]
                         va2 = phases[pos][2]
+                        gamma_in1 = phases[pos][3]
+                        gamma_in2 = phases[pos][3]
+                        gamma_lz1 = phases[pos][4]
+                        gamma_lz2 = phases[pos][4]
                     else : 
                         v1 = phases[pos-1][0]
                         v2 = phases[pos][0]
                         va1 = phases[pos-1][2]
                         va2 = phases[pos][2]
+                        gamma_in1 = phases[pos-1][3]
+                        gamma_in2 = phases[pos][3]
+                        gamma_lz1 = phases[pos-1][4]
+                        gamma_lz2 = phases[pos][4]
                     T[xi]  = f(X[xi], xt, l, v1.get('T'), v2.get('T'))
                     B[xi]  = f(X[xi], xt, l, v1.get('B'), v2.get('B'))
                     ni[xi]  = f(X[xi], xt, l, v1.get('ni'), v2.get('ni'))
@@ -313,7 +325,9 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                     mi[xi]  = f(X[xi], xt, l, v1.get('mi'), v2.get('mi'))
                     mn[xi]  = f(X[xi], xt, l, v1.get('mn'), v2.get('mn'))
                     for ei in range(len(E)) : 
-                        VA[ei][xi] = f(X[xi], xt, l, va1[ei], va2[ei])
+                        VA[ei][xi]       = f(X[xi], xt, l, va1[ei], va2[ei])
+                        gamma_in[ei][xi] = f(X[xi], xt, l, gamma_in1[ei], gamma_in2[ei])
+                        gamma_lz[ei][xi] = f(X[xi], xt, l, gamma_lz1[ei], gamma_lz2[ei])
                 if (X[xi] >= phases[pos][1].get('Xmin') + 0.5*(phases[pos][1].get('Xmax') - phases[pos][1].get('Xmin')) and X[xi] <= phases[pos][1].get('Xmax')) :
                     xt = phases[pos][1].get('Xmax')
                     l  = smooth_width
@@ -322,11 +336,19 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                         v2 = phases[pos][0]
                         va1 = phases[pos][2]
                         va2 = phases[pos][2]
+                        gamma_in1 = phases[pos][3]
+                        gamma_in2 = phases[pos][3]
+                        gamma_lz1 = phases[pos][4]
+                        gamma_lz2 = phases[pos][4]
                     else : 
                         v1 = phases[pos][0]
                         v2 = phases[pos+1][0]
                         va1 = phases[pos][2]
                         va2 = phases[pos+1][2]
+                        gamma_in1 = phases[pos][3]
+                        gamma_in2 = phases[pos+1][3]
+                        gamma_lz1 = phases[pos][4]
+                        gamma_lz2 = phases[pos+1][4]
                     T[xi]  = f(X[xi], xt, l, v1.get('T'), v2.get('T'))
                     B[xi]  = f(X[xi], xt, l, v1.get('B'), v2.get('B'))
                     ni[xi]  = f(X[xi], xt, l, v1.get('ni'), v2.get('ni'))
@@ -337,6 +359,8 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                     mn[xi]  = f(X[xi], xt, l, v1.get('mn'), v2.get('mn'))
                     for ei in range(len(E)) : 
                         VA[ei][xi] = f(X[xi], xt, l, va1[ei], va2[ei])
-    return T, B, ni, nn, nt, Xi, mi, mn, VA
+                        gamma_in[ei][xi] = f(X[xi], xt, l, gamma_in1[ei], gamma_in2[ei])
+                        gamma_lz[ei][xi] = f(X[xi], xt, l, gamma_lz1[ei], gamma_lz2[ei])
+    return T, B, ni, nn, nt, Xi, mi, mn, VA, gamma_in, gamma_lz
 
 
