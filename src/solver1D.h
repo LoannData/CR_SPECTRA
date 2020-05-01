@@ -323,7 +323,7 @@ void sourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new
         }
     }
 
-void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > v_old, vector<vector<double> > source, vector<vector<double> > background,  vector<double> X, double dt, vector<vector<double> > V, vector<double> B, int factor)
+/*void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > v_old, vector<vector<double> > source, vector<vector<double> > background,  vector<double> X, double dt, vector<vector<double> > V, vector<double> B, int factor)
     {
         int NX = u_old.size();
         int NE = u_old[0].size();
@@ -347,6 +347,42 @@ void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<do
                     if (factor == -1){if (dudx < 0.){dudx = 0.;}} // Condition Backward waves
                     //sum = abs(0.5*V[xi][ei]*dudx/w0)*(log10(u_old[xi][ei]+1)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
                     sum = abs(0.5*V[xi][ei]*dudx/w0)*(exp(-u_old[xi][ei]*ttau_sat)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
+                    u_new[xi][ei] = u_old[xi][ei] + sum*dt;
+                    if (u_new[xi][ei] < background[xi][ei]) {u_new[xi][ei] = background[xi][ei];}
+                    if (u_new[xi][ei] > u_max) {u_new[xi][ei] = u_max;}
+            }
+        }
+    }*/
+
+void sourceGrowthDampRateSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > v_old, vector<vector<double> > source, vector<vector<double> > background,  vector<double> X, double dt, vector<vector<double> > V, vector<double> B, int factor)
+    {
+        int NX = u_old.size();
+        int NE = u_old[0].size();
+        int xi, ei;
+        double sum;
+        double dudx; 
+        double w0;
+        double u_max = 1e4;
+        //double tau_sat = - log(0.1)/0.01;
+
+        //#pragma omp parallel num_threads(nproc)
+        #pragma omp for schedule(static, int(double(NX/nproc))) private(sum, dudx, w0, xi)
+        for (xi = 0; xi < NX; xi++)
+        {
+            w0 = B[xi]*B[xi]/(8*pi);
+            for (ei = 0; ei < NE; ei++)
+            {
+                    dudx = 0.;
+                    if (xi > 0 and xi < NX-1){dudx = (v_old[xi+1][ei]-v_old[xi-1][ei])/(X[xi+1] - X[xi-1]);}
+                    if (factor ==  1){if (dudx > 0.){dudx = 0.;}} // Condition Foward waves
+                    if (factor == -1){if (dudx < 0.){dudx = 0.;}} // Condition Backward waves
+
+
+                    sum = abs(0.5*V[xi][ei]*dudx/w0)*exp(-u_old[xi][ei]*ttau_sat) - abs(source[xi][ei])*(u_old[xi][ei] - background[xi][ei]);  
+
+
+                    //sum = abs(0.5*V[xi][ei]*dudx/w0)*(exp(-u_old[xi][ei]*ttau_sat)/u_old[xi][ei]) - abs(source[xi][ei]*(u_old[xi][ei] - background[xi][ei]));///;
+
                     u_new[xi][ei] = u_old[xi][ei] + sum*dt;
                     if (u_new[xi][ei] < background[xi][ei]) {u_new[xi][ei] = background[xi][ei];}
                     if (u_new[xi][ei] > u_max) {u_new[xi][ei] = u_max;}
