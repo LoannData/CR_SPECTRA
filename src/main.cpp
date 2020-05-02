@@ -224,6 +224,7 @@ int main()
     double C3 = 0.5;
     double C4 = 0.5;
     double C5 = 0.5;
+    double C6 = 0.5;
     
 
     vector<double> cfl;
@@ -232,6 +233,7 @@ int main()
     if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);}
     if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
     if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
+    //if (solver_IpDampGrowth == 1 || solver_ImDampGrowth == 1){cfl.push_back(C6/maxGd);}
     //if ((solver_PcrDiffusion == 1 || solver_PeDiffusion == 1) && cfl.size() == 0) {cfl.push_back(step_implicit);}
     cfl.push_back(step_implicit);
      
@@ -249,12 +251,13 @@ int main()
      
     
 
-    cout<<"CFL Values : "<<endl;
-    cout<<"Advection : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
-    cout<<"Diffusion : "<<C2*pow(mindX,2)/maxD/yr<<" yr (Implicit term)"<<endl;
+    cout<<"CFL Values            : "<<endl;
+    cout<<"Advection             : "<<C1*mindX/maxVd/yr<<" yr"<<endl;
+    cout<<"Diffusion             : "<<C2*pow(mindX,2)/maxD/yr<<" yr (Implicit term)"<<endl;
+    cout<<"Damping term          : "<<C6/maxGd/yr<<" yr (Implicit term)"<<endl; 
     //cout<<"Energy    : "<<C3*minlindE*mindX/(maxE*maxVd)/yr<<" yr"<<endl;
-    cout<<"Energy Advection  : "<<C3*adv_ener_cfl/yr<<" yr"<<endl;
-    cout<<"Advection dVdX  : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
+    cout<<"Energy Advection      : "<<C3*adv_ener_cfl/yr<<" yr"<<endl;
+    cout<<"Advection dVdX        : "<<C4*mindX/(maxlinE*maxdVddE)/yr<<" yr"<<endl;
     cout<<"Synchrotron advection : "<<C5*adv_sync_cfl/yr<<" yr"<<endl;
     cout<<"Time-step = "<<dt/yr<<" yr"<<endl;
 

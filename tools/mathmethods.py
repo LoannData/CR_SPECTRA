@@ -9,6 +9,9 @@ Created on Thu Dec 13 14:04:53 2018
 import numpy as np 
 import matplotlib.pyplot as plt 
 import math
+import scipy.special as sp 
+
+import constants as cst 
 
 
 # Main Function takes in the coefficient of the Cubic Polynomial
@@ -264,6 +267,102 @@ def g2(x, xt, l) :
 def f(x, xt, l, v1, v2) : 
     return g1(x, xt, l)*v1 + g2(x, xt, l)*v2
 
+def shape(X, Amp, Xmin = 0., Xmax = 1., sig_Xmin = 0.1, sig_Xmax = 0.2) : 
+    if (X - Xmin == 0. or Xmax - X == 0.) : 
+        return Amp
+    return 0.5*Amp*(sp.erf((X - Xmin)/sig_Xmin) + sp.erf((Xmax - X)/sig_Xmax))
+
+def multishape(X, Amp, Xmin, Xmax, sig) : 
+    sig_Xmin = [0] + sig
+    sig_Xmax = sig + [0]
+    S = 0. 
+    for i in range(len(Amp)) : 
+        S += shape(X, Amp[i], Xmin[i], Xmax[i], sig_Xmin[i], sig_Xmax[i])
+    return S
+
+def SmoothPhaseTransition(X, E, phases, smooth_width) : 
+    T  = np.zeros(len(X))
+    B  = np.zeros(len(X))
+    ni = np.zeros(len(X))
+    nn = np.zeros(len(X))
+    nt = np.zeros(len(X))
+    Xi  = np.zeros(len(X))
+    mi = np.zeros(len(X))
+    mn = np.zeros(len(X))
+    VA = np.zeros((len(E), len(X)))
+    gamma_in = np.zeros((len(E), len(X)))
+    gamma_lz = np.zeros((len(E), len(X)))
+    if (len(phases) == 1) : 
+        for xi in range(len(X)) : 
+            for pi in range(len(phases)) : 
+                if (X[xi] >= phases[pi][1].get("Xmin") and X[xi] <= phases[pi][1].get("Xmax")) : 
+                    T[xi]  = phases[pi][0].get("T")
+                    B[xi]  = phases[pi][0].get("B")
+                    ni[xi] = phases[pi][0].get("ni")
+                    nn[xi] = phases[pi][0].get("nn")
+                    nt[xi] = phases[pi][0].get("nt")
+                    Xi[xi] = phases[pi][0].get("X")
+                    mi[xi] = phases[pi][0].get("mi")
+                    mn[xi] = phases[pi][0].get("mn")
+                    for ei in range(len(E)) : 
+                        VA[ei][xi]         = phases[pi][2][ei]
+                        gamma_in[ei][xi]   = phases[pi][3][ei]
+                        gamma_lz[ei][xi]   = phases[pi][4][ei]
+    if (len(phases) > 1) : 
+        print ("Multiphase setup : Calculation of the smoothing parameters")
+        for ei in range(len(E)) : 
+            print ("Calculation of the smoothing parameters - Energy index ",ei," over ",len(E))
+            Xmin   = []
+            Xmax   = []
+            Amp_Va       = []
+            Amp_gamma_in = []
+            Amp_gamma_lz = []
+            for pi in range(len(phases)) :
+                Xmin.append(phases[pi][1].get("Xmin"))
+                Xmax.append(phases[pi][1].get("Xmax"))
+                Amp_Va.append(phases[pi][2][ei])
+                Amp_gamma_in.append(phases[pi][3][ei])
+                Amp_gamma_lz.append(phases[pi][4][ei])
+            for xi in range(len(X)) : 
+                VA[ei][xi] = multishape(X[xi], Amp_Va, Xmin, Xmax, smooth_width)
+                gamma_in[ei][xi] = multishape(X[xi], Amp_gamma_in, Xmin, Xmax, smooth_width)
+                gamma_lz[ei][xi] = multishape(X[xi], Amp_gamma_lz, Xmin, Xmax, smooth_width)
+            
+        
+        Xmin   = []
+        Xmax   = []
+        Amp_T  = []
+        Amp_B  = []
+        Amp_ni = []
+        Amp_nn = []
+        Amp_nt = []
+        Amp_Xi = []
+        Amp_mi = []
+        Amp_mn = []
+        for pi in range(len(phases)) :
+            Xmin.append(phases[pi][1].get("Xmin"))
+            Xmax.append(phases[pi][1].get("Xmax"))
+            Amp_T.append(phases[pi][0].get("T"))
+            Amp_B.append(phases[pi][0].get("B"))
+            Amp_ni.append(phases[pi][0].get("ni"))
+            Amp_nn.append(phases[pi][0].get("nn"))
+            Amp_nt.append(phases[pi][0].get("nt"))
+            Amp_Xi.append(phases[pi][0].get("X"))
+            Amp_mi.append(phases[pi][0].get("mi"))
+            Amp_mn.append(phases[pi][0].get("mn"))
+        for xi in range(len(X)) : 
+            T[xi] = multishape(X[xi], Amp_T, Xmin, Xmax, smooth_width)
+            B[xi] = multishape(X[xi], Amp_B, Xmin, Xmax, smooth_width)
+            ni[xi] = multishape(X[xi], Amp_ni, Xmin, Xmax, smooth_width)
+            nn[xi] = multishape(X[xi], Amp_nn, Xmin, Xmax, smooth_width)
+            nt[xi] = multishape(X[xi], Amp_nt, Xmin, Xmax, smooth_width)
+            Xi[xi] = multishape(X[xi], Amp_Xi, Xmin, Xmax, smooth_width)
+            mi[xi] = multishape(X[xi], Amp_mi, Xmin, Xmax, smooth_width)
+            mn[xi] = multishape(X[xi], Amp_mn, Xmin, Xmax, smooth_width)
+
+    return T, B, ni, nn, nt, Xi, mi, mn, VA, gamma_in, gamma_lz
+
+"""
 def SmoothPhaseTransition(X, E, phases, smooth_width) : 
     T  = np.zeros(len(X))
     B  = np.zeros(len(X))
@@ -362,5 +461,5 @@ def SmoothPhaseTransition(X, E, phases, smooth_width) :
                         gamma_in[ei][xi] = f(X[xi], xt, l, gamma_in1[ei], gamma_in2[ei])
                         gamma_lz[ei][xi] = f(X[xi], xt, l, gamma_lz1[ei], gamma_lz2[ei])
     return T, B, ni, nn, nt, Xi, mi, mn, VA, gamma_in, gamma_lz
-
+"""
 

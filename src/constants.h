@@ -55,7 +55,7 @@ const int solver_Dilution      = 0; // Time dilution term according to the SNR s
 
 // Other parameters 
 const int set_background     = 1;           // If need to perform some test without background conditions (1 : On, 0 : off)
-const double step_implicit   = 20.*yr;      // Time step of the simulation if only implicit solvers are used and maximum time step value.
+const double step_implicit   = 50.*yr;      // Time step of the simulation if only implicit solvers are used and maximum time step value.
                                             // This timestep has to be > than 10 x min(tesc(E))
                                             // Example : If min(tesc) ~ 500 yrs, then dt < 500/10 = 50 yrs 
 const int source_terms_exact = 1;           // The way to solve the source terms : 1 -> Exact solutions, 0 -> 1st order numerical solution  
@@ -77,7 +77,8 @@ const double Tmax              = 500.1*kyr; //200.1*kyr;           // Define the
 
 
 // Growth waves saturation rate
-const double ttau_sat = - log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b, ttau_sat = 0 -> Linear growth 
+const double ttau_sat = 0;//- log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b, ttau_sat = 0 -> Linear growth 
+                          // Take care, this term is not stable for instance. 
 
 // SNR Properties (Model from Cioffi et al. 2012 & ...)
 //const double snr_position_x = 500*pc; // Position of the center of the source on the grid
@@ -95,10 +96,10 @@ const double delta    = 2;       // From Celli et al. (2019) - see Brahimi et al
 //const double Emax     = 2e5*GeV;  // Maximum CRs energy
 const double t_start_injection        = 1e-6*kyr; // Time start CRs injection function 
 const double t_end_injection          = 2;   // [in tesc[E] units] Time end CRs injection function (number of tesc)
-const double injection_function_width = 5. ; // Corresponds approximately to the width of the escape time divided 
+const double injection_function_width = 10. ; // Corresponds approximately to the width of the escape time divided 
                                              // (take care : too high value may affect the calculation and create noise)
                                              // Max value -> value such as the width of Finj >> dt, max recommended value = 10 for NX,NE = 10, 7 
-const int injection_function_norm     = 100; // Constant in order to easily and rapidly normalize the injection function 
+const int injection_function_norm     = 1000; // Constant in order to easily and rapidly normalize the injection function 
 const double r_snr_thickness          = 100; // = R_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  
 const double electron_injection_rate  = 1e-2; // Corresponds to the energy injected in the electron spectrum compared to the energy injected in the proton spectrum
 

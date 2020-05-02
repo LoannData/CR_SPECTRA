@@ -313,3 +313,12 @@ void transpose(vector<vector<double> > &b, vector<vector<double> > &c)
 
     c = trans_vec;    // <--- reassign here
 }
+
+
+
+double minmod(double a, double b)
+{
+    if (a*b > 0 && abs(a) < abs(b)){return a;}
+    if (a*b > 0 && abs(a) > abs(b)){return b;}
+    if (a*b < 0){return 0;} 
+}

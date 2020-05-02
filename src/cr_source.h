@@ -444,7 +444,7 @@ double Finj(double t, double dt, double E, double ttesc)
     double B;
 
     double time_min = t_start_injection; 
-    double time_max = t_end_injection*ttesc - time_min;
+    double time_max = t_end_injection*ttesc;// - time_min;
 
     int Na = injection_function_norm;                              // Constant in order to easily and rapidly normalize the injection function  
     int Nc = int((time_max - time_min)/dt);
