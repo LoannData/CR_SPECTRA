@@ -43,7 +43,7 @@ def getDamping(E, phase) :
 #      OUTPUT FOLDER CREATOR                                                  #
 ###############################################################################
 # Relative position of the ouput folder
-folder_name = "WNM-CNM_no_energy_independant_implicit"
+folder_name = "WNM-CNM-DiM_all_dependant"
 folder_path = "../../../../WorkFolder/Fiducial_tests_for_thesis_2/" # The path containing the folder
 
 total_path = folder_path+folder_name
@@ -84,11 +84,11 @@ E = grid.grid(Emin, Emax, 2**NE, egridtype)
 #       OTHER TERMS                                                           #
 ###############################################################################
 in_damping       = True     # Ion neutral damping of waves
-lz_damping       = False     # Lazarian damping of waves
+lz_damping       = True     # Lazarian damping of waves
 nlld_damping     = True     # Non-linear Landau damping of waves (Wiener et al. 2013)
 Pcr_1GeV         = 1*cst.eV # [erg cm^-3] CR background pressure at 1 GeV 
 Pe_1GeV          = 1e-2*cst.eV # [erg cm^-3] e- background pressure at 1 GeV
-bdiff_model      = "ISM_independant" #ISM_(independant, dependant) 
+bdiff_model      = "ISM_dependant" #ISM_(independant, dependant) 
 
 
 
@@ -113,41 +113,41 @@ phases  = [] # Phases list
 
 # Setup uniform : WNM
 # phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),  
-#                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]]) 
+#                 getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]]) 
 
 # Setup : WNM-CNM-WNM-CNM-WNM 
-phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), 
-                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
-phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 950.*cst.pc), 
-                getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
-phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), 
-                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
-phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1150.*cst.pc), 
-                getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
-phases.append([ism.WNM, dict(Xmin = 1150.*cst.pc, Xmax = 2000.*cst.pc), 
-                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
-smooth_width_transition = [10.*cst.pc, 10.*cst.pc, 10.*cst.pc, 10.*cst.pc]
-
-# Setup : WNM-CNM-DiM-CNM-WNM-CNM-DiM-CNM-WNM 
 # phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), 
 #                 getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
-# phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 899.*cst.pc), 
-#                 getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
-# phases.append([ism.DiM, dict(Xmin = 899.*cst.pc, Xmax = 921.*cst.pc), 
-#                 getVA(E, ism.DiM), getDamping(E, ism.DiM)[0], getDamping(E, ism.DiM)[1]])
-# phases.append([ism.CNM, dict(Xmin = 921.*cst.pc, Xmax = 950.*cst.pc), 
+# phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 950.*cst.pc), 
 #                 getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
 # phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), 
 #                 getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
-# phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1079.*cst.pc), 
+# phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1150.*cst.pc), 
 #                 getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
-# phases.append([ism.DiM, dict(Xmin = 1079.*cst.pc, Xmax = 1101.*cst.pc), 
-#                 getVA(E, ism.DiM), getDamping(E, ism.DiM)[0], getDamping(E, ism.DiM)[1]])
-# phases.append([ism.CNM, dict(Xmin = 1101.*cst.pc, Xmax = 1130.*cst.pc), 
-#                 getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
-# phases.append([ism.WNM, dict(Xmin = 1130.*cst.pc, Xmax = 2000.*cst.pc), 
+# phases.append([ism.WNM, dict(Xmin = 1150.*cst.pc, Xmax = 2000.*cst.pc), 
 #                 getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
-# smooth_width_transition = [10.*cst.pc, 3.*cst.pc, 3.*cst.pc, 10.*cst.pc, 10.*cst.pc, 3.*cst.pc, 3.*cst.pc, 10.*cst.pc]
+# smooth_width_transition = [10.*cst.pc, 10.*cst.pc, 10.*cst.pc, 10.*cst.pc]
+
+# Setup : WNM-CNM-DiM-CNM-WNM-CNM-DiM-CNM-WNM 
+phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), 
+                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
+phases.append([ism.CNM, dict(Xmin = 870.*cst.pc, Xmax = 899.*cst.pc), 
+                getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
+phases.append([ism.DiM, dict(Xmin = 899.*cst.pc, Xmax = 921.*cst.pc), 
+                getVA(E, ism.DiM), getDamping(E, ism.DiM)[0], getDamping(E, ism.DiM)[1]])
+phases.append([ism.CNM, dict(Xmin = 921.*cst.pc, Xmax = 950.*cst.pc), 
+                getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
+phases.append([ism.WNM, dict(Xmin = 950.*cst.pc, Xmax = 1050.*cst.pc), 
+                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
+phases.append([ism.CNM, dict(Xmin = 1050.*cst.pc, Xmax = 1079.*cst.pc), 
+                getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
+phases.append([ism.DiM, dict(Xmin = 1079.*cst.pc, Xmax = 1101.*cst.pc), 
+                getVA(E, ism.DiM), getDamping(E, ism.DiM)[0], getDamping(E, ism.DiM)[1]])
+phases.append([ism.CNM, dict(Xmin = 1101.*cst.pc, Xmax = 1130.*cst.pc), 
+                getVA(E, ism.CNM), getDamping(E, ism.CNM)[0], getDamping(E, ism.CNM)[1]])
+phases.append([ism.WNM, dict(Xmin = 1130.*cst.pc, Xmax = 2000.*cst.pc), 
+                getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]])
+smooth_width_transition = [10.*cst.pc, 3.*cst.pc, 3.*cst.pc, 10.*cst.pc, 10.*cst.pc, 3.*cst.pc, 3.*cst.pc, 10.*cst.pc]
 
 
 # smooth_width_transition = 10.*cst.pc # Smooth width transition between two phases (10 pc min to avoid jumps)

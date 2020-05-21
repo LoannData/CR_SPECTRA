@@ -55,30 +55,31 @@ const int solver_Dilution      = 0; // Time dilution term according to the SNR s
 
 // Other parameters 
 const int set_background     = 1;           // If need to perform some test without background conditions (1 : On, 0 : off)
-const double step_implicit   = 50.*yr;      // Time step of the simulation if only implicit solvers are used and maximum time step value.
+const double step_implicit   = 20.*yr;      // Time step of the simulation if only implicit solvers are used and maximum time step value.
                                             // This timestep has to be > than 10 x min(tesc(E))
                                             // Example : If min(tesc) ~ 500 yrs, then dt < 500/10 = 50 yrs 
 const int source_terms_exact = 1;           // The way to solve the source terms : 1 -> Exact solutions, 0 -> 1st order numerical solution  
 
 // Run & Output parameters
 // (Note ! For more options, you can directly edit the ./src/out.h file)
-const int nproc              = 1;           // Number of processors for the run (! Still experimental)
+const int nproc                = 1;           // Number of processors for the run (! Still experimental)
 
-const int output_freq          = 0;         // Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data
+const int output_freq          = 0;         // Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data                                
 const double t_data_out_min    = 0.*kyr;    // Instant of the first output data 
 const double t_data_out_max    = 500.*kyr;  //200.*kyr; // Instant of the last output data
-const int number_out_data      = 100;       // Total number of output data
-const int time_distrib_of_data = 0;         // Time distribution of output data (0 : linspace, 1 : log10-space)
+const int number_out_data      = 500;       // Total number of output data
+const int time_distrib_of_data = 0;         // Time distribution of output data (0 : linspace, 1 : log10-space
+                                            //                                   2 : Custom output times, see the function specificOutputData() in the file : out.h)
 const double log_first_data    = 1.001;     // 
 const int delta_log_output     = 100;       // Number of time-step between two LogOutput
 const double Tmax              = 500.1*kyr; //200.1*kyr;           // Define the limit time of your simulation 
 
-
+const int verbose              = 1;         // 0 : False, 1 : True -> Show extra informations during the simulation 
 
 
 // Growth waves saturation rate
-const double ttau_sat = 0;//- log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b, ttau_sat = 0 -> Linear growth 
-                          // Take care, this term is not stable for instance. 
+const double ttau_sat = - log(0.1)/0.1;//- log(0.1)/0.1; // Has the form - log(a)/b where b : characteristic max value, a : suppression factor after b, ttau_sat = 0 -> Linear growth 
+                                       // This term is still experimental 
 
 // SNR Properties (Model from Cioffi et al. 2012 & ...)
 //const double snr_position_x = 500*pc; // Position of the center of the source on the grid
@@ -92,8 +93,10 @@ const double xhi_cr   = 0.1;    // Efficiency of CRs acceleration
 const double xhi_0    = 2.026; 
 const double gam      = 2.2;      // CRs injection energy power law index 
 const double Emin     = 0.1*GeV;  // Minimum accelered CRs during the Sedov phase 
-const double delta    = 2;       // From Celli et al. (2019) - see Brahimi et al. (2020)
+const double delta    = 4.;       // From Celli et al. (2019) - see Brahimi et al. (2020)
 //const double Emax     = 2e5*GeV;  // Maximum CRs energy
+
+const int injection_shape_time        = 1;        // 0 : Time Dirac CRs, 1 : Time Gaussian CRs  
 const double t_start_injection        = 1e-6*kyr; // Time start CRs injection function 
 const double t_end_injection          = 2;   // [in tesc[E] units] Time end CRs injection function (number of tesc)
 const double injection_function_width = 10. ; // Corresponds approximately to the width of the escape time divided 
@@ -103,7 +106,7 @@ const int injection_function_norm     = 1000; // Constant in order to easily and
 const double r_snr_thickness          = 100; // = R_SNR(t)/by the value you chose, it allows to smooth the injection shape of CRs  
 const double electron_injection_rate  = 1e-2; // Corresponds to the energy injected in the electron spectrum compared to the energy injected in the proton spectrum
 
-const int tesc_model  = 1; // CR escape time model (1 : All CRs escape at the begining of the radiative phase, 2 : If v_sh < 110 km/s, all CRs escape)
+const int tesc_model  = 0; // CR escape time model (1 : All CRs escape at the begining of the radiative phase, 2 : If v_sh < 110 km/s, all CRs escape, 0 : No radiative escape model)
 
 
 // Electrons escape model (from Ohira et al. 2018)

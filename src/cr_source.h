@@ -237,6 +237,10 @@ double tesc(double E)
 
 
 
+        if (tesc_model == 0) // no radiative escape model 
+        {
+            return loc_tesc;
+        }
         if (tesc_model == 1) // if t >= tPDS
         {
             return min(tPDS, loc_tesc); 
@@ -366,7 +370,10 @@ double tesc_e(double E)
         }
 
 
-
+        if (tesc_model == 0) // no radiative escape model 
+        {
+            return loc_tesc; 
+        }
         if (tesc_model == 1) // if t >= tPDS
         {
             return min(tPDS, loc_tesc); 
@@ -439,36 +446,47 @@ double sigm(double E, double ttesc)
 // CRs time injection function. Very important ! 
 double Finj(double t, double dt, double E, double ttesc)
 {
-    double A = exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
-    //double A = exp(-0.5*pow((t - 0.01*kyr)/(0.001*kyr),2));
-    double B;
-
-    double time_min = t_start_injection; 
-    double time_max = t_end_injection*ttesc;// - time_min;
-
-    int Na = injection_function_norm;                              // Constant in order to easily and rapidly normalize the injection function  
-    int Nc = int((time_max - time_min)/dt);
-
-    double ratio = double(Nc)/double(Na);
-
-    double C_a = 0;
-    double loc_dt = (time_max - time_min)/double(Na); 
-    for (int ti = 0; ti < Na; ti++)
+    if (injection_shape_time == 0) // Dirac type injection 
     {
-        //C_a += exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
-        C_a += exp(-0.5*pow((time_min + ti*loc_dt - ttesc)/sigm(E, ttesc),2))*loc_dt;
+        if (ttesc > t - dt/2. && ttesc < t + dt/2.){
+            if (verbose == 1) {cout<<"E = "<<E/GeV<<" GeV, t_min = "<<(t - dt/2.)/kyr<<" < "<<ttesc/kyr<<" < t_max = "<<(t + dt/2.)/kyr<<" kyr"<<endl;} 
+            return 1./dt; }
+        return 0.;
+    }
 
-    } 
-    
-    //cout<<ratio<<endl;
-
-    if (C_a == 0){return 0.;}
-    if (C_a > 0) 
+    if (injection_shape_time == 1) // Gaussian type injection 
     {
-        //B = A/(C_a*ratio); 
-        B = A/C_a;
-        if (A > C_a*ratio) {return 0.;}
-        if (A < C_a*ratio) {return B;}
+        double A = exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
+        //double A = exp(-0.5*pow((t - 0.01*kyr)/(0.001*kyr),2));
+        double B;
+
+        double time_min = t_start_injection; 
+        double time_max = t_end_injection*ttesc;// - time_min;
+
+        int Na = injection_function_norm;                              // Constant in order to easily and rapidly normalize the injection function  
+        int Nc = int((time_max - time_min)/dt);
+
+        double ratio = double(Nc)/double(Na);
+
+        double C_a = 0;
+        double loc_dt = (time_max - time_min)/double(Na); 
+        for (int ti = 0; ti < Na; ti++)
+        {
+            //C_a += exp(-0.5*pow((t - ttesc)/sigm(E, ttesc),2));
+            C_a += exp(-0.5*pow((time_min + ti*loc_dt - ttesc)/sigm(E, ttesc),2))*loc_dt;
+
+        } 
+        
+        //cout<<ratio<<endl;
+
+        if (C_a == 0){return 0.;}
+        if (C_a > 0) 
+        {
+            //B = A/(C_a*ratio); 
+            B = A/C_a;
+            if (A > C_a*ratio) {return 0.;}
+            if (A < C_a*ratio) {return B;}
+        }
     }
 }
 
@@ -525,11 +543,11 @@ double dNdE(double E)
     double Emax = GetEM();
     if (gam != 2)
     {
-        spec = (2 - gam)*Esn*1e51/(pow(Emax,2-gam) - pow(Emin,2-gam))*pow(E,-gam);
+        spec = (2 - gam)*Esn*xhi_cr*1e51/(pow(Emax,2-gam) - pow(Emin,2-gam))*pow(E,-gam);
     }
     if (gam == 2)
     {
-        spec = Esn/(log(Emax) - log(Emin))*pow(E,-gam);
+        spec = Esn*xhi_cr/(log(Emax) - log(Emin))*pow(E,-gam);
     }
     return spec;
 }
@@ -537,7 +555,7 @@ double dNdE(double E)
 double ff(double E)
 {
     double R = Resc(E);
-    double A = 3*pow(c, 3.)/(16*pow(pi, 2.)*pow(R, 3.))/E*dNdE(E);
+    double A = 3*pow(c, 3.)/(16*pow(pi, 2.)*pow(R, 3.))/pow(E,2)*dNdE(E);
     return A;
 }
 

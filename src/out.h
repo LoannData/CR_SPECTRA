@@ -8,6 +8,25 @@
 #include <sstream>
 using namespace std;
 
+
+
+// This function allows you to specify your own data output time array 
+// You just need to fill the list loc_data : 
+// example: double loc_data[] = {t1, t2, ..., tn}; where t_i is in seconds 
+vector<double> specificOutputData()
+{
+    vector<double> data; 
+    double loc_data[] = {0.1*kyr, 0.3*kyr, 0.7*kyr};
+    for (int vi=0; vi < sizeof(loc_data)/sizeof(*loc_data); vi++)
+    {
+        data.push_back(loc_data[vi]);
+    }
+    return data;
+}
+
+
+
+
 // Output data function for a regular and large amount of output data
 vector<double> outputData(double tmin, double tmax, int nvalues, string modulation, double eps)  
 {
@@ -37,20 +56,15 @@ vector<double> outputData(double tmin, double tmax, int nvalues, string modulati
             data.push_back(loc_value);
         }
     }
-    return data;
-}
-
-
-vector<double> specificOutputData()
-{
-    vector<double> data; 
-    double loc_data[] = {1, 2, 3, 4, 5, 6};
-    for (int vi=0; vi < sizeof(loc_data)/sizeof(*loc_data); vi++)
+    if (modulation == "custom")
     {
-        data.push_back(loc_data[vi]);
+        data = specificOutputData();
     }
     return data;
 }
+
+
+
 
 
 
@@ -68,6 +82,7 @@ vector<double> getOutput()
     std::string distribution;
     if (time_distrib_of_data == 0){distribution = "linear";}
     if (time_distrib_of_data == 1){distribution = "log10";}
+    if (time_distrib_of_data == 2){distribution = "custom";}
 
     // Choose the way you want to output your data 
     vector<double> data = outputData(t_data_out_min, t_data_out_max, number_out_data, distribution, log_first_data);

@@ -143,8 +143,8 @@ for e in range(len(E)) :
                                                                    B[xi],      E[e])
         gamma_tot[e][xi]          = gamma_in[e][xi] + gamma_lazarian[e][xi] + gamma_nlld[e][xi]
         # Background CRs spectra
-        Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
-        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)
+        Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)*(E[e]/cst.GeV)**2 
+        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)*(E[e]/cst.GeV)**2 
 
 
 

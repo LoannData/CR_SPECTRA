@@ -205,8 +205,6 @@ int main()
     double minlogdE = minElement1D(dE);
 
     double maxdVddX = absmaxElement2D(cdVAdX); 
-
-
     double maxdVddE = absmaxElement2D(dVAdlog10E); 
 
     // CFL condition over synchrotron solvers 
@@ -298,7 +296,10 @@ int main()
     Im_new  = Im;
 
 
+
+
     // Variables for CRs injection in the simulation 
+    double r_snr_protons, r_snr_electrons;
     vector<double> Finj_temp(NE);
     vector<double> Finj_temp_e(NE); // Finj of e-  
     vector<double> Pcr_ini_temp(NE); 
@@ -309,15 +310,34 @@ int main()
     vector<double> vec_theta_e(NX); // vec theta of e-
     double temp_theta, r_snr, r_snr_old;
 
+    vector<vector<double>> injection_model(6);
+    for (int si = 0; si < 6; si++)
+    {
+        injection_model[si].resize(NE);
+    } 
+
+
+
     if (solver_PeSource2 == 1 || solver_PcrSource2 == 1){
     for (int j=0; j<NE; j++)
     {
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
+        r_snr_protons = RSNR(ttesc[j]);
         Pe_ini_temp[j] = electron_injection_rate*Pcr_ini(E[j]);                    
-        ttesc_e[j] = tesc_e(E[j]);     
-        //cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;                      
+        ttesc_e[j] = tesc_e(E[j]);
+        r_snr_electrons = RSNR(ttesc_e[j]); 
+        
+        injection_model[0][j] = j; 
+        injection_model[1][j] = E[j]; 
+        injection_model[2][j] = ttesc[j]; 
+        injection_model[3][j] = r_snr_protons; 
+        injection_model[4][j] = ttesc_e[j]; 
+        injection_model[5][j] = r_snr_electrons;   
+        if (verbose == 1) {cout<<"E = "<<E[j]/GeV<<" GeV, tesc_p = "<<ttesc[j]/kyr<<" kyr, tesc_e = "<<ttesc_e[j]/kyr<<" kyr"<<endl;}  
+        //cout<<"Pcr_p = "<<Pcr_ini_temp[j]<<", Pcr_e = "<<Pe_ini_temp[j]<<endl;                  
     }}
+    writeXE("injection", -1, injection_model, 6, NE);
 
 
 
@@ -326,9 +346,9 @@ int main()
     //int nb = nproc;
     int g;
     r_snr = RSNR(time);
-
     vector<double> info; 
     vector<std::string> s_info;
+
 
     while (time < Tmax)
     {   
