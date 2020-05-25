@@ -31,6 +31,7 @@ const int solver_PcrAdvection2 = 1; // Explicit Advection solver for Pcr by the 
 const int solver_PcrAdvectionE = 1; // Explicit Advection solver for Pcr in energy cdVAdX
 const int solver_PcrSource1    = 1; // Source term effect due to the dependance of the Alfvén velocity to the space
 const int solver_PcrSource2    = 1; // Source term effect due to the CR injection from the source in the system  
+const int solver_PcrPerpDiff   = 0; // Perpendicular diffusion of CRs after the coherence length 
 
 const int solver_PeAdvection   = 1; // Advective term of the e- Pressure (the classical one -> V_A*grad ...)
 const int solver_PeDiffusion   = 1; // Diffusive term of the e- Pressure
@@ -42,6 +43,7 @@ const int solver_PeAdvectionE2 = 1; // Synchrotron radiations of e- (looses of e
 
 const int solver_PeSource1     = 1; // Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
 const int solver_PeSource2     = 1; // Source term effect due to the e- injection from the source in the system 
+const int solver_PePerpDiff    = 0; // Perpendicular diffusion of e- after the coherence length 
 
 const int solver_IpAdvection   = 1; // Advective term of the foward waves 
 const int solver_ImAdvection   = 1; // Advective term of the backward waves
@@ -68,7 +70,7 @@ const int output_freq          = 0;         // Model of output frequency (0 : n 
 const double t_data_out_min    = 0.*kyr;    // Instant of the first output data 
 const double t_data_out_max    = 500.*kyr;  //200.*kyr; // Instant of the last output data
 const int number_out_data      = 500;       // Total number of output data
-const int time_distrib_of_data = 0;         // Time distribution of output data (0 : linspace, 1 : log10-space
+const int time_distrib_of_data = 2;         // Time distribution of output data (0 : linspace, 1 : log10-space
                                             //                                   2 : Custom output times, see the function specificOutputData() in the file : out.h)
 const double log_first_data    = 1.001;     // 
 const int delta_log_output     = 100;       // Number of time-step between two LogOutput
@@ -91,7 +93,13 @@ const double bbeta    = 2;
 const double C06      = 1.;
 const double xhi_cr   = 0.1;    // Efficiency of CRs acceleration 
 const double xhi_0    = 2.026; 
-const double gam      = 2.2;      // CRs injection energy power law index 
+
+const double gam           = 2.2;      // CRs injection energy power law index 
+const int injection_cutoff = 1;        // Cut-off kind of the CRs injection spectra ( 0 : Abrupt no smooth, 1 : Exponential_cutoff see. inj_exp_alpha)
+                                       // Note : This model is only applicable to the proton spectrum. For electrons, the injection spectrum will 
+                                       //        be automatically cut by the synchrotron radiations 
+const double inj_exp_alpha = 10;       // Factor of the exponential cutoff in the CRs injection spectra (dN(E)/dE ~ exp(-inj_exp_alpha*E/E_Max))
+
 const double Emin     = 0.1*GeV;  // Minimum accelered CRs during the Sedov phase 
 const double delta    = 4.;       // From Celli et al. (2019) - see Brahimi et al. (2020)
 //const double Emax     = 2e5*GeV;  // Maximum CRs energy
@@ -120,3 +128,10 @@ const double eta_gfree = 1;
 const double eta_acc = 10;
 const double Eknee = 1e15*eV;
 const double alpha = 2.6; 
+
+
+// Problems geometry parameters 
+const double coherence_length = 100*pc; // Coherence length of the magnetic field 
+const double sigma_coherence = 10*pc;   // Width of the transition from the part close to the source where the diffusion coefficient is anitropic 
+                                        // and the part far from the source where the diffusion is isotropic
+const double isotropy = 1;              // The isotropy parameter allow to define far from the source : Dperp = isotropy*Dpara  

@@ -488,6 +488,16 @@ int main()
         {sourceGrowthDampRateSolver(Im_old, Im_new, Pcr_old, Gd, Im_background, X, dt, VA, B, -1); Im_old = Im_new;}
 
 
+        //----------------------------------------------------------------------//
+        // Source term allowing to take in account the effect of the            //
+        // perpendicular diffusion after we reached the coherence length of B   //
+        //----------------------------------------------------------------------//
+        if (solver_PcrPerpDiff == 1)
+        {perpendicular_diffusion_solver(Pcr_old, Pcr_new, Pcr_background, Db, Ip_background, X, dt, injection_model[3]); Pcr_old = Pcr_new;}
+        if (solver_PePerpDiff == 1)
+        {perpendicular_diffusion_solver(Pe_old, Pe_new, Pe_background, Db, Ip_background, X, dt, injection_model[5]); Pe_old = Pe_new;}
+
+
 
 
         //----------------------------------------------------------------------//

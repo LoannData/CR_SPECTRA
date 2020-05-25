@@ -502,6 +502,30 @@ void dilute_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_ne
 }
 
 
+void perpendicular_diffusion_solver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, vector<vector<double> > u_bc, vector<vector<double> > Db, vector<vector<double> > I0, vector<double> X, double dt, vector<double> r_esc)
+{
+    int NX = u_old.size(); 
+    int NE = u_old[0].size(); 
+    double factor; 
+    double Dperp;
+    double center  = x_center;
+    double x; 
+
+    for (int xi = 0; xi < NX; xi++)
+    {
+        x = X[xi] - center;
+        factor = 0.5*(erf((x - coherence_length)/sigma_coherence) + erf((-x - coherence_length)/sigma_coherence) + 2);
+        for (int ei = 0; ei < NE; ei++)
+        {
+            Dperp = isotropy*Db[xi][ei]/I0[xi][ei]*factor;
+            //cout<<erf(r_esc[ei]/(2*sqrt(Dperp*dt)))<<endl;
+            //u_new[xi][ei] = max(u_old[xi][ei]*r_esc[ei]*sqrt(1./(4*pi*Dperp*dt)), u_bc[xi][ei]); 
+            u_new[xi][ei] = max(u_old[xi][ei] - 4*Dperp*(u_old[xi][ei] - u_bc[xi][ei])/pow(r_esc[ei],2.)*dt, u_bc[xi][ei]); 
+        }
+    }
+}
+
+
 
 
 

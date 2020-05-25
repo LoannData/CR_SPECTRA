@@ -16,7 +16,7 @@ using namespace std;
 vector<double> specificOutputData()
 {
     vector<double> data; 
-    double loc_data[] = {0.1*kyr, 0.3*kyr, 0.7*kyr};
+    double loc_data[] = {0.1*kyr, 0.5*kyr, 1*kyr, 5*kyr, 10*kyr, 50*kyr, 100*kyr, 200*kyr};
     for (int vi=0; vi < sizeof(loc_data)/sizeof(*loc_data); vi++)
     {
         data.push_back(loc_data[vi]);

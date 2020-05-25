@@ -232,7 +232,8 @@ double tesc(double E)
 
         if (E > EM || E < Emin)
         {
-            return pow(10,20)*kyr; 
+            if (injection_cutoff == 0){return pow(10,20)*kyr;}
+            if (injection_cutoff == 1){return loc_tesc;}
         }
 
 
@@ -366,7 +367,8 @@ double tesc_e(double E)
 
         if (E > EM || E < Emin)
         {
-            return pow(10,20)*kyr; 
+            if (injection_cutoff == 0){return pow(10,20)*kyr;}
+            if (injection_cutoff == 1){return pow(10,20)*kyr;}
         }
 
 
@@ -543,11 +545,14 @@ double dNdE(double E)
     double Emax = GetEM();
     if (gam != 2)
     {
-        spec = (2 - gam)*Esn*xhi_cr*1e51/(pow(Emax,2-gam) - pow(Emin,2-gam))*pow(E,-gam);
+        if (injection_cutoff == 0){spec = (2 - gam)*Esn*xhi_cr*1e51/(pow(Emax,2-gam) - pow(Emin,2-gam))*pow(E,-gam);}
+        if (injection_cutoff == 1){spec = (2 - gam)*Esn*xhi_cr*1e51/(pow(Emax,2-gam) - pow(Emin,2-gam))*pow(E,-gam)*exp(-inj_exp_alpha*E/Emax);}
+        
     }
     if (gam == 2)
     {
-        spec = Esn*xhi_cr/(log(Emax) - log(Emin))*pow(E,-gam);
+        if (injection_cutoff == 0){spec = Esn*xhi_cr/(log(Emax) - log(Emin))*pow(E,-gam);}
+        if (injection_cutoff == 1){spec = Esn*xhi_cr/(log(Emax) - log(Emin))*pow(E,-gam)*exp(-inj_exp_alpha*E/Emax);}
     }
     return spec;
 }
