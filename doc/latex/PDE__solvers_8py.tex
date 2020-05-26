@@ -1,0 +1,67 @@
+\hypertarget{PDE__solvers_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+P\+D\+E\+\_\+solvers.py File Reference}
+\label{PDE__solvers_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+P\+D\+E\+\_\+solvers.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+P\+D\+E\+\_\+solvers.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacePDE__solvers}{P\+D\+E\+\_\+solvers}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacePDE__solvers_a7e8f1dede17ef38bf75b8db7cee5bf38}{P\+D\+E\+\_\+solvers.\+T\+D\+MA} (a, b, \hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{c}, d)
+\item 
+def \hyperlink{namespacePDE__solvers_a01e04051a07f5e380f02fa1a2a000531}{P\+D\+E\+\_\+solvers.\+A} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a209625175ace8add9160ffa5438c150a}{P\+D\+E\+\_\+solvers.\+B} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a2f40c0a059e412453818e6482fb92b09}{P\+D\+E\+\_\+solvers.\+C} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a4e422ca6c34b0d9d943190ee570abb08}{P\+D\+E\+\_\+solvers.\+Q} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a6728696b430071890e97671c2c6069fa}{P\+D\+E\+\_\+solvers.\+T} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a306ac1abd1ee9ac53a496bbb64eac157}{P\+D\+E\+\_\+solvers.\+finite\+Diff\+Solver} (dt, \hyperlink{constants_8h_a93e6f33b03669f059b9f0ec47810f624}{Tmax}, u)
+\item 
+def \hyperlink{namespacePDE__solvers_a093eb37c7beab9cbd84f388e77821fce}{P\+D\+E\+\_\+solvers.\+Simple\+Implicit\+Solver} (dt, \hyperlink{constants_8h_a93e6f33b03669f059b9f0ec47810f624}{Tmax}, u)
+\item 
+def \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{P\+D\+E\+\_\+solvers.\+C\+C70\+Solver} (dt, \hyperlink{constants_8h_a93e6f33b03669f059b9f0ec47810f624}{Tmax}, u)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{namespacePDE__solvers_a71c07d7118cdda8c71573599545d0017}{P\+D\+E\+\_\+solvers.\+pc} = 3.\+086e18
+\begin{DoxyCompactList}\small\item\em Tri Diagonal Matrix Algorithm(a.\+k.\+a Thomas algorithm) solver def T\+D\+M\+Asolver(a, b, c, d)\+: \textquotesingle{}\textquotesingle{}\textquotesingle{} T\+D\+MA solver, a b c d can be Num\+Py array type or Python list type. \end{DoxyCompactList}\item 
+float \hyperlink{namespacePDE__solvers_a400304049742ae9f9b048c40cb6a52cb}{P\+D\+E\+\_\+solvers.\+yr} = 365.\+25$\ast$86400
+\item 
+int \hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{P\+D\+E\+\_\+solvers.\+kyr} = 1e3$\ast$yr
+\item 
+int \hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{P\+D\+E\+\_\+solvers.\+M} = 2048
+\item 
+int \hyperlink{namespacePDE__solvers_a7a1ac835675841b757a70f18b51246dc}{P\+D\+E\+\_\+solvers.\+Xmin} = 0.
+\item 
+int \hyperlink{namespacePDE__solvers_a48fb209db97ce5937802d0a747fb9991}{P\+D\+E\+\_\+solvers.\+Xmax} = 1000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{pc}
+\item 
+\hyperlink{namespacePDE__solvers_ab53183fc05bd900f7013cd056e2e7338}{P\+D\+E\+\_\+solvers.\+X} = np.\+linspace(Xmin, Xmax, M+1)
+\item 
+\hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{P\+D\+E\+\_\+solvers.\+u} = np.\+zeros(M+1)
+\begin{DoxyCompactList}\small\item\em plt.\+semilogy(X/pc, u, c=\char`\"{}blue\char`\"{}) plt.\+plot(X/pc, u/U, c=\char`\"{}red\char`\"{}) plt.\+axhline(1.) print (\char`\"{}ratio = \char`\"{},sum(u)/sum(U)) \end{DoxyCompactList}\item 
+\hyperlink{namespacePDE__solvers_aecb3894d7f844fe950ec6e4eb6ab14c6}{P\+D\+E\+\_\+solvers.\+u0} = u\mbox{[}1\mbox{]}
+\item 
+\hyperlink{namespacePDE__solvers_acd452357e85c033220a4da5bc3f71966}{P\+D\+E\+\_\+solvers.\+uM} = u\mbox{[}M-\/1\mbox{]}
+\item 
+\hyperlink{namespacePDE__solvers_a2184f2624ab571a00cfedb3a2a45cfaf}{P\+D\+E\+\_\+solvers.\+u\+\_\+ini} = u.\+copy()
+\item 
+\hyperlink{namespacePDE__solvers_afddf2b29ad67e3711d02129f93615761}{P\+D\+E\+\_\+solvers.\+u\+\_\+end} = u
+\item 
+int \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{P\+D\+E\+\_\+solvers.\+Tmax} = 10.$\ast$\hyperlink{constants_8h_a0edf155739e92555799f4a04b10af6bf}{kyr}
+\item 
+def \hyperlink{namespacePDE__solvers_a841654a1a841e1aca6f253e271b158c8}{P\+D\+E\+\_\+solvers.\+u\+\_\+0} = C\+C70\+Solver(0.\+1$\ast$\hyperlink{constants_8h_a0edf155739e92555799f4a04b10af6bf}{kyr}, \hyperlink{constants_8h_a93e6f33b03669f059b9f0ec47810f624}{Tmax}, u)
+\item 
+def \hyperlink{namespacePDE__solvers_a16bfb4d8d2eb6d1a005652edf340bc53}{P\+D\+E\+\_\+solvers.\+u\+\_\+1} = C\+C70\+Solver(0.\+5$\ast$\hyperlink{constants_8h_a0edf155739e92555799f4a04b10af6bf}{kyr}, \hyperlink{constants_8h_a93e6f33b03669f059b9f0ec47810f624}{Tmax}, u)
+\item 
+def \hyperlink{namespacePDE__solvers_a37d193fe9e294403c8a7145a75caacb3}{P\+D\+E\+\_\+solvers.\+u\+\_\+2} = C\+C70\+Solver(5.$\ast$\hyperlink{constants_8h_a0edf155739e92555799f4a04b10af6bf}{kyr}, \hyperlink{constants_8h_a93e6f33b03669f059b9f0ec47810f624}{Tmax}, u)
+\item 
+\hyperlink{namespacePDE__solvers_a129441ff5bc2a944435b54ac29fa70df}{P\+D\+E\+\_\+solvers.\+figsize}
+\item 
+\hyperlink{namespacePDE__solvers_a730023a0d9af5165d835a6dcc10e67d2}{P\+D\+E\+\_\+solvers.\+c}
+\end{DoxyCompactItemize}

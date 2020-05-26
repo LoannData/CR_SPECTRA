@@ -1,0 +1,59 @@
+\hypertarget{background__diffusion__coefficient__2_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/obsolette/background\+\_\+diffusion\+\_\+coefficient\+\_\+2.py File Reference}
+\label{background__diffusion__coefficient__2_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/obsolette/background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/obsolette/background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacebackground__diffusion__coefficient__2}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_a788d35f99dde8484595c8cda404e4ae3}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+Ion\+Neutral\+\_\+\+Damping} (k, medium\+\_\+props, nu\+\_\+n=0, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta}=0)
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_ad7cd32146141458bdf67d94b065b65db}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+R} (k, medium\+\_\+props, particles\+\_\+props, mu, kind=\char`\"{}+\char`\"{})
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_a8618eb756a0334c85d5685ba59d75e90}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+g\+\_\+s} (k, kmin, q, medium\+\_\+props)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+medium\+\_\+props} = ism.\+W\+NM
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+E} = 0.\+001$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+m} = \hyperlink{constants_8h_a6b331c08a80ed71d31c55a3341776483}{cst.\+mp}
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+gamma} = 1 + (E /(m$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$$\ast$2))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+v} = \hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$np.\+sqrt(1 -\/ (1/(E/(m$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$$\ast$2) + 1))$\ast$$\ast$2)
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_a695939493ddc5a8e67e3459bfab9c746}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+p} = gamma$\ast$m$\ast$v
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a8da430d9a37f26fc2fedf07709f24f1f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+Omega0} = \hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{cst.\+e}$\ast$medium\+\_\+props.\+get(\char`\"{}B\char`\"{})/(m$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c})
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_acd7454cd872aed678babb49df90d7441}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+Omega} = Omega0/gamma
+\item 
+dictionary \hyperlink{namespacebackground__diffusion__coefficient__2_a575a4b15f89160acdbfbdec4a07f18b8}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+particles\+\_\+props} = \{\char`\"{}v\char`\"{}\+:v, \char`\"{}Omega\char`\"{}\+:Omega\}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+mu} = np.\+linspace(-\/0.\+99, 0.\+99, 100)
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+k} = np.\+logspace(-\/20, -\/10, 100)
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a02d37a0904f0109b2796da9b221a8099}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+D\+\_\+uu} = np.\+zeros(len(mu))
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+kmin} = 1e-\/17
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+q} = 1.\+5
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_a6077189c19bdb21881fea3f3d2b041de}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+k\+\_\+zz} = 0.
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_a500b48b49d46f839dc2f3954dd83c902}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+dk} = 0.\+5$\ast$(k\mbox{[}ii+1\mbox{]} -\/ k\mbox{[}ii-\/1\mbox{]})
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a43ac06113738b83c85eb05d08888de71}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+B0} = medium\+\_\+props.\+get(\char`\"{}B\char`\"{})
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_a5dc52e0e25a32cb9e53766c8d90d4bac}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+w} = Ion\+Neutral\+\_\+\+Damping(k\mbox{[}ii\mbox{]}, medium\+\_\+props)
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_ab6de10712c6192992194f52ee288327b}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+wtot} = w.\+get(\char`\"{}wr\char`\"{}) + 1j$\ast$w.\+get(\char`\"{}wi\char`\"{})
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_a7fbdf710d59f88b0d09a52ece7520e04}{background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+I} = dk$\ast$g\+\_\+s(k\mbox{[}ii\mbox{]}, kmin, q, medium\+\_\+props)$\ast$(1 -\/ (mu\mbox{[}jj\mbox{]}$\ast$wtot)/(k\mbox{[}ii\mbox{]}$\ast$v))$\ast$$\ast$2
+\end{DoxyCompactItemize}

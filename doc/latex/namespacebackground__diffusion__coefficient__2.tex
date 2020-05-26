@@ -1,0 +1,198 @@
+\hypertarget{namespacebackground__diffusion__coefficient__2}{}\section{background\+\_\+diffusion\+\_\+coefficient\+\_\+2 Namespace Reference}
+\label{namespacebackground__diffusion__coefficient__2}\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_a788d35f99dde8484595c8cda404e4ae3}{Ion\+Neutral\+\_\+\+Damping} (\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props}, nu\+\_\+n=0, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta}=0)
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_ad7cd32146141458bdf67d94b065b65db}{R} (\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props}, \hyperlink{namespacebackground__diffusion__coefficient__2_a575a4b15f89160acdbfbdec4a07f18b8}{particles\+\_\+props}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{mu}, kind=\char`\"{}+\char`\"{})
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_a8618eb756a0334c85d5685ba59d75e90}{g\+\_\+s} (\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}, \hyperlink{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}{kmin}, \hyperlink{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}{q}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props} = ism.\+W\+NM
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}{E} = 0.\+001$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m} = \hyperlink{constants_8h_a6b331c08a80ed71d31c55a3341776483}{cst.\+mp}
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}{gamma} = 1 + (\hyperlink{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}{E} /(\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m}$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$$\ast$2))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}{v} = \hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$np.\+sqrt(1 -\/ (1/(\hyperlink{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}{E}/(\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m}$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$$\ast$2) + 1))$\ast$$\ast$2)
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_a695939493ddc5a8e67e3459bfab9c746}{p} = \hyperlink{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}{gamma}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}{v}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a8da430d9a37f26fc2fedf07709f24f1f}{Omega0} = \hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{cst.\+e}$\ast$medium\+\_\+props.\+get(\char`\"{}B\char`\"{})/(m$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c})
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_acd7454cd872aed678babb49df90d7441}{Omega} = \hyperlink{namespacebackground__diffusion__coefficient__2_a8da430d9a37f26fc2fedf07709f24f1f}{Omega0}/\hyperlink{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}{gamma}
+\item 
+dictionary \hyperlink{namespacebackground__diffusion__coefficient__2_a575a4b15f89160acdbfbdec4a07f18b8}{particles\+\_\+props} = \{\char`\"{}v\char`\"{}\+:v, \char`\"{}Omega\char`\"{}\+:Omega\}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{mu} = np.\+linspace(-\/0.\+99, 0.\+99, 100)
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k} = np.\+logspace(-\/20, -\/10, 100)
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a02d37a0904f0109b2796da9b221a8099}{D\+\_\+uu} = np.\+zeros(len(\hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{mu}))
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}{kmin} = 1e-\/17
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}{q} = 1.\+5
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__2_a6077189c19bdb21881fea3f3d2b041de}{k\+\_\+zz} = 0.
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_a500b48b49d46f839dc2f3954dd83c902}{dk} = 0.\+5$\ast$(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii+1\mbox{]} -\/ \hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii-\/1\mbox{]})
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__2_a43ac06113738b83c85eb05d08888de71}{B0} = medium\+\_\+props.\+get(\char`\"{}B\char`\"{})
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_a5dc52e0e25a32cb9e53766c8d90d4bac}{w} = \hyperlink{namespacebackground__diffusion__coefficient__2_a788d35f99dde8484595c8cda404e4ae3}{Ion\+Neutral\+\_\+\+Damping}(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii\mbox{]}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props})
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__2_ab6de10712c6192992194f52ee288327b}{wtot} = w.\+get(\char`\"{}wr\char`\"{}) + 1j$\ast$w.\+get(\char`\"{}wi\char`\"{})
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__2_a7fbdf710d59f88b0d09a52ece7520e04}{I} = \hyperlink{namespacebackground__diffusion__coefficient__2_a500b48b49d46f839dc2f3954dd83c902}{dk}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_a8618eb756a0334c85d5685ba59d75e90}{g\+\_\+s}(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii\mbox{]}, \hyperlink{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}{kmin}, \hyperlink{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}{q}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props})$\ast$(1 -\/ (\hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{mu}\mbox{[}jj\mbox{]}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_ab6de10712c6192992194f52ee288327b}{wtot})/(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii\mbox{]}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}{v}))$\ast$$\ast$2
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a8618eb756a0334c85d5685ba59d75e90}\label{namespacebackground__diffusion__coefficient__2_a8618eb756a0334c85d5685ba59d75e90}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!g\+\_\+s@{g\+\_\+s}}
+\index{g\+\_\+s@{g\+\_\+s}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{g\+\_\+s()}{g\_s()}}
+{\footnotesize\ttfamily def background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+g\+\_\+s (\begin{DoxyParamCaption}\item[{}]{k,  }\item[{}]{kmin,  }\item[{}]{q,  }\item[{}]{medium\+\_\+props }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a788d35f99dde8484595c8cda404e4ae3}\label{namespacebackground__diffusion__coefficient__2_a788d35f99dde8484595c8cda404e4ae3}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!Ion\+Neutral\+\_\+\+Damping@{Ion\+Neutral\+\_\+\+Damping}}
+\index{Ion\+Neutral\+\_\+\+Damping@{Ion\+Neutral\+\_\+\+Damping}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{Ion\+Neutral\+\_\+\+Damping()}{IonNeutral\_Damping()}}
+{\footnotesize\ttfamily def background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+Ion\+Neutral\+\_\+\+Damping (\begin{DoxyParamCaption}\item[{}]{k,  }\item[{}]{medium\+\_\+props,  }\item[{}]{nu\+\_\+n = {\ttfamily 0},  }\item[{}]{theta = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_ad7cd32146141458bdf67d94b065b65db}\label{namespacebackground__diffusion__coefficient__2_ad7cd32146141458bdf67d94b065b65db}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!R@{R}}
+\index{R@{R}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{R()}{R()}}
+{\footnotesize\ttfamily def background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+R (\begin{DoxyParamCaption}\item[{}]{k,  }\item[{}]{medium\+\_\+props,  }\item[{}]{particles\+\_\+props,  }\item[{}]{mu,  }\item[{}]{kind = {\ttfamily \char`\"{}+\char`\"{}} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a43ac06113738b83c85eb05d08888de71}\label{namespacebackground__diffusion__coefficient__2_a43ac06113738b83c85eb05d08888de71}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!B0@{B0}}
+\index{B0@{B0}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{B0}{B0}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+B0 = medium\+\_\+props.\+get(\char`\"{}B\char`\"{})}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a02d37a0904f0109b2796da9b221a8099}\label{namespacebackground__diffusion__coefficient__2_a02d37a0904f0109b2796da9b221a8099}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!D\+\_\+uu@{D\+\_\+uu}}
+\index{D\+\_\+uu@{D\+\_\+uu}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{D\+\_\+uu}{D\_uu}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+D\+\_\+uu = np.\+zeros(len(\hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{mu}))}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a500b48b49d46f839dc2f3954dd83c902}\label{namespacebackground__diffusion__coefficient__2_a500b48b49d46f839dc2f3954dd83c902}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!dk@{dk}}
+\index{dk@{dk}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{dk}{dk}}
+{\footnotesize\ttfamily float background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+dk = 0.\+5$\ast$(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii+1\mbox{]} -\/ \hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii-\/1\mbox{]})}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}\label{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!E@{E}}
+\index{E@{E}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily float background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+E = 0.\+001$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}\label{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!gamma@{gamma}}
+\index{gamma@{gamma}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{gamma}{gamma}}
+{\footnotesize\ttfamily int background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+gamma = 1 + (\hyperlink{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}{E} /(\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m}$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$$\ast$2))}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a7fbdf710d59f88b0d09a52ece7520e04}\label{namespacebackground__diffusion__coefficient__2_a7fbdf710d59f88b0d09a52ece7520e04}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!I@{I}}
+\index{I@{I}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{I}{I}}
+{\footnotesize\ttfamily float background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+I = \hyperlink{namespacebackground__diffusion__coefficient__2_a500b48b49d46f839dc2f3954dd83c902}{dk}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_a8618eb756a0334c85d5685ba59d75e90}{g\+\_\+s}(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii\mbox{]}, \hyperlink{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}{kmin}, \hyperlink{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}{q}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props})$\ast$(1 -\/ (\hyperlink{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}{mu}\mbox{[}jj\mbox{]}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_ab6de10712c6192992194f52ee288327b}{wtot})/(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii\mbox{]}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}{v}))$\ast$$\ast$2}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}\label{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!k@{k}}
+\index{k@{k}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{k}{k}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+k = np.\+logspace(-\/20, -\/10, 100)}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a6077189c19bdb21881fea3f3d2b041de}\label{namespacebackground__diffusion__coefficient__2_a6077189c19bdb21881fea3f3d2b041de}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!k\+\_\+zz@{k\+\_\+zz}}
+\index{k\+\_\+zz@{k\+\_\+zz}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{k\+\_\+zz}{k\_zz}}
+{\footnotesize\ttfamily int background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+k\+\_\+zz = 0.}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}\label{namespacebackground__diffusion__coefficient__2_ae4628955a57750924b16e9536fa296bc}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!kmin@{kmin}}
+\index{kmin@{kmin}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{kmin}{kmin}}
+{\footnotesize\ttfamily int background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+kmin = 1e-\/17}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}\label{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!m@{m}}
+\index{m@{m}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{m}{m}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+m = \hyperlink{constants_8h_a6b331c08a80ed71d31c55a3341776483}{cst.\+mp}}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}\label{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!medium\+\_\+props@{medium\+\_\+props}}
+\index{medium\+\_\+props@{medium\+\_\+props}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{medium\+\_\+props}{medium\_props}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+medium\+\_\+props = ism.\+W\+NM}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}\label{namespacebackground__diffusion__coefficient__2_aa8a6e6346b658dee376c128e3eacd98d}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!mu@{mu}}
+\index{mu@{mu}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+mu = np.\+linspace(-\/0.\+99, 0.\+99, 100)}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_acd7454cd872aed678babb49df90d7441}\label{namespacebackground__diffusion__coefficient__2_acd7454cd872aed678babb49df90d7441}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!Omega@{Omega}}
+\index{Omega@{Omega}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{Omega}{Omega}}
+{\footnotesize\ttfamily dictionary background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+Omega = \hyperlink{namespacebackground__diffusion__coefficient__2_a8da430d9a37f26fc2fedf07709f24f1f}{Omega0}/\hyperlink{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}{gamma}}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a8da430d9a37f26fc2fedf07709f24f1f}\label{namespacebackground__diffusion__coefficient__2_a8da430d9a37f26fc2fedf07709f24f1f}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!Omega0@{Omega0}}
+\index{Omega0@{Omega0}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{Omega0}{Omega0}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+Omega0 = \hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{cst.\+e}$\ast$medium\+\_\+props.\+get(\char`\"{}B\char`\"{})/(m$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c})}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a695939493ddc5a8e67e3459bfab9c746}\label{namespacebackground__diffusion__coefficient__2_a695939493ddc5a8e67e3459bfab9c746}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!p@{p}}
+\index{p@{p}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{p}{p}}
+{\footnotesize\ttfamily int background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+p = \hyperlink{namespacebackground__diffusion__coefficient__2_ac115a757d547906926efc96ec46f2ef7}{gamma}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m}$\ast$\hyperlink{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}{v}}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a575a4b15f89160acdbfbdec4a07f18b8}\label{namespacebackground__diffusion__coefficient__2_a575a4b15f89160acdbfbdec4a07f18b8}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!particles\+\_\+props@{particles\+\_\+props}}
+\index{particles\+\_\+props@{particles\+\_\+props}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{particles\+\_\+props}{particles\_props}}
+{\footnotesize\ttfamily dictionary background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+particles\+\_\+props = \{\char`\"{}v\char`\"{}\+:v, \char`\"{}Omega\char`\"{}\+:Omega\}}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}\label{namespacebackground__diffusion__coefficient__2_a7bd6101496be3edb3360a74d65a9798f}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!q@{q}}
+\index{q@{q}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{q}{q}}
+{\footnotesize\ttfamily float background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+q = 1.\+5}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}\label{namespacebackground__diffusion__coefficient__2_a154af3df854c757afad8e3f28b2fc75f}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!v@{v}}
+\index{v@{v}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{v}{v}}
+{\footnotesize\ttfamily background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+v = \hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$np.\+sqrt(1 -\/ (1/(\hyperlink{namespacebackground__diffusion__coefficient__2_aa9d61d39948704c32b87737a21272c27}{E}/(\hyperlink{namespacebackground__diffusion__coefficient__2_ab368f7ba91e714aac6f5c675e2a2534f}{m}$\ast$\hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{cst.\+c}$\ast$$\ast$2) + 1))$\ast$$\ast$2)}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_a5dc52e0e25a32cb9e53766c8d90d4bac}\label{namespacebackground__diffusion__coefficient__2_a5dc52e0e25a32cb9e53766c8d90d4bac}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!w@{w}}
+\index{w@{w}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily def background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+w = \hyperlink{namespacebackground__diffusion__coefficient__2_a788d35f99dde8484595c8cda404e4ae3}{Ion\+Neutral\+\_\+\+Damping}(\hyperlink{namespacebackground__diffusion__coefficient__2_a5a09d109413176dd193dca9b7a470f60}{k}\mbox{[}ii\mbox{]}, \hyperlink{namespacebackground__diffusion__coefficient__2_aa9379babe1c7668f0292249401d84e24}{medium\+\_\+props})}
+
+\mbox{\Hypertarget{namespacebackground__diffusion__coefficient__2_ab6de10712c6192992194f52ee288327b}\label{namespacebackground__diffusion__coefficient__2_ab6de10712c6192992194f52ee288327b}} 
+\index{background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}!wtot@{wtot}}
+\index{wtot@{wtot}!background\+\_\+diffusion\+\_\+coefficient\+\_\+2@{background\+\_\+diffusion\+\_\+coefficient\+\_\+2}}
+\subsubsection{\texorpdfstring{wtot}{wtot}}
+{\footnotesize\ttfamily def background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+wtot = w.\+get(\char`\"{}wr\char`\"{}) + 1j$\ast$w.\+get(\char`\"{}wi\char`\"{})}
+

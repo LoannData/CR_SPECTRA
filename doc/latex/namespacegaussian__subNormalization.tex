@@ -1,0 +1,150 @@
+\hypertarget{namespacegaussian__subNormalization}{}\section{gaussian\+\_\+sub\+Normalization Namespace Reference}
+\label{namespacegaussian__subNormalization}\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacegaussian__subNormalization_a9fdfba6c3add14aed634ae6cf69a4091}{gauss} (t, \hyperlink{namespacegaussian__subNormalization_ab1fe9cd4fd57a3a2c62f71c59a177f8c}{sig}, \hyperlink{namespacegaussian__subNormalization_ac40e7f2c15e55a01c0ac9b9c90af6c47}{mu})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin} = 0.\+01
+\item 
+float \hyperlink{namespacegaussian__subNormalization_a7c481eda4172efbe519cfee256ff91de}{tesc} = 25.\+23
+\item 
+int \hyperlink{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}{tmax} = 2$\ast$\hyperlink{namespacegaussian__subNormalization_a7c481eda4172efbe519cfee256ff91de}{tesc} -\/ \hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin}
+\item 
+int \hyperlink{namespacegaussian__subNormalization_ab1fe9cd4fd57a3a2c62f71c59a177f8c}{sig} = 2
+\item 
+int \hyperlink{namespacegaussian__subNormalization_ac40e7f2c15e55a01c0ac9b9c90af6c47}{mu} = 25
+\item 
+int \hyperlink{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}{Nc} = 1e6
+\item 
+\hyperlink{namespacegaussian__subNormalization_afa6e9c91930942dec10f060f861db968}{tc} = np.\+linspace(\hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin}, \hyperlink{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}{tmax}, \hyperlink{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}{Nc})
+\item 
+int \hyperlink{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}{Nv} = 100
+\item 
+\hyperlink{namespacegaussian__subNormalization_a6678635cf14e1f6b9315c0ffc30a72e2}{ta} = np.\+linspace(\hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin}, \hyperlink{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}{tmax}, \hyperlink{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}{Nv})
+\item 
+int \hyperlink{namespacegaussian__subNormalization_aad8a705b42cc4c460f49df4eaee2b4aa}{r} = \hyperlink{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}{Nc}/\hyperlink{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}{Nv}
+\item 
+\hyperlink{namespacegaussian__subNormalization_a5ba46c757461de158cf012e81fa12b2b}{gauss\+\_\+c} = np.\+zeros(len(\hyperlink{namespacegaussian__subNormalization_afa6e9c91930942dec10f060f861db968}{tc}))
+\item 
+\hyperlink{namespacegaussian__subNormalization_a123c5bb293470cf2f2feee67d6bf2e9d}{gauss\+\_\+a} = np.\+zeros(len(\hyperlink{namespacegaussian__subNormalization_a6678635cf14e1f6b9315c0ffc30a72e2}{ta}))
+\item 
+int \hyperlink{namespacegaussian__subNormalization_aa761485e0e5eb068184d62a5768451a1}{C\+\_\+c} = 0.
+\item 
+int \hyperlink{namespacegaussian__subNormalization_a8dc5a06aa5600f9686088dfc0ab90f59}{C\+\_\+a} = 0.
+\item 
+\hyperlink{namespacegaussian__subNormalization_acb6b51085c2c1529ad90570c8f70cb50}{color}
+\item 
+\hyperlink{namespacegaussian__subNormalization_af0f46417a2e0ca88e04e8ba0cd5aec53}{c}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a9fdfba6c3add14aed634ae6cf69a4091}\label{namespacegaussian__subNormalization_a9fdfba6c3add14aed634ae6cf69a4091}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!gauss@{gauss}}
+\index{gauss@{gauss}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{gauss()}{gauss()}}
+{\footnotesize\ttfamily def gaussian\+\_\+sub\+Normalization.\+gauss (\begin{DoxyParamCaption}\item[{}]{t,  }\item[{}]{sig,  }\item[{}]{mu }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacegaussian__subNormalization_af0f46417a2e0ca88e04e8ba0cd5aec53}\label{namespacegaussian__subNormalization_af0f46417a2e0ca88e04e8ba0cd5aec53}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!c@{c}}
+\index{c@{c}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+c}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a8dc5a06aa5600f9686088dfc0ab90f59}\label{namespacegaussian__subNormalization_a8dc5a06aa5600f9686088dfc0ab90f59}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!C\+\_\+a@{C\+\_\+a}}
+\index{C\+\_\+a@{C\+\_\+a}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{C\+\_\+a}{C\_a}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+C\+\_\+a = 0.}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_aa761485e0e5eb068184d62a5768451a1}\label{namespacegaussian__subNormalization_aa761485e0e5eb068184d62a5768451a1}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!C\+\_\+c@{C\+\_\+c}}
+\index{C\+\_\+c@{C\+\_\+c}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{C\+\_\+c}{C\_c}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+C\+\_\+c = 0.}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_acb6b51085c2c1529ad90570c8f70cb50}\label{namespacegaussian__subNormalization_acb6b51085c2c1529ad90570c8f70cb50}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!color@{color}}
+\index{color@{color}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+color}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a123c5bb293470cf2f2feee67d6bf2e9d}\label{namespacegaussian__subNormalization_a123c5bb293470cf2f2feee67d6bf2e9d}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!gauss\+\_\+a@{gauss\+\_\+a}}
+\index{gauss\+\_\+a@{gauss\+\_\+a}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{gauss\+\_\+a}{gauss\_a}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+gauss\+\_\+a = np.\+zeros(len(\hyperlink{namespacegaussian__subNormalization_a6678635cf14e1f6b9315c0ffc30a72e2}{ta}))}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a5ba46c757461de158cf012e81fa12b2b}\label{namespacegaussian__subNormalization_a5ba46c757461de158cf012e81fa12b2b}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!gauss\+\_\+c@{gauss\+\_\+c}}
+\index{gauss\+\_\+c@{gauss\+\_\+c}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{gauss\+\_\+c}{gauss\_c}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+gauss\+\_\+c = np.\+zeros(len(\hyperlink{namespacegaussian__subNormalization_afa6e9c91930942dec10f060f861db968}{tc}))}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_ac40e7f2c15e55a01c0ac9b9c90af6c47}\label{namespacegaussian__subNormalization_ac40e7f2c15e55a01c0ac9b9c90af6c47}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!mu@{mu}}
+\index{mu@{mu}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{mu}{mu}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+mu = 25}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}\label{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!Nc@{Nc}}
+\index{Nc@{Nc}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{Nc}{Nc}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+Nc = 1e6}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}\label{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!Nv@{Nv}}
+\index{Nv@{Nv}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{Nv}{Nv}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+Nv = 100}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_aad8a705b42cc4c460f49df4eaee2b4aa}\label{namespacegaussian__subNormalization_aad8a705b42cc4c460f49df4eaee2b4aa}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!r@{r}}
+\index{r@{r}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{r}{r}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+r = \hyperlink{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}{Nc}/\hyperlink{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}{Nv}}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_ab1fe9cd4fd57a3a2c62f71c59a177f8c}\label{namespacegaussian__subNormalization_ab1fe9cd4fd57a3a2c62f71c59a177f8c}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!sig@{sig}}
+\index{sig@{sig}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{sig}{sig}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+sig = 2}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a6678635cf14e1f6b9315c0ffc30a72e2}\label{namespacegaussian__subNormalization_a6678635cf14e1f6b9315c0ffc30a72e2}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!ta@{ta}}
+\index{ta@{ta}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{ta}{ta}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+ta = np.\+linspace(\hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin}, \hyperlink{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}{tmax}, \hyperlink{namespacegaussian__subNormalization_a2102558c499f529f1ef90c72aad83eb6}{Nv})}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_afa6e9c91930942dec10f060f861db968}\label{namespacegaussian__subNormalization_afa6e9c91930942dec10f060f861db968}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!tc@{tc}}
+\index{tc@{tc}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{tc}{tc}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+tc = np.\+linspace(\hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin}, \hyperlink{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}{tmax}, \hyperlink{namespacegaussian__subNormalization_ad429c93e85cb6578d1b39cad48499521}{Nc})}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a7c481eda4172efbe519cfee256ff91de}\label{namespacegaussian__subNormalization_a7c481eda4172efbe519cfee256ff91de}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!tesc@{tesc}}
+\index{tesc@{tesc}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{tesc}{tesc}}
+{\footnotesize\ttfamily gaussian\+\_\+sub\+Normalization.\+tesc = 25.\+23}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}\label{namespacegaussian__subNormalization_a4891507f9d29791fe1a3168ae9e3643e}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!tmax@{tmax}}
+\index{tmax@{tmax}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{tmax}{tmax}}
+{\footnotesize\ttfamily int gaussian\+\_\+sub\+Normalization.\+tmax = 2$\ast$\hyperlink{namespacegaussian__subNormalization_a7c481eda4172efbe519cfee256ff91de}{tesc} -\/ \hyperlink{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}{tmin}}
+
+\mbox{\Hypertarget{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}\label{namespacegaussian__subNormalization_a12be11a804f6eb95c81b49bf77ac4cf9}} 
+\index{gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}!tmin@{tmin}}
+\index{tmin@{tmin}!gaussian\+\_\+sub\+Normalization@{gaussian\+\_\+sub\+Normalization}}
+\subsubsection{\texorpdfstring{tmin}{tmin}}
+{\footnotesize\ttfamily float gaussian\+\_\+sub\+Normalization.\+tmin = 0.\+01}
+

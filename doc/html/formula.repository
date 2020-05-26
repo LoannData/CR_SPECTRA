@@ -1,0 +1,14 @@
+\form#0:\[ a = a +1 + \frac{1}{2} \]
+\form#1:\[ t_\mathrm{ini} = 10^{-4}~ 1~\mathrm{kyr} \]
+\form#2:\[ t_{\mathrm{ini},\mathrm{kyr}} = 10^{-4} \]
+\form#3:\begin{eqnarray*} t_{\mathrm{ini},\mathrm{kyr}} & = & 10^{-4} \\ t_{\mathrm{free}, \mathrm{kyr}} & = & 0.3 E_\mathrm{SN}^{-1/2} M_\mathrm{ej} n_t^{-1/3} \end{eqnarray*}
+\form#4:\begin{eqnarray*} t_{\mathrm{ini},\mathrm{kyr}} & = & 10^{-4} \\ t_{\mathrm{free}, \mathrm{kyr}} & = & 0.3 E_\mathrm{SN}^{-1/2} M_\mathrm{ej} n_t^{-1/3} \\ t_{\mathrm{PDS}, \mathrm{yr}} & = & e^{-1} \times 3.61 \times 10^4 E_\mathrm{SN}^{3/14}/(\xi_n^{5/14}n_t^{4/7}) \end{eqnarray*}
+\form#5:\begin{eqnarray*} t_{\mathrm{ini},\mathrm{kyr}} & = & 10^{-4} \\ t_{\mathrm{free}, \mathrm{kyr}} & = & 0.3 E_\mathrm{SN}^{-1/2} M_\mathrm{ej} n_t^{-1/3} \\ t_{\mathrm{PDS}, \mathrm{yr}} & = & e^{-1} \times 3.61 \times 10^4 E_\mathrm{SN}^{3/14}/(\xi_n^{5/14}n_t^{4/7}) \\ t_{\mathrm{MCS}, \mathrm{yr}} & = & \mathrm{min}\left[ 61 V_{\mathrm{ej},8}^3/(\xi_n^{9/14}*n_t^{3/7}*E_\mathrm{SN}^{3/14}), 476 t_{\mathrm{PDS}, \mathrm{yr}} / (\xi_n \phi_c)^{9/14} \right] \\ t_{\mathrm{merge}, \mathrm{yr}} & = & 153 \left(E_\mathrm{SN}^{1/14} n_t^{1/7} \xi_n^{3/14}/ (\beta C_{06}) \right)^{10/7} t_{\mathrm{PDS}, \mathrm{yr}} \end{eqnarray*}
+\form#6:\begin{eqnarray*} t_{\mathrm{ini},\mathrm{kyr}} & = & 10^{-4} \\ t_{\mathrm{free}, \mathrm{kyr}} & = & 0.3 E_\mathrm{SN}^{-1/2} M_\mathrm{ej} n_t^{-1/3} \\ t_{\mathrm{PDS}, \mathrm{yr}} & = & e^{-1} \times 3.61 \times 10^4 E_\mathrm{SN}^{3/14}/(\xi_n^{5/14}n_t^{4/7}) \\ t_{\mathrm{MCS}, \mathrm{yr}} & = & \mathrm{min}\left[ 61 V_{\mathrm{ej},8}^3/(\xi_n^{9/14}*n_t^{3/7}*E_\mathrm{SN}^{3/14}), 476 t_{\mathrm{PDS}, \mathrm{yr}} / (\xi_n \phi_c)^{9/14} \right] \\ t_{\mathrm{merge}, \mathrm{yr}} & = & 153 \left(E_\mathrm{SN}^{1/14} n_t^{1/7} \xi_n^{3/14}/ (\beta C_{06}) \right)^{10/7} t_{\mathrm{PDS}, \mathrm{yr}} \\ t_\mathrm{max} & = & \mathrm{max}(t_\mathrm{MCS}, t_\mathrm{merge}) \end{eqnarray*}
+\form#7:$ t_\mathrm{ini}$
+\form#8:\begin{eqnarray*} R_\mathrm{ini} & = & R_\mathrm{free} (t_\mathrm{ini}/t_\mathrm{free}) \\ \end{eqnarray*}
+\form#9:$ t_\mathrm{free} $
+\form#10:$ t_\mathrm{PDS} $
+\form#11:$ t_\mathrm{MCS} $
+\form#12:$ t_\mathrm{merge} $
+\form#13:$ t_\mathrm{max} $

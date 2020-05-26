@@ -1,0 +1,202 @@
+\hypertarget{namespaceSNR__evolution}{}\section{S\+N\+R\+\_\+evolution Namespace Reference}
+\label{namespaceSNR__evolution}\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceSNR__evolution_a4eff759f9aa4a1e06b487c1223377390}{Inverse\+Trigonal\+Matrix} (\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\begin{DoxyCompactList}\small\item\em F\+U\+N\+C\+T\+I\+O\+NS IN O\+R\+D\+ER TO C\+R\+E\+A\+TE A G\+O\+OD S\+P\+L\+I\+NE !!! \#. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceSNR__evolution_afc6bde93d3d60f69068e8b403e5e32b5}{Product\+Matrix} (A, B)
+\item 
+def \hyperlink{namespaceSNR__evolution_a2ce2af757e103b1693310fe9e68806c0}{Interpolating\+Spline} (X, Y)
+\item 
+def \hyperlink{namespaceSNR__evolution_ad16fd569419cfb44f067ccd99bb08175}{Rsh} (\hyperlink{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}{nt})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespaceSNR__evolution_a2ae96b26da960480c5ebd547790fb97a}{marker} = \mbox{[}\textquotesingle{}X\textquotesingle{}, \textquotesingle{}o\textquotesingle{}, \textquotesingle{}s\textquotesingle{}, \textquotesingle{}v\textquotesingle{}\mbox{]}
+\item 
+int \hyperlink{namespaceSNR__evolution_a1190521b88fe27a62233af96b1bac53a}{size\+\_\+x} = 6
+\item 
+int \hyperlink{namespaceSNR__evolution_ac2bd4765206f8c737f95ebab78ae7cac}{size\+\_\+y} = 4
+\item 
+int \hyperlink{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}{sub\+\_\+x} = 1
+\item 
+int \hyperlink{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}{sub\+\_\+y} = 2
+\item 
+\hyperlink{namespaceSNR__evolution_a9cdbf7b3467a14a21b2b5c606e41774a}{fig} = plt.\+figure(figsize=(\hyperlink{namespaceSNR__evolution_a1190521b88fe27a62233af96b1bac53a}{size\+\_\+x}$\ast$\hyperlink{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}{sub\+\_\+x},\hyperlink{namespaceSNR__evolution_ac2bd4765206f8c737f95ebab78ae7cac}{size\+\_\+y}$\ast$\hyperlink{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}{sub\+\_\+y}))
+\item 
+\hyperlink{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}{gs} = gridspec.\+Grid\+Spec(ncols= \hyperlink{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}{sub\+\_\+x}, nrows = \hyperlink{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}{sub\+\_\+y}, figure = \hyperlink{namespaceSNR__evolution_a9cdbf7b3467a14a21b2b5c606e41774a}{fig} )
+\item 
+\hyperlink{namespaceSNR__evolution_a7d16472372312dc557927dd2e746213c}{wspace}
+\item 
+\hyperlink{namespaceSNR__evolution_a2fa00f6ce578b9daa8e1b3bafe699015}{hspace}
+\item 
+\hyperlink{namespaceSNR__evolution_ae740913980f4ab5c029ead225f54ead8}{ax0} = fig.\+add\+\_\+subplot(\hyperlink{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}{gs}\mbox{[}0\mbox{]})
+\item 
+\hyperlink{namespaceSNR__evolution_af2f3b2a51d74ef5fa08f36611259fed3}{pc}
+\item 
+\hyperlink{namespaceSNR__evolution_a0f384e8972ecbf3b63f448f47f736676}{c}
+\item 
+\hyperlink{namespaceSNR__evolution_ae3a47858b8786e1fa2bc21e67042c9c8}{label}
+\item 
+\hyperlink{namespaceSNR__evolution_aecb802cc57c3442e9cfa16414ed54cde}{lw}
+\item 
+\hyperlink{namespaceSNR__evolution_a516ca870e946f64a2f57b9570c4e56fe}{loc}
+\item 
+\hyperlink{namespaceSNR__evolution_a9c9014256014b6f257a7ca48928dc5fc}{ncol}
+\item 
+\hyperlink{namespaceSNR__evolution_a13500afe942a4e9d174412aed0c8a844}{bbox\+\_\+to\+\_\+anchor}
+\item 
+\hyperlink{namespaceSNR__evolution_af23a13b8429df186c22aa352da6983ec}{ax1} = fig.\+add\+\_\+subplot(\hyperlink{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}{gs}\mbox{[}1\mbox{]})
+\item 
+\hyperlink{namespaceSNR__evolution_ad025ed64eb70952d02f2615f98ced9a1}{kms}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceSNR__evolution_a2ce2af757e103b1693310fe9e68806c0}\label{namespaceSNR__evolution_a2ce2af757e103b1693310fe9e68806c0}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!Interpolating\+Spline@{Interpolating\+Spline}}
+\index{Interpolating\+Spline@{Interpolating\+Spline}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{Interpolating\+Spline()}{InterpolatingSpline()}}
+{\footnotesize\ttfamily def S\+N\+R\+\_\+evolution.\+Interpolating\+Spline (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a4eff759f9aa4a1e06b487c1223377390}\label{namespaceSNR__evolution_a4eff759f9aa4a1e06b487c1223377390}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!Inverse\+Trigonal\+Matrix@{Inverse\+Trigonal\+Matrix}}
+\index{Inverse\+Trigonal\+Matrix@{Inverse\+Trigonal\+Matrix}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{Inverse\+Trigonal\+Matrix()}{InverseTrigonalMatrix()}}
+{\footnotesize\ttfamily def S\+N\+R\+\_\+evolution.\+Inverse\+Trigonal\+Matrix (\begin{DoxyParamCaption}\item[{}]{T }\end{DoxyParamCaption})}
+
+
+
+F\+U\+N\+C\+T\+I\+O\+NS IN O\+R\+D\+ER TO C\+R\+E\+A\+TE A G\+O\+OD S\+P\+L\+I\+NE !!! \#. 
+
+Tri\+Diagonal matrix inversion function \mbox{\Hypertarget{namespaceSNR__evolution_afc6bde93d3d60f69068e8b403e5e32b5}\label{namespaceSNR__evolution_afc6bde93d3d60f69068e8b403e5e32b5}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!Product\+Matrix@{Product\+Matrix}}
+\index{Product\+Matrix@{Product\+Matrix}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{Product\+Matrix()}{ProductMatrix()}}
+{\footnotesize\ttfamily def S\+N\+R\+\_\+evolution.\+Product\+Matrix (\begin{DoxyParamCaption}\item[{}]{A,  }\item[{}]{B }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_ad16fd569419cfb44f067ccd99bb08175}\label{namespaceSNR__evolution_ad16fd569419cfb44f067ccd99bb08175}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!Rsh@{Rsh}}
+\index{Rsh@{Rsh}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{Rsh()}{Rsh()}}
+{\footnotesize\ttfamily def S\+N\+R\+\_\+evolution.\+Rsh (\begin{DoxyParamCaption}\item[{}]{nt }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceSNR__evolution_ae740913980f4ab5c029ead225f54ead8}\label{namespaceSNR__evolution_ae740913980f4ab5c029ead225f54ead8}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!ax0@{ax0}}
+\index{ax0@{ax0}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{ax0}{ax0}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+ax0 = fig.\+add\+\_\+subplot(\hyperlink{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}{gs}\mbox{[}0\mbox{]})}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_af23a13b8429df186c22aa352da6983ec}\label{namespaceSNR__evolution_af23a13b8429df186c22aa352da6983ec}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!ax1@{ax1}}
+\index{ax1@{ax1}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{ax1}{ax1}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+ax1 = fig.\+add\+\_\+subplot(\hyperlink{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}{gs}\mbox{[}1\mbox{]})}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a13500afe942a4e9d174412aed0c8a844}\label{namespaceSNR__evolution_a13500afe942a4e9d174412aed0c8a844}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!bbox\+\_\+to\+\_\+anchor@{bbox\+\_\+to\+\_\+anchor}}
+\index{bbox\+\_\+to\+\_\+anchor@{bbox\+\_\+to\+\_\+anchor}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{bbox\+\_\+to\+\_\+anchor}{bbox\_to\_anchor}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+bbox\+\_\+to\+\_\+anchor}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a0f384e8972ecbf3b63f448f47f736676}\label{namespaceSNR__evolution_a0f384e8972ecbf3b63f448f47f736676}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!c@{c}}
+\index{c@{c}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+c}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a9cdbf7b3467a14a21b2b5c606e41774a}\label{namespaceSNR__evolution_a9cdbf7b3467a14a21b2b5c606e41774a}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!fig@{fig}}
+\index{fig@{fig}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{fig}{fig}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+fig = plt.\+figure(figsize=(\hyperlink{namespaceSNR__evolution_a1190521b88fe27a62233af96b1bac53a}{size\+\_\+x}$\ast$\hyperlink{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}{sub\+\_\+x},\hyperlink{namespaceSNR__evolution_ac2bd4765206f8c737f95ebab78ae7cac}{size\+\_\+y}$\ast$\hyperlink{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}{sub\+\_\+y}))}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}\label{namespaceSNR__evolution_a7c849cab581a2471a15771cfab7a0f6c}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!gs@{gs}}
+\index{gs@{gs}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{gs}{gs}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+gs = gridspec.\+Grid\+Spec(ncols= \hyperlink{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}{sub\+\_\+x}, nrows = \hyperlink{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}{sub\+\_\+y}, figure = \hyperlink{namespaceSNR__evolution_a9cdbf7b3467a14a21b2b5c606e41774a}{fig} )}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a2fa00f6ce578b9daa8e1b3bafe699015}\label{namespaceSNR__evolution_a2fa00f6ce578b9daa8e1b3bafe699015}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!hspace@{hspace}}
+\index{hspace@{hspace}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{hspace}{hspace}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+hspace}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_ad025ed64eb70952d02f2615f98ced9a1}\label{namespaceSNR__evolution_ad025ed64eb70952d02f2615f98ced9a1}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!kms@{kms}}
+\index{kms@{kms}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{kms}{kms}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+kms}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_ae3a47858b8786e1fa2bc21e67042c9c8}\label{namespaceSNR__evolution_ae3a47858b8786e1fa2bc21e67042c9c8}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!label@{label}}
+\index{label@{label}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+label}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a516ca870e946f64a2f57b9570c4e56fe}\label{namespaceSNR__evolution_a516ca870e946f64a2f57b9570c4e56fe}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!loc@{loc}}
+\index{loc@{loc}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{loc}{loc}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+loc}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_aecb802cc57c3442e9cfa16414ed54cde}\label{namespaceSNR__evolution_aecb802cc57c3442e9cfa16414ed54cde}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!lw@{lw}}
+\index{lw@{lw}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{lw}{lw}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+lw}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a2ae96b26da960480c5ebd547790fb97a}\label{namespaceSNR__evolution_a2ae96b26da960480c5ebd547790fb97a}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!marker@{marker}}
+\index{marker@{marker}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{marker}{marker}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+marker = \mbox{[}\textquotesingle{}X\textquotesingle{}, \textquotesingle{}o\textquotesingle{}, \textquotesingle{}s\textquotesingle{}, \textquotesingle{}v\textquotesingle{}\mbox{]}}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a9c9014256014b6f257a7ca48928dc5fc}\label{namespaceSNR__evolution_a9c9014256014b6f257a7ca48928dc5fc}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!ncol@{ncol}}
+\index{ncol@{ncol}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{ncol}{ncol}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+ncol}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_af2f3b2a51d74ef5fa08f36611259fed3}\label{namespaceSNR__evolution_af2f3b2a51d74ef5fa08f36611259fed3}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!pc@{pc}}
+\index{pc@{pc}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{pc}{pc}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+pc}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a1190521b88fe27a62233af96b1bac53a}\label{namespaceSNR__evolution_a1190521b88fe27a62233af96b1bac53a}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!size\+\_\+x@{size\+\_\+x}}
+\index{size\+\_\+x@{size\+\_\+x}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{size\+\_\+x}{size\_x}}
+{\footnotesize\ttfamily int S\+N\+R\+\_\+evolution.\+size\+\_\+x = 6}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_ac2bd4765206f8c737f95ebab78ae7cac}\label{namespaceSNR__evolution_ac2bd4765206f8c737f95ebab78ae7cac}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!size\+\_\+y@{size\+\_\+y}}
+\index{size\+\_\+y@{size\+\_\+y}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{size\+\_\+y}{size\_y}}
+{\footnotesize\ttfamily int S\+N\+R\+\_\+evolution.\+size\+\_\+y = 4}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}\label{namespaceSNR__evolution_a84d8239381bb2eaf5f5de4124c953059}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!sub\+\_\+x@{sub\+\_\+x}}
+\index{sub\+\_\+x@{sub\+\_\+x}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{sub\+\_\+x}{sub\_x}}
+{\footnotesize\ttfamily int S\+N\+R\+\_\+evolution.\+sub\+\_\+x = 1}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}\label{namespaceSNR__evolution_ac1b49fa093e424c1d814fab4c4d47db3}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!sub\+\_\+y@{sub\+\_\+y}}
+\index{sub\+\_\+y@{sub\+\_\+y}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{sub\+\_\+y}{sub\_y}}
+{\footnotesize\ttfamily int S\+N\+R\+\_\+evolution.\+sub\+\_\+y = 2}
+
+\mbox{\Hypertarget{namespaceSNR__evolution_a7d16472372312dc557927dd2e746213c}\label{namespaceSNR__evolution_a7d16472372312dc557927dd2e746213c}} 
+\index{S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}!wspace@{wspace}}
+\index{wspace@{wspace}!S\+N\+R\+\_\+evolution@{S\+N\+R\+\_\+evolution}}
+\subsubsection{\texorpdfstring{wspace}{wspace}}
+{\footnotesize\ttfamily S\+N\+R\+\_\+evolution.\+wspace}
+

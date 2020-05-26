@@ -24,7 +24,8 @@ std::string sBcenter = search(parameters, "B"); double Bcenter = stod(sBcenter);
 
 
 
-
+/// This function return the value of t_sedov according to the SNR 
+/// properties specified in the constants.h file 
 double GetTSed()
     {
         double tfree  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
@@ -33,13 +34,41 @@ double GetTSed()
 
 
 
-
-// R_sh function 
 double RSNR(double time)
     {
-        //###############################################################################
-        //# FUNCTIONS IN ORDER TO MAKE OUR SNR EXPAND IN THE ISM                        #
-        //###############################################################################
+        /*! 
+            This function provides the value of the shock radius as a function of the time according to the SNR expansion model from 
+            Cioffi et al. 1998 and Truelove & McKee 19... The SNR shock has different propagation stages which are separated by 
+            characteristic times defined as below : 
+            \f{eqnarray*}{ 
+
+                    t_{\mathrm{ini},\mathrm{kyr}}   & = & 10^{-4} \\ 
+                    t_{\mathrm{free}, \mathrm{kyr}} & = & 0.3 E_\mathrm{SN}^{-1/2} M_\mathrm{ej} n_t^{-1/3} \\ 
+                    t_{\mathrm{PDS}, \mathrm{yr}}   & = & e^{-1} \times 3.61 \times 10^4 E_\mathrm{SN}^{3/14}/(\xi_n^{5/14}n_t^{4/7}) \\ 
+                    t_{\mathrm{MCS}, \mathrm{yr}}   & = & \mathrm{min}\left[
+                        61 V_{\mathrm{ej},8}^3/(\xi_n^{9/14}*n_t^{3/7}*E_\mathrm{SN}^{3/14}),
+                        476 t_{\mathrm{PDS}, \mathrm{yr}} / (\xi_n \phi_c)^{9/14}
+                    \right] \\ 
+                    t_{\mathrm{merge}, \mathrm{yr}} & = & 153 \left(E_\mathrm{SN}^{1/14} n_t^{1/7} \xi_n^{3/14}/ (\beta C_{06}) \right)^{10/7} t_{\mathrm{PDS}, \mathrm{yr}} \\ 
+                    t_\mathrm{max} & = & \mathrm{max}(t_\mathrm{MCS}, t_\mathrm{merge}) 
+
+            \f}    
+            where \f$ t_\mathrm{ini}\f$ corresponds to the initial time of the numerical computation of the spline,  
+            \f$ t_\mathrm{free} \f$ correponds to the transition time between the free expansion phase and the Sedov-Taylor phase, 
+            \f$ t_\mathrm{PDS} \f$ corresponds to the transition time between the Sedov-Taylor phase and the Pressure Driven Snowplow phase, 
+            \f$ t_\mathrm{MCS} \f$ correponds to the transition time between the Pressure Driven Snowplow phase and the Momentum Conserving Snowplow phase and 
+            finally \f$ t_\mathrm{merge} \f$ means the time at which the shock pressure becomes of the order of the ISM pressure. 
+            In some ISM phases, the shock can merge before entering in the Momentum Conserving Snowplow phase explaining \f$ t_\mathrm{max} \f$.
+            The SNR shock evolves with time according the following radii 
+            \f{eqnarray*}{ 
+                R_\mathrm{ini} & = &  R_\mathrm{free} (t_\mathrm{ini}/t_\mathrm{free}) \\ 
+
+            \f}
+          
+            \param time Time in [s].
+            \sa RSNR(), InterpolatingSpline()
+        */
+
         double vej8  = 10.*pow(Esn/Mej, 0.5);
 
         //# We define the characteristic times of our problem
@@ -115,7 +144,7 @@ double RSNR(double time)
     }
 
 
-// Shock velocity in time 
+/// Shock velocity in time 
 double u_sh(double time)
     {
         double dt = time/1e4;
@@ -125,7 +154,7 @@ double u_sh(double time)
     }
 
 
-// Get the EMAX value for the tesc calculation 
+/// Get the EMAX value for the tesc calculation 
 double GetEM()
     {
         int precision = 1000;
@@ -182,30 +211,8 @@ double GetEM()
 
 
 
-
-
-// CRs Escape time function (according to Celli et al. 2019) 
-/*double tesc(double E)
-    {
-        double tSed = GetTSed();
-        double EM = GetEM();
-        double ddelt = -1./(delta); 
-
-        //cout<<"EM = "<<EM/GeV<<" GeV"<<endl;
-
-        //tSed*((E**2/cst.c**2 - cst.mp**2*cst.c**2)/(EMAX**2/cst.c**2 - cst.mp**2*cst.c**2))**(-1./(2.*delta))
-
-        
-        //cout<<"(pow(E/c,2) - pow(mp*c,2)) = "<<(pow(E/c,2) - pow(mp*c,2))<<endl;
-        //cout<<"(pow(EM/c,2) - pow(mp*c,2)) = "<<(pow(EM/c,2) - pow(mp*c,2))<<endl;
-        //cout<<"(pow(E/c,2) - pow(mp*c,2))/(pow(EM/c,2) - pow(mp*c,2) = "<<( pow(E/c,2) - pow(mp*c,2) )/( pow(EM/c,2) - pow(mp*c,2) )<<endl;
-        //cout<<"pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt) = "<<pow( ( pow(E/c,2) - pow(mp*c,2) ) / (pow(EM/c,2) - pow(mp*c,2) ) , ddelt )<<endl;
-        //cout<<"-1./(2.*delta) = "<<-1./(2.*delta)<<endl;
-        //cout<<"E = "<<E/GeV<<" GeV, tesc = "<<tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt )/kyr<<" kyr"<<endl;
-        return tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt );
-    }*/
-
-
+/// Protons escape time function according the model of Celli et al. (2019)
+/// but also alternatives models of CR escape during radiative stages
 double tesc(double E)
     {
         double tSed = GetTSed();
@@ -214,7 +221,6 @@ double tesc(double E)
 
         double tPDS   = exp(-1.)*3.61e4*pow(Esn,3./14)/(pow(xi_n,5./14)*pow(nt,4./7))*yr; // [s]
         
-        //double loc_tesc = tSed*pow( (pow(E/c,2) - pow(mp*c,2)) / (pow(EM/c,2) - pow(mp*c,2)) , ddelt);
         double loc_tesc = tSed*pow( (pow(E/c,2)) / (pow(EM/c,2)) , ddelt);
         double tfree  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
 
@@ -251,52 +257,12 @@ double tesc(double E)
             if (loc_tesc > tPDS)
             {
                 return t_sh_lib;
-                //if (v_sh <= 110*km) 
-                //    {
-                        //double loc_time = loc_tesc; 
-                        //double delta_time = 100.*yr;
-                        //double loc_vsh = u_sh(loc_time);
-                        //while(loc_vsh < 110*km)
-                        //{
-                        //    loc_time -= delta_time; 
-                        //    loc_vsh = u_sh(loc_time); 
-                        //    //cout<<"loc_time = "<<loc_time/kyr<<" kyr, loc_vsh = "<<loc_vsh/km<<" km/s"<<endl;
-                        //}
-                        //return loc_time; 
-                //        return t_sh_lib; 
-                //    }
-                //if (v_sh > 110*km)  {return t_sh_lib;} // We return the time at which v_sh will be equal to 110 km/s
             }
             else 
             {
                 return loc_tesc;
             }
         }
-    }
-
-
-// Old-function, useless ... 
-double Bsat_old(vector<vector<double> > &Pcr, vector<double> X, vector<double> Y, double r_snr)
-    {
-        double dX = X[1] - X[0]; 
-        double dY = Y[1] - Y[0];
-        double shock_pos = (x_center+r_snr)/dX;
-        int index_pos_sh = int (shock_pos);
-
-        double Int = 0.; 
-        for (int ei = 0; ei < Y.size(); ei++)
-        {
-            //cout<<Pcr[index_pos_sh][ei]*log(10.)*pow(10., Y[ei])*abs(dY)<<endl;
-            Int += Pcr[index_pos_sh][ei]*log(10.)*pow(10., Y[ei])*abs(dY); 
-        }
-
-        double B_sat = pow(24*pi*Int,0.5);
-        
-        //cout<<"x_center = "<<x_center<<", r_snr = "<<r_snr<<", shoxk_pos = "<<shock_pos;
-        //cout<<", index_pos_shock = "<<index_pos_sh;
-        //cout<<", Int = "<<Int<<", Bsat = "<<B_sat<<endl; 
-
-        return B_sat;
     }
 
 
@@ -329,6 +295,8 @@ double B_sat(double time)
     }
 
 
+/// This function allows to calculate the maximum energy provided to the electrons escaping from the SNR according to 
+/// the values in the constans.h file.
 double GetEM_e()
     {
         double t_sed  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
@@ -340,6 +308,8 @@ double GetEM_e()
         return min(EM, EM_p);
     }
 
+/// This function calulate the escape time of the electrons as a function of the energy according 
+/// both model of escape from Celli et al. (2019) and alternative models of escape in radiative phases
 double tesc_e(double E)
     {
         double tSed = GetTSed();
@@ -385,21 +355,6 @@ double tesc_e(double E)
             if (loc_tesc > tPDS)
             {
                 return t_sh_lib;
-                //if (v_sh <= 110*km) 
-                //    {
-                        //double loc_time = loc_tesc; 
-                        //double delta_time = 100.*yr;
-                        //double loc_vsh = u_sh(loc_time);
-                        //while(loc_vsh < 110*km)
-                        //{
-                        //    loc_time -= delta_time; 
-                        //    loc_vsh = u_sh(loc_time); 
-                        //    //cout<<"loc_time = "<<loc_time/kyr<<" kyr, loc_vsh = "<<loc_vsh/km<<" km/s"<<endl;
-                        //}
-                        //return loc_time; 
-                //        return t_sh_lib; 
-                //    }
-                //if (v_sh > 110*km)  {return t_sh_lib;} // We return the time at which v_sh will be equal to 110 km/s
             }
             else 
             {
@@ -409,43 +364,25 @@ double tesc_e(double E)
     }
 
 
-/*double tesc_e(double E)
-    {
-        double t_sed  = 0.3*pow(Esn,-0.5)*Mej*pow(nt,-1./3)*kyr; // [s]
-        double tesc_p = tesc(E);
-        double Bsat  = B_sat(tesc_p); 
-        double EM = GetEM();
-        //cout<<"tesc_p = "<<tesc_p/kyr<<" kyr, Bsat = "<<Bsat*1e6<<" muG"<<endl;
-        //double tloss_e = 4*E/(c*sig_T*pow(Bsat,2)*pow(1 + E/(me*pow(c,2)),2));
-        double tloss_e = 9*pow(me, 4)*pow(c, 7)/(4*16*pow(e, 4)*pow(Bsat,2)*E);
-
-
-        //cout <<"tloss_e = "<<tloss_e/kyr<<" kyr"<<endl;
-
-        if (E > EM || E < Emin){return pow(10,20)*kyr;}
-
-        return max(min(tesc_p, tloss_e), t_sed);
-    }*/
-
-
-
-
 
 //####################################################################################################//
 
+
+/// This function return the value of the escape shock radius at a given energy of protons
 double Resc(double E)
 {
     double A = tesc(E); 
     return RSNR(A);
 }
 
+/// This function defines the variance of the time injection function Finj of CRs 
 double sigm(double E, double ttesc)
 {
     return ttesc/injection_function_width;           // Corresponds approximately to the width of the escape time divided
 }
 
 
-// CRs time injection function. Very important ! 
+/// CRs time injection function. 
 double Finj(double t, double dt, double E, double ttesc)
 {
     if (injection_shape_time == 0) // Dirac type injection 
@@ -493,41 +430,7 @@ double Finj(double t, double dt, double E, double ttesc)
 }
 
 
-
-
-/*double Finj(double t, double E, double ni, double X)
-{
-    double A = exp(-0.5*pow((t - tesc(E, ni, X))/sigm(E, ni, X),2));
-
-    vector<double> time(1000); 
-    double time_0   = 1e-6*kyr; 
-    double time_max = 1e4*kyr;
-    for (int i = 0; i<time.size(); i++)
-    {
-        time[i] = time_0 + (time_max - time_0)*i/time.size(); 
-    }
-    double intA = 0;
-    for (int i = 1; i<time.size(); i++)
-    {
-        intA = intA + exp(-0.5*pow((time[i] - tesc(E, ni, X))/sigm(E, ni, X),2))*(time[i] - time[i-1]); 
-    }
-    //cout<<intA<<endl;
-    //cout<<A/intA<<endl;
-    if (intA > 0){return A/intA;}
-    if (intA == 0){return 0;}
-    //return A/intA;
-}*/
-
-/*double theta(double z, double t, double Rsnr)
-{
-    //double Rsnr = RSNR(t);
-    
-
-    //cout<<Rsnr/pc<<endl;
-    if (z < Rsnr){return 1;}
-    if (z > Rsnr){return 0;}
-}*/
-
+/// This function define the spatial shape of the CRs distribution at a given time 
 double theta(double z, double t, double Rsnr)
 {
     //double Rsnr = RSNR(t);
@@ -539,6 +442,7 @@ double theta(double z, double t, double Rsnr)
     return 0.5*(erf((Rsnr - loc_z)/(r_width)) + erf((Rsnr + loc_z)/(r_width)));
 }
 
+/// This function defines the injection spectrum of both electrons of protons escaping from the SNR
 double dNdE(double E)
 {
     double spec;
@@ -557,6 +461,7 @@ double dNdE(double E)
     return spec;
 }
 
+/// This function defines the distribution function of both electrons and protrons escaping from the SNR
 double ff(double E)
 {
     double R = Resc(E);
@@ -564,6 +469,7 @@ double ff(double E)
     return A;
 }
 
+/// This function defines the initial pressure distribution of both electrons and protons escaping from the SNR
 double Pcr_ini(double E)
 {
     double A = 4*pi/(3*pow(c, 3))*pow(E, 4.)*ff(E); 

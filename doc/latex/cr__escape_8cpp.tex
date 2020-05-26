@@ -1,0 +1,111 @@
+\hypertarget{cr__escape_8cpp}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/cr\+\_\+escape.cpp File Reference}
+\label{cr__escape_8cpp}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/cr\+\_\+escape.\+cpp@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/cr\+\_\+escape.\+cpp}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for cr\+\_\+escape.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cr__escape_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cr__escape_8cpp_af44c170fbc162ede50cb386365a8d48a}{Inverse\+Trigonal\+Matrix} (vector$<$ vector$<$ double $>$ $>$ \&\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\item 
+void \hyperlink{cr__escape_8cpp_a845310c9a1bf4e842d8a38d8b8375965}{Product\+Matrix} (vector$<$ vector$<$ double $>$ $>$ A, vector$<$ vector$<$ double $>$ $>$ B, vector$<$ vector$<$ double $>$ $>$ \&C)
+\item 
+double \hyperlink{cr__escape_8cpp_aa9efdc9b8bb19a51263aef089b14a129}{Interpolating\+Spline} (vector$<$ double $>$ X, vector$<$ double $>$ Y, double x)
+\item 
+double \hyperlink{cr__escape_8cpp_a805401e62bc01cb980c2d557a49df39e}{f1} (double x, vector$<$ double $>$ cst)
+\item 
+double \hyperlink{cr__escape_8cpp_ac46d60428d36cd0411aab53e0f8c62f1}{df1dx} (double x, vector$<$ double $>$ cst)
+\item 
+double \hyperlink{cr__escape_8cpp_adf6736ed28f61682cb8f2df704ab5931}{f2} (double x, vector$<$ double $>$ cst)
+\item 
+double \hyperlink{cr__escape_8cpp_a4c0a27106143a8b884cf1fa28b143c7f}{df2dx} (double x, vector$<$ double $>$ cst)
+\item 
+double \hyperlink{cr__escape_8cpp_a4f8505bc6e6ab1f8925b57cb302ef8f4}{Newton\+Raphson} (double f(double, vector$<$ double $>$), double df(double, vector$<$ double $>$), double x0, double eps, vector$<$ double $>$ cst)
+\item 
+double \hyperlink{cr__escape_8cpp_a7baa564a665524bae08b142f23a4ebf7}{Get\+Max} (vector$<$ double $>$ V)
+\item 
+double \hyperlink{cr__escape_8cpp_aacef4afde13abf90336dd75fb4cbf7a0}{Get\+Tesc} (double E, double \hyperlink{constants_8h_a80a3c65c6b77216165fc34c12d0744e9}{delta}, vector$<$ double $>$ cst)
+\item 
+int \hyperlink{cr__escape_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{cr__escape_8cpp_ac46d60428d36cd0411aab53e0f8c62f1}\label{cr__escape_8cpp_ac46d60428d36cd0411aab53e0f8c62f1}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!df1dx@{df1dx}}
+\index{df1dx@{df1dx}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{df1dx()}{df1dx()}}
+{\footnotesize\ttfamily double df1dx (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{vector$<$ double $>$}]{cst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_a4c0a27106143a8b884cf1fa28b143c7f}\label{cr__escape_8cpp_a4c0a27106143a8b884cf1fa28b143c7f}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!df2dx@{df2dx}}
+\index{df2dx@{df2dx}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{df2dx()}{df2dx()}}
+{\footnotesize\ttfamily double df2dx (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{vector$<$ double $>$}]{cst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_a805401e62bc01cb980c2d557a49df39e}\label{cr__escape_8cpp_a805401e62bc01cb980c2d557a49df39e}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!f1@{f1}}
+\index{f1@{f1}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{f1()}{f1()}}
+{\footnotesize\ttfamily double f1 (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{vector$<$ double $>$}]{cst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_adf6736ed28f61682cb8f2df704ab5931}\label{cr__escape_8cpp_adf6736ed28f61682cb8f2df704ab5931}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!f2@{f2}}
+\index{f2@{f2}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{f2()}{f2()}}
+{\footnotesize\ttfamily double f2 (\begin{DoxyParamCaption}\item[{double}]{x,  }\item[{vector$<$ double $>$}]{cst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_a7baa564a665524bae08b142f23a4ebf7}\label{cr__escape_8cpp_a7baa564a665524bae08b142f23a4ebf7}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!Get\+Max@{Get\+Max}}
+\index{Get\+Max@{Get\+Max}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+Max()}{GetMax()}}
+{\footnotesize\ttfamily double Get\+Max (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{V }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_aacef4afde13abf90336dd75fb4cbf7a0}\label{cr__escape_8cpp_aacef4afde13abf90336dd75fb4cbf7a0}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!Get\+Tesc@{Get\+Tesc}}
+\index{Get\+Tesc@{Get\+Tesc}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{Get\+Tesc()}{GetTesc()}}
+{\footnotesize\ttfamily double Get\+Tesc (\begin{DoxyParamCaption}\item[{double}]{E,  }\item[{double}]{delta,  }\item[{vector$<$ double $>$}]{cst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_aa9efdc9b8bb19a51263aef089b14a129}\label{cr__escape_8cpp_aa9efdc9b8bb19a51263aef089b14a129}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!Interpolating\+Spline@{Interpolating\+Spline}}
+\index{Interpolating\+Spline@{Interpolating\+Spline}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{Interpolating\+Spline()}{InterpolatingSpline()}}
+{\footnotesize\ttfamily double Interpolating\+Spline (\begin{DoxyParamCaption}\item[{vector$<$ double $>$}]{X,  }\item[{vector$<$ double $>$}]{Y,  }\item[{double}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_af44c170fbc162ede50cb386365a8d48a}\label{cr__escape_8cpp_af44c170fbc162ede50cb386365a8d48a}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!Inverse\+Trigonal\+Matrix@{Inverse\+Trigonal\+Matrix}}
+\index{Inverse\+Trigonal\+Matrix@{Inverse\+Trigonal\+Matrix}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{Inverse\+Trigonal\+Matrix()}{InverseTrigonalMatrix()}}
+{\footnotesize\ttfamily void Inverse\+Trigonal\+Matrix (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{T }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{cr__escape_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!main@{main}}
+\index{main@{main}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_a4f8505bc6e6ab1f8925b57cb302ef8f4}\label{cr__escape_8cpp_a4f8505bc6e6ab1f8925b57cb302ef8f4}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!Newton\+Raphson@{Newton\+Raphson}}
+\index{Newton\+Raphson@{Newton\+Raphson}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{Newton\+Raphson()}{NewtonRaphson()}}
+{\footnotesize\ttfamily double Newton\+Raphson (\begin{DoxyParamCaption}\item[{double }]{fdouble, vector$<$ double $>$,  }\item[{double }]{dfdouble, vector$<$ double $>$,  }\item[{double}]{x0,  }\item[{double}]{eps,  }\item[{vector$<$ double $>$}]{cst }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__escape_8cpp_a845310c9a1bf4e842d8a38d8b8375965}\label{cr__escape_8cpp_a845310c9a1bf4e842d8a38d8b8375965}} 
+\index{cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}!Product\+Matrix@{Product\+Matrix}}
+\index{Product\+Matrix@{Product\+Matrix}!cr\+\_\+escape.\+cpp@{cr\+\_\+escape.\+cpp}}
+\subsubsection{\texorpdfstring{Product\+Matrix()}{ProductMatrix()}}
+{\footnotesize\ttfamily void Product\+Matrix (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$}]{A,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{B,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{C }\end{DoxyParamCaption})}
+

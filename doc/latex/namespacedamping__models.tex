@@ -1,0 +1,438 @@
+\hypertarget{namespacedamping__models}{}\section{damping\+\_\+models Namespace Reference}
+\label{namespacedamping__models}\index{damping\+\_\+models@{damping\+\_\+models}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacedamping__models_a6c45de9ee4907b632137bd3968434c8f}{damprate\+\_\+to\+\_\+damptime} (gamma)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacedamping__models_a70f7b31459ca4b1018560e17b17b9864}{NE} = 10
+\item 
+float \hyperlink{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}{Emin} = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+float \hyperlink{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}{Emax} = 100.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}
+\item 
+string \hyperlink{namespacedamping__models_a4a43583393950d4ac546b8812693c4bc}{egridtype} = \char`\"{}logspace\char`\"{}
+\item 
+\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E} = grid.\+grid(\hyperlink{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}{Emin}, \hyperlink{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}{Emax}, 2$\ast$$\ast$\hyperlink{namespacedamping__models_a70f7b31459ca4b1018560e17b17b9864}{NE}, \hyperlink{namespacedamping__models_a4a43583393950d4ac546b8812693c4bc}{egridtype})
+\item 
+list \hyperlink{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}{phases} = \mbox{[}ism.\+H\+II, ism.\+W\+IM, ism.\+W\+NM, ism.\+C\+NM, ism.\+DiM, ism.\+DeM, ism.\+DeC\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim} = \mbox{[}\hyperlink{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}{Emin}/\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}, \hyperlink{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}{Emax}/\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_abef2252362cdfe34c1df04fa717aa9e0}{xlims} = \mbox{[}\hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim} = \mbox{[}1e-\/14, 1e-\/3\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_a140012e721de3e711fa9d5f59d9d8b91}{ylims} = \mbox{[}\hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_acc8b27521b3535eb13b999bebdb2bc1a}{Name} = \mbox{[}\char`\"{}H\+II\char`\"{}, \char`\"{}W\+IM\char`\"{}, \char`\"{}W\+NM\char`\"{}, \char`\"{}C\+NM\char`\"{}, \char`\"{}DiM\char`\"{}, \char`\"{}DeM\char`\"{}, \char`\"{}DeC\char`\"{}\mbox{]}
+\item 
+int \hyperlink{namespacedamping__models_ad177f5fb45aa58d2c69cb5d37081fef9}{size\+\_\+x} = 4
+\item 
+int \hyperlink{namespacedamping__models_adf075db45ffa06f4e7b0c911fe5a74fd}{size\+\_\+y} = 3
+\item 
+int \hyperlink{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}{sub\+\_\+x} = 2
+\item 
+int \hyperlink{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}{sub\+\_\+y} = 4
+\item 
+\hyperlink{namespacedamping__models_a9edc55435ab0261056120b91d9429732}{fig} = plt.\+figure(figsize=(\hyperlink{namespacedamping__models_ad177f5fb45aa58d2c69cb5d37081fef9}{size\+\_\+x}$\ast$\hyperlink{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}{sub\+\_\+x},\hyperlink{namespacedamping__models_adf075db45ffa06f4e7b0c911fe5a74fd}{size\+\_\+y}$\ast$\hyperlink{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}{sub\+\_\+y}))
+\item 
+\hyperlink{namespacedamping__models_a7c226621eacbd06fba95e28c7a34d0bd}{gs} = gridspec.\+Grid\+Spec(ncols= \hyperlink{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}{sub\+\_\+x}, nrows = \hyperlink{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}{sub\+\_\+y}, figure = \hyperlink{namespacedamping__models_a9edc55435ab0261056120b91d9429732}{fig} )
+\item 
+\hyperlink{namespacedamping__models_acd63ee5a1a54b1d0e77a0d1a6e67a46f}{wspace}
+\item 
+\hyperlink{namespacedamping__models_ae41240318f8ca9a2e54952f789bcdfa2}{hspace}
+\item 
+list \hyperlink{namespacedamping__models_af6c1bce059c3e37933376e9c30e9524c}{pos\+\_\+1} = \mbox{[}0, 0, 1, 1, 2, 2, 3, 3\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_ac2eaf7fd8a5911f49de682dcbbc5d277}{pos\+\_\+2} = \mbox{[}0, 1, 0, 1, 0, 1, 0, 1\mbox{]}
+\item 
+\hyperlink{namespacedamping__models_a81a78db241fa300c2c28a7ef37f663bf}{w\+R\+\_\+\+Alfven} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a50ddbf7ffcd5d8045250e6f1ecff008f}{w\+I\+\_\+\+Alfven} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_aa74e5cbacc9be916070e413e4a0d70b6}{w\+R\+\_\+\+Alfven\+\_\+o1} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a995cd265fb0e85f80ea7315aaf59377c}{w\+I\+\_\+\+Alfven\+\_\+o1} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a55bb8154b458bbf5d6b1fcae3568f8b8}{w\+R\+\_\+\+Alfven\+\_\+o2} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_acf56ed3ac3c650d7aaf2fe6666ea686a}{w\+I\+\_\+\+Alfven\+\_\+o2} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a60cc8d39c6b5027486786ff5e73e20f9}{Ep} = np.\+NaN
+\item 
+\hyperlink{namespacedamping__models_ac46458c6362f9647038a926c81e90f59}{Em} = np.\+NaN
+\item 
+\hyperlink{namespacedamping__models_ad55f3e4220d6d48fa772baf38f96a0cc}{Gamma\+\_\+lz} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a8935086de67d3e941e639d12588215e1}{Gamma\+\_\+nlld\+\_\+inf} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a20e8113d2a6d5017dbed49f1e7c78592}{Gamma\+\_\+nlld\+\_\+sup} = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))
+\item 
+\hyperlink{namespacedamping__models_a9e0599bc950ce129b82fa342b00ba279}{in\+\_\+damping} = dp.\+Ion\+Neutral\+\_\+\+Damping(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}\mbox{[}\hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{e}\mbox{]}, \hyperlink{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}{phases}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}, nu\+\_\+n = 0, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta} = 0)
+\item 
+\hyperlink{namespacedamping__models_a3edfaa104202943bb10edcf075d710b1}{lz\+\_\+damping} = dp.\+damping\+\_\+lazarian\+\_\+nopos(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}\mbox{[}\hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{e}\mbox{]}, \hyperlink{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}{phases}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]})
+\item 
+\hyperlink{namespacedamping__models_a8f72bfbdb888e270533fbade792b0b10}{lz\+\_\+min} = \hyperlink{namespacedamping__models_a3edfaa104202943bb10edcf075d710b1}{lz\+\_\+damping}\mbox{[}1\mbox{]}
+\item 
+int \hyperlink{namespacedamping__models_a0aeed3b4b17299d1e84f5e9c5135a1bf}{Iinf} = 1e-\/4
+\item 
+int \hyperlink{namespacedamping__models_afef6a2629db83400503a3b1a4985af51}{Isup} = 1e-\/1
+\item 
+\hyperlink{namespacedamping__models_a84508bd0b8d775cdcd1ccecf22cec382}{ax} = fig.\+add\+\_\+subplot(\hyperlink{namespacedamping__models_a7c226621eacbd06fba95e28c7a34d0bd}{gs}\mbox{[}\hyperlink{namespacedamping__models_af6c1bce059c3e37933376e9c30e9524c}{pos\+\_\+1}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}, \hyperlink{namespacedamping__models_ac2eaf7fd8a5911f49de682dcbbc5d277}{pos\+\_\+2}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}\mbox{]})
+\item 
+\hyperlink{namespacedamping__models_a3a9b1b9a4fb9d89f24a32482fbd62f61}{GeV}
+\item 
+\hyperlink{namespacedamping__models_a7ae8a7481c2889a47f4d376eef5ae4f6}{c}
+\item 
+\hyperlink{namespacedamping__models_aa459d979864fda03e474c17eceafb11e}{ls}
+\item 
+\hyperlink{namespacedamping__models_acc3f2fd8e2050ca790052ca25222fcde}{lw}
+\item 
+\hyperlink{namespacedamping__models_a12759dcbb254e93503e78397e053b7b6}{alpha}
+\item 
+\hyperlink{namespacedamping__models_ada15223206a55c619904d093f03faec2}{color}
+\item 
+\hyperlink{namespacedamping__models_afb27afc9db4d58b425db77e3e21bc561}{facecolor}
+\item 
+\hyperlink{namespacedamping__models_a89e52e6ed35836d13426c69bfb74db59}{x}
+\item 
+\hyperlink{namespacedamping__models_a1492d9e1b4cd4f3bb6f57f6e7a892e08}{y}
+\item 
+\hyperlink{namespacedamping__models_af1c2b897a794e26cbac36846fa4ffc12}{label}
+\item 
+\hyperlink{namespacedamping__models_ace53aa65eae9fd138a8b1b0823897925}{loc}
+\item 
+\hyperlink{namespacedamping__models_a7b9f8978e3e936f2dfb6ed47dbd722cc}{bbox\+\_\+to\+\_\+anchor}
+\item 
+\hyperlink{namespacedamping__models_a139d3c226404875841f2e82b34320829}{bbox\+\_\+inches}
+\item 
+\hyperlink{namespacedamping__models_a1037bc0fc2f77ff8f2c9191aa4063a5a}{pad\+\_\+inches}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacedamping__models_a6c45de9ee4907b632137bd3968434c8f}\label{namespacedamping__models_a6c45de9ee4907b632137bd3968434c8f}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!damprate\+\_\+to\+\_\+damptime@{damprate\+\_\+to\+\_\+damptime}}
+\index{damprate\+\_\+to\+\_\+damptime@{damprate\+\_\+to\+\_\+damptime}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{damprate\+\_\+to\+\_\+damptime()}{damprate\_to\_damptime()}}
+{\footnotesize\ttfamily def damping\+\_\+models.\+damprate\+\_\+to\+\_\+damptime (\begin{DoxyParamCaption}\item[{}]{gamma }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacedamping__models_a12759dcbb254e93503e78397e053b7b6}\label{namespacedamping__models_a12759dcbb254e93503e78397e053b7b6}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!alpha@{alpha}}
+\index{alpha@{alpha}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{alpha}{alpha}}
+{\footnotesize\ttfamily damping\+\_\+models.\+alpha}
+
+\mbox{\Hypertarget{namespacedamping__models_a84508bd0b8d775cdcd1ccecf22cec382}\label{namespacedamping__models_a84508bd0b8d775cdcd1ccecf22cec382}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!ax@{ax}}
+\index{ax@{ax}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{ax}{ax}}
+{\footnotesize\ttfamily damping\+\_\+models.\+ax = fig.\+add\+\_\+subplot(\hyperlink{namespacedamping__models_a7c226621eacbd06fba95e28c7a34d0bd}{gs}\mbox{[}\hyperlink{namespacedamping__models_af6c1bce059c3e37933376e9c30e9524c}{pos\+\_\+1}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}, \hyperlink{namespacedamping__models_ac2eaf7fd8a5911f49de682dcbbc5d277}{pos\+\_\+2}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}\mbox{]})}
+
+\mbox{\Hypertarget{namespacedamping__models_a139d3c226404875841f2e82b34320829}\label{namespacedamping__models_a139d3c226404875841f2e82b34320829}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!bbox\+\_\+inches@{bbox\+\_\+inches}}
+\index{bbox\+\_\+inches@{bbox\+\_\+inches}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{bbox\+\_\+inches}{bbox\_inches}}
+{\footnotesize\ttfamily damping\+\_\+models.\+bbox\+\_\+inches}
+
+\mbox{\Hypertarget{namespacedamping__models_a7b9f8978e3e936f2dfb6ed47dbd722cc}\label{namespacedamping__models_a7b9f8978e3e936f2dfb6ed47dbd722cc}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!bbox\+\_\+to\+\_\+anchor@{bbox\+\_\+to\+\_\+anchor}}
+\index{bbox\+\_\+to\+\_\+anchor@{bbox\+\_\+to\+\_\+anchor}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{bbox\+\_\+to\+\_\+anchor}{bbox\_to\_anchor}}
+{\footnotesize\ttfamily damping\+\_\+models.\+bbox\+\_\+to\+\_\+anchor}
+
+\mbox{\Hypertarget{namespacedamping__models_a7ae8a7481c2889a47f4d376eef5ae4f6}\label{namespacedamping__models_a7ae8a7481c2889a47f4d376eef5ae4f6}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!c@{c}}
+\index{c@{c}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily damping\+\_\+models.\+c}
+
+\mbox{\Hypertarget{namespacedamping__models_ada15223206a55c619904d093f03faec2}\label{namespacedamping__models_ada15223206a55c619904d093f03faec2}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!color@{color}}
+\index{color@{color}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{color}{color}}
+{\footnotesize\ttfamily damping\+\_\+models.\+color}
+
+\mbox{\Hypertarget{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}\label{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!E@{E}}
+\index{E@{E}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily damping\+\_\+models.\+E = grid.\+grid(\hyperlink{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}{Emin}, \hyperlink{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}{Emax}, 2$\ast$$\ast$\hyperlink{namespacedamping__models_a70f7b31459ca4b1018560e17b17b9864}{NE}, \hyperlink{namespacedamping__models_a4a43583393950d4ac546b8812693c4bc}{egridtype})}
+
+\mbox{\Hypertarget{namespacedamping__models_a4a43583393950d4ac546b8812693c4bc}\label{namespacedamping__models_a4a43583393950d4ac546b8812693c4bc}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!egridtype@{egridtype}}
+\index{egridtype@{egridtype}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{egridtype}{egridtype}}
+{\footnotesize\ttfamily string damping\+\_\+models.\+egridtype = \char`\"{}logspace\char`\"{}}
+
+\mbox{\Hypertarget{namespacedamping__models_ac46458c6362f9647038a926c81e90f59}\label{namespacedamping__models_ac46458c6362f9647038a926c81e90f59}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Em@{Em}}
+\index{Em@{Em}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Em}{Em}}
+{\footnotesize\ttfamily damping\+\_\+models.\+Em = np.\+NaN}
+
+\mbox{\Hypertarget{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}\label{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Emax@{Emax}}
+\index{Emax@{Emax}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Emax}{Emax}}
+{\footnotesize\ttfamily float damping\+\_\+models.\+Emax = 100.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}}
+
+\mbox{\Hypertarget{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}\label{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Emin@{Emin}}
+\index{Emin@{Emin}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Emin}{Emin}}
+{\footnotesize\ttfamily float damping\+\_\+models.\+Emin = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}}
+
+\mbox{\Hypertarget{namespacedamping__models_a60cc8d39c6b5027486786ff5e73e20f9}\label{namespacedamping__models_a60cc8d39c6b5027486786ff5e73e20f9}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Ep@{Ep}}
+\index{Ep@{Ep}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Ep}{Ep}}
+{\footnotesize\ttfamily damping\+\_\+models.\+Ep = np.\+NaN}
+
+\mbox{\Hypertarget{namespacedamping__models_afb27afc9db4d58b425db77e3e21bc561}\label{namespacedamping__models_afb27afc9db4d58b425db77e3e21bc561}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!facecolor@{facecolor}}
+\index{facecolor@{facecolor}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{facecolor}{facecolor}}
+{\footnotesize\ttfamily damping\+\_\+models.\+facecolor}
+
+\mbox{\Hypertarget{namespacedamping__models_a9edc55435ab0261056120b91d9429732}\label{namespacedamping__models_a9edc55435ab0261056120b91d9429732}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!fig@{fig}}
+\index{fig@{fig}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{fig}{fig}}
+{\footnotesize\ttfamily damping\+\_\+models.\+fig = plt.\+figure(figsize=(\hyperlink{namespacedamping__models_ad177f5fb45aa58d2c69cb5d37081fef9}{size\+\_\+x}$\ast$\hyperlink{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}{sub\+\_\+x},\hyperlink{namespacedamping__models_adf075db45ffa06f4e7b0c911fe5a74fd}{size\+\_\+y}$\ast$\hyperlink{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}{sub\+\_\+y}))}
+
+\mbox{\Hypertarget{namespacedamping__models_ad55f3e4220d6d48fa772baf38f96a0cc}\label{namespacedamping__models_ad55f3e4220d6d48fa772baf38f96a0cc}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Gamma\+\_\+lz@{Gamma\+\_\+lz}}
+\index{Gamma\+\_\+lz@{Gamma\+\_\+lz}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Gamma\+\_\+lz}{Gamma\_lz}}
+{\footnotesize\ttfamily damping\+\_\+models.\+Gamma\+\_\+lz = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_a8935086de67d3e941e639d12588215e1}\label{namespacedamping__models_a8935086de67d3e941e639d12588215e1}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Gamma\+\_\+nlld\+\_\+inf@{Gamma\+\_\+nlld\+\_\+inf}}
+\index{Gamma\+\_\+nlld\+\_\+inf@{Gamma\+\_\+nlld\+\_\+inf}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Gamma\+\_\+nlld\+\_\+inf}{Gamma\_nlld\_inf}}
+{\footnotesize\ttfamily damping\+\_\+models.\+Gamma\+\_\+nlld\+\_\+inf = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_a20e8113d2a6d5017dbed49f1e7c78592}\label{namespacedamping__models_a20e8113d2a6d5017dbed49f1e7c78592}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Gamma\+\_\+nlld\+\_\+sup@{Gamma\+\_\+nlld\+\_\+sup}}
+\index{Gamma\+\_\+nlld\+\_\+sup@{Gamma\+\_\+nlld\+\_\+sup}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Gamma\+\_\+nlld\+\_\+sup}{Gamma\_nlld\_sup}}
+{\footnotesize\ttfamily damping\+\_\+models.\+Gamma\+\_\+nlld\+\_\+sup = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_a3a9b1b9a4fb9d89f24a32482fbd62f61}\label{namespacedamping__models_a3a9b1b9a4fb9d89f24a32482fbd62f61}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!GeV@{GeV}}
+\index{GeV@{GeV}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{GeV}{GeV}}
+{\footnotesize\ttfamily damping\+\_\+models.\+GeV}
+
+\mbox{\Hypertarget{namespacedamping__models_a7c226621eacbd06fba95e28c7a34d0bd}\label{namespacedamping__models_a7c226621eacbd06fba95e28c7a34d0bd}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!gs@{gs}}
+\index{gs@{gs}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{gs}{gs}}
+{\footnotesize\ttfamily damping\+\_\+models.\+gs = gridspec.\+Grid\+Spec(ncols= \hyperlink{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}{sub\+\_\+x}, nrows = \hyperlink{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}{sub\+\_\+y}, figure = \hyperlink{namespacedamping__models_a9edc55435ab0261056120b91d9429732}{fig} )}
+
+\mbox{\Hypertarget{namespacedamping__models_ae41240318f8ca9a2e54952f789bcdfa2}\label{namespacedamping__models_ae41240318f8ca9a2e54952f789bcdfa2}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!hspace@{hspace}}
+\index{hspace@{hspace}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{hspace}{hspace}}
+{\footnotesize\ttfamily damping\+\_\+models.\+hspace}
+
+\mbox{\Hypertarget{namespacedamping__models_a0aeed3b4b17299d1e84f5e9c5135a1bf}\label{namespacedamping__models_a0aeed3b4b17299d1e84f5e9c5135a1bf}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Iinf@{Iinf}}
+\index{Iinf@{Iinf}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Iinf}{Iinf}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+Iinf = 1e-\/4}
+
+\mbox{\Hypertarget{namespacedamping__models_a9e0599bc950ce129b82fa342b00ba279}\label{namespacedamping__models_a9e0599bc950ce129b82fa342b00ba279}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!in\+\_\+damping@{in\+\_\+damping}}
+\index{in\+\_\+damping@{in\+\_\+damping}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{in\+\_\+damping}{in\_damping}}
+{\footnotesize\ttfamily damping\+\_\+models.\+in\+\_\+damping = dp.\+Ion\+Neutral\+\_\+\+Damping(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}\mbox{[}\hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{e}\mbox{]}, \hyperlink{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}{phases}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}, nu\+\_\+n = 0, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta} = 0)}
+
+\mbox{\Hypertarget{namespacedamping__models_afef6a2629db83400503a3b1a4985af51}\label{namespacedamping__models_afef6a2629db83400503a3b1a4985af51}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Isup@{Isup}}
+\index{Isup@{Isup}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Isup}{Isup}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+Isup = 1e-\/1}
+
+\mbox{\Hypertarget{namespacedamping__models_af1c2b897a794e26cbac36846fa4ffc12}\label{namespacedamping__models_af1c2b897a794e26cbac36846fa4ffc12}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!label@{label}}
+\index{label@{label}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily damping\+\_\+models.\+label}
+
+\mbox{\Hypertarget{namespacedamping__models_ace53aa65eae9fd138a8b1b0823897925}\label{namespacedamping__models_ace53aa65eae9fd138a8b1b0823897925}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!loc@{loc}}
+\index{loc@{loc}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{loc}{loc}}
+{\footnotesize\ttfamily damping\+\_\+models.\+loc}
+
+\mbox{\Hypertarget{namespacedamping__models_aa459d979864fda03e474c17eceafb11e}\label{namespacedamping__models_aa459d979864fda03e474c17eceafb11e}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!ls@{ls}}
+\index{ls@{ls}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{ls}{ls}}
+{\footnotesize\ttfamily damping\+\_\+models.\+ls}
+
+\mbox{\Hypertarget{namespacedamping__models_acc3f2fd8e2050ca790052ca25222fcde}\label{namespacedamping__models_acc3f2fd8e2050ca790052ca25222fcde}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!lw@{lw}}
+\index{lw@{lw}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{lw}{lw}}
+{\footnotesize\ttfamily damping\+\_\+models.\+lw}
+
+\mbox{\Hypertarget{namespacedamping__models_a3edfaa104202943bb10edcf075d710b1}\label{namespacedamping__models_a3edfaa104202943bb10edcf075d710b1}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!lz\+\_\+damping@{lz\+\_\+damping}}
+\index{lz\+\_\+damping@{lz\+\_\+damping}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{lz\+\_\+damping}{lz\_damping}}
+{\footnotesize\ttfamily damping\+\_\+models.\+lz\+\_\+damping = dp.\+damping\+\_\+lazarian\+\_\+nopos(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}\mbox{[}\hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{e}\mbox{]}, \hyperlink{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}{phases}\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]})}
+
+\mbox{\Hypertarget{namespacedamping__models_a8f72bfbdb888e270533fbade792b0b10}\label{namespacedamping__models_a8f72bfbdb888e270533fbade792b0b10}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!lz\+\_\+min@{lz\+\_\+min}}
+\index{lz\+\_\+min@{lz\+\_\+min}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{lz\+\_\+min}{lz\_min}}
+{\footnotesize\ttfamily damping\+\_\+models.\+lz\+\_\+min = \hyperlink{namespacedamping__models_a3edfaa104202943bb10edcf075d710b1}{lz\+\_\+damping}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_acc8b27521b3535eb13b999bebdb2bc1a}\label{namespacedamping__models_acc8b27521b3535eb13b999bebdb2bc1a}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!Name@{Name}}
+\index{Name@{Name}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+Name = \mbox{[}\char`\"{}H\+II\char`\"{}, \char`\"{}W\+IM\char`\"{}, \char`\"{}W\+NM\char`\"{}, \char`\"{}C\+NM\char`\"{}, \char`\"{}DiM\char`\"{}, \char`\"{}DeM\char`\"{}, \char`\"{}DeC\char`\"{}\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_a70f7b31459ca4b1018560e17b17b9864}\label{namespacedamping__models_a70f7b31459ca4b1018560e17b17b9864}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!NE@{NE}}
+\index{NE@{NE}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{NE}{NE}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+NE = 10}
+
+\mbox{\Hypertarget{namespacedamping__models_a1037bc0fc2f77ff8f2c9191aa4063a5a}\label{namespacedamping__models_a1037bc0fc2f77ff8f2c9191aa4063a5a}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!pad\+\_\+inches@{pad\+\_\+inches}}
+\index{pad\+\_\+inches@{pad\+\_\+inches}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{pad\+\_\+inches}{pad\_inches}}
+{\footnotesize\ttfamily damping\+\_\+models.\+pad\+\_\+inches}
+
+\mbox{\Hypertarget{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}\label{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!phases@{phases}}
+\index{phases@{phases}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{phases}{phases}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+phases = \mbox{[}ism.\+H\+II, ism.\+W\+IM, ism.\+W\+NM, ism.\+C\+NM, ism.\+DiM, ism.\+DeM, ism.\+DeC\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_af6c1bce059c3e37933376e9c30e9524c}\label{namespacedamping__models_af6c1bce059c3e37933376e9c30e9524c}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!pos\+\_\+1@{pos\+\_\+1}}
+\index{pos\+\_\+1@{pos\+\_\+1}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{pos\+\_\+1}{pos\_1}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+pos\+\_\+1 = \mbox{[}0, 0, 1, 1, 2, 2, 3, 3\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_ac2eaf7fd8a5911f49de682dcbbc5d277}\label{namespacedamping__models_ac2eaf7fd8a5911f49de682dcbbc5d277}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!pos\+\_\+2@{pos\+\_\+2}}
+\index{pos\+\_\+2@{pos\+\_\+2}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{pos\+\_\+2}{pos\_2}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+pos\+\_\+2 = \mbox{[}0, 1, 0, 1, 0, 1, 0, 1\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_ad177f5fb45aa58d2c69cb5d37081fef9}\label{namespacedamping__models_ad177f5fb45aa58d2c69cb5d37081fef9}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!size\+\_\+x@{size\+\_\+x}}
+\index{size\+\_\+x@{size\+\_\+x}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{size\+\_\+x}{size\_x}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+size\+\_\+x = 4}
+
+\mbox{\Hypertarget{namespacedamping__models_adf075db45ffa06f4e7b0c911fe5a74fd}\label{namespacedamping__models_adf075db45ffa06f4e7b0c911fe5a74fd}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!size\+\_\+y@{size\+\_\+y}}
+\index{size\+\_\+y@{size\+\_\+y}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{size\+\_\+y}{size\_y}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+size\+\_\+y = 3}
+
+\mbox{\Hypertarget{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}\label{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!sub\+\_\+x@{sub\+\_\+x}}
+\index{sub\+\_\+x@{sub\+\_\+x}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{sub\+\_\+x}{sub\_x}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+sub\+\_\+x = 2}
+
+\mbox{\Hypertarget{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}\label{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!sub\+\_\+y@{sub\+\_\+y}}
+\index{sub\+\_\+y@{sub\+\_\+y}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{sub\+\_\+y}{sub\_y}}
+{\footnotesize\ttfamily int damping\+\_\+models.\+sub\+\_\+y = 4}
+
+\mbox{\Hypertarget{namespacedamping__models_a50ddbf7ffcd5d8045250e6f1ecff008f}\label{namespacedamping__models_a50ddbf7ffcd5d8045250e6f1ecff008f}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!w\+I\+\_\+\+Alfven@{w\+I\+\_\+\+Alfven}}
+\index{w\+I\+\_\+\+Alfven@{w\+I\+\_\+\+Alfven}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{w\+I\+\_\+\+Alfven}{wI\_Alfven}}
+{\footnotesize\ttfamily damping\+\_\+models.\+w\+I\+\_\+\+Alfven = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_a995cd265fb0e85f80ea7315aaf59377c}\label{namespacedamping__models_a995cd265fb0e85f80ea7315aaf59377c}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!w\+I\+\_\+\+Alfven\+\_\+o1@{w\+I\+\_\+\+Alfven\+\_\+o1}}
+\index{w\+I\+\_\+\+Alfven\+\_\+o1@{w\+I\+\_\+\+Alfven\+\_\+o1}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{w\+I\+\_\+\+Alfven\+\_\+o1}{wI\_Alfven\_o1}}
+{\footnotesize\ttfamily damping\+\_\+models.\+w\+I\+\_\+\+Alfven\+\_\+o1 = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_acf56ed3ac3c650d7aaf2fe6666ea686a}\label{namespacedamping__models_acf56ed3ac3c650d7aaf2fe6666ea686a}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!w\+I\+\_\+\+Alfven\+\_\+o2@{w\+I\+\_\+\+Alfven\+\_\+o2}}
+\index{w\+I\+\_\+\+Alfven\+\_\+o2@{w\+I\+\_\+\+Alfven\+\_\+o2}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{w\+I\+\_\+\+Alfven\+\_\+o2}{wI\_Alfven\_o2}}
+{\footnotesize\ttfamily damping\+\_\+models.\+w\+I\+\_\+\+Alfven\+\_\+o2 = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_a81a78db241fa300c2c28a7ef37f663bf}\label{namespacedamping__models_a81a78db241fa300c2c28a7ef37f663bf}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!w\+R\+\_\+\+Alfven@{w\+R\+\_\+\+Alfven}}
+\index{w\+R\+\_\+\+Alfven@{w\+R\+\_\+\+Alfven}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{w\+R\+\_\+\+Alfven}{wR\_Alfven}}
+{\footnotesize\ttfamily damping\+\_\+models.\+w\+R\+\_\+\+Alfven = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_aa74e5cbacc9be916070e413e4a0d70b6}\label{namespacedamping__models_aa74e5cbacc9be916070e413e4a0d70b6}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!w\+R\+\_\+\+Alfven\+\_\+o1@{w\+R\+\_\+\+Alfven\+\_\+o1}}
+\index{w\+R\+\_\+\+Alfven\+\_\+o1@{w\+R\+\_\+\+Alfven\+\_\+o1}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{w\+R\+\_\+\+Alfven\+\_\+o1}{wR\_Alfven\_o1}}
+{\footnotesize\ttfamily damping\+\_\+models.\+w\+R\+\_\+\+Alfven\+\_\+o1 = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_a55bb8154b458bbf5d6b1fcae3568f8b8}\label{namespacedamping__models_a55bb8154b458bbf5d6b1fcae3568f8b8}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!w\+R\+\_\+\+Alfven\+\_\+o2@{w\+R\+\_\+\+Alfven\+\_\+o2}}
+\index{w\+R\+\_\+\+Alfven\+\_\+o2@{w\+R\+\_\+\+Alfven\+\_\+o2}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{w\+R\+\_\+\+Alfven\+\_\+o2}{wR\_Alfven\_o2}}
+{\footnotesize\ttfamily damping\+\_\+models.\+w\+R\+\_\+\+Alfven\+\_\+o2 = np.\+zeros(len(\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{E}))}
+
+\mbox{\Hypertarget{namespacedamping__models_acd63ee5a1a54b1d0e77a0d1a6e67a46f}\label{namespacedamping__models_acd63ee5a1a54b1d0e77a0d1a6e67a46f}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!wspace@{wspace}}
+\index{wspace@{wspace}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{wspace}{wspace}}
+{\footnotesize\ttfamily damping\+\_\+models.\+wspace}
+
+\mbox{\Hypertarget{namespacedamping__models_a89e52e6ed35836d13426c69bfb74db59}\label{namespacedamping__models_a89e52e6ed35836d13426c69bfb74db59}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!x@{x}}
+\index{x@{x}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily damping\+\_\+models.\+x}
+
+\mbox{\Hypertarget{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}\label{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!xlim@{xlim}}
+\index{xlim@{xlim}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{xlim}{xlim}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+xlim = \mbox{[}\hyperlink{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}{Emin}/\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}, \hyperlink{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}{Emax}/\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_abef2252362cdfe34c1df04fa717aa9e0}\label{namespacedamping__models_abef2252362cdfe34c1df04fa717aa9e0}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!xlims@{xlims}}
+\index{xlims@{xlims}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{xlims}{xlims}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+xlims = \mbox{[}\hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}, \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{xlim}\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_a1492d9e1b4cd4f3bb6f57f6e7a892e08}\label{namespacedamping__models_a1492d9e1b4cd4f3bb6f57f6e7a892e08}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!y@{y}}
+\index{y@{y}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily damping\+\_\+models.\+y}
+
+\mbox{\Hypertarget{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}\label{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!ylim@{ylim}}
+\index{ylim@{ylim}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{ylim}{ylim}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+ylim = \mbox{[}1e-\/14, 1e-\/3\mbox{]}}
+
+\mbox{\Hypertarget{namespacedamping__models_a140012e721de3e711fa9d5f59d9d8b91}\label{namespacedamping__models_a140012e721de3e711fa9d5f59d9d8b91}} 
+\index{damping\+\_\+models@{damping\+\_\+models}!ylims@{ylims}}
+\index{ylims@{ylims}!damping\+\_\+models@{damping\+\_\+models}}
+\subsubsection{\texorpdfstring{ylims}{ylims}}
+{\footnotesize\ttfamily list damping\+\_\+models.\+ylims = \mbox{[}\hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}, \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{ylim}\mbox{]}}
+

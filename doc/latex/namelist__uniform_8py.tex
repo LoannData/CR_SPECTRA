@@ -1,0 +1,85 @@
+\hypertarget{namelist__uniform_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/fiducial\+\_\+tests/phases\+\_\+energy\+\_\+dependance/namelist\+\_\+uniform.py File Reference}
+\label{namelist__uniform_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/fiducial\+\_\+tests/phases\+\_\+energy\+\_\+dependance/namelist\+\_\+uniform.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/fiducial\+\_\+tests/phases\+\_\+energy\+\_\+dependance/namelist\+\_\+uniform.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacenamelist__uniform}{namelist\+\_\+uniform}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenamelist__uniform_aa800c838f509e9466ab83a769de6ed72}{namelist\+\_\+uniform.\+get\+VA} (E, phase)
+\item 
+def \hyperlink{namespacenamelist__uniform_aad345e2665220260c1a54980166d06af}{namelist\+\_\+uniform.\+get\+Damping} (E, phase)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacenamelist__uniform_a7e0c8639f67e462bf0f0ba9874d6965b}{namelist\+\_\+uniform.\+folder\+\_\+name} = \char`\"{}W\+NM-\/C\+NM-\/Di\+M\+\_\+all\+\_\+dependant\char`\"{}
+\begin{DoxyCompactList}\small\item\em O\+U\+T\+P\+UT F\+O\+L\+D\+ER C\+R\+E\+A\+T\+OR \#. \end{DoxyCompactList}\item 
+string \hyperlink{namespacenamelist__uniform_af7194a37a135451faa53df07d5d52c38}{namelist\+\_\+uniform.\+folder\+\_\+path} = \char`\"{}../../../../Work\+Folder/Fiducial\+\_\+tests\+\_\+for\+\_\+thesis\+\_\+2/\char`\"{}
+\item 
+string \hyperlink{namespacenamelist__uniform_a2e5ca55a46dfdae14714d691ada366aa}{namelist\+\_\+uniform.\+total\+\_\+path} = folder\+\_\+path+folder\+\_\+name
+\item 
+int \hyperlink{namespacenamelist__uniform_acac19d7f367bfd5436353d2252c045cc}{namelist\+\_\+uniform.\+NX} = 12
+\begin{DoxyCompactList}\small\item\em G\+R\+ID P\+A\+R\+A\+M\+E\+T\+E\+RS \#. \end{DoxyCompactList}\item 
+int \hyperlink{namespacenamelist__uniform_a9a7501e0271bf9c456a9be1b666c1018}{namelist\+\_\+uniform.\+NE} = 8
+\item 
+int \hyperlink{namespacenamelist__uniform_a7c7288ff312320da0dc2935e7c21279b}{namelist\+\_\+uniform.\+Xmin} = 0.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+int \hyperlink{namespacenamelist__uniform_a5a929208e654614b50cd847076017faf}{namelist\+\_\+uniform.\+Xmax} = 2000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+string \hyperlink{namespacenamelist__uniform_a1bc8692763d4f8bb07a80e0724b8add8}{namelist\+\_\+uniform.\+xgridtype} = \char`\"{}cartesian\char`\"{}
+\item 
+float \hyperlink{namespacenamelist__uniform_a32b39233fb12d5ffbaa3a950a1286f88}{namelist\+\_\+uniform.\+Emin} = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+float \hyperlink{namespacenamelist__uniform_aea587487093a8523b1e57e0eba597155}{namelist\+\_\+uniform.\+Emax} = 50.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}
+\item 
+string \hyperlink{namespacenamelist__uniform_a09d1021139053cd3ea6f5263f08b418a}{namelist\+\_\+uniform.\+egridtype} = \char`\"{}logspace\char`\"{}
+\item 
+int \hyperlink{namespacenamelist__uniform_a81530466fd9deb997c3202e5c8325938}{namelist\+\_\+uniform.\+box\+\_\+center} = 1000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+\hyperlink{namespacenamelist__uniform_ac57abe57ed039db9d3b98a9a732ae972}{namelist\+\_\+uniform.\+X} = grid.\+grid(Xmin, Xmax, 2$\ast$$\ast$NX, xgridtype, s\+\_\+center = box\+\_\+center)
+\item 
+\hyperlink{namespacenamelist__uniform_ae326a4c58a1bf2113624ca242b164c87}{namelist\+\_\+uniform.\+E} = grid.\+grid(\hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}, Emax, 2$\ast$$\ast$NE, egridtype)
+\item 
+bool \hyperlink{namespacenamelist__uniform_a822ee62cab9aacc90a5856de0df8d348}{namelist\+\_\+uniform.\+in\+\_\+damping} = True
+\begin{DoxyCompactList}\small\item\em O\+T\+H\+ER T\+E\+R\+MS \#. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacenamelist__uniform_abc4b9264ea677ba31f7971917e120c8b}{namelist\+\_\+uniform.\+lz\+\_\+damping} = True
+\item 
+bool \hyperlink{namespacenamelist__uniform_a44c42590c94f5a2b3cd6b5a399f630ba}{namelist\+\_\+uniform.\+nlld\+\_\+damping} = True
+\item 
+int \hyperlink{namespacenamelist__uniform_abb7a1f5c6d953b1c315d46f21c8b46a5}{namelist\+\_\+uniform.\+Pcr\+\_\+1\+GeV} = 1$\ast$\hyperlink{constants_8h_a87b385f118e3715860117a77eda7136d}{cst.\+eV}
+\item 
+int \hyperlink{namespacenamelist__uniform_a7bbc46f7d53cc0d4c7aab507cd755aef}{namelist\+\_\+uniform.\+Pe\+\_\+1\+GeV} = 1e-\/2$\ast$cst.\+eV
+\item 
+string \hyperlink{namespacenamelist__uniform_a7b9bf9d4ef60bf8a3e3d9872c1229e10}{namelist\+\_\+uniform.\+bdiff\+\_\+model} = \char`\"{}I\+S\+M\+\_\+dependant\char`\"{}
+\item 
+list \hyperlink{namespacenamelist__uniform_af1285b6f4d49dc05ff5114a84c87ea03}{namelist\+\_\+uniform.\+phases} = \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em I\+SM S\+T\+R\+U\+C\+T\+U\+RE \#. \end{DoxyCompactList}\item 
+list \hyperlink{namespacenamelist__uniform_a04941e0b287d9299562191015a5d566c}{namelist\+\_\+uniform.\+smooth\+\_\+width\+\_\+transition} = \mbox{[}10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}\mbox{]}
+\item 
+\hyperlink{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}{namelist\+\_\+uniform.\+T}
+\item 
+\hyperlink{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}{namelist\+\_\+uniform.\+B}
+\item 
+\hyperlink{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}{namelist\+\_\+uniform.\+ni}
+\item 
+\hyperlink{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}{namelist\+\_\+uniform.\+nn}
+\item 
+\hyperlink{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}{namelist\+\_\+uniform.\+nt}
+\item 
+\hyperlink{namespacenamelist__uniform_a48241844a7bc005dc5c89b8d45c53246}{namelist\+\_\+uniform.\+Xi}
+\item 
+\hyperlink{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}{namelist\+\_\+uniform.\+mi}
+\item 
+\hyperlink{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}{namelist\+\_\+uniform.\+mn}
+\item 
+\hyperlink{namespacenamelist__uniform_a2da183365c60c169afce9cf3b47d7d9b}{namelist\+\_\+uniform.\+va}
+\item 
+\hyperlink{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}{namelist\+\_\+uniform.\+gamma\+\_\+in}
+\item 
+\hyperlink{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}{namelist\+\_\+uniform.\+gamma\+\_\+lz}
+\item 
+\hyperlink{namespacenamelist__uniform_a51756e043c27348b4756d687c404e6ec}{namelist\+\_\+uniform.\+ism\+\_\+values} = dict(\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T}=\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T}, B=B, \hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}=\hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}, nn=nn, \hyperlink{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}{nt}=\hyperlink{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}{nt}, X=\hyperlink{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}{Xi}, mi=mi, \hyperlink{constants_8h_affd3595ea3bf442893a3dc5bf568a663}{mn}=\hyperlink{constants_8h_affd3595ea3bf442893a3dc5bf568a663}{mn}, VA=va, gamma\+\_\+in = gamma\+\_\+in, gamma\+\_\+lz = gamma\+\_\+lz)
+\end{DoxyCompactItemize}

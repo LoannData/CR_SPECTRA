@@ -1,0 +1,143 @@
+\hypertarget{background__diffusion__coefficient__3_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/background\+\_\+diffusion\+\_\+coefficient\+\_\+3.py File Reference}
+\label{background__diffusion__coefficient__3_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacebackground__diffusion__coefficient__3}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__3_a8e2bcb655f88d8c1ad88bf28a6804b4c}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+Ion\+Neutral\+\_\+\+Damping} (k, medium\+\_\+props, nu\+\_\+n=0, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta}=0)
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__3_a669678cc75709e848975fe28609ced79}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+Duu\+\_\+\+Alfven\+\_\+\+Slab\+\_\+\+Linear\+\_\+\+Undamped} (mu, E, medium\+\_\+props, mass=\hyperlink{constants_8h_a6b331c08a80ed71d31c55a3341776483}{cst.\+mp}, kmin=1e-\/20, q=1.\+5, I=1e-\/4)
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__3_a6fb6ea45313c3886a4b1d0d34fff498d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+Kappa\+\_\+zz} (E, medium\+\_\+props, mass=\hyperlink{constants_8h_a6b331c08a80ed71d31c55a3341776483}{cst.\+mp}, kmin=1e-\/20, q=5./3, I=1e28)
+\item 
+def \hyperlink{namespacebackground__diffusion__coefficient__3_a10fb81ef6f3b3cf86b94cf348e5a2c4e}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+kappa\+\_\+zz\+\_\+\+BC} (E, d00, \hyperlink{constants_8h_a80a3c65c6b77216165fc34c12d0744e9}{delta})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{namespacebackground__diffusion__coefficient__3_ab51b568cd0e34bfbe59b692ecb3e3667}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+Emin} = 0.\+1$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_a8273e2d06df5fcd3db6a1de59b50e3a9}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+Emax} = 100$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a1058d24f7b8074e2f1e48e5031b4ceac}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+E} = np.\+logspace(np.\+log10(\hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}), np.\+log10(Emax), 100)
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ae1312d0a3791d0f35be1d7f174601160}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+bc\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a630a25a9df27c429405fb934654ac2ea}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+bc\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a50badc6bd8f7a6e2d70cda6e97a4ba65}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ae41dbcb564ddbed39dc8145fe8851ac8}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a02bfb806fa29d868b84995fc6c47d2a0}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+H\+I\+I\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_aec37e66ecf49c104aafd44a1f0380e87}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+W\+I\+M\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a237562855f946d83e028b14794e597f5}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+W\+N\+M\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a1560fc80f1dd278bdd6aa3d107af8f7d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+C\+N\+M\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_aabb6753f0ff068946d9028bbd4ac2982}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+Di\+M\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ad12a7cb9d11749405cd480b49f645d60}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+De\+M\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a4886d413ce7cf4860b6b061f9024566e}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+De\+C\+\_\+1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ae1a9c9e65039166278b802acb98f0a30}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+H\+I\+I\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_aa429d447c60387eb8b432254aa8b6f7f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+W\+I\+M\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a5f1c990f9433f5b5d45f46fc290f606f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+W\+N\+M\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a5aa9a539e08b72364b5938d1e60747a5}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+C\+N\+M\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ab256b68071602bc9bb1ab6099b6089aa}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+Di\+M\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a0c29004aeade9b554c931c66992e4e8f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+De\+M\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a972b8349299ec41693ddb6b70bc0f44e}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+K\+\_\+zz\+\_\+\+De\+C\+\_\+2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a6440cb0f0f275d6f00a613b1dd053f17}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+H\+II}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a371923684d4677ca28f5b051f0a53350}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+mass}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a55dbeca220ce89e9c957345a7e1b666d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+mp}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a044fed0ffa9bb1f8e2e56a47d011c6c4}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+kmin}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ad80a2cd44fd33cd1bff997e78975d416}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+q}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ae8e911c56735382f22cc25b5749e51fe}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+I}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ac6e44d6d5355ed4c2e5921dd2d2d7318}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+W\+IM}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a05c581528fa69f77cd07a18178a712e5}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+W\+NM}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ae8e209511c4edf382b7f11cf7b9438e3}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+C\+NM}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ad64879cccdde28f73214a51cc504438f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+DiM}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_aa4d67c403e028a89037cd4848f7f325f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+DeM}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_aada1cc0a9036b4408f4cbe87dd949bf8}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+DeC}
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_aa496de627bc7ba32809e91931743db41}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+size\+\_\+x} = 4
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_a06682c3c075d82efb8cd5a23c13222b0}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+size\+\_\+y} = 3
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_a62e8135e741ff9c9842eb5404a128a14}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+sub\+\_\+x} = 2
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_a3ab25d79e76e2bd1e87fec0b12065115}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+sub\+\_\+y} = 2
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a345c6968f6e40b8d3876e2ef18eb6aad}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+fig} = plt.\+figure(figsize=(size\+\_\+x$\ast$sub\+\_\+x,size\+\_\+y$\ast$sub\+\_\+y))
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a30d6f837e781a9234441d0aafd73f9b6}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+gs} = gridspec.\+Grid\+Spec(ncols= sub\+\_\+x, nrows = sub\+\_\+y, figure = fig )
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_af762266bdb9a1abd5bcc558de75845c6}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+wspace}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_aefcba440eaa69b2607c11262f44c099e}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+hspace}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_adb5d0453900011b0e2ecb97b348df19d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ax0} = fig.\+add\+\_\+subplot(gs\mbox{[}0, 0\mbox{]})
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a7558be3411c500a689c600ae94f9d7ee}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+GeV}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a696b33c91f8ef538604e802685230978}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+c}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a9155a5557c64b558e5c812772663c188}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ls}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a1e43c7616863246c05b41a8065357a19}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+facecolor}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a73c0c5f5d27a05d2a555648f133a700b}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+alpha}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_ac41144e3ce4614f45c93e3b4a98a8d73}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+hatch}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a10319c6978ce41f45752f9c776ed050d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+label}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_af26d446f133e4b8931f003f735e3c3e3}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+loc}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_adc13b39c8743dea61505ab163ba38fa0}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ax1} = fig.\+add\+\_\+subplot(gs\mbox{[}0, 1\mbox{]})
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a8bdd45bd3bd75997ffa3f5929e17a7a7}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ax2} = fig.\+add\+\_\+subplot(gs\mbox{[}1, 0\mbox{]})
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a0b240a1a13756a0da7251e08b60af9c2}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ax3} = fig.\+add\+\_\+subplot(gs\mbox{[}1, 1\mbox{]})
+\item 
+list \hyperlink{namespacebackground__diffusion__coefficient__3_af5956828bf8e1c28127f04da268b44b8}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+custom\+\_\+lines}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a5b7c74b56d0544784b8d8625db748620}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+handles}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a472fe15de9c27795f3d9429498bc404e}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+bbox\+\_\+to\+\_\+anchor}
+\item 
+\hyperlink{namespacebackground__diffusion__coefficient__3_a8d05ccdf3c8931996883b6e2079d0a02}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ncol}
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_a90c13b1510ed875ece6b668c7173135a}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ymin} = 1e27
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_a903004d597e6f30941334294e5bf586d}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+ymax} = 1e33
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_af8fdaefbcc5da7b51b741de49bbf120f}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+xmin} = 1e-\/1
+\item 
+int \hyperlink{namespacebackground__diffusion__coefficient__3_add8078a6d3997995ac35f33950dee836}{background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+xmax} = 1e5
+\end{DoxyCompactItemize}

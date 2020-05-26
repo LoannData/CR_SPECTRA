@@ -1,0 +1,318 @@
+\hypertarget{namespacenamelist__uniform}{}\section{namelist\+\_\+uniform Namespace Reference}
+\label{namespacenamelist__uniform}\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenamelist__uniform_aa800c838f509e9466ab83a769de6ed72}{get\+VA} (\hyperlink{namespacenamelist__uniform_ae326a4c58a1bf2113624ca242b164c87}{E}, phase)
+\item 
+def \hyperlink{namespacenamelist__uniform_aad345e2665220260c1a54980166d06af}{get\+Damping} (\hyperlink{namespacenamelist__uniform_ae326a4c58a1bf2113624ca242b164c87}{E}, phase)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacenamelist__uniform_a7e0c8639f67e462bf0f0ba9874d6965b}{folder\+\_\+name} = \char`\"{}W\+NM-\/C\+NM-\/Di\+M\+\_\+all\+\_\+dependant\char`\"{}
+\begin{DoxyCompactList}\small\item\em O\+U\+T\+P\+UT F\+O\+L\+D\+ER C\+R\+E\+A\+T\+OR \#. \end{DoxyCompactList}\item 
+string \hyperlink{namespacenamelist__uniform_af7194a37a135451faa53df07d5d52c38}{folder\+\_\+path} = \char`\"{}../../../../Work\+Folder/Fiducial\+\_\+tests\+\_\+for\+\_\+thesis\+\_\+2/\char`\"{}
+\item 
+string \hyperlink{namespacenamelist__uniform_a2e5ca55a46dfdae14714d691ada366aa}{total\+\_\+path} = \hyperlink{namespacenamelist__uniform_af7194a37a135451faa53df07d5d52c38}{folder\+\_\+path}+\hyperlink{namespacenamelist__uniform_a7e0c8639f67e462bf0f0ba9874d6965b}{folder\+\_\+name}
+\item 
+int \hyperlink{namespacenamelist__uniform_acac19d7f367bfd5436353d2252c045cc}{NX} = 12
+\begin{DoxyCompactList}\small\item\em G\+R\+ID P\+A\+R\+A\+M\+E\+T\+E\+RS \#. \end{DoxyCompactList}\item 
+int \hyperlink{namespacenamelist__uniform_a9a7501e0271bf9c456a9be1b666c1018}{NE} = 8
+\item 
+int \hyperlink{namespacenamelist__uniform_a7c7288ff312320da0dc2935e7c21279b}{Xmin} = 0.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+int \hyperlink{namespacenamelist__uniform_a5a929208e654614b50cd847076017faf}{Xmax} = 2000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+string \hyperlink{namespacenamelist__uniform_a1bc8692763d4f8bb07a80e0724b8add8}{xgridtype} = \char`\"{}cartesian\char`\"{}
+\item 
+float \hyperlink{namespacenamelist__uniform_a32b39233fb12d5ffbaa3a950a1286f88}{Emin} = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+float \hyperlink{namespacenamelist__uniform_aea587487093a8523b1e57e0eba597155}{Emax} = 50.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}
+\item 
+string \hyperlink{namespacenamelist__uniform_a09d1021139053cd3ea6f5263f08b418a}{egridtype} = \char`\"{}logspace\char`\"{}
+\item 
+int \hyperlink{namespacenamelist__uniform_a81530466fd9deb997c3202e5c8325938}{box\+\_\+center} = 1000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+\hyperlink{namespacenamelist__uniform_ac57abe57ed039db9d3b98a9a732ae972}{X} = grid.\+grid(\hyperlink{namespacenamelist__uniform_a7c7288ff312320da0dc2935e7c21279b}{Xmin}, \hyperlink{namespacenamelist__uniform_a5a929208e654614b50cd847076017faf}{Xmax}, 2$\ast$$\ast$\hyperlink{namespacenamelist__uniform_acac19d7f367bfd5436353d2252c045cc}{NX}, \hyperlink{namespacenamelist__uniform_a1bc8692763d4f8bb07a80e0724b8add8}{xgridtype}, s\+\_\+center = \hyperlink{namespacenamelist__uniform_a81530466fd9deb997c3202e5c8325938}{box\+\_\+center})
+\item 
+\hyperlink{namespacenamelist__uniform_ae326a4c58a1bf2113624ca242b164c87}{E} = grid.\+grid(\hyperlink{namespacenamelist__uniform_a32b39233fb12d5ffbaa3a950a1286f88}{Emin}, \hyperlink{namespacenamelist__uniform_aea587487093a8523b1e57e0eba597155}{Emax}, 2$\ast$$\ast$\hyperlink{namespacenamelist__uniform_a9a7501e0271bf9c456a9be1b666c1018}{NE}, \hyperlink{namespacenamelist__uniform_a09d1021139053cd3ea6f5263f08b418a}{egridtype})
+\item 
+bool \hyperlink{namespacenamelist__uniform_a822ee62cab9aacc90a5856de0df8d348}{in\+\_\+damping} = True
+\begin{DoxyCompactList}\small\item\em O\+T\+H\+ER T\+E\+R\+MS \#. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacenamelist__uniform_abc4b9264ea677ba31f7971917e120c8b}{lz\+\_\+damping} = True
+\item 
+bool \hyperlink{namespacenamelist__uniform_a44c42590c94f5a2b3cd6b5a399f630ba}{nlld\+\_\+damping} = True
+\item 
+int \hyperlink{namespacenamelist__uniform_abb7a1f5c6d953b1c315d46f21c8b46a5}{Pcr\+\_\+1\+GeV} = 1$\ast$\hyperlink{constants_8h_a87b385f118e3715860117a77eda7136d}{cst.\+eV}
+\item 
+int \hyperlink{namespacenamelist__uniform_a7bbc46f7d53cc0d4c7aab507cd755aef}{Pe\+\_\+1\+GeV} = 1e-\/2$\ast$cst.\+eV
+\item 
+string \hyperlink{namespacenamelist__uniform_a7b9bf9d4ef60bf8a3e3d9872c1229e10}{bdiff\+\_\+model} = \char`\"{}I\+S\+M\+\_\+dependant\char`\"{}
+\item 
+list \hyperlink{namespacenamelist__uniform_af1285b6f4d49dc05ff5114a84c87ea03}{phases} = \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em I\+SM S\+T\+R\+U\+C\+T\+U\+RE \#. \end{DoxyCompactList}\item 
+list \hyperlink{namespacenamelist__uniform_a04941e0b287d9299562191015a5d566c}{smooth\+\_\+width\+\_\+transition} = \mbox{[}10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}\mbox{]}
+\item 
+\hyperlink{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}{T}
+\item 
+\hyperlink{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}{B}
+\item 
+\hyperlink{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}{ni}
+\item 
+\hyperlink{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}{nn}
+\item 
+\hyperlink{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}{nt}
+\item 
+\hyperlink{namespacenamelist__uniform_a48241844a7bc005dc5c89b8d45c53246}{Xi}
+\item 
+\hyperlink{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}{mi}
+\item 
+\hyperlink{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}{mn}
+\item 
+\hyperlink{namespacenamelist__uniform_a2da183365c60c169afce9cf3b47d7d9b}{va}
+\item 
+\hyperlink{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}{gamma\+\_\+in}
+\item 
+\hyperlink{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}{gamma\+\_\+lz}
+\item 
+\hyperlink{namespacenamelist__uniform_a51756e043c27348b4756d687c404e6ec}{ism\+\_\+values} = dict(\hyperlink{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}{T}=\hyperlink{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}{T}, \hyperlink{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}{B}=\hyperlink{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}{B}, \hyperlink{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}{ni}=\hyperlink{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}{ni}, \hyperlink{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}{nn}=\hyperlink{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}{nn}, \hyperlink{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}{nt}=\hyperlink{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}{nt}, \hyperlink{namespacenamelist__uniform_ac57abe57ed039db9d3b98a9a732ae972}{X}=\hyperlink{namespacenamelist__uniform_a48241844a7bc005dc5c89b8d45c53246}{Xi}, \hyperlink{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}{mi}=\hyperlink{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}{mi}, \hyperlink{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}{mn}=\hyperlink{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}{mn}, VA=\hyperlink{namespacenamelist__uniform_a2da183365c60c169afce9cf3b47d7d9b}{va}, \hyperlink{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}{gamma\+\_\+in} = \hyperlink{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}{gamma\+\_\+in}, \hyperlink{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}{gamma\+\_\+lz} = \hyperlink{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}{gamma\+\_\+lz})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacenamelist__uniform_aad345e2665220260c1a54980166d06af}\label{namespacenamelist__uniform_aad345e2665220260c1a54980166d06af}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!get\+Damping@{get\+Damping}}
+\index{get\+Damping@{get\+Damping}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{get\+Damping()}{getDamping()}}
+{\footnotesize\ttfamily def namelist\+\_\+uniform.\+get\+Damping (\begin{DoxyParamCaption}\item[{}]{E,  }\item[{}]{phase }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_aa800c838f509e9466ab83a769de6ed72}\label{namespacenamelist__uniform_aa800c838f509e9466ab83a769de6ed72}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!get\+VA@{get\+VA}}
+\index{get\+VA@{get\+VA}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{get\+V\+A()}{getVA()}}
+{\footnotesize\ttfamily def namelist\+\_\+uniform.\+get\+VA (\begin{DoxyParamCaption}\item[{}]{E,  }\item[{}]{phase }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}\label{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!B@{B}}
+\index{B@{B}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{B}{B}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+B}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a7b9bf9d4ef60bf8a3e3d9872c1229e10}\label{namespacenamelist__uniform_a7b9bf9d4ef60bf8a3e3d9872c1229e10}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!bdiff\+\_\+model@{bdiff\+\_\+model}}
+\index{bdiff\+\_\+model@{bdiff\+\_\+model}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{bdiff\+\_\+model}{bdiff\_model}}
+{\footnotesize\ttfamily string namelist\+\_\+uniform.\+bdiff\+\_\+model = \char`\"{}I\+S\+M\+\_\+dependant\char`\"{}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a81530466fd9deb997c3202e5c8325938}\label{namespacenamelist__uniform_a81530466fd9deb997c3202e5c8325938}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!box\+\_\+center@{box\+\_\+center}}
+\index{box\+\_\+center@{box\+\_\+center}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{box\+\_\+center}{box\_center}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+box\+\_\+center = 1000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_ae326a4c58a1bf2113624ca242b164c87}\label{namespacenamelist__uniform_ae326a4c58a1bf2113624ca242b164c87}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!E@{E}}
+\index{E@{E}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+E = grid.\+grid(\hyperlink{namespacenamelist__uniform_a32b39233fb12d5ffbaa3a950a1286f88}{Emin}, \hyperlink{namespacenamelist__uniform_aea587487093a8523b1e57e0eba597155}{Emax}, 2$\ast$$\ast$\hyperlink{namespacenamelist__uniform_a9a7501e0271bf9c456a9be1b666c1018}{NE}, \hyperlink{namespacenamelist__uniform_a09d1021139053cd3ea6f5263f08b418a}{egridtype})}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a09d1021139053cd3ea6f5263f08b418a}\label{namespacenamelist__uniform_a09d1021139053cd3ea6f5263f08b418a}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!egridtype@{egridtype}}
+\index{egridtype@{egridtype}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{egridtype}{egridtype}}
+{\footnotesize\ttfamily string namelist\+\_\+uniform.\+egridtype = \char`\"{}logspace\char`\"{}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_aea587487093a8523b1e57e0eba597155}\label{namespacenamelist__uniform_aea587487093a8523b1e57e0eba597155}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Emax@{Emax}}
+\index{Emax@{Emax}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Emax}{Emax}}
+{\footnotesize\ttfamily float namelist\+\_\+uniform.\+Emax = 50.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a32b39233fb12d5ffbaa3a950a1286f88}\label{namespacenamelist__uniform_a32b39233fb12d5ffbaa3a950a1286f88}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Emin@{Emin}}
+\index{Emin@{Emin}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Emin}{Emin}}
+{\footnotesize\ttfamily float namelist\+\_\+uniform.\+Emin = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a7e0c8639f67e462bf0f0ba9874d6965b}\label{namespacenamelist__uniform_a7e0c8639f67e462bf0f0ba9874d6965b}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!folder\+\_\+name@{folder\+\_\+name}}
+\index{folder\+\_\+name@{folder\+\_\+name}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{folder\+\_\+name}{folder\_name}}
+{\footnotesize\ttfamily string namelist\+\_\+uniform.\+folder\+\_\+name = \char`\"{}W\+NM-\/C\+NM-\/Di\+M\+\_\+all\+\_\+dependant\char`\"{}}
+
+
+
+O\+U\+T\+P\+UT F\+O\+L\+D\+ER C\+R\+E\+A\+T\+OR \#. 
+
+Relative position of the ouput folder \mbox{\Hypertarget{namespacenamelist__uniform_af7194a37a135451faa53df07d5d52c38}\label{namespacenamelist__uniform_af7194a37a135451faa53df07d5d52c38}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!folder\+\_\+path@{folder\+\_\+path}}
+\index{folder\+\_\+path@{folder\+\_\+path}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{folder\+\_\+path}{folder\_path}}
+{\footnotesize\ttfamily string namelist\+\_\+uniform.\+folder\+\_\+path = \char`\"{}../../../../Work\+Folder/Fiducial\+\_\+tests\+\_\+for\+\_\+thesis\+\_\+2/\char`\"{}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}\label{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!gamma\+\_\+in@{gamma\+\_\+in}}
+\index{gamma\+\_\+in@{gamma\+\_\+in}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{gamma\+\_\+in}{gamma\_in}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+gamma\+\_\+in}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}\label{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!gamma\+\_\+lz@{gamma\+\_\+lz}}
+\index{gamma\+\_\+lz@{gamma\+\_\+lz}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{gamma\+\_\+lz}{gamma\_lz}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+gamma\+\_\+lz}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a822ee62cab9aacc90a5856de0df8d348}\label{namespacenamelist__uniform_a822ee62cab9aacc90a5856de0df8d348}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!in\+\_\+damping@{in\+\_\+damping}}
+\index{in\+\_\+damping@{in\+\_\+damping}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{in\+\_\+damping}{in\_damping}}
+{\footnotesize\ttfamily bool namelist\+\_\+uniform.\+in\+\_\+damping = True}
+
+
+
+O\+T\+H\+ER T\+E\+R\+MS \#. 
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a51756e043c27348b4756d687c404e6ec}\label{namespacenamelist__uniform_a51756e043c27348b4756d687c404e6ec}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!ism\+\_\+values@{ism\+\_\+values}}
+\index{ism\+\_\+values@{ism\+\_\+values}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{ism\+\_\+values}{ism\_values}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+ism\+\_\+values = dict(\hyperlink{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}{T}=\hyperlink{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}{T}, \hyperlink{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}{B}=\hyperlink{namespacenamelist__uniform_ae1690f9a9b42d7e25dcaf55bc0cf3740}{B}, \hyperlink{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}{ni}=\hyperlink{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}{ni}, \hyperlink{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}{nn}=\hyperlink{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}{nn}, \hyperlink{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}{nt}=\hyperlink{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}{nt}, \hyperlink{namespacenamelist__uniform_ac57abe57ed039db9d3b98a9a732ae972}{X}=\hyperlink{namespacenamelist__uniform_a48241844a7bc005dc5c89b8d45c53246}{Xi}, \hyperlink{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}{mi}=\hyperlink{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}{mi}, \hyperlink{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}{mn}=\hyperlink{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}{mn}, VA=\hyperlink{namespacenamelist__uniform_a2da183365c60c169afce9cf3b47d7d9b}{va}, \hyperlink{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}{gamma\+\_\+in} = \hyperlink{namespacenamelist__uniform_a425da3c0d76b3fa25d85e1160319346f}{gamma\+\_\+in}, \hyperlink{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}{gamma\+\_\+lz} = \hyperlink{namespacenamelist__uniform_a4b63d21ea7738d582a08105f52f40def}{gamma\+\_\+lz})}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_abc4b9264ea677ba31f7971917e120c8b}\label{namespacenamelist__uniform_abc4b9264ea677ba31f7971917e120c8b}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!lz\+\_\+damping@{lz\+\_\+damping}}
+\index{lz\+\_\+damping@{lz\+\_\+damping}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{lz\+\_\+damping}{lz\_damping}}
+{\footnotesize\ttfamily bool namelist\+\_\+uniform.\+lz\+\_\+damping = True}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}\label{namespacenamelist__uniform_a7972f9ba50f29023481fb7b0f3f10646}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!mi@{mi}}
+\index{mi@{mi}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{mi}{mi}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+mi}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}\label{namespacenamelist__uniform_a5fe816528182a7927c9158e29b3378eb}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!mn@{mn}}
+\index{mn@{mn}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{mn}{mn}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+mn}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a9a7501e0271bf9c456a9be1b666c1018}\label{namespacenamelist__uniform_a9a7501e0271bf9c456a9be1b666c1018}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!NE@{NE}}
+\index{NE@{NE}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{NE}{NE}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+NE = 8}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}\label{namespacenamelist__uniform_abee7e57b358b8573c75388c12f8861de}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!ni@{ni}}
+\index{ni@{ni}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{ni}{ni}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+ni}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a44c42590c94f5a2b3cd6b5a399f630ba}\label{namespacenamelist__uniform_a44c42590c94f5a2b3cd6b5a399f630ba}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!nlld\+\_\+damping@{nlld\+\_\+damping}}
+\index{nlld\+\_\+damping@{nlld\+\_\+damping}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{nlld\+\_\+damping}{nlld\_damping}}
+{\footnotesize\ttfamily bool namelist\+\_\+uniform.\+nlld\+\_\+damping = True}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}\label{namespacenamelist__uniform_ac96703fb06a806a505e4c0806c6c0b90}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!nn@{nn}}
+\index{nn@{nn}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{nn}{nn}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+nn}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}\label{namespacenamelist__uniform_a198cbd74a3e91796f8f3cbd9fdb199f1}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!nt@{nt}}
+\index{nt@{nt}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{nt}{nt}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+nt}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_acac19d7f367bfd5436353d2252c045cc}\label{namespacenamelist__uniform_acac19d7f367bfd5436353d2252c045cc}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!NX@{NX}}
+\index{NX@{NX}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{NX}{NX}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+NX = 12}
+
+
+
+G\+R\+ID P\+A\+R\+A\+M\+E\+T\+E\+RS \#. 
+
+\mbox{\Hypertarget{namespacenamelist__uniform_abb7a1f5c6d953b1c315d46f21c8b46a5}\label{namespacenamelist__uniform_abb7a1f5c6d953b1c315d46f21c8b46a5}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Pcr\+\_\+1\+GeV@{Pcr\+\_\+1\+GeV}}
+\index{Pcr\+\_\+1\+GeV@{Pcr\+\_\+1\+GeV}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Pcr\+\_\+1\+GeV}{Pcr\_1GeV}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+Pcr\+\_\+1\+GeV = 1$\ast$\hyperlink{constants_8h_a87b385f118e3715860117a77eda7136d}{cst.\+eV}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a7bbc46f7d53cc0d4c7aab507cd755aef}\label{namespacenamelist__uniform_a7bbc46f7d53cc0d4c7aab507cd755aef}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Pe\+\_\+1\+GeV@{Pe\+\_\+1\+GeV}}
+\index{Pe\+\_\+1\+GeV@{Pe\+\_\+1\+GeV}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Pe\+\_\+1\+GeV}{Pe\_1GeV}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+Pe\+\_\+1\+GeV = 1e-\/2$\ast$cst.\+eV}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_af1285b6f4d49dc05ff5114a84c87ea03}\label{namespacenamelist__uniform_af1285b6f4d49dc05ff5114a84c87ea03}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!phases@{phases}}
+\index{phases@{phases}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{phases}{phases}}
+{\footnotesize\ttfamily list namelist\+\_\+uniform.\+phases = \mbox{[}$\,$\mbox{]}}
+
+
+
+I\+SM S\+T\+R\+U\+C\+T\+U\+RE \#. 
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a04941e0b287d9299562191015a5d566c}\label{namespacenamelist__uniform_a04941e0b287d9299562191015a5d566c}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!smooth\+\_\+width\+\_\+transition@{smooth\+\_\+width\+\_\+transition}}
+\index{smooth\+\_\+width\+\_\+transition@{smooth\+\_\+width\+\_\+transition}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{smooth\+\_\+width\+\_\+transition}{smooth\_width\_transition}}
+{\footnotesize\ttfamily list namelist\+\_\+uniform.\+smooth\+\_\+width\+\_\+transition = \mbox{[}10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}\mbox{]}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}\label{namespacenamelist__uniform_a6a573063926a6f17cbb2b3a31c43d4b9}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!T@{T}}
+\index{T@{T}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+T}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a2e5ca55a46dfdae14714d691ada366aa}\label{namespacenamelist__uniform_a2e5ca55a46dfdae14714d691ada366aa}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!total\+\_\+path@{total\+\_\+path}}
+\index{total\+\_\+path@{total\+\_\+path}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{total\+\_\+path}{total\_path}}
+{\footnotesize\ttfamily string namelist\+\_\+uniform.\+total\+\_\+path = \hyperlink{namespacenamelist__uniform_af7194a37a135451faa53df07d5d52c38}{folder\+\_\+path}+\hyperlink{namespacenamelist__uniform_a7e0c8639f67e462bf0f0ba9874d6965b}{folder\+\_\+name}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a2da183365c60c169afce9cf3b47d7d9b}\label{namespacenamelist__uniform_a2da183365c60c169afce9cf3b47d7d9b}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!va@{va}}
+\index{va@{va}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{va}{va}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+va}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_ac57abe57ed039db9d3b98a9a732ae972}\label{namespacenamelist__uniform_ac57abe57ed039db9d3b98a9a732ae972}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!X@{X}}
+\index{X@{X}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+X = grid.\+grid(\hyperlink{namespacenamelist__uniform_a7c7288ff312320da0dc2935e7c21279b}{Xmin}, \hyperlink{namespacenamelist__uniform_a5a929208e654614b50cd847076017faf}{Xmax}, 2$\ast$$\ast$\hyperlink{namespacenamelist__uniform_acac19d7f367bfd5436353d2252c045cc}{NX}, \hyperlink{namespacenamelist__uniform_a1bc8692763d4f8bb07a80e0724b8add8}{xgridtype}, s\+\_\+center = \hyperlink{namespacenamelist__uniform_a81530466fd9deb997c3202e5c8325938}{box\+\_\+center})}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a1bc8692763d4f8bb07a80e0724b8add8}\label{namespacenamelist__uniform_a1bc8692763d4f8bb07a80e0724b8add8}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!xgridtype@{xgridtype}}
+\index{xgridtype@{xgridtype}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{xgridtype}{xgridtype}}
+{\footnotesize\ttfamily string namelist\+\_\+uniform.\+xgridtype = \char`\"{}cartesian\char`\"{}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a48241844a7bc005dc5c89b8d45c53246}\label{namespacenamelist__uniform_a48241844a7bc005dc5c89b8d45c53246}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Xi@{Xi}}
+\index{Xi@{Xi}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Xi}{Xi}}
+{\footnotesize\ttfamily namelist\+\_\+uniform.\+Xi}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a5a929208e654614b50cd847076017faf}\label{namespacenamelist__uniform_a5a929208e654614b50cd847076017faf}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Xmax@{Xmax}}
+\index{Xmax@{Xmax}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Xmax}{Xmax}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+Xmax = 2000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}}
+
+\mbox{\Hypertarget{namespacenamelist__uniform_a7c7288ff312320da0dc2935e7c21279b}\label{namespacenamelist__uniform_a7c7288ff312320da0dc2935e7c21279b}} 
+\index{namelist\+\_\+uniform@{namelist\+\_\+uniform}!Xmin@{Xmin}}
+\index{Xmin@{Xmin}!namelist\+\_\+uniform@{namelist\+\_\+uniform}}
+\subsubsection{\texorpdfstring{Xmin}{Xmin}}
+{\footnotesize\ttfamily int namelist\+\_\+uniform.\+Xmin = 0.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}}
+

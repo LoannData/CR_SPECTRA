@@ -1,0 +1,459 @@
+\hypertarget{namespaceEscapeModel__protons__2}{}\section{Escape\+Model\+\_\+protons\+\_\+2 Namespace Reference}
+\label{namespaceEscapeModel__protons__2}\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a9d3379a69c7cfe7ef8d12d0d52b0edd6}{Inverse\+Trigonal\+Matrix} (\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\begin{DoxyCompactList}\small\item\em F\+U\+N\+C\+T\+I\+O\+NS IN O\+R\+D\+ER TO C\+R\+E\+A\+TE A G\+O\+OD S\+P\+L\+I\+NE !!! \#. \end{DoxyCompactList}\item 
+def \hyperlink{namespaceEscapeModel__protons__2_af2c1a57e2b58836b87a7c56cd8b100a9}{Product\+Matrix} (A, B)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a5364279f193fc63c2f20968bd3322b52}{Interpolating\+Spline} (X, Y)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a165a26137bf291cb3a220e21a0f48877}{f1} (x, const)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a3695abc72640f6a458d751cc44acc396}{df1dx} (x, const)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_aa6d6431275aed36f04a8441ba02fb152}{f2} (x, const)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a8236938c2501dfeddd9271efecae3099}{df2dx} (x, const)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a66f1688735ed11dbc2dd586615209185}{Newton\+Raphson} (f, df, x0, eps, const)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR} (phase, size=100)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_ab063f6fe6b6f0c05c29dc04cef8b32be}{Gettesc} (E, \hyperlink{namespaceEscapeModel__protons__2_aabbf8d5f65bd65d369a791f79ea1d587}{delta}, t\+Sed, E\+M\+AX, \hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}=0.\+1 $\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV})
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}{get\+Emax} (t\+\_\+new, \hyperlink{cr__source_8h_adfcbd2247443f9569e3cb426495e4693}{u\+\_\+sh}, r\+\_\+new, phase, gamma=2.\+2, \hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}=0.\+1 $\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}, eps=1e-\/4, x0=10.$\ast$cst.\+Ge\+V)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr} = np.\+logspace(np.\+log10(0.\+1$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}), np.\+log10(100.$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}), 1000)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_ab57fd49372db6ffbf51473fbbc188b38}{S\+N\+R\+\_\+\+H\+II} = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+H\+II, size = 100)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a9b7a339d62cd28fa48569b3e78d15dbd}{emax\+\_\+\+H\+II}
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a8a16fa527b6dcc29d16680673361aea8}{S\+N\+R\+\_\+\+W\+IM} = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+W\+IM, size = 100)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_af86cc929ced5a0922cde669769a9f1e5}{emax\+\_\+\+W\+IM}
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a24207c635e7f417c42a38acce5e7f2b2}{S\+N\+R\+\_\+\+W\+NM} = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+W\+NM, size = 100)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_aecfee6e8c0bd69fcea50b0d823e3b065}{emax\+\_\+\+W\+NM}
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_aca8b122fd7aeca73e884d5dc1a62e687}{S\+N\+R\+\_\+\+C\+NM} = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+C\+NM, size = 100)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a2f47d632f5749ece7fab07e8c5f45114}{emax\+\_\+\+C\+NM}
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a9037d7a5d1d7187638b740499fdc3d77}{S\+N\+R\+\_\+\+DiM} = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+DiM, size = 100)
+\item 
+def \hyperlink{namespaceEscapeModel__protons__2_a22e070917067210d2d15b8c6d19f3d94}{emax\+\_\+\+DiM}
+\item 
+int \hyperlink{namespaceEscapeModel__protons__2_aabbf8d5f65bd65d369a791f79ea1d587}{delta} = 2.
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a561ec8b411ade02969c532e041e4d087}{tesc\+\_\+\+H\+II} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a8f039bff1292e4b1d30d830d63173c7d}{tesc\+\_\+\+W\+IM} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a5553c14453afde1c38908b4124f328b7}{tesc\+\_\+\+W\+NM} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_aceab5eb1ea90134d0dbcf2ceb917e515}{tesc\+\_\+\+C\+NM} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a3eb73808304baff8179c3a1146269f9a}{tesc\+\_\+\+DiM} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a65d667b6aec6b955786f6cd0be3621c6}{tesc\+\_\+\+H\+I\+I\+\_\+3} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ab8da118fa690678f2831908511e1f8ab}{tesc\+\_\+\+W\+I\+M\+\_\+3} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a8fdf65d7875ca42ca160927dc1da4365}{tesc\+\_\+\+W\+N\+M\+\_\+3} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ae82270a6c8f637800abb546af5bafc75}{tesc\+\_\+\+C\+N\+M\+\_\+3} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_aa9604b70dcb176748b5d17f52080c258}{tesc\+\_\+\+Di\+M\+\_\+3} = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))
+\item 
+int \hyperlink{namespaceEscapeModel__protons__2_ac08e47354c7012b47a21c29fb73f2463}{size\+\_\+x} = 4
+\item 
+float \hyperlink{namespaceEscapeModel__protons__2_a02f2dcd8486eb2dcb27586989af55827}{size\+\_\+y} = 3.\+5
+\item 
+int \hyperlink{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}{sub\+\_\+x} = 2
+\item 
+int \hyperlink{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}{sub\+\_\+y} = 1
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ab9e89e306207ef87dfe97dcc618ba79f}{fig} = plt.\+figure(figsize=(\hyperlink{namespaceEscapeModel__protons__2_ac08e47354c7012b47a21c29fb73f2463}{size\+\_\+x}$\ast$\hyperlink{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}{sub\+\_\+x},\hyperlink{namespaceEscapeModel__protons__2_a02f2dcd8486eb2dcb27586989af55827}{size\+\_\+y}$\ast$\hyperlink{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}{sub\+\_\+y}))
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}{gs} = gridspec.\+Grid\+Spec(ncols= \hyperlink{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}{sub\+\_\+x}, nrows = \hyperlink{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}{sub\+\_\+y}, figure = \hyperlink{namespaceEscapeModel__protons__2_ab9e89e306207ef87dfe97dcc618ba79f}{fig} )
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a65333655f63001669eda448cb221f3c8}{wspace}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a15441b30802074923e94f3ce5b49f0ee}{hspace}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a179e755e28c921a47fb2c3faa57f9900}{ax0} = fig.\+add\+\_\+subplot(\hyperlink{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}{gs}\mbox{[}0\mbox{]})
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a2bc06724f2b8a0c43eb07274776fab7b}{GeV}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_abd7cbb1049563348d9008801f9da42d1}{c}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a46619ab4c9abddd494cbefabcd240543}{label}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ad081e8b8b980896304996ce013c82c19}{loc}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ab58dfa757cacc4c5c162d3e265f89461}{ncol}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_ac8279c1271a6a4a7c10ced55014f564e}{bbox\+\_\+to\+\_\+anchor}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a00760e67ab6ca444c092e89cf6eaf6c1}{ax1} = fig.\+add\+\_\+subplot(\hyperlink{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}{gs}\mbox{[}1\mbox{]})
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a99e69e0b21047fd7ee2c9e45c25ca96f}{kyr}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_aa00ea637bd32750327aee4af549369ca}{ls}
+\item 
+\hyperlink{namespaceEscapeModel__protons__2_a45d06c8b8c69370f77754f80a8503e8b}{pad}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a3695abc72640f6a458d751cc44acc396}\label{namespaceEscapeModel__protons__2_a3695abc72640f6a458d751cc44acc396}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!df1dx@{df1dx}}
+\index{df1dx@{df1dx}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{df1dx()}{df1dx()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+df1dx (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{const }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a8236938c2501dfeddd9271efecae3099}\label{namespaceEscapeModel__protons__2_a8236938c2501dfeddd9271efecae3099}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!df2dx@{df2dx}}
+\index{df2dx@{df2dx}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{df2dx()}{df2dx()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+df2dx (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{const }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a165a26137bf291cb3a220e21a0f48877}\label{namespaceEscapeModel__protons__2_a165a26137bf291cb3a220e21a0f48877}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!f1@{f1}}
+\index{f1@{f1}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{f1()}{f1()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+f1 (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{const }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aa6d6431275aed36f04a8441ba02fb152}\label{namespaceEscapeModel__protons__2_aa6d6431275aed36f04a8441ba02fb152}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!f2@{f2}}
+\index{f2@{f2}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{f2()}{f2()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+f2 (\begin{DoxyParamCaption}\item[{}]{x,  }\item[{}]{const }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}\label{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!get\+Emax@{get\+Emax}}
+\index{get\+Emax@{get\+Emax}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{get\+Emax()}{getEmax()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+get\+Emax (\begin{DoxyParamCaption}\item[{}]{t\+\_\+new,  }\item[{}]{u\+\_\+sh,  }\item[{}]{r\+\_\+new,  }\item[{}]{phase,  }\item[{}]{gamma = {\ttfamily 2.2},  }\item[{}]{Emin = {\ttfamily 0.1$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}},  }\item[{}]{eps = {\ttfamily 1e-\/4},  }\item[{}]{x0 = {\ttfamily 10.$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}\label{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!get\+S\+NR@{get\+S\+NR}}
+\index{get\+S\+NR@{get\+S\+NR}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{get\+S\+N\+R()}{getSNR()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+get\+S\+NR (\begin{DoxyParamCaption}\item[{}]{phase,  }\item[{}]{size = {\ttfamily 100} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ab063f6fe6b6f0c05c29dc04cef8b32be}\label{namespaceEscapeModel__protons__2_ab063f6fe6b6f0c05c29dc04cef8b32be}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!Gettesc@{Gettesc}}
+\index{Gettesc@{Gettesc}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{Gettesc()}{Gettesc()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+Gettesc (\begin{DoxyParamCaption}\item[{}]{E,  }\item[{}]{delta,  }\item[{}]{t\+Sed,  }\item[{}]{E\+M\+AX,  }\item[{}]{Emin = {\ttfamily 0.1$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a5364279f193fc63c2f20968bd3322b52}\label{namespaceEscapeModel__protons__2_a5364279f193fc63c2f20968bd3322b52}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!Interpolating\+Spline@{Interpolating\+Spline}}
+\index{Interpolating\+Spline@{Interpolating\+Spline}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{Interpolating\+Spline()}{InterpolatingSpline()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+Interpolating\+Spline (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{Y }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a9d3379a69c7cfe7ef8d12d0d52b0edd6}\label{namespaceEscapeModel__protons__2_a9d3379a69c7cfe7ef8d12d0d52b0edd6}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!Inverse\+Trigonal\+Matrix@{Inverse\+Trigonal\+Matrix}}
+\index{Inverse\+Trigonal\+Matrix@{Inverse\+Trigonal\+Matrix}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{Inverse\+Trigonal\+Matrix()}{InverseTrigonalMatrix()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+Inverse\+Trigonal\+Matrix (\begin{DoxyParamCaption}\item[{}]{T }\end{DoxyParamCaption})}
+
+
+
+F\+U\+N\+C\+T\+I\+O\+NS IN O\+R\+D\+ER TO C\+R\+E\+A\+TE A G\+O\+OD S\+P\+L\+I\+NE !!! \#. 
+
+Tri\+Diagonal matrix inversion function \mbox{\Hypertarget{namespaceEscapeModel__protons__2_a66f1688735ed11dbc2dd586615209185}\label{namespaceEscapeModel__protons__2_a66f1688735ed11dbc2dd586615209185}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!Newton\+Raphson@{Newton\+Raphson}}
+\index{Newton\+Raphson@{Newton\+Raphson}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{Newton\+Raphson()}{NewtonRaphson()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+Newton\+Raphson (\begin{DoxyParamCaption}\item[{}]{f,  }\item[{}]{df,  }\item[{}]{x0,  }\item[{}]{eps,  }\item[{}]{const }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_af2c1a57e2b58836b87a7c56cd8b100a9}\label{namespaceEscapeModel__protons__2_af2c1a57e2b58836b87a7c56cd8b100a9}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!Product\+Matrix@{Product\+Matrix}}
+\index{Product\+Matrix@{Product\+Matrix}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{Product\+Matrix()}{ProductMatrix()}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+Product\+Matrix (\begin{DoxyParamCaption}\item[{}]{A,  }\item[{}]{B }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a179e755e28c921a47fb2c3faa57f9900}\label{namespaceEscapeModel__protons__2_a179e755e28c921a47fb2c3faa57f9900}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!ax0@{ax0}}
+\index{ax0@{ax0}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{ax0}{ax0}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+ax0 = fig.\+add\+\_\+subplot(\hyperlink{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}{gs}\mbox{[}0\mbox{]})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a00760e67ab6ca444c092e89cf6eaf6c1}\label{namespaceEscapeModel__protons__2_a00760e67ab6ca444c092e89cf6eaf6c1}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!ax1@{ax1}}
+\index{ax1@{ax1}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{ax1}{ax1}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+ax1 = fig.\+add\+\_\+subplot(\hyperlink{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}{gs}\mbox{[}1\mbox{]})}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ac8279c1271a6a4a7c10ced55014f564e}\label{namespaceEscapeModel__protons__2_ac8279c1271a6a4a7c10ced55014f564e}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!bbox\+\_\+to\+\_\+anchor@{bbox\+\_\+to\+\_\+anchor}}
+\index{bbox\+\_\+to\+\_\+anchor@{bbox\+\_\+to\+\_\+anchor}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{bbox\+\_\+to\+\_\+anchor}{bbox\_to\_anchor}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+bbox\+\_\+to\+\_\+anchor}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_abd7cbb1049563348d9008801f9da42d1}\label{namespaceEscapeModel__protons__2_abd7cbb1049563348d9008801f9da42d1}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!c@{c}}
+\index{c@{c}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+c}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aabbf8d5f65bd65d369a791f79ea1d587}\label{namespaceEscapeModel__protons__2_aabbf8d5f65bd65d369a791f79ea1d587}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!delta@{delta}}
+\index{delta@{delta}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{delta}{delta}}
+{\footnotesize\ttfamily int Escape\+Model\+\_\+protons\+\_\+2.\+delta = 2.}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}\label{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!Ecr@{Ecr}}
+\index{Ecr@{Ecr}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{Ecr}{Ecr}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+Ecr = np.\+logspace(np.\+log10(0.\+1$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}), np.\+log10(100.$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}), 1000)}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a2f47d632f5749ece7fab07e8c5f45114}\label{namespaceEscapeModel__protons__2_a2f47d632f5749ece7fab07e8c5f45114}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!emax\+\_\+\+C\+NM@{emax\+\_\+\+C\+NM}}
+\index{emax\+\_\+\+C\+NM@{emax\+\_\+\+C\+NM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{emax\+\_\+\+C\+NM}{emax\_CNM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+emax\+\_\+\+C\+NM}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  \hyperlink{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}{getEmax}(SNR\_CNM.get(\textcolor{stringliteral}{"t\_SNR"}), SNR\_CNM.get(\textcolor{stringliteral}{"u\_sh"}), SNR\_CNM.get(\textcolor{stringliteral}{"R\_SNR"}), ism.CNM, 
+2                    gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a22e070917067210d2d15b8c6d19f3d94}\label{namespaceEscapeModel__protons__2_a22e070917067210d2d15b8c6d19f3d94}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!emax\+\_\+\+DiM@{emax\+\_\+\+DiM}}
+\index{emax\+\_\+\+DiM@{emax\+\_\+\+DiM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{emax\+\_\+\+DiM}{emax\_DiM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+emax\+\_\+\+DiM}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  \hyperlink{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}{getEmax}(SNR\_DiM.get(\textcolor{stringliteral}{"t\_SNR"}), SNR\_DiM.get(\textcolor{stringliteral}{"u\_sh"}), SNR\_DiM.get(\textcolor{stringliteral}{"R\_SNR"}), ism.DiM, 
+2                    gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a9b7a339d62cd28fa48569b3e78d15dbd}\label{namespaceEscapeModel__protons__2_a9b7a339d62cd28fa48569b3e78d15dbd}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!emax\+\_\+\+H\+II@{emax\+\_\+\+H\+II}}
+\index{emax\+\_\+\+H\+II@{emax\+\_\+\+H\+II}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{emax\+\_\+\+H\+II}{emax\_HII}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+emax\+\_\+\+H\+II}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  \hyperlink{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}{getEmax}(SNR\_HII.get(\textcolor{stringliteral}{"t\_SNR"}), SNR\_HII.get(\textcolor{stringliteral}{"u\_sh"}), SNR\_HII.get(\textcolor{stringliteral}{"R\_SNR"}), ism.HII, 
+2                    gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_af86cc929ced5a0922cde669769a9f1e5}\label{namespaceEscapeModel__protons__2_af86cc929ced5a0922cde669769a9f1e5}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!emax\+\_\+\+W\+IM@{emax\+\_\+\+W\+IM}}
+\index{emax\+\_\+\+W\+IM@{emax\+\_\+\+W\+IM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{emax\+\_\+\+W\+IM}{emax\_WIM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+emax\+\_\+\+W\+IM}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  \hyperlink{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}{getEmax}(SNR\_WIM.get(\textcolor{stringliteral}{"t\_SNR"}), SNR\_WIM.get(\textcolor{stringliteral}{"u\_sh"}), SNR\_WIM.get(\textcolor{stringliteral}{"R\_SNR"}), ism.WIM, 
+2                    gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aecfee6e8c0bd69fcea50b0d823e3b065}\label{namespaceEscapeModel__protons__2_aecfee6e8c0bd69fcea50b0d823e3b065}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!emax\+\_\+\+W\+NM@{emax\+\_\+\+W\+NM}}
+\index{emax\+\_\+\+W\+NM@{emax\+\_\+\+W\+NM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{emax\+\_\+\+W\+NM}{emax\_WNM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+emax\+\_\+\+W\+NM}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  \hyperlink{namespaceEscapeModel__protons__2_a178d4eb6e1bea7a052df9bc9680f3af4}{getEmax}(SNR\_WNM.get(\textcolor{stringliteral}{"t\_SNR"}), SNR\_WNM.get(\textcolor{stringliteral}{"u\_sh"}), SNR\_WNM.get(\textcolor{stringliteral}{"R\_SNR"}), ism.WNM, 
+2                    gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
+\end{DoxyCode}
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ab9e89e306207ef87dfe97dcc618ba79f}\label{namespaceEscapeModel__protons__2_ab9e89e306207ef87dfe97dcc618ba79f}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!fig@{fig}}
+\index{fig@{fig}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{fig}{fig}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+fig = plt.\+figure(figsize=(\hyperlink{namespaceEscapeModel__protons__2_ac08e47354c7012b47a21c29fb73f2463}{size\+\_\+x}$\ast$\hyperlink{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}{sub\+\_\+x},\hyperlink{namespaceEscapeModel__protons__2_a02f2dcd8486eb2dcb27586989af55827}{size\+\_\+y}$\ast$\hyperlink{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}{sub\+\_\+y}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a2bc06724f2b8a0c43eb07274776fab7b}\label{namespaceEscapeModel__protons__2_a2bc06724f2b8a0c43eb07274776fab7b}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!GeV@{GeV}}
+\index{GeV@{GeV}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{GeV}{GeV}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+GeV}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}\label{namespaceEscapeModel__protons__2_ac78144ff63b1cfafc81865301d7900d4}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!gs@{gs}}
+\index{gs@{gs}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{gs}{gs}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+gs = gridspec.\+Grid\+Spec(ncols= \hyperlink{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}{sub\+\_\+x}, nrows = \hyperlink{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}{sub\+\_\+y}, figure = \hyperlink{namespaceEscapeModel__protons__2_ab9e89e306207ef87dfe97dcc618ba79f}{fig} )}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a15441b30802074923e94f3ce5b49f0ee}\label{namespaceEscapeModel__protons__2_a15441b30802074923e94f3ce5b49f0ee}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!hspace@{hspace}}
+\index{hspace@{hspace}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{hspace}{hspace}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+hspace}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a99e69e0b21047fd7ee2c9e45c25ca96f}\label{namespaceEscapeModel__protons__2_a99e69e0b21047fd7ee2c9e45c25ca96f}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!kyr@{kyr}}
+\index{kyr@{kyr}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{kyr}{kyr}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+kyr}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a46619ab4c9abddd494cbefabcd240543}\label{namespaceEscapeModel__protons__2_a46619ab4c9abddd494cbefabcd240543}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!label@{label}}
+\index{label@{label}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{label}{label}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+label}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ad081e8b8b980896304996ce013c82c19}\label{namespaceEscapeModel__protons__2_ad081e8b8b980896304996ce013c82c19}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!loc@{loc}}
+\index{loc@{loc}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{loc}{loc}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+loc}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aa00ea637bd32750327aee4af549369ca}\label{namespaceEscapeModel__protons__2_aa00ea637bd32750327aee4af549369ca}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!ls@{ls}}
+\index{ls@{ls}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{ls}{ls}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+ls}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ab58dfa757cacc4c5c162d3e265f89461}\label{namespaceEscapeModel__protons__2_ab58dfa757cacc4c5c162d3e265f89461}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!ncol@{ncol}}
+\index{ncol@{ncol}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{ncol}{ncol}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+ncol}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a45d06c8b8c69370f77754f80a8503e8b}\label{namespaceEscapeModel__protons__2_a45d06c8b8c69370f77754f80a8503e8b}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!pad@{pad}}
+\index{pad@{pad}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{pad}{pad}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+pad}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ac08e47354c7012b47a21c29fb73f2463}\label{namespaceEscapeModel__protons__2_ac08e47354c7012b47a21c29fb73f2463}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!size\+\_\+x@{size\+\_\+x}}
+\index{size\+\_\+x@{size\+\_\+x}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{size\+\_\+x}{size\_x}}
+{\footnotesize\ttfamily int Escape\+Model\+\_\+protons\+\_\+2.\+size\+\_\+x = 4}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a02f2dcd8486eb2dcb27586989af55827}\label{namespaceEscapeModel__protons__2_a02f2dcd8486eb2dcb27586989af55827}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!size\+\_\+y@{size\+\_\+y}}
+\index{size\+\_\+y@{size\+\_\+y}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{size\+\_\+y}{size\_y}}
+{\footnotesize\ttfamily float Escape\+Model\+\_\+protons\+\_\+2.\+size\+\_\+y = 3.\+5}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aca8b122fd7aeca73e884d5dc1a62e687}\label{namespaceEscapeModel__protons__2_aca8b122fd7aeca73e884d5dc1a62e687}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!S\+N\+R\+\_\+\+C\+NM@{S\+N\+R\+\_\+\+C\+NM}}
+\index{S\+N\+R\+\_\+\+C\+NM@{S\+N\+R\+\_\+\+C\+NM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{S\+N\+R\+\_\+\+C\+NM}{SNR\_CNM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+S\+N\+R\+\_\+\+C\+NM = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+C\+NM, size = 100)}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a9037d7a5d1d7187638b740499fdc3d77}\label{namespaceEscapeModel__protons__2_a9037d7a5d1d7187638b740499fdc3d77}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!S\+N\+R\+\_\+\+DiM@{S\+N\+R\+\_\+\+DiM}}
+\index{S\+N\+R\+\_\+\+DiM@{S\+N\+R\+\_\+\+DiM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{S\+N\+R\+\_\+\+DiM}{SNR\_DiM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+S\+N\+R\+\_\+\+DiM = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+DiM, size = 100)}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ab57fd49372db6ffbf51473fbbc188b38}\label{namespaceEscapeModel__protons__2_ab57fd49372db6ffbf51473fbbc188b38}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!S\+N\+R\+\_\+\+H\+II@{S\+N\+R\+\_\+\+H\+II}}
+\index{S\+N\+R\+\_\+\+H\+II@{S\+N\+R\+\_\+\+H\+II}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{S\+N\+R\+\_\+\+H\+II}{SNR\_HII}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+S\+N\+R\+\_\+\+H\+II = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+H\+II, size = 100)}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a8a16fa527b6dcc29d16680673361aea8}\label{namespaceEscapeModel__protons__2_a8a16fa527b6dcc29d16680673361aea8}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!S\+N\+R\+\_\+\+W\+IM@{S\+N\+R\+\_\+\+W\+IM}}
+\index{S\+N\+R\+\_\+\+W\+IM@{S\+N\+R\+\_\+\+W\+IM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{S\+N\+R\+\_\+\+W\+IM}{SNR\_WIM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+S\+N\+R\+\_\+\+W\+IM = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+W\+IM, size = 100)}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a24207c635e7f417c42a38acce5e7f2b2}\label{namespaceEscapeModel__protons__2_a24207c635e7f417c42a38acce5e7f2b2}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!S\+N\+R\+\_\+\+W\+NM@{S\+N\+R\+\_\+\+W\+NM}}
+\index{S\+N\+R\+\_\+\+W\+NM@{S\+N\+R\+\_\+\+W\+NM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{S\+N\+R\+\_\+\+W\+NM}{SNR\_WNM}}
+{\footnotesize\ttfamily def Escape\+Model\+\_\+protons\+\_\+2.\+S\+N\+R\+\_\+\+W\+NM = \hyperlink{namespaceEscapeModel__protons__2_acf65596d83b73535f7b6f4934e134f4f}{get\+S\+NR}(ism.\+W\+NM, size = 100)}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}\label{namespaceEscapeModel__protons__2_a799ad0706a435c1ea37e8a7a83eba68c}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!sub\+\_\+x@{sub\+\_\+x}}
+\index{sub\+\_\+x@{sub\+\_\+x}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{sub\+\_\+x}{sub\_x}}
+{\footnotesize\ttfamily int Escape\+Model\+\_\+protons\+\_\+2.\+sub\+\_\+x = 2}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}\label{namespaceEscapeModel__protons__2_aac43310b10312443e458577ea9d77a1a}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!sub\+\_\+y@{sub\+\_\+y}}
+\index{sub\+\_\+y@{sub\+\_\+y}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{sub\+\_\+y}{sub\_y}}
+{\footnotesize\ttfamily int Escape\+Model\+\_\+protons\+\_\+2.\+sub\+\_\+y = 1}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aceab5eb1ea90134d0dbcf2ceb917e515}\label{namespaceEscapeModel__protons__2_aceab5eb1ea90134d0dbcf2ceb917e515}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+C\+NM@{tesc\+\_\+\+C\+NM}}
+\index{tesc\+\_\+\+C\+NM@{tesc\+\_\+\+C\+NM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+C\+NM}{tesc\_CNM}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+C\+NM = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ae82270a6c8f637800abb546af5bafc75}\label{namespaceEscapeModel__protons__2_ae82270a6c8f637800abb546af5bafc75}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+C\+N\+M\+\_\+3@{tesc\+\_\+\+C\+N\+M\+\_\+3}}
+\index{tesc\+\_\+\+C\+N\+M\+\_\+3@{tesc\+\_\+\+C\+N\+M\+\_\+3}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+C\+N\+M\+\_\+3}{tesc\_CNM\_3}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+C\+N\+M\+\_\+3 = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a3eb73808304baff8179c3a1146269f9a}\label{namespaceEscapeModel__protons__2_a3eb73808304baff8179c3a1146269f9a}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+DiM@{tesc\+\_\+\+DiM}}
+\index{tesc\+\_\+\+DiM@{tesc\+\_\+\+DiM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+DiM}{tesc\_DiM}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+DiM = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_aa9604b70dcb176748b5d17f52080c258}\label{namespaceEscapeModel__protons__2_aa9604b70dcb176748b5d17f52080c258}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+Di\+M\+\_\+3@{tesc\+\_\+\+Di\+M\+\_\+3}}
+\index{tesc\+\_\+\+Di\+M\+\_\+3@{tesc\+\_\+\+Di\+M\+\_\+3}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+Di\+M\+\_\+3}{tesc\_DiM\_3}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+Di\+M\+\_\+3 = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a561ec8b411ade02969c532e041e4d087}\label{namespaceEscapeModel__protons__2_a561ec8b411ade02969c532e041e4d087}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+H\+II@{tesc\+\_\+\+H\+II}}
+\index{tesc\+\_\+\+H\+II@{tesc\+\_\+\+H\+II}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+H\+II}{tesc\_HII}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+H\+II = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a65d667b6aec6b955786f6cd0be3621c6}\label{namespaceEscapeModel__protons__2_a65d667b6aec6b955786f6cd0be3621c6}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+H\+I\+I\+\_\+3@{tesc\+\_\+\+H\+I\+I\+\_\+3}}
+\index{tesc\+\_\+\+H\+I\+I\+\_\+3@{tesc\+\_\+\+H\+I\+I\+\_\+3}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+H\+I\+I\+\_\+3}{tesc\_HII\_3}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+H\+I\+I\+\_\+3 = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a8f039bff1292e4b1d30d830d63173c7d}\label{namespaceEscapeModel__protons__2_a8f039bff1292e4b1d30d830d63173c7d}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+W\+IM@{tesc\+\_\+\+W\+IM}}
+\index{tesc\+\_\+\+W\+IM@{tesc\+\_\+\+W\+IM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+W\+IM}{tesc\_WIM}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+W\+IM = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_ab8da118fa690678f2831908511e1f8ab}\label{namespaceEscapeModel__protons__2_ab8da118fa690678f2831908511e1f8ab}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+W\+I\+M\+\_\+3@{tesc\+\_\+\+W\+I\+M\+\_\+3}}
+\index{tesc\+\_\+\+W\+I\+M\+\_\+3@{tesc\+\_\+\+W\+I\+M\+\_\+3}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+W\+I\+M\+\_\+3}{tesc\_WIM\_3}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+W\+I\+M\+\_\+3 = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a5553c14453afde1c38908b4124f328b7}\label{namespaceEscapeModel__protons__2_a5553c14453afde1c38908b4124f328b7}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+W\+NM@{tesc\+\_\+\+W\+NM}}
+\index{tesc\+\_\+\+W\+NM@{tesc\+\_\+\+W\+NM}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+W\+NM}{tesc\_WNM}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+W\+NM = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a8fdf65d7875ca42ca160927dc1da4365}\label{namespaceEscapeModel__protons__2_a8fdf65d7875ca42ca160927dc1da4365}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!tesc\+\_\+\+W\+N\+M\+\_\+3@{tesc\+\_\+\+W\+N\+M\+\_\+3}}
+\index{tesc\+\_\+\+W\+N\+M\+\_\+3@{tesc\+\_\+\+W\+N\+M\+\_\+3}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{tesc\+\_\+\+W\+N\+M\+\_\+3}{tesc\_WNM\_3}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+tesc\+\_\+\+W\+N\+M\+\_\+3 = np.\+empty(len(\hyperlink{namespaceEscapeModel__protons__2_a62e66b8006971b0139c21f5fcb089c1d}{Ecr}))}
+
+\mbox{\Hypertarget{namespaceEscapeModel__protons__2_a65333655f63001669eda448cb221f3c8}\label{namespaceEscapeModel__protons__2_a65333655f63001669eda448cb221f3c8}} 
+\index{Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}!wspace@{wspace}}
+\index{wspace@{wspace}!Escape\+Model\+\_\+protons\+\_\+2@{Escape\+Model\+\_\+protons\+\_\+2}}
+\subsubsection{\texorpdfstring{wspace}{wspace}}
+{\footnotesize\ttfamily Escape\+Model\+\_\+protons\+\_\+2.\+wspace}
+

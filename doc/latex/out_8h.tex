@@ -1,0 +1,87 @@
+\hypertarget{out_8h}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/out.h File Reference}
+\label{out_8h}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/out.\+h@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/out.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for out.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{out_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{out_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ double $>$ \hyperlink{out_8h_a1b96bfc105db29caefe0dedd06daf16d}{specific\+Output\+Data} ()
+\item 
+vector$<$ double $>$ \hyperlink{out_8h_ae3f6312c6c9de7c2fbe83f8f4dde2428}{output\+Data} (double tmin, double tmax, int nvalues, string modulation, double eps)
+\begin{DoxyCompactList}\small\item\em Output data function for a regular and large amount of output data. \end{DoxyCompactList}\item 
+vector$<$ double $>$ \hyperlink{out_8h_a578da8858f46986d89cd97a6add06bed}{get\+Output} ()
+\begin{DoxyCompactList}\small\item\em Main output file function. This one will be used in the main file. \end{DoxyCompactList}\item 
+int \hyperlink{out_8h_a233e9761e7046e55da61cc72da9e03d6}{get\+Log\+Output} ()
+\begin{DoxyCompactList}\small\item\em Main output log file function. This one will be used in the main file. \end{DoxyCompactList}\item 
+double \hyperlink{out_8h_aca4e8ad8ce3ba51e2a640f6fd5beecac}{set\+Tmax} ()
+\begin{DoxyCompactList}\small\item\em Define the limit time of your simulation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{out_8h_a233e9761e7046e55da61cc72da9e03d6}\label{out_8h_a233e9761e7046e55da61cc72da9e03d6}} 
+\index{out.\+h@{out.\+h}!get\+Log\+Output@{get\+Log\+Output}}
+\index{get\+Log\+Output@{get\+Log\+Output}!out.\+h@{out.\+h}}
+\subsubsection{\texorpdfstring{get\+Log\+Output()}{getLogOutput()}}
+{\footnotesize\ttfamily int get\+Log\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main output log file function. This one will be used in the main file. 
+
+\mbox{\Hypertarget{out_8h_a578da8858f46986d89cd97a6add06bed}\label{out_8h_a578da8858f46986d89cd97a6add06bed}} 
+\index{out.\+h@{out.\+h}!get\+Output@{get\+Output}}
+\index{get\+Output@{get\+Output}!out.\+h@{out.\+h}}
+\subsubsection{\texorpdfstring{get\+Output()}{getOutput()}}
+{\footnotesize\ttfamily vector$<$double$>$ get\+Output (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Main output file function. This one will be used in the main file. 
+
+\mbox{\Hypertarget{out_8h_ae3f6312c6c9de7c2fbe83f8f4dde2428}\label{out_8h_ae3f6312c6c9de7c2fbe83f8f4dde2428}} 
+\index{out.\+h@{out.\+h}!output\+Data@{output\+Data}}
+\index{output\+Data@{output\+Data}!out.\+h@{out.\+h}}
+\subsubsection{\texorpdfstring{output\+Data()}{outputData()}}
+{\footnotesize\ttfamily vector$<$double$>$ output\+Data (\begin{DoxyParamCaption}\item[{double}]{tmin,  }\item[{double}]{tmax,  }\item[{int}]{nvalues,  }\item[{string}]{modulation,  }\item[{double}]{eps }\end{DoxyParamCaption})}
+
+
+
+Output data function for a regular and large amount of output data. 
+
+\mbox{\Hypertarget{out_8h_aca4e8ad8ce3ba51e2a640f6fd5beecac}\label{out_8h_aca4e8ad8ce3ba51e2a640f6fd5beecac}} 
+\index{out.\+h@{out.\+h}!set\+Tmax@{set\+Tmax}}
+\index{set\+Tmax@{set\+Tmax}!out.\+h@{out.\+h}}
+\subsubsection{\texorpdfstring{set\+Tmax()}{setTmax()}}
+{\footnotesize\ttfamily double set\+Tmax (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Define the limit time of your simulation. 
+
+\mbox{\Hypertarget{out_8h_a1b96bfc105db29caefe0dedd06daf16d}\label{out_8h_a1b96bfc105db29caefe0dedd06daf16d}} 
+\index{out.\+h@{out.\+h}!specific\+Output\+Data@{specific\+Output\+Data}}
+\index{specific\+Output\+Data@{specific\+Output\+Data}!out.\+h@{out.\+h}}
+\subsubsection{\texorpdfstring{specific\+Output\+Data()}{specificOutputData()}}
+{\footnotesize\ttfamily vector$<$double$>$ specific\+Output\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function allows you to specify your own data output time array You just need to fill the list loc\+\_\+data, example\+: double loc\+\_\+data\mbox{[}\mbox{]} = \{t1, t2, ..., tn\}; where t\+\_\+i is in seconds 

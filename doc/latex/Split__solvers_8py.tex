@@ -1,0 +1,45 @@
+\hypertarget{Split__solvers_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+Split\+\_\+solvers.py File Reference}
+\label{Split__solvers_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+Split\+\_\+solvers.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+Split\+\_\+solvers.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceSplit__solvers}{Split\+\_\+solvers}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceSplit__solvers_afbe15271a0fe5821bdfe8760325cb4bb}{Split\+\_\+solvers.\+T\+D\+MA} (a, b, \hyperlink{constants_8h_a8fc6defe4e499b1b9b9c275689e44352}{c}, d)
+\item 
+def \hyperlink{namespaceSplit__solvers_a220613cf00c68055fb1d6c976dc0ec1d}{Split\+\_\+solvers.\+generalized\+\_\+diffusion} (u, X, D, dt, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta}=0.\+5)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespaceSplit__solvers_a6f5cab1ea541e5ae5d4ae5a0d62ab100}{Split\+\_\+solvers.\+NX} = 1000
+\item 
+int \hyperlink{namespaceSplit__solvers_abe1cb9889c38d9038ab77c312a857ae5}{Split\+\_\+solvers.\+Xmin} = -\/1
+\item 
+int \hyperlink{namespaceSplit__solvers_a3a9b8c9973a6efe018e8b1dd5c13a896}{Split\+\_\+solvers.\+Xmax} = 1
+\item 
+\hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{Split\+\_\+solvers.\+X} = np.\+linspace(Xmin, Xmax, NX+1)
+\item 
+int \hyperlink{namespaceSplit__solvers_a0bcad395b64a658c374ba8a3fb893836}{Split\+\_\+solvers.\+D} = np.\+ones(len(X))$\ast$1e-\/2
+\item 
+int \hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{Split\+\_\+solvers.\+u} = np.\+ones(len(X))$\ast$0.
+\item 
+\hyperlink{namespaceSplit__solvers_a8d99b01f11e92c25fdef25ee372ef15e}{Split\+\_\+solvers.\+c}
+\item 
+int \hyperlink{namespaceSplit__solvers_a4e16fb7ea5fb14290b3a63e87499dced}{Split\+\_\+solvers.\+t\+\_\+ini} = 0.
+\item 
+int \hyperlink{namespaceSplit__solvers_a9d7802821157fdbfdde000b24e2ed31b}{Split\+\_\+solvers.\+dt} = 1e-\/1
+\item 
+int \hyperlink{namespaceSplit__solvers_a49303767dbd0cb68ef911cd068fde69a}{Split\+\_\+solvers.\+t\+\_\+max} = 1.
+\item 
+int \hyperlink{namespaceSplit__solvers_a6efd428aff22677b6e56b44b8ae5552d}{Split\+\_\+solvers.\+t} = t\+\_\+ini
+\item 
+int \hyperlink{namespaceSplit__solvers_ad561a5b47428860b09231ef32d981065}{Split\+\_\+solvers.\+u\+\_\+new\+\_\+0} = u
+\item 
+int \hyperlink{namespaceSplit__solvers_ab5a06ffd8881f993be924d175cf33bf0}{Split\+\_\+solvers.\+u\+\_\+old} = u\+\_\+new\+\_\+0
+\item 
+int \hyperlink{namespaceSplit__solvers_a660926dfee34f958baddd1154dfa7df0}{Split\+\_\+solvers.\+u\+\_\+new\+\_\+1} = u
+\end{DoxyCompactItemize}

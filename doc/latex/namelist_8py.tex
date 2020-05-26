@@ -1,0 +1,85 @@
+\hypertarget{namelist_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/namelist.py File Reference}
+\label{namelist_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/namelist.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/namelist.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacenamelist}{namelist}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacenamelist_a46cfef786541cc5937eba1e0cda48f31}{namelist.\+get\+VA} (E, phase)
+\item 
+def \hyperlink{namespacenamelist_a84b4e870f028d6260f181fc10be58da6}{namelist.\+get\+Damping} (E, phase)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespacenamelist_ae4a2b399bbe52993d2d43c55ac29e961}{namelist.\+folder\+\_\+name} = \char`\"{}Test\+\_\+standard\+\_\+full\char`\"{}
+\begin{DoxyCompactList}\small\item\em O\+U\+T\+P\+UT F\+O\+L\+D\+ER C\+R\+E\+A\+T\+OR \#. \end{DoxyCompactList}\item 
+string \hyperlink{namespacenamelist_a3b503c014a95b4fe0b14a45005ff8270}{namelist.\+folder\+\_\+path} = \char`\"{}../Work\+Folder/\char`\"{}
+\item 
+string \hyperlink{namespacenamelist_a6c4d0bf6d00b16d29ca1ba57091d5167}{namelist.\+total\+\_\+path} = folder\+\_\+path+folder\+\_\+name
+\item 
+int \hyperlink{namespacenamelist_ac228fb8e42706311969779d134433edd}{namelist.\+NX} = 10
+\begin{DoxyCompactList}\small\item\em G\+R\+ID P\+A\+R\+A\+M\+E\+T\+E\+RS \#. \end{DoxyCompactList}\item 
+int \hyperlink{namespacenamelist_a372892989a797e9c3b759f023e878e4d}{namelist.\+NE} = 7
+\item 
+int \hyperlink{namespacenamelist_a512ba0df866fdbf44bfdd6dab3846aba}{namelist.\+Xmin} = 0.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+int \hyperlink{namespacenamelist_a9b5f75b28f87c2258e7f52b41cabcd8f}{namelist.\+Xmax} = 2000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+string \hyperlink{namespacenamelist_aa070f33430efb3ee85a15f4c91b8165f}{namelist.\+xgridtype} = \char`\"{}cartesian\char`\"{}
+\item 
+float \hyperlink{namespacenamelist_ad0f5eea37fb1092519d3ebfe3478ccc1}{namelist.\+Emin} = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+float \hyperlink{namespacenamelist_a5262c7aab8333b9071ce73b63781ff32}{namelist.\+Emax} = 50.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}
+\item 
+string \hyperlink{namespacenamelist_ae5aac93882db9b7885d5e7be1d4012e0}{namelist.\+egridtype} = \char`\"{}logspace\char`\"{}
+\item 
+int \hyperlink{namespacenamelist_a364797b64f69de89c19410bc987ce594}{namelist.\+box\+\_\+center} = 1000.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}
+\item 
+\hyperlink{namespacenamelist_af0c918988527847f8c4d92e5dd09cde0}{namelist.\+X} = grid.\+grid(Xmin, Xmax, 2$\ast$$\ast$NX, xgridtype, s\+\_\+center = box\+\_\+center)
+\item 
+\hyperlink{namespacenamelist_a732e08e1d7e605a46b2db15805f34db0}{namelist.\+E} = grid.\+grid(\hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}, Emax, 2$\ast$$\ast$NE, egridtype)
+\item 
+bool \hyperlink{namespacenamelist_aa778a21b3efefbbb6cbb975a4e3ae44a}{namelist.\+in\+\_\+damping} = True
+\begin{DoxyCompactList}\small\item\em O\+T\+H\+ER T\+E\+R\+MS \#. \end{DoxyCompactList}\item 
+bool \hyperlink{namespacenamelist_a4a059858993c6b318e3c3891b92bfcf0}{namelist.\+lz\+\_\+damping} = True
+\item 
+bool \hyperlink{namespacenamelist_aac0b337423bdaaea56856bb5a89e15a2}{namelist.\+nlld\+\_\+damping} = True
+\item 
+int \hyperlink{namespacenamelist_ab28dd7611ffee8004e268e4d93275bcb}{namelist.\+Pcr\+\_\+1\+GeV} = 1$\ast$\hyperlink{constants_8h_a87b385f118e3715860117a77eda7136d}{cst.\+eV}
+\item 
+int \hyperlink{namespacenamelist_a83c2ee01fb8fd7ad708be6fcde5ff530}{namelist.\+Pe\+\_\+1\+GeV} = 1e-\/2$\ast$cst.\+eV
+\item 
+string \hyperlink{namespacenamelist_ac444a9ea5d6ffb31f9fa075f27b1f226}{namelist.\+bdiff\+\_\+model} = \char`\"{}I\+S\+M\+\_\+independant\char`\"{}
+\item 
+list \hyperlink{namespacenamelist_a088873ff7532d7c6df70ef89db73afb3}{namelist.\+phases} = \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em I\+SM S\+T\+R\+U\+C\+T\+U\+RE \#. \end{DoxyCompactList}\item 
+list \hyperlink{namespacenamelist_a9c546acac0e1c573855acc22112a8909}{namelist.\+smooth\+\_\+width\+\_\+transition} = \mbox{[}10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 3.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, 10.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}\mbox{]}
+\item 
+\hyperlink{namespacenamelist_acc085fb18af4161be26b359a7e389498}{namelist.\+T}
+\item 
+\hyperlink{namespacenamelist_a48ab86f6cb5d4c6de82427283c61ed93}{namelist.\+B}
+\item 
+\hyperlink{namespacenamelist_a6628cb083819caf50214d44e23ad964c}{namelist.\+ni}
+\item 
+\hyperlink{namespacenamelist_a4294f2624df5d3000084ae4161a8724f}{namelist.\+nn}
+\item 
+\hyperlink{namespacenamelist_afa8313c950e0dfdd49787f0fe279e6da}{namelist.\+nt}
+\item 
+\hyperlink{namespacenamelist_a3cf16c58d15de0a13f6ef0e3e40980a1}{namelist.\+Xi}
+\item 
+\hyperlink{namespacenamelist_a9e965a35b0fa0cff87b107001d5c7701}{namelist.\+mi}
+\item 
+\hyperlink{namespacenamelist_ae4897dd96ab17fb714286ebea56954a4}{namelist.\+mn}
+\item 
+\hyperlink{namespacenamelist_a846209f02cb16bb8cd9701290aeb9829}{namelist.\+va}
+\item 
+\hyperlink{namespacenamelist_a698275988d17c90a7d6c00f8143021cf}{namelist.\+gamma\+\_\+in}
+\item 
+\hyperlink{namespacenamelist_a44bbefa452cfa3aa7ee4578357244e9c}{namelist.\+gamma\+\_\+lz}
+\item 
+\hyperlink{namespacenamelist_a04b110407bf407ce52822ef352a6f01e}{namelist.\+ism\+\_\+values} = dict(\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T}=\hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T}, B=B, \hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}=\hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}, nn=nn, \hyperlink{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}{nt}=\hyperlink{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}{nt}, X=\hyperlink{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}{Xi}, mi=mi, \hyperlink{constants_8h_affd3595ea3bf442893a3dc5bf568a663}{mn}=\hyperlink{constants_8h_affd3595ea3bf442893a3dc5bf568a663}{mn}, VA=va, gamma\+\_\+in = gamma\+\_\+in, gamma\+\_\+lz = gamma\+\_\+lz)
+\end{DoxyCompactItemize}

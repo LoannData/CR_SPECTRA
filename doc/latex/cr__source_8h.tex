@@ -1,0 +1,362 @@
+\hypertarget{cr__source_8h}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/cr\+\_\+source.h File Reference}
+\label{cr__source_8h}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/cr\+\_\+source.\+h@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/cr\+\_\+source.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for cr\+\_\+source.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{cr__source_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=238pt]{cr__source_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{cr__source_8h_a2fb2c7641ca839cbce7ea880f24ec761}{Get\+T\+Sed} ()
+\item 
+double \hyperlink{cr__source_8h_a9ae5a44cdfe05ba3ec18c58bb8a9acba}{R\+S\+NR} (double time)
+\item 
+double \hyperlink{cr__source_8h_adfcbd2247443f9569e3cb426495e4693}{u\+\_\+sh} (double time)
+\begin{DoxyCompactList}\small\item\em Shock velocity in time. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_a120bb660287d2dcf66e013fb3925ce40}{Get\+EM} ()
+\begin{DoxyCompactList}\small\item\em Get the E\+M\+AX value for the tesc calculation. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_aaddb8ae16ca149e0438df68d1a24496c}{tesc} (double E)
+\item 
+double \hyperlink{cr__source_8h_a893599c6c146a1fa4d5840dc503aa74b}{B\+\_\+sat} (double time)
+\item 
+double \hyperlink{cr__source_8h_ac1b13fc8cce3d466b305bc86f7406ef5}{Get\+E\+M\+\_\+e} ()
+\item 
+double \hyperlink{cr__source_8h_a57278a4dafd696d3c4dda8e860d28fd8}{tesc\+\_\+e} (double E)
+\item 
+double \hyperlink{cr__source_8h_ac022daf450a32a65533a945d8a3499f4}{Resc} (double E)
+\begin{DoxyCompactList}\small\item\em This function return the value of the escape shock radius at a given energy of protons. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_a2ee3db01aff2917316c7bb0b13e72b44}{sigm} (double E, double ttesc)
+\begin{DoxyCompactList}\small\item\em This function defines the variance of the time injection function Finj of C\+Rs. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_abcc0fcb1268d990ccf536d0f403f4105}{Finj} (double t, double dt, double E, double ttesc)
+\begin{DoxyCompactList}\small\item\em C\+Rs time injection function. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta} (double z, double t, double Rsnr)
+\begin{DoxyCompactList}\small\item\em This function define the spatial shape of the C\+Rs distribution at a given time. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_a2bc06ab411fd01599de0b5a7fc9e59db}{d\+NdE} (double E)
+\begin{DoxyCompactList}\small\item\em This function defines the injection spectrum of both electrons of protons escaping from the S\+NR. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_ab547f105d66b3ae0c64a2a49fdf4ca0d}{ff} (double E)
+\begin{DoxyCompactList}\small\item\em This function defines the distribution function of both electrons and protrons escaping from the S\+NR. \end{DoxyCompactList}\item 
+double \hyperlink{cr__source_8h_ac19e2251663c1020061917ef7c2ce4cb}{Pcr\+\_\+ini} (double E)
+\begin{DoxyCompactList}\small\item\em This function defines the initial pressure distribution of both electrons and protons escaping from the S\+NR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters} = \char`\"{}./parameters.\+dat\char`\"{}
+\item 
+std\+::string \hyperlink{cr__source_8h_a9215c5392c20f3e08a28e47f8c4c181f}{snx} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}NX\char`\"{})
+\item 
+int \hyperlink{cr__source_8h_a02d47a4f36ec0bcce348696534567e30}{nx} = stoi(\hyperlink{cr__source_8h_a9215c5392c20f3e08a28e47f8c4c181f}{snx})
+\item 
+std\+::string \hyperlink{cr__source_8h_ac8b88baaf7ef9cabaeff4fe05d3f8faf}{sne} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}NE\char`\"{})
+\item 
+int \hyperlink{cr__source_8h_a3bf1137663f19e5c361c845cf4dfb7db}{ne} = stoi(\hyperlink{cr__source_8h_ac8b88baaf7ef9cabaeff4fe05d3f8faf}{sne})
+\item 
+std\+::string \hyperlink{cr__source_8h_a6dd5063f45011979396b374b20ebeb05}{sni} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}ni\char`\"{})
+\item 
+double \hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni} = stod(\hyperlink{cr__source_8h_a6dd5063f45011979396b374b20ebeb05}{sni})
+\item 
+std\+::string \hyperlink{cr__source_8h_a24d54695f5ef59fa7003a6592ad2eb3e}{sX} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}X\char`\"{})
+\item 
+double \hyperlink{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}{Xi} = stod(\hyperlink{cr__source_8h_a24d54695f5ef59fa7003a6592ad2eb3e}{sX})
+\item 
+double \hyperlink{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}{nt} = \hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}/\hyperlink{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}{Xi}
+\item 
+std\+::string \hyperlink{cr__source_8h_ac763da942cab0e433e8187cfb5412905}{smn} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}mn\char`\"{})
+\item 
+double \hyperlink{cr__source_8h_a86d5046913b91deb282e7c75c1e35acb}{m\+\_\+neutral} = stod(\hyperlink{cr__source_8h_ac763da942cab0e433e8187cfb5412905}{smn})
+\item 
+std\+::string \hyperlink{cr__source_8h_a4b33ff781b0ef1e9ed5a263c34bf7fe8}{sT} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}T\char`\"{})
+\item 
+double \hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T} = stod(\hyperlink{cr__source_8h_a4b33ff781b0ef1e9ed5a263c34bf7fe8}{sT})
+\item 
+std\+::string \hyperlink{cr__source_8h_a131888f8169fa00af3616e4808fb6208}{scenter} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}center\char`\"{})
+\item 
+double \hyperlink{cr__source_8h_a655c95cafb81ec683d3e164a5eb2096d}{x\+\_\+center} = stod(\hyperlink{cr__source_8h_a131888f8169fa00af3616e4808fb6208}{scenter})
+\item 
+std\+::string \hyperlink{cr__source_8h_a7aeee0cbcc7af1970d2da3721b3fc9b9}{scenter\+\_\+index} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}center\+\_\+index\char`\"{})
+\item 
+int \hyperlink{cr__source_8h_a5445b70da42fff72267a9c8fa83531bc}{x\+\_\+center\+\_\+index} = stod(\hyperlink{cr__source_8h_a7aeee0cbcc7af1970d2da3721b3fc9b9}{scenter\+\_\+index})
+\item 
+std\+::string \hyperlink{cr__source_8h_a7d12f5e50e6da226a0a1bc433751d056}{s\+Bcenter} = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}B\char`\"{})
+\item 
+double \hyperlink{cr__source_8h_acba2a7dbafb604d150d484cae70c8f3c}{Bcenter} = stod(\hyperlink{cr__source_8h_a7d12f5e50e6da226a0a1bc433751d056}{s\+Bcenter})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{cr__source_8h_a893599c6c146a1fa4d5840dc503aa74b}\label{cr__source_8h_a893599c6c146a1fa4d5840dc503aa74b}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!B\+\_\+sat@{B\+\_\+sat}}
+\index{B\+\_\+sat@{B\+\_\+sat}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{B\+\_\+sat()}{B\_sat()}}
+{\footnotesize\ttfamily double B\+\_\+sat (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{cr__source_8h_a2bc06ab411fd01599de0b5a7fc9e59db}\label{cr__source_8h_a2bc06ab411fd01599de0b5a7fc9e59db}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!d\+NdE@{d\+NdE}}
+\index{d\+NdE@{d\+NdE}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{d\+Nd\+E()}{dNdE()}}
+{\footnotesize\ttfamily double d\+NdE (\begin{DoxyParamCaption}\item[{double}]{E }\end{DoxyParamCaption})}
+
+
+
+This function defines the injection spectrum of both electrons of protons escaping from the S\+NR. 
+
+\mbox{\Hypertarget{cr__source_8h_ab547f105d66b3ae0c64a2a49fdf4ca0d}\label{cr__source_8h_ab547f105d66b3ae0c64a2a49fdf4ca0d}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!ff@{ff}}
+\index{ff@{ff}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{ff()}{ff()}}
+{\footnotesize\ttfamily double ff (\begin{DoxyParamCaption}\item[{double}]{E }\end{DoxyParamCaption})}
+
+
+
+This function defines the distribution function of both electrons and protrons escaping from the S\+NR. 
+
+\mbox{\Hypertarget{cr__source_8h_abcc0fcb1268d990ccf536d0f403f4105}\label{cr__source_8h_abcc0fcb1268d990ccf536d0f403f4105}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Finj@{Finj}}
+\index{Finj@{Finj}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Finj()}{Finj()}}
+{\footnotesize\ttfamily double Finj (\begin{DoxyParamCaption}\item[{double}]{t,  }\item[{double}]{dt,  }\item[{double}]{E,  }\item[{double}]{ttesc }\end{DoxyParamCaption})}
+
+
+
+C\+Rs time injection function. 
+
+\mbox{\Hypertarget{cr__source_8h_a120bb660287d2dcf66e013fb3925ce40}\label{cr__source_8h_a120bb660287d2dcf66e013fb3925ce40}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Get\+EM@{Get\+EM}}
+\index{Get\+EM@{Get\+EM}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Get\+E\+M()}{GetEM()}}
+{\footnotesize\ttfamily double Get\+EM (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the E\+M\+AX value for the tesc calculation. 
+
+\mbox{\Hypertarget{cr__source_8h_ac1b13fc8cce3d466b305bc86f7406ef5}\label{cr__source_8h_ac1b13fc8cce3d466b305bc86f7406ef5}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Get\+E\+M\+\_\+e@{Get\+E\+M\+\_\+e}}
+\index{Get\+E\+M\+\_\+e@{Get\+E\+M\+\_\+e}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Get\+E\+M\+\_\+e()}{GetEM\_e()}}
+{\footnotesize\ttfamily double Get\+E\+M\+\_\+e (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function allows to calculate the maximum energy provided to the electrons escaping from the S\+NR according to the values in the constans.\+h file. \mbox{\Hypertarget{cr__source_8h_a2fb2c7641ca839cbce7ea880f24ec761}\label{cr__source_8h_a2fb2c7641ca839cbce7ea880f24ec761}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Get\+T\+Sed@{Get\+T\+Sed}}
+\index{Get\+T\+Sed@{Get\+T\+Sed}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Get\+T\+Sed()}{GetTSed()}}
+{\footnotesize\ttfamily double Get\+T\+Sed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function return the value of t\+\_\+sedov according to the S\+NR properties specified in the \hyperlink{constants_8h}{constants.\+h} file \mbox{\Hypertarget{cr__source_8h_ac19e2251663c1020061917ef7c2ce4cb}\label{cr__source_8h_ac19e2251663c1020061917ef7c2ce4cb}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Pcr\+\_\+ini@{Pcr\+\_\+ini}}
+\index{Pcr\+\_\+ini@{Pcr\+\_\+ini}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Pcr\+\_\+ini()}{Pcr\_ini()}}
+{\footnotesize\ttfamily double Pcr\+\_\+ini (\begin{DoxyParamCaption}\item[{double}]{E }\end{DoxyParamCaption})}
+
+
+
+This function defines the initial pressure distribution of both electrons and protons escaping from the S\+NR. 
+
+\mbox{\Hypertarget{cr__source_8h_ac022daf450a32a65533a945d8a3499f4}\label{cr__source_8h_ac022daf450a32a65533a945d8a3499f4}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Resc@{Resc}}
+\index{Resc@{Resc}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Resc()}{Resc()}}
+{\footnotesize\ttfamily double Resc (\begin{DoxyParamCaption}\item[{double}]{E }\end{DoxyParamCaption})}
+
+
+
+This function return the value of the escape shock radius at a given energy of protons. 
+
+\mbox{\Hypertarget{cr__source_8h_a9ae5a44cdfe05ba3ec18c58bb8a9acba}\label{cr__source_8h_a9ae5a44cdfe05ba3ec18c58bb8a9acba}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!R\+S\+NR@{R\+S\+NR}}
+\index{R\+S\+NR@{R\+S\+NR}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{R\+S\+N\+R()}{RSNR()}}
+{\footnotesize\ttfamily double R\+S\+NR (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+This function provides the value of the shock radius as a function of the time according to the S\+NR expansion model from Cioffi et al. 1998 and Truelove \& Mc\+Kee 19... The S\+NR shock has different propagation stages which are separated by characteristic times defined as below \+: \begin{eqnarray*} t_{\mathrm{ini},\mathrm{kyr}} & = & 10^{-4} \\ t_{\mathrm{free}, \mathrm{kyr}} & = & 0.3 E_\mathrm{SN}^{-1/2} M_\mathrm{ej} n_t^{-1/3} \\ t_{\mathrm{PDS}, \mathrm{yr}} & = & e^{-1} \times 3.61 \times 10^4 E_\mathrm{SN}^{3/14}/(\xi_n^{5/14}n_t^{4/7}) \\ t_{\mathrm{MCS}, \mathrm{yr}} & = & \mathrm{min}\left[ 61 V_{\mathrm{ej},8}^3/(\xi_n^{9/14}*n_t^{3/7}*E_\mathrm{SN}^{3/14}), 476 t_{\mathrm{PDS}, \mathrm{yr}} / (\xi_n \phi_c)^{9/14} \right] \\ t_{\mathrm{merge}, \mathrm{yr}} & = & 153 \left(E_\mathrm{SN}^{1/14} n_t^{1/7} \xi_n^{3/14}/ (\beta C_{06}) \right)^{10/7} t_{\mathrm{PDS}, \mathrm{yr}} \\ t_\mathrm{max} & = & \mathrm{max}(t_\mathrm{MCS}, t_\mathrm{merge}) \end{eqnarray*} where $ t_\mathrm{ini}$ corresponds to the initial time of the numerical computation of the spline, $ t_\mathrm{free} $ correponds to the transition time between the free expansion phase and the Sedov-\/\+Taylor phase, $ t_\mathrm{PDS} $ corresponds to the transition time between the Sedov-\/\+Taylor phase and the Pressure Driven Snowplow phase, $ t_\mathrm{MCS} $ correponds to the transition time between the Pressure Driven Snowplow phase and the Momentum Conserving Snowplow phase and finally $ t_\mathrm{merge} $ means the time at which the shock pressure becomes of the order of the I\+SM pressure. In some I\+SM phases, the shock can merge before entering in the Momentum Conserving Snowplow phase explaining $ t_\mathrm{max} $. The S\+NR shock evolves with time according the following radii \begin{eqnarray*} R_\mathrm{ini} & = & R_\mathrm{free} (t_\mathrm{ini}/t_\mathrm{free}) \\ \end{eqnarray*}
+
+
+\begin{DoxyParams}{Parameters}
+{\em time} & Time in \mbox{[}s\mbox{]}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{cr__source_8h_a9ae5a44cdfe05ba3ec18c58bb8a9acba}{R\+S\+N\+R()}, \hyperlink{mathematics_8h_aa9efdc9b8bb19a51263aef089b14a129}{Interpolating\+Spline()}
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{cr__source_8h_a2ee3db01aff2917316c7bb0b13e72b44}\label{cr__source_8h_a2ee3db01aff2917316c7bb0b13e72b44}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!sigm@{sigm}}
+\index{sigm@{sigm}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{sigm()}{sigm()}}
+{\footnotesize\ttfamily double sigm (\begin{DoxyParamCaption}\item[{double}]{E,  }\item[{double}]{ttesc }\end{DoxyParamCaption})}
+
+
+
+This function defines the variance of the time injection function Finj of C\+Rs. 
+
+\mbox{\Hypertarget{cr__source_8h_aaddb8ae16ca149e0438df68d1a24496c}\label{cr__source_8h_aaddb8ae16ca149e0438df68d1a24496c}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!tesc@{tesc}}
+\index{tesc@{tesc}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{tesc()}{tesc()}}
+{\footnotesize\ttfamily double tesc (\begin{DoxyParamCaption}\item[{double}]{E }\end{DoxyParamCaption})}
+
+Protons escape time function according the model of Celli et al. (2019) but also alternatives models of CR escape during radiative stages \mbox{\Hypertarget{cr__source_8h_a57278a4dafd696d3c4dda8e860d28fd8}\label{cr__source_8h_a57278a4dafd696d3c4dda8e860d28fd8}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!tesc\+\_\+e@{tesc\+\_\+e}}
+\index{tesc\+\_\+e@{tesc\+\_\+e}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{tesc\+\_\+e()}{tesc\_e()}}
+{\footnotesize\ttfamily double tesc\+\_\+e (\begin{DoxyParamCaption}\item[{double}]{E }\end{DoxyParamCaption})}
+
+This function calulate the escape time of the electrons as a function of the energy according both model of escape from Celli et al. (2019) and alternative models of escape in radiative phases \mbox{\Hypertarget{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}\label{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!theta@{theta}}
+\index{theta@{theta}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{theta()}{theta()}}
+{\footnotesize\ttfamily double theta (\begin{DoxyParamCaption}\item[{double}]{z,  }\item[{double}]{t,  }\item[{double}]{Rsnr }\end{DoxyParamCaption})}
+
+
+
+This function define the spatial shape of the C\+Rs distribution at a given time. 
+
+\mbox{\Hypertarget{cr__source_8h_adfcbd2247443f9569e3cb426495e4693}\label{cr__source_8h_adfcbd2247443f9569e3cb426495e4693}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!u\+\_\+sh@{u\+\_\+sh}}
+\index{u\+\_\+sh@{u\+\_\+sh}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{u\+\_\+sh()}{u\_sh()}}
+{\footnotesize\ttfamily double u\+\_\+sh (\begin{DoxyParamCaption}\item[{double}]{time }\end{DoxyParamCaption})}
+
+
+
+Shock velocity in time. 
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{cr__source_8h_acba2a7dbafb604d150d484cae70c8f3c}\label{cr__source_8h_acba2a7dbafb604d150d484cae70c8f3c}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Bcenter@{Bcenter}}
+\index{Bcenter@{Bcenter}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Bcenter}{Bcenter}}
+{\footnotesize\ttfamily double Bcenter = stod(\hyperlink{cr__source_8h_a7d12f5e50e6da226a0a1bc433751d056}{s\+Bcenter})}
+
+\mbox{\Hypertarget{cr__source_8h_a86d5046913b91deb282e7c75c1e35acb}\label{cr__source_8h_a86d5046913b91deb282e7c75c1e35acb}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!m\+\_\+neutral@{m\+\_\+neutral}}
+\index{m\+\_\+neutral@{m\+\_\+neutral}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{m\+\_\+neutral}{m\_neutral}}
+{\footnotesize\ttfamily double m\+\_\+neutral = stod(\hyperlink{cr__source_8h_ac763da942cab0e433e8187cfb5412905}{smn})}
+
+\mbox{\Hypertarget{cr__source_8h_a3bf1137663f19e5c361c845cf4dfb7db}\label{cr__source_8h_a3bf1137663f19e5c361c845cf4dfb7db}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!ne@{ne}}
+\index{ne@{ne}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{ne}{ne}}
+{\footnotesize\ttfamily int ne = stoi(\hyperlink{cr__source_8h_ac8b88baaf7ef9cabaeff4fe05d3f8faf}{sne})}
+
+\mbox{\Hypertarget{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}\label{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!ni@{ni}}
+\index{ni@{ni}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{ni}{ni}}
+{\footnotesize\ttfamily double ni = stod(\hyperlink{cr__source_8h_a6dd5063f45011979396b374b20ebeb05}{sni})}
+
+\mbox{\Hypertarget{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}\label{cr__source_8h_ad39423a7b14094ed17af35a0603f1a33}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!nt@{nt}}
+\index{nt@{nt}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{nt}{nt}}
+{\footnotesize\ttfamily double nt = \hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}/\hyperlink{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}{Xi}}
+
+\mbox{\Hypertarget{cr__source_8h_a02d47a4f36ec0bcce348696534567e30}\label{cr__source_8h_a02d47a4f36ec0bcce348696534567e30}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!nx@{nx}}
+\index{nx@{nx}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{nx}{nx}}
+{\footnotesize\ttfamily int nx = stoi(\hyperlink{cr__source_8h_a9215c5392c20f3e08a28e47f8c4c181f}{snx})}
+
+\mbox{\Hypertarget{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}\label{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!parameters@{parameters}}
+\index{parameters@{parameters}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{parameters}{parameters}}
+{\footnotesize\ttfamily std\+::string parameters = \char`\"{}./parameters.\+dat\char`\"{}}
+
+\mbox{\Hypertarget{cr__source_8h_a7d12f5e50e6da226a0a1bc433751d056}\label{cr__source_8h_a7d12f5e50e6da226a0a1bc433751d056}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!s\+Bcenter@{s\+Bcenter}}
+\index{s\+Bcenter@{s\+Bcenter}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{s\+Bcenter}{sBcenter}}
+{\footnotesize\ttfamily std\+::string s\+Bcenter = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}B\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_a131888f8169fa00af3616e4808fb6208}\label{cr__source_8h_a131888f8169fa00af3616e4808fb6208}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!scenter@{scenter}}
+\index{scenter@{scenter}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{scenter}{scenter}}
+{\footnotesize\ttfamily std\+::string scenter = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}center\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_a7aeee0cbcc7af1970d2da3721b3fc9b9}\label{cr__source_8h_a7aeee0cbcc7af1970d2da3721b3fc9b9}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!scenter\+\_\+index@{scenter\+\_\+index}}
+\index{scenter\+\_\+index@{scenter\+\_\+index}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{scenter\+\_\+index}{scenter\_index}}
+{\footnotesize\ttfamily std\+::string scenter\+\_\+index = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}center\+\_\+index\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_ac763da942cab0e433e8187cfb5412905}\label{cr__source_8h_ac763da942cab0e433e8187cfb5412905}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!smn@{smn}}
+\index{smn@{smn}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{smn}{smn}}
+{\footnotesize\ttfamily std\+::string smn = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}mn\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_ac8b88baaf7ef9cabaeff4fe05d3f8faf}\label{cr__source_8h_ac8b88baaf7ef9cabaeff4fe05d3f8faf}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!sne@{sne}}
+\index{sne@{sne}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{sne}{sne}}
+{\footnotesize\ttfamily std\+::string sne = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}NE\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_a6dd5063f45011979396b374b20ebeb05}\label{cr__source_8h_a6dd5063f45011979396b374b20ebeb05}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!sni@{sni}}
+\index{sni@{sni}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{sni}{sni}}
+{\footnotesize\ttfamily std\+::string sni = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}ni\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_a9215c5392c20f3e08a28e47f8c4c181f}\label{cr__source_8h_a9215c5392c20f3e08a28e47f8c4c181f}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!snx@{snx}}
+\index{snx@{snx}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{snx}{snx}}
+{\footnotesize\ttfamily std\+::string snx = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters}, \char`\"{}NX\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_a4b33ff781b0ef1e9ed5a263c34bf7fe8}\label{cr__source_8h_a4b33ff781b0ef1e9ed5a263c34bf7fe8}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!sT@{sT}}
+\index{sT@{sT}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{sT}{sT}}
+{\footnotesize\ttfamily std\+::string sT = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}T\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_a24d54695f5ef59fa7003a6592ad2eb3e}\label{cr__source_8h_a24d54695f5ef59fa7003a6592ad2eb3e}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!sX@{sX}}
+\index{sX@{sX}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{sX}{sX}}
+{\footnotesize\ttfamily std\+::string sX = \hyperlink{freader_8h_a073c1fd0247d9a7eb21c7a833eb3a2ad}{search}(\hyperlink{cr__source_8h_ac41bf730655467ef90d688d783a49ce4}{parameters},\char`\"{}X\char`\"{})}
+
+\mbox{\Hypertarget{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}\label{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!T@{T}}
+\index{T@{T}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily double T = stod(\hyperlink{cr__source_8h_a4b33ff781b0ef1e9ed5a263c34bf7fe8}{sT})}
+
+\mbox{\Hypertarget{cr__source_8h_a655c95cafb81ec683d3e164a5eb2096d}\label{cr__source_8h_a655c95cafb81ec683d3e164a5eb2096d}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!x\+\_\+center@{x\+\_\+center}}
+\index{x\+\_\+center@{x\+\_\+center}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{x\+\_\+center}{x\_center}}
+{\footnotesize\ttfamily double x\+\_\+center = stod(\hyperlink{cr__source_8h_a131888f8169fa00af3616e4808fb6208}{scenter})}
+
+\mbox{\Hypertarget{cr__source_8h_a5445b70da42fff72267a9c8fa83531bc}\label{cr__source_8h_a5445b70da42fff72267a9c8fa83531bc}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!x\+\_\+center\+\_\+index@{x\+\_\+center\+\_\+index}}
+\index{x\+\_\+center\+\_\+index@{x\+\_\+center\+\_\+index}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{x\+\_\+center\+\_\+index}{x\_center\_index}}
+{\footnotesize\ttfamily int x\+\_\+center\+\_\+index = stod(\hyperlink{cr__source_8h_a7aeee0cbcc7af1970d2da3721b3fc9b9}{scenter\+\_\+index})}
+
+\mbox{\Hypertarget{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}\label{cr__source_8h_a855d4a4ac47df1c46caacb1b42eb6d04}} 
+\index{cr\+\_\+source.\+h@{cr\+\_\+source.\+h}!Xi@{Xi}}
+\index{Xi@{Xi}!cr\+\_\+source.\+h@{cr\+\_\+source.\+h}}
+\subsubsection{\texorpdfstring{Xi}{Xi}}
+{\footnotesize\ttfamily double Xi = stod(\hyperlink{cr__source_8h_a24d54695f5ef59fa7003a6592ad2eb3e}{sX})}
+

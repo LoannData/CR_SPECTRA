@@ -1,0 +1,126 @@
+\hypertarget{solver1D_8h}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/solver1D.h File Reference}
+\label{solver1D_8h}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/solver1\+D.\+h@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/solver1\+D.\+h}}
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$tuple$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+Include dependency graph for solver1\+D.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{solver1D_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{solver1D_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{solver1D_8h_afcb5a4e38370f967f2b945c0241f1831}{theta\+Diffusion\+Solver} (vector$<$ vector$<$ double $>$ $>$ \&u, vector$<$ vector$<$ double $>$ $>$ \&Pcr\+\_\+new, double dt, vector$<$ double $>$ X, int NE, vector$<$ vector$<$ double $>$ $>$ Ip, vector$<$ vector$<$ double $>$ $>$ Im, vector$<$ vector$<$ double $>$ $>$ Db, vector$<$ vector$<$ double $>$ $>$ \&Pcr\+\_\+background)
+\item 
+void \hyperlink{solver1D_8h_a103dc2e6463ef76cf14e9d242acc937c}{advection\+SolverX} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, double dt, vector$<$ double $>$ X, int NE, vector$<$ vector$<$ double $>$ $>$ V, int sign, int border)
+\item 
+void \hyperlink{solver1D_8h_a48de9b2868ed9d20a5768f893eefb8c5}{advection\+SolverE} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, double dt, vector$<$ double $>$ E, int NX, vector$<$ vector$<$ double $>$ $>$ V, vector$<$ vector$<$ double $>$ $>$ u\+\_\+background)
+\item 
+void \hyperlink{solver1D_8h_a106132d9d8efb08eab4d5cc10732620f}{advection\+Solver\+E1} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, double dt, vector$<$ double $>$ E, vector$<$ double $>$ BB, vector$<$ double $>$ EE, int NX, vector$<$ vector$<$ double $>$ $>$ u\+\_\+background)
+\item 
+void \hyperlink{solver1D_8h_ad1d8d3c439326c4b5cafabb87f11562e}{advection\+Solver\+E2} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, double dt, vector$<$ double $>$ E, int NX, vector$<$ double $>$ BB, vector$<$ double $>$ EE, vector$<$ vector$<$ double $>$ $>$ u\+\_\+background)
+\item 
+void \hyperlink{solver1D_8h_ad33fb869cbb96f9d08b1bccf86826fb1}{source\+Solver} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, double dt, vector$<$ vector$<$ double $>$ $>$ source, double factor)
+\item 
+void \hyperlink{solver1D_8h_aa7f6eee49e4e9230307871dcb2d5a352}{source\+Growth\+Damp\+Rate\+Solver} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, vector$<$ vector$<$ double $>$ $>$ v\+\_\+old, vector$<$ vector$<$ double $>$ $>$ source, vector$<$ vector$<$ double $>$ $>$ background, vector$<$ double $>$ X, double dt, vector$<$ vector$<$ double $>$ $>$ V, vector$<$ double $>$ B, int factor)
+\item 
+void \hyperlink{solver1D_8h_a2f8fd5ea7c6a1ef2468bf631f29dab6d}{C\+Rs\+Injection\+Source\+Solver} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, double dt, vector$<$ double $>$ \hyperlink{cr__source_8h_ac19e2251663c1020061917ef7c2ce4cb}{Pcr\+\_\+ini}, vector$<$ double $>$ Finj\+\_\+temp, vector$<$ double $>$ vec\+\_\+theta)
+\item 
+void \hyperlink{solver1D_8h_a7131dd1fd5ac463bce6bf78177d87e2d}{dilute\+\_\+solver} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, vector$<$ vector$<$ double $>$ $>$ u\+\_\+background, double r\+\_\+new, double r\+\_\+old, vector$<$ double $>$ nn, vector$<$ double $>$ \hyperlink{cr__source_8h_ad3975adf480fdb09e1ea14b1efa617e0}{ni}, vector$<$ double $>$ \hyperlink{constants_8h_affd3595ea3bf442893a3dc5bf568a663}{mn}, vector$<$ double $>$ mi, vector$<$ double $>$ B, vector$<$ double $>$ \hyperlink{cr__source_8h_ac94a6e5794c2d7b59588b14025cfba20}{T})
+\item 
+void \hyperlink{solver1D_8h_ae1556e55b3ed7913a25cb2323bb371f1}{perpendicular\+\_\+diffusion\+\_\+solver} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, vector$<$ vector$<$ double $>$ $>$ u\+\_\+bc, vector$<$ vector$<$ double $>$ $>$ Db, vector$<$ vector$<$ double $>$ $>$ I0, vector$<$ double $>$ X, double dt, vector$<$ double $>$ r\+\_\+esc)
+\item 
+void \hyperlink{solver1D_8h_a6417f41d1afa5d62b6f1443fe545c586}{Not\+Move} (vector$<$ vector$<$ double $>$ $>$ u, vector$<$ vector$<$ double $>$ $>$ u\+\_\+new)
+\item 
+void \hyperlink{solver1D_8h_ad0d64194db46f0bbe65d9835903f1041}{electron\+\_\+source} (vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+old, vector$<$ vector$<$ double $>$ $>$ \&u\+\_\+new, vector$<$ double $>$ E, double dt, int NE, int NX, vector$<$ vector$<$ double $>$ $>$ u\+\_\+background)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{solver1D_8h_a48de9b2868ed9d20a5768f893eefb8c5}\label{solver1D_8h_a48de9b2868ed9d20a5768f893eefb8c5}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!advection\+SolverE@{advection\+SolverE}}
+\index{advection\+SolverE@{advection\+SolverE}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{advection\+Solver\+E()}{advectionSolverE()}}
+{\footnotesize\ttfamily void advection\+SolverE (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{E,  }\item[{int}]{NX,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{V,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+background }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_a106132d9d8efb08eab4d5cc10732620f}\label{solver1D_8h_a106132d9d8efb08eab4d5cc10732620f}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!advection\+Solver\+E1@{advection\+Solver\+E1}}
+\index{advection\+Solver\+E1@{advection\+Solver\+E1}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{advection\+Solver\+E1()}{advectionSolverE1()}}
+{\footnotesize\ttfamily void advection\+Solver\+E1 (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{E,  }\item[{vector$<$ double $>$}]{BB,  }\item[{vector$<$ double $>$}]{EE,  }\item[{int}]{NX,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+background }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_ad1d8d3c439326c4b5cafabb87f11562e}\label{solver1D_8h_ad1d8d3c439326c4b5cafabb87f11562e}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!advection\+Solver\+E2@{advection\+Solver\+E2}}
+\index{advection\+Solver\+E2@{advection\+Solver\+E2}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{advection\+Solver\+E2()}{advectionSolverE2()}}
+{\footnotesize\ttfamily void advection\+Solver\+E2 (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{E,  }\item[{int}]{NX,  }\item[{vector$<$ double $>$}]{BB,  }\item[{vector$<$ double $>$}]{EE,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+background }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_a103dc2e6463ef76cf14e9d242acc937c}\label{solver1D_8h_a103dc2e6463ef76cf14e9d242acc937c}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!advection\+SolverX@{advection\+SolverX}}
+\index{advection\+SolverX@{advection\+SolverX}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{advection\+Solver\+X()}{advectionSolverX()}}
+{\footnotesize\ttfamily void advection\+SolverX (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{X,  }\item[{int}]{NE,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{V,  }\item[{int}]{sign,  }\item[{int}]{border }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_a2f8fd5ea7c6a1ef2468bf631f29dab6d}\label{solver1D_8h_a2f8fd5ea7c6a1ef2468bf631f29dab6d}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!C\+Rs\+Injection\+Source\+Solver@{C\+Rs\+Injection\+Source\+Solver}}
+\index{C\+Rs\+Injection\+Source\+Solver@{C\+Rs\+Injection\+Source\+Solver}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{C\+Rs\+Injection\+Source\+Solver()}{CRsInjectionSourceSolver()}}
+{\footnotesize\ttfamily void C\+Rs\+Injection\+Source\+Solver (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{Pcr\+\_\+ini,  }\item[{vector$<$ double $>$}]{Finj\+\_\+temp,  }\item[{vector$<$ double $>$}]{vec\+\_\+theta }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_a7131dd1fd5ac463bce6bf78177d87e2d}\label{solver1D_8h_a7131dd1fd5ac463bce6bf78177d87e2d}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!dilute\+\_\+solver@{dilute\+\_\+solver}}
+\index{dilute\+\_\+solver@{dilute\+\_\+solver}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{dilute\+\_\+solver()}{dilute\_solver()}}
+{\footnotesize\ttfamily void dilute\+\_\+solver (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+background,  }\item[{double}]{r\+\_\+new,  }\item[{double}]{r\+\_\+old,  }\item[{vector$<$ double $>$}]{nn,  }\item[{vector$<$ double $>$}]{ni,  }\item[{vector$<$ double $>$}]{mn,  }\item[{vector$<$ double $>$}]{mi,  }\item[{vector$<$ double $>$}]{B,  }\item[{vector$<$ double $>$}]{T }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_ad0d64194db46f0bbe65d9835903f1041}\label{solver1D_8h_ad0d64194db46f0bbe65d9835903f1041}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!electron\+\_\+source@{electron\+\_\+source}}
+\index{electron\+\_\+source@{electron\+\_\+source}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{electron\+\_\+source()}{electron\_source()}}
+{\footnotesize\ttfamily void electron\+\_\+source (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{vector$<$ double $>$}]{E,  }\item[{double}]{dt,  }\item[{int}]{NE,  }\item[{int}]{NX,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+background }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_a6417f41d1afa5d62b6f1443fe545c586}\label{solver1D_8h_a6417f41d1afa5d62b6f1443fe545c586}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!Not\+Move@{Not\+Move}}
+\index{Not\+Move@{Not\+Move}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{Not\+Move()}{NotMove()}}
+{\footnotesize\ttfamily void Not\+Move (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$}]{u,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+new }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_ae1556e55b3ed7913a25cb2323bb371f1}\label{solver1D_8h_ae1556e55b3ed7913a25cb2323bb371f1}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!perpendicular\+\_\+diffusion\+\_\+solver@{perpendicular\+\_\+diffusion\+\_\+solver}}
+\index{perpendicular\+\_\+diffusion\+\_\+solver@{perpendicular\+\_\+diffusion\+\_\+solver}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{perpendicular\+\_\+diffusion\+\_\+solver()}{perpendicular\_diffusion\_solver()}}
+{\footnotesize\ttfamily void perpendicular\+\_\+diffusion\+\_\+solver (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{u\+\_\+bc,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{Db,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{I0,  }\item[{vector$<$ double $>$}]{X,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{r\+\_\+esc }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_aa7f6eee49e4e9230307871dcb2d5a352}\label{solver1D_8h_aa7f6eee49e4e9230307871dcb2d5a352}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!source\+Growth\+Damp\+Rate\+Solver@{source\+Growth\+Damp\+Rate\+Solver}}
+\index{source\+Growth\+Damp\+Rate\+Solver@{source\+Growth\+Damp\+Rate\+Solver}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{source\+Growth\+Damp\+Rate\+Solver()}{sourceGrowthDampRateSolver()}}
+{\footnotesize\ttfamily void source\+Growth\+Damp\+Rate\+Solver (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{v\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{source,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{background,  }\item[{vector$<$ double $>$}]{X,  }\item[{double}]{dt,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{V,  }\item[{vector$<$ double $>$}]{B,  }\item[{int}]{factor }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_ad33fb869cbb96f9d08b1bccf86826fb1}\label{solver1D_8h_ad33fb869cbb96f9d08b1bccf86826fb1}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!source\+Solver@{source\+Solver}}
+\index{source\+Solver@{source\+Solver}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{source\+Solver()}{sourceSolver()}}
+{\footnotesize\ttfamily void source\+Solver (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+old,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{source,  }\item[{double}]{factor }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{solver1D_8h_afcb5a4e38370f967f2b945c0241f1831}\label{solver1D_8h_afcb5a4e38370f967f2b945c0241f1831}} 
+\index{solver1\+D.\+h@{solver1\+D.\+h}!theta\+Diffusion\+Solver@{theta\+Diffusion\+Solver}}
+\index{theta\+Diffusion\+Solver@{theta\+Diffusion\+Solver}!solver1\+D.\+h@{solver1\+D.\+h}}
+\subsubsection{\texorpdfstring{theta\+Diffusion\+Solver()}{thetaDiffusionSolver()}}
+{\footnotesize\ttfamily void theta\+Diffusion\+Solver (\begin{DoxyParamCaption}\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{u,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{Pcr\+\_\+new,  }\item[{double}]{dt,  }\item[{vector$<$ double $>$}]{X,  }\item[{int}]{NE,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{Ip,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{Im,  }\item[{vector$<$ vector$<$ double $>$ $>$}]{Db,  }\item[{vector$<$ vector$<$ double $>$ $>$ \&}]{Pcr\+\_\+background }\end{DoxyParamCaption})}
+

@@ -1,0 +1,244 @@
+\hypertarget{namespacePDE__solvers}{}\section{P\+D\+E\+\_\+solvers Namespace Reference}
+\label{namespacePDE__solvers}\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacePDE__solvers_a7e8f1dede17ef38bf75b8db7cee5bf38}{T\+D\+MA} (a, b, \hyperlink{namespacePDE__solvers_a730023a0d9af5165d835a6dcc10e67d2}{c}, d)
+\item 
+def \hyperlink{namespacePDE__solvers_a01e04051a07f5e380f02fa1a2a000531}{A} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a209625175ace8add9160ffa5438c150a}{B} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a2f40c0a059e412453818e6482fb92b09}{C} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a4e422ca6c34b0d9d943190ee570abb08}{Q} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a6728696b430071890e97671c2c6069fa}{T} (x)
+\item 
+def \hyperlink{namespacePDE__solvers_a306ac1abd1ee9ac53a496bbb64eac157}{finite\+Diff\+Solver} (dt, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})
+\item 
+def \hyperlink{namespacePDE__solvers_a093eb37c7beab9cbd84f388e77821fce}{Simple\+Implicit\+Solver} (dt, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})
+\item 
+def \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver} (dt, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{namespacePDE__solvers_a71c07d7118cdda8c71573599545d0017}{pc} = 3.\+086e18
+\begin{DoxyCompactList}\small\item\em Tri Diagonal Matrix Algorithm(a.\+k.\+a Thomas algorithm) solver def T\+D\+M\+Asolver(a, b, c, d)\+: \textquotesingle{}\textquotesingle{}\textquotesingle{} T\+D\+MA solver, a b c d can be Num\+Py array type or Python list type. \end{DoxyCompactList}\item 
+float \hyperlink{namespacePDE__solvers_a400304049742ae9f9b048c40cb6a52cb}{yr} = 365.\+25$\ast$86400
+\item 
+int \hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr} = 1e3$\ast$yr
+\item 
+int \hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M} = 2048
+\item 
+int \hyperlink{namespacePDE__solvers_a7a1ac835675841b757a70f18b51246dc}{Xmin} = 0.
+\item 
+int \hyperlink{namespacePDE__solvers_a48fb209db97ce5937802d0a747fb9991}{Xmax} = 1000.$\ast$\hyperlink{namespacePDE__solvers_a71c07d7118cdda8c71573599545d0017}{pc}
+\item 
+\hyperlink{namespacePDE__solvers_ab53183fc05bd900f7013cd056e2e7338}{X} = np.\+linspace(\hyperlink{namespacePDE__solvers_a7a1ac835675841b757a70f18b51246dc}{Xmin}, \hyperlink{namespacePDE__solvers_a48fb209db97ce5937802d0a747fb9991}{Xmax}, \hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M}+1)
+\item 
+\hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u} = np.\+zeros(\hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M}+1)
+\begin{DoxyCompactList}\small\item\em plt.\+semilogy(X/pc, u, c=\char`\"{}blue\char`\"{}) plt.\+plot(X/pc, u/U, c=\char`\"{}red\char`\"{}) plt.\+axhline(1.) print (\char`\"{}ratio = \char`\"{},sum(u)/sum(U)) \end{DoxyCompactList}\item 
+\hyperlink{namespacePDE__solvers_aecb3894d7f844fe950ec6e4eb6ab14c6}{u0} = \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u}\mbox{[}1\mbox{]}
+\item 
+\hyperlink{namespacePDE__solvers_acd452357e85c033220a4da5bc3f71966}{uM} = \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u}\mbox{[}\hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M}-\/1\mbox{]}
+\item 
+\hyperlink{namespacePDE__solvers_a2184f2624ab571a00cfedb3a2a45cfaf}{u\+\_\+ini} = u.\+copy()
+\item 
+\hyperlink{namespacePDE__solvers_afddf2b29ad67e3711d02129f93615761}{u\+\_\+end} = \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u}
+\item 
+int \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax} = 10.$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}
+\item 
+def \hyperlink{namespacePDE__solvers_a841654a1a841e1aca6f253e271b158c8}{u\+\_\+0} = \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver}(0.\+1$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})
+\item 
+def \hyperlink{namespacePDE__solvers_a16bfb4d8d2eb6d1a005652edf340bc53}{u\+\_\+1} = \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver}(0.\+5$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})
+\item 
+def \hyperlink{namespacePDE__solvers_a37d193fe9e294403c8a7145a75caacb3}{u\+\_\+2} = \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver}(5.$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})
+\item 
+\hyperlink{namespacePDE__solvers_a129441ff5bc2a944435b54ac29fa70df}{figsize}
+\item 
+\hyperlink{namespacePDE__solvers_a730023a0d9af5165d835a6dcc10e67d2}{c}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacePDE__solvers_a01e04051a07f5e380f02fa1a2a000531}\label{namespacePDE__solvers_a01e04051a07f5e380f02fa1a2a000531}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!A@{A}}
+\index{A@{A}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{A()}{A()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+A (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a209625175ace8add9160ffa5438c150a}\label{namespacePDE__solvers_a209625175ace8add9160ffa5438c150a}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!B@{B}}
+\index{B@{B}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{B()}{B()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+B (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a2f40c0a059e412453818e6482fb92b09}\label{namespacePDE__solvers_a2f40c0a059e412453818e6482fb92b09}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!C@{C}}
+\index{C@{C}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{C()}{C()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+C (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}\label{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!C\+C70\+Solver@{C\+C70\+Solver}}
+\index{C\+C70\+Solver@{C\+C70\+Solver}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{C\+C70\+Solver()}{CC70Solver()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+C\+C70\+Solver (\begin{DoxyParamCaption}\item[{}]{dt,  }\item[{}]{Tmax,  }\item[{}]{u }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a306ac1abd1ee9ac53a496bbb64eac157}\label{namespacePDE__solvers_a306ac1abd1ee9ac53a496bbb64eac157}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!finite\+Diff\+Solver@{finite\+Diff\+Solver}}
+\index{finite\+Diff\+Solver@{finite\+Diff\+Solver}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{finite\+Diff\+Solver()}{finiteDiffSolver()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+finite\+Diff\+Solver (\begin{DoxyParamCaption}\item[{}]{dt,  }\item[{}]{Tmax,  }\item[{}]{u }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a4e422ca6c34b0d9d943190ee570abb08}\label{namespacePDE__solvers_a4e422ca6c34b0d9d943190ee570abb08}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!Q@{Q}}
+\index{Q@{Q}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Q()}{Q()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+Q (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a093eb37c7beab9cbd84f388e77821fce}\label{namespacePDE__solvers_a093eb37c7beab9cbd84f388e77821fce}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!Simple\+Implicit\+Solver@{Simple\+Implicit\+Solver}}
+\index{Simple\+Implicit\+Solver@{Simple\+Implicit\+Solver}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Simple\+Implicit\+Solver()}{SimpleImplicitSolver()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+Simple\+Implicit\+Solver (\begin{DoxyParamCaption}\item[{}]{dt,  }\item[{}]{Tmax,  }\item[{}]{u }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a6728696b430071890e97671c2c6069fa}\label{namespacePDE__solvers_a6728696b430071890e97671c2c6069fa}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!T@{T}}
+\index{T@{T}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{T()}{T()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+T (\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a7e8f1dede17ef38bf75b8db7cee5bf38}\label{namespacePDE__solvers_a7e8f1dede17ef38bf75b8db7cee5bf38}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!T\+D\+MA@{T\+D\+MA}}
+\index{T\+D\+MA@{T\+D\+MA}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{T\+D\+M\+A()}{TDMA()}}
+{\footnotesize\ttfamily def P\+D\+E\+\_\+solvers.\+T\+D\+MA (\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacePDE__solvers_a730023a0d9af5165d835a6dcc10e67d2}\label{namespacePDE__solvers_a730023a0d9af5165d835a6dcc10e67d2}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!c@{c}}
+\index{c@{c}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+c}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a129441ff5bc2a944435b54ac29fa70df}\label{namespacePDE__solvers_a129441ff5bc2a944435b54ac29fa70df}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!figsize@{figsize}}
+\index{figsize@{figsize}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{figsize}{figsize}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+figsize}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}\label{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!kyr@{kyr}}
+\index{kyr@{kyr}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{kyr}{kyr}}
+{\footnotesize\ttfamily int P\+D\+E\+\_\+solvers.\+kyr = 1e3$\ast$yr}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}\label{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!M@{M}}
+\index{M@{M}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{M}{M}}
+{\footnotesize\ttfamily int P\+D\+E\+\_\+solvers.\+M = 2048}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a71c07d7118cdda8c71573599545d0017}\label{namespacePDE__solvers_a71c07d7118cdda8c71573599545d0017}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!pc@{pc}}
+\index{pc@{pc}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{pc}{pc}}
+{\footnotesize\ttfamily float P\+D\+E\+\_\+solvers.\+pc = 3.\+086e18}
+
+
+
+Tri Diagonal Matrix Algorithm(a.\+k.\+a Thomas algorithm) solver def T\+D\+M\+Asolver(a, b, c, d)\+: \textquotesingle{}\textquotesingle{}\textquotesingle{} T\+D\+MA solver, a b c d can be Num\+Py array type or Python list type. 
+
+refer to \href{http://en.wikipedia.org/wiki/Tridiagonal_matrix_algorithm}{\tt http\+://en.\+wikipedia.\+org/wiki/\+Tridiagonal\+\_\+matrix\+\_\+algorithm} and to \href{http://www.cfd-online.com/Wiki/Tridiagonal_matrix_algorithm_-_TDMA_(Thomas_algorithm)}{\tt http\+://www.\+cfd-\/online.\+com/\+Wiki/\+Tridiagonal\+\_\+matrix\+\_\+algorithm\+\_\+-\/\+\_\+\+T\+D\+M\+A\+\_\+(\+Thomas\+\_\+algorithm)} \textquotesingle{}\textquotesingle{}\textquotesingle{} nf = len(d) \# number of equations ac, bc, cc, dc = map(np.\+array, (a, b, c, d)) \# copy arrays for it in range(1, nf)\+: mc = ac\mbox{[}it-\/1\mbox{]}/bc\mbox{[}it-\/1\mbox{]} bc\mbox{[}it\mbox{]} = bc\mbox{[}it\mbox{]} -\/ mc$\ast$cc\mbox{[}it-\/1\mbox{]} dc\mbox{[}it\mbox{]} = dc\mbox{[}it\mbox{]} -\/ mc$\ast$dc\mbox{[}it-\/1\mbox{]}
+
+xc = bc xc\mbox{[}-\/1\mbox{]} = dc\mbox{[}-\/1\mbox{]}/bc\mbox{[}-\/1\mbox{]}
+
+for il in range(nf-\/2, -\/1, -\/1)\+: xc\mbox{[}il\mbox{]} = (dc\mbox{[}il\mbox{]}-\/cc\mbox{[}il\mbox{]}$\ast$xc\mbox{[}il+1\mbox{]})/bc\mbox{[}il\mbox{]}
+
+return xc \mbox{\Hypertarget{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}\label{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!Tmax@{Tmax}}
+\index{Tmax@{Tmax}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Tmax}{Tmax}}
+{\footnotesize\ttfamily int P\+D\+E\+\_\+solvers.\+Tmax = 10.$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}}
+
+\mbox{\Hypertarget{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}\label{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u@{u}}
+\index{u@{u}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u = np.\+zeros(\hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M}+1)}
+
+
+
+plt.\+semilogy(X/pc, u, c=\char`\"{}blue\char`\"{}) plt.\+plot(X/pc, u/U, c=\char`\"{}red\char`\"{}) plt.\+axhline(1.) print (\char`\"{}ratio = \char`\"{},sum(u)/sum(U)) 
+
+\mbox{\Hypertarget{namespacePDE__solvers_aecb3894d7f844fe950ec6e4eb6ab14c6}\label{namespacePDE__solvers_aecb3894d7f844fe950ec6e4eb6ab14c6}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u0@{u0}}
+\index{u0@{u0}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u0}{u0}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u0 = \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u}\mbox{[}1\mbox{]}}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a841654a1a841e1aca6f253e271b158c8}\label{namespacePDE__solvers_a841654a1a841e1aca6f253e271b158c8}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u\+\_\+0@{u\+\_\+0}}
+\index{u\+\_\+0@{u\+\_\+0}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+0}{u\_0}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u\+\_\+0 = \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver}(0.\+1$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a16bfb4d8d2eb6d1a005652edf340bc53}\label{namespacePDE__solvers_a16bfb4d8d2eb6d1a005652edf340bc53}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u\+\_\+1@{u\+\_\+1}}
+\index{u\+\_\+1@{u\+\_\+1}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+1}{u\_1}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u\+\_\+1 = \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver}(0.\+5$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a37d193fe9e294403c8a7145a75caacb3}\label{namespacePDE__solvers_a37d193fe9e294403c8a7145a75caacb3}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u\+\_\+2@{u\+\_\+2}}
+\index{u\+\_\+2@{u\+\_\+2}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+2}{u\_2}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u\+\_\+2 = \hyperlink{namespacePDE__solvers_aeb1cc15f3da8633c104496a7cb7aa83c}{C\+C70\+Solver}(5.$\ast$\hyperlink{namespacePDE__solvers_a17e611d575d9a8bda46ea6b596138f12}{kyr}, \hyperlink{namespacePDE__solvers_acdfd09d09c00385a3f3574d55d7e54a9}{Tmax}, \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u})}
+
+\mbox{\Hypertarget{namespacePDE__solvers_afddf2b29ad67e3711d02129f93615761}\label{namespacePDE__solvers_afddf2b29ad67e3711d02129f93615761}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u\+\_\+end@{u\+\_\+end}}
+\index{u\+\_\+end@{u\+\_\+end}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+end}{u\_end}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u\+\_\+end = \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u}}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a2184f2624ab571a00cfedb3a2a45cfaf}\label{namespacePDE__solvers_a2184f2624ab571a00cfedb3a2a45cfaf}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!u\+\_\+ini@{u\+\_\+ini}}
+\index{u\+\_\+ini@{u\+\_\+ini}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+ini}{u\_ini}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+u\+\_\+ini = u.\+copy()}
+
+\mbox{\Hypertarget{namespacePDE__solvers_acd452357e85c033220a4da5bc3f71966}\label{namespacePDE__solvers_acd452357e85c033220a4da5bc3f71966}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!uM@{uM}}
+\index{uM@{uM}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{uM}{uM}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+uM = \hyperlink{namespacePDE__solvers_abaa9fdf113a88661fc0afa93032755d3}{u}\mbox{[}\hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M}-\/1\mbox{]}}
+
+\mbox{\Hypertarget{namespacePDE__solvers_ab53183fc05bd900f7013cd056e2e7338}\label{namespacePDE__solvers_ab53183fc05bd900f7013cd056e2e7338}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!X@{X}}
+\index{X@{X}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily P\+D\+E\+\_\+solvers.\+X = np.\+linspace(\hyperlink{namespacePDE__solvers_a7a1ac835675841b757a70f18b51246dc}{Xmin}, \hyperlink{namespacePDE__solvers_a48fb209db97ce5937802d0a747fb9991}{Xmax}, \hyperlink{namespacePDE__solvers_a9d6fca7c2abdff4c2c7feec55d437940}{M}+1)}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a48fb209db97ce5937802d0a747fb9991}\label{namespacePDE__solvers_a48fb209db97ce5937802d0a747fb9991}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!Xmax@{Xmax}}
+\index{Xmax@{Xmax}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Xmax}{Xmax}}
+{\footnotesize\ttfamily int P\+D\+E\+\_\+solvers.\+Xmax = 1000.$\ast$\hyperlink{namespacePDE__solvers_a71c07d7118cdda8c71573599545d0017}{pc}}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a7a1ac835675841b757a70f18b51246dc}\label{namespacePDE__solvers_a7a1ac835675841b757a70f18b51246dc}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!Xmin@{Xmin}}
+\index{Xmin@{Xmin}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Xmin}{Xmin}}
+{\footnotesize\ttfamily int P\+D\+E\+\_\+solvers.\+Xmin = 0.}
+
+\mbox{\Hypertarget{namespacePDE__solvers_a400304049742ae9f9b048c40cb6a52cb}\label{namespacePDE__solvers_a400304049742ae9f9b048c40cb6a52cb}} 
+\index{P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}!yr@{yr}}
+\index{yr@{yr}!P\+D\+E\+\_\+solvers@{P\+D\+E\+\_\+solvers}}
+\subsubsection{\texorpdfstring{yr}{yr}}
+{\footnotesize\ttfamily float P\+D\+E\+\_\+solvers.\+yr = 365.\+25$\ast$86400}
+

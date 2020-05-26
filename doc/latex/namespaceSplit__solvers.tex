@@ -1,0 +1,142 @@
+\hypertarget{namespaceSplit__solvers}{}\section{Split\+\_\+solvers Namespace Reference}
+\label{namespaceSplit__solvers}\index{Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceSplit__solvers_afbe15271a0fe5821bdfe8760325cb4bb}{T\+D\+MA} (a, b, \hyperlink{namespaceSplit__solvers_a8d99b01f11e92c25fdef25ee372ef15e}{c}, d)
+\item 
+def \hyperlink{namespaceSplit__solvers_a220613cf00c68055fb1d6c976dc0ec1d}{generalized\+\_\+diffusion} (\hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{u}, \hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{X}, \hyperlink{namespaceSplit__solvers_a0bcad395b64a658c374ba8a3fb893836}{D}, \hyperlink{namespaceSplit__solvers_a9d7802821157fdbfdde000b24e2ed31b}{dt}, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta}=0.\+5)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespaceSplit__solvers_a6f5cab1ea541e5ae5d4ae5a0d62ab100}{NX} = 1000
+\item 
+int \hyperlink{namespaceSplit__solvers_abe1cb9889c38d9038ab77c312a857ae5}{Xmin} = -\/1
+\item 
+int \hyperlink{namespaceSplit__solvers_a3a9b8c9973a6efe018e8b1dd5c13a896}{Xmax} = 1
+\item 
+\hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{X} = np.\+linspace(\hyperlink{namespaceSplit__solvers_abe1cb9889c38d9038ab77c312a857ae5}{Xmin}, \hyperlink{namespaceSplit__solvers_a3a9b8c9973a6efe018e8b1dd5c13a896}{Xmax}, \hyperlink{namespaceSplit__solvers_a6f5cab1ea541e5ae5d4ae5a0d62ab100}{NX}+1)
+\item 
+int \hyperlink{namespaceSplit__solvers_a0bcad395b64a658c374ba8a3fb893836}{D} = np.\+ones(len(\hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{X}))$\ast$1e-\/2
+\item 
+int \hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{u} = np.\+ones(len(\hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{X}))$\ast$0.
+\item 
+\hyperlink{namespaceSplit__solvers_a8d99b01f11e92c25fdef25ee372ef15e}{c}
+\item 
+int \hyperlink{namespaceSplit__solvers_a4e16fb7ea5fb14290b3a63e87499dced}{t\+\_\+ini} = 0.
+\item 
+int \hyperlink{namespaceSplit__solvers_a9d7802821157fdbfdde000b24e2ed31b}{dt} = 1e-\/1
+\item 
+int \hyperlink{namespaceSplit__solvers_a49303767dbd0cb68ef911cd068fde69a}{t\+\_\+max} = 1.
+\item 
+int \hyperlink{namespaceSplit__solvers_a6efd428aff22677b6e56b44b8ae5552d}{t} = \hyperlink{namespaceSplit__solvers_a4e16fb7ea5fb14290b3a63e87499dced}{t\+\_\+ini}
+\item 
+int \hyperlink{namespaceSplit__solvers_ad561a5b47428860b09231ef32d981065}{u\+\_\+new\+\_\+0} = \hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{u}
+\item 
+int \hyperlink{namespaceSplit__solvers_ab5a06ffd8881f993be924d175cf33bf0}{u\+\_\+old} = \hyperlink{namespaceSplit__solvers_ad561a5b47428860b09231ef32d981065}{u\+\_\+new\+\_\+0}
+\item 
+int \hyperlink{namespaceSplit__solvers_a660926dfee34f958baddd1154dfa7df0}{u\+\_\+new\+\_\+1} = \hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{u}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespaceSplit__solvers_a220613cf00c68055fb1d6c976dc0ec1d}\label{namespaceSplit__solvers_a220613cf00c68055fb1d6c976dc0ec1d}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!generalized\+\_\+diffusion@{generalized\+\_\+diffusion}}
+\index{generalized\+\_\+diffusion@{generalized\+\_\+diffusion}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{generalized\+\_\+diffusion()}{generalized\_diffusion()}}
+{\footnotesize\ttfamily def Split\+\_\+solvers.\+generalized\+\_\+diffusion (\begin{DoxyParamCaption}\item[{}]{u,  }\item[{}]{X,  }\item[{}]{D,  }\item[{}]{dt,  }\item[{}]{theta = {\ttfamily 0.5} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_afbe15271a0fe5821bdfe8760325cb4bb}\label{namespaceSplit__solvers_afbe15271a0fe5821bdfe8760325cb4bb}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!T\+D\+MA@{T\+D\+MA}}
+\index{T\+D\+MA@{T\+D\+MA}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{T\+D\+M\+A()}{TDMA()}}
+{\footnotesize\ttfamily def Split\+\_\+solvers.\+T\+D\+MA (\begin{DoxyParamCaption}\item[{}]{a,  }\item[{}]{b,  }\item[{}]{c,  }\item[{}]{d }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespaceSplit__solvers_a8d99b01f11e92c25fdef25ee372ef15e}\label{namespaceSplit__solvers_a8d99b01f11e92c25fdef25ee372ef15e}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!c@{c}}
+\index{c@{c}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{c}{c}}
+{\footnotesize\ttfamily Split\+\_\+solvers.\+c}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a0bcad395b64a658c374ba8a3fb893836}\label{namespaceSplit__solvers_a0bcad395b64a658c374ba8a3fb893836}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!D@{D}}
+\index{D@{D}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{D}{D}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+D = np.\+ones(len(\hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{X}))$\ast$1e-\/2}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a9d7802821157fdbfdde000b24e2ed31b}\label{namespaceSplit__solvers_a9d7802821157fdbfdde000b24e2ed31b}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!dt@{dt}}
+\index{dt@{dt}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+dt = 1e-\/1}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a6f5cab1ea541e5ae5d4ae5a0d62ab100}\label{namespaceSplit__solvers_a6f5cab1ea541e5ae5d4ae5a0d62ab100}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!NX@{NX}}
+\index{NX@{NX}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{NX}{NX}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+NX = 1000}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a6efd428aff22677b6e56b44b8ae5552d}\label{namespaceSplit__solvers_a6efd428aff22677b6e56b44b8ae5552d}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!t@{t}}
+\index{t@{t}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{t}{t}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+t = \hyperlink{namespaceSplit__solvers_a4e16fb7ea5fb14290b3a63e87499dced}{t\+\_\+ini}}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a4e16fb7ea5fb14290b3a63e87499dced}\label{namespaceSplit__solvers_a4e16fb7ea5fb14290b3a63e87499dced}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!t\+\_\+ini@{t\+\_\+ini}}
+\index{t\+\_\+ini@{t\+\_\+ini}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{t\+\_\+ini}{t\_ini}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+t\+\_\+ini = 0.}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a49303767dbd0cb68ef911cd068fde69a}\label{namespaceSplit__solvers_a49303767dbd0cb68ef911cd068fde69a}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!t\+\_\+max@{t\+\_\+max}}
+\index{t\+\_\+max@{t\+\_\+max}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{t\+\_\+max}{t\_max}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+t\+\_\+max = 1.}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}\label{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!u@{u}}
+\index{u@{u}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u}{u}}
+{\footnotesize\ttfamily Split\+\_\+solvers.\+u = np.\+ones(len(\hyperlink{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}{X}))$\ast$0.}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_ad561a5b47428860b09231ef32d981065}\label{namespaceSplit__solvers_ad561a5b47428860b09231ef32d981065}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!u\+\_\+new\+\_\+0@{u\+\_\+new\+\_\+0}}
+\index{u\+\_\+new\+\_\+0@{u\+\_\+new\+\_\+0}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+new\+\_\+0}{u\_new\_0}}
+{\footnotesize\ttfamily def Split\+\_\+solvers.\+u\+\_\+new\+\_\+0 = \hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{u}}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a660926dfee34f958baddd1154dfa7df0}\label{namespaceSplit__solvers_a660926dfee34f958baddd1154dfa7df0}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!u\+\_\+new\+\_\+1@{u\+\_\+new\+\_\+1}}
+\index{u\+\_\+new\+\_\+1@{u\+\_\+new\+\_\+1}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+new\+\_\+1}{u\_new\_1}}
+{\footnotesize\ttfamily def Split\+\_\+solvers.\+u\+\_\+new\+\_\+1 = \hyperlink{namespaceSplit__solvers_abe87b0440e65cc15867b535fe5594457}{u}}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_ab5a06ffd8881f993be924d175cf33bf0}\label{namespaceSplit__solvers_ab5a06ffd8881f993be924d175cf33bf0}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!u\+\_\+old@{u\+\_\+old}}
+\index{u\+\_\+old@{u\+\_\+old}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{u\+\_\+old}{u\_old}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+u\+\_\+old = \hyperlink{namespaceSplit__solvers_ad561a5b47428860b09231ef32d981065}{u\+\_\+new\+\_\+0}}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}\label{namespaceSplit__solvers_a1884fc9efd3f156e55b75a45f19d7244}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!X@{X}}
+\index{X@{X}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily Split\+\_\+solvers.\+X = np.\+linspace(\hyperlink{namespaceSplit__solvers_abe1cb9889c38d9038ab77c312a857ae5}{Xmin}, \hyperlink{namespaceSplit__solvers_a3a9b8c9973a6efe018e8b1dd5c13a896}{Xmax}, \hyperlink{namespaceSplit__solvers_a6f5cab1ea541e5ae5d4ae5a0d62ab100}{NX}+1)}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_a3a9b8c9973a6efe018e8b1dd5c13a896}\label{namespaceSplit__solvers_a3a9b8c9973a6efe018e8b1dd5c13a896}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!Xmax@{Xmax}}
+\index{Xmax@{Xmax}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Xmax}{Xmax}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+Xmax = 1}
+
+\mbox{\Hypertarget{namespaceSplit__solvers_abe1cb9889c38d9038ab77c312a857ae5}\label{namespaceSplit__solvers_abe1cb9889c38d9038ab77c312a857ae5}} 
+\index{Split\+\_\+solvers@{Split\+\_\+solvers}!Xmin@{Xmin}}
+\index{Xmin@{Xmin}!Split\+\_\+solvers@{Split\+\_\+solvers}}
+\subsubsection{\texorpdfstring{Xmin}{Xmin}}
+{\footnotesize\ttfamily int Split\+\_\+solvers.\+Xmin = -\/1}
+

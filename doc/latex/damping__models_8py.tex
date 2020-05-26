@@ -1,0 +1,119 @@
+\hypertarget{damping__models_8py}{}\section{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/damping\+\_\+models.py File Reference}
+\label{damping__models_8py}\index{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/damping\+\_\+models.\+py@{/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/damping\+\_\+models.\+py}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacedamping__models}{damping\+\_\+models}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacedamping__models_a6c45de9ee4907b632137bd3968434c8f}{damping\+\_\+models.\+damprate\+\_\+to\+\_\+damptime} (gamma)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespacedamping__models_a70f7b31459ca4b1018560e17b17b9864}{damping\+\_\+models.\+NE} = 10
+\item 
+float \hyperlink{namespacedamping__models_acef10a0ab3ea64edbebc04afc529f201}{damping\+\_\+models.\+Emin} = 0.\+99$\ast$\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}
+\item 
+float \hyperlink{namespacedamping__models_a97002a3ccce4531cb0913dad401bb7c8}{damping\+\_\+models.\+Emax} = 100.\+01$\ast$\hyperlink{constants_8h_a7f801e1f6821bc6baf0652ed2496e5e9}{cst.\+TeV}
+\item 
+string \hyperlink{namespacedamping__models_a4a43583393950d4ac546b8812693c4bc}{damping\+\_\+models.\+egridtype} = \char`\"{}logspace\char`\"{}
+\item 
+\hyperlink{namespacedamping__models_a2d49832acd95610ad1ef20d532cda813}{damping\+\_\+models.\+E} = grid.\+grid(\hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}, Emax, 2$\ast$$\ast$NE, egridtype)
+\item 
+list \hyperlink{namespacedamping__models_add17c980396e6cf0498d139343c17cd3}{damping\+\_\+models.\+phases} = \mbox{[}ism.\+H\+II, ism.\+W\+IM, ism.\+W\+NM, ism.\+C\+NM, ism.\+DiM, ism.\+DeM, ism.\+DeC\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_a8e4dbe05634f505a77dc9337dc5ff680}{damping\+\_\+models.\+xlim} = \mbox{[}\hyperlink{constants_8h_a068ac4242a1fc9e4ba016240976d16ae}{Emin}/\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}, Emax/\hyperlink{constants_8h_aec0e126d9991db8ad0b26139f5860568}{cst.\+GeV}\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_abef2252362cdfe34c1df04fa717aa9e0}{damping\+\_\+models.\+xlims} = \mbox{[}xlim, xlim, xlim, xlim, xlim, xlim, xlim\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_a3d52fa076d8ee9d19ad108d0746ecc5b}{damping\+\_\+models.\+ylim} = \mbox{[}1e-\/14, 1e-\/3\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_a140012e721de3e711fa9d5f59d9d8b91}{damping\+\_\+models.\+ylims} = \mbox{[}ylim, ylim, ylim, ylim, ylim, ylim, ylim\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_acc8b27521b3535eb13b999bebdb2bc1a}{damping\+\_\+models.\+Name} = \mbox{[}\char`\"{}H\+II\char`\"{}, \char`\"{}W\+IM\char`\"{}, \char`\"{}W\+NM\char`\"{}, \char`\"{}C\+NM\char`\"{}, \char`\"{}DiM\char`\"{}, \char`\"{}DeM\char`\"{}, \char`\"{}DeC\char`\"{}\mbox{]}
+\item 
+int \hyperlink{namespacedamping__models_ad177f5fb45aa58d2c69cb5d37081fef9}{damping\+\_\+models.\+size\+\_\+x} = 4
+\item 
+int \hyperlink{namespacedamping__models_adf075db45ffa06f4e7b0c911fe5a74fd}{damping\+\_\+models.\+size\+\_\+y} = 3
+\item 
+int \hyperlink{namespacedamping__models_aae4b7950d55590d8c77efbf6a66533ab}{damping\+\_\+models.\+sub\+\_\+x} = 2
+\item 
+int \hyperlink{namespacedamping__models_a61a5ecedcc2899f63db8a15ab7af5699}{damping\+\_\+models.\+sub\+\_\+y} = 4
+\item 
+\hyperlink{namespacedamping__models_a9edc55435ab0261056120b91d9429732}{damping\+\_\+models.\+fig} = plt.\+figure(figsize=(size\+\_\+x$\ast$sub\+\_\+x,size\+\_\+y$\ast$sub\+\_\+y))
+\item 
+\hyperlink{namespacedamping__models_a7c226621eacbd06fba95e28c7a34d0bd}{damping\+\_\+models.\+gs} = gridspec.\+Grid\+Spec(ncols= sub\+\_\+x, nrows = sub\+\_\+y, figure = fig )
+\item 
+\hyperlink{namespacedamping__models_acd63ee5a1a54b1d0e77a0d1a6e67a46f}{damping\+\_\+models.\+wspace}
+\item 
+\hyperlink{namespacedamping__models_ae41240318f8ca9a2e54952f789bcdfa2}{damping\+\_\+models.\+hspace}
+\item 
+list \hyperlink{namespacedamping__models_af6c1bce059c3e37933376e9c30e9524c}{damping\+\_\+models.\+pos\+\_\+1} = \mbox{[}0, 0, 1, 1, 2, 2, 3, 3\mbox{]}
+\item 
+list \hyperlink{namespacedamping__models_ac2eaf7fd8a5911f49de682dcbbc5d277}{damping\+\_\+models.\+pos\+\_\+2} = \mbox{[}0, 1, 0, 1, 0, 1, 0, 1\mbox{]}
+\item 
+\hyperlink{namespacedamping__models_a81a78db241fa300c2c28a7ef37f663bf}{damping\+\_\+models.\+w\+R\+\_\+\+Alfven} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a50ddbf7ffcd5d8045250e6f1ecff008f}{damping\+\_\+models.\+w\+I\+\_\+\+Alfven} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_aa74e5cbacc9be916070e413e4a0d70b6}{damping\+\_\+models.\+w\+R\+\_\+\+Alfven\+\_\+o1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a995cd265fb0e85f80ea7315aaf59377c}{damping\+\_\+models.\+w\+I\+\_\+\+Alfven\+\_\+o1} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a55bb8154b458bbf5d6b1fcae3568f8b8}{damping\+\_\+models.\+w\+R\+\_\+\+Alfven\+\_\+o2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_acf56ed3ac3c650d7aaf2fe6666ea686a}{damping\+\_\+models.\+w\+I\+\_\+\+Alfven\+\_\+o2} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a60cc8d39c6b5027486786ff5e73e20f9}{damping\+\_\+models.\+Ep} = np.\+NaN
+\item 
+\hyperlink{namespacedamping__models_ac46458c6362f9647038a926c81e90f59}{damping\+\_\+models.\+Em} = np.\+NaN
+\item 
+\hyperlink{namespacedamping__models_ad55f3e4220d6d48fa772baf38f96a0cc}{damping\+\_\+models.\+Gamma\+\_\+lz} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a8935086de67d3e941e639d12588215e1}{damping\+\_\+models.\+Gamma\+\_\+nlld\+\_\+inf} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a20e8113d2a6d5017dbed49f1e7c78592}{damping\+\_\+models.\+Gamma\+\_\+nlld\+\_\+sup} = np.\+zeros(len(E))
+\item 
+\hyperlink{namespacedamping__models_a9e0599bc950ce129b82fa342b00ba279}{damping\+\_\+models.\+in\+\_\+damping} = dp.\+Ion\+Neutral\+\_\+\+Damping(E\mbox{[}\hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{e}\mbox{]}, phases\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}, nu\+\_\+n = 0, \hyperlink{cr__source_8h_a91a3bf9ce71325c8a7cbd31d8c474bff}{theta} = 0)
+\item 
+\hyperlink{namespacedamping__models_a3edfaa104202943bb10edcf075d710b1}{damping\+\_\+models.\+lz\+\_\+damping} = dp.\+damping\+\_\+lazarian\+\_\+nopos(E\mbox{[}\hyperlink{constants_8h_a2b076531cd50c7b55702a53221f2ac72}{e}\mbox{]}, phases\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]})
+\item 
+\hyperlink{namespacedamping__models_a8f72bfbdb888e270533fbade792b0b10}{damping\+\_\+models.\+lz\+\_\+min} = lz\+\_\+damping\mbox{[}1\mbox{]}
+\item 
+int \hyperlink{namespacedamping__models_a0aeed3b4b17299d1e84f5e9c5135a1bf}{damping\+\_\+models.\+Iinf} = 1e-\/4
+\item 
+int \hyperlink{namespacedamping__models_afef6a2629db83400503a3b1a4985af51}{damping\+\_\+models.\+Isup} = 1e-\/1
+\item 
+\hyperlink{namespacedamping__models_a84508bd0b8d775cdcd1ccecf22cec382}{damping\+\_\+models.\+ax} = fig.\+add\+\_\+subplot(gs\mbox{[}pos\+\_\+1\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}, pos\+\_\+2\mbox{[}\hyperlink{constants_8h_a43016d873124d39034edb8cd164794db}{pi}\mbox{]}\mbox{]})
+\item 
+\hyperlink{namespacedamping__models_a3a9b1b9a4fb9d89f24a32482fbd62f61}{damping\+\_\+models.\+GeV}
+\item 
+\hyperlink{namespacedamping__models_a7ae8a7481c2889a47f4d376eef5ae4f6}{damping\+\_\+models.\+c}
+\item 
+\hyperlink{namespacedamping__models_aa459d979864fda03e474c17eceafb11e}{damping\+\_\+models.\+ls}
+\item 
+\hyperlink{namespacedamping__models_acc3f2fd8e2050ca790052ca25222fcde}{damping\+\_\+models.\+lw}
+\item 
+\hyperlink{namespacedamping__models_a12759dcbb254e93503e78397e053b7b6}{damping\+\_\+models.\+alpha}
+\item 
+\hyperlink{namespacedamping__models_ada15223206a55c619904d093f03faec2}{damping\+\_\+models.\+color}
+\item 
+\hyperlink{namespacedamping__models_afb27afc9db4d58b425db77e3e21bc561}{damping\+\_\+models.\+facecolor}
+\item 
+\hyperlink{namespacedamping__models_a89e52e6ed35836d13426c69bfb74db59}{damping\+\_\+models.\+x}
+\item 
+\hyperlink{namespacedamping__models_a1492d9e1b4cd4f3bb6f57f6e7a892e08}{damping\+\_\+models.\+y}
+\item 
+\hyperlink{namespacedamping__models_af1c2b897a794e26cbac36846fa4ffc12}{damping\+\_\+models.\+label}
+\item 
+\hyperlink{namespacedamping__models_ace53aa65eae9fd138a8b1b0823897925}{damping\+\_\+models.\+loc}
+\item 
+\hyperlink{namespacedamping__models_a7b9f8978e3e936f2dfb6ed47dbd722cc}{damping\+\_\+models.\+bbox\+\_\+to\+\_\+anchor}
+\item 
+\hyperlink{namespacedamping__models_a139d3c226404875841f2e82b34320829}{damping\+\_\+models.\+bbox\+\_\+inches}
+\item 
+\hyperlink{namespacedamping__models_a1037bc0fc2f77ff8f2c9191aa4063a5a}{damping\+\_\+models.\+pad\+\_\+inches}
+\end{DoxyCompactItemize}

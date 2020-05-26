@@ -1,0 +1,12 @@
+var searchData=
+[
+  ['damping_5flazarian',['damping_lazarian',['../namespacedamping.html#ac60695747688e6315f490c2d7f7361c8',1,'damping']]],
+  ['damping_5flazarian_5fnopos',['damping_lazarian_nopos',['../namespacedamping.html#a8c8ec7b9696c1d5bff04d58cda14022d',1,'damping']]],
+  ['damprate_5fto_5fdamptime',['damprate_to_damptime',['../namespacedamping__models.html#a6c45de9ee4907b632137bd3968434c8f',1,'damping_models']]],
+  ['df1dx',['df1dx',['../mathematics_8h.html#ac46d60428d36cd0411aab53e0f8c62f1',1,'df1dx(double x, vector&lt; double &gt; cst):&#160;mathematics.h'],['../cr__escape_8cpp.html#ac46d60428d36cd0411aab53e0f8c62f1',1,'df1dx(double x, vector&lt; double &gt; cst):&#160;cr_escape.cpp'],['../namespaceEscapeModel__protons.html#a05054fa91bda4729dd69a8e2b08965da',1,'EscapeModel_protons.df1dx()'],['../namespaceEscapeModel__protons__2.html#a3695abc72640f6a458d751cc44acc396',1,'EscapeModel_protons_2.df1dx()']]],
+  ['df2dx',['df2dx',['../mathematics_8h.html#a4c0a27106143a8b884cf1fa28b143c7f',1,'df2dx(double x, vector&lt; double &gt; cst):&#160;mathematics.h'],['../cr__escape_8cpp.html#a4c0a27106143a8b884cf1fa28b143c7f',1,'df2dx(double x, vector&lt; double &gt; cst):&#160;cr_escape.cpp'],['../namespaceEscapeModel__protons.html#a0a75b47afc7659e399bcf3d41964eeff',1,'EscapeModel_protons.df2dx()'],['../namespaceEscapeModel__protons__2.html#a8236938c2501dfeddd9271efecae3099',1,'EscapeModel_protons_2.df2dx()']]],
+  ['dilute_5fsolver',['dilute_solver',['../solver1D_8h.html#a7131dd1fd5ac463bce6bf78177d87e2d',1,'solver1D.h']]],
+  ['dnde',['dNdE',['../cr__source_8h.html#a2bc06ab411fd01599de0b5a7fc9e59db',1,'cr_source.h']]],
+  ['door',['door',['../namespacesetup__adv.html#a38bed8824f69a250682029a7205ee046',1,'setup_adv.door()'],['../namespacesetup__adve.html#a7780f17fc73f295cd92ee29dcfddc318',1,'setup_adve.door()'],['../namespacesetup__advst.html#a5ca2de035f76d55b884417b6ed9191d4',1,'setup_advst.door()'],['../namespacesetup__diff.html#a4c73aaba178aa74240a75b7a6a86e4c6',1,'setup_diff.door()'],['../namespacesetup__vdiff.html#a3514bc0bda9acf16aa13843a1d9d6918',1,'setup_vdiff.door()']]],
+  ['duu_5falfven_5fslab_5flinear_5fundamped',['Duu_Alfven_Slab_Linear_Undamped',['../namespacebackground__diffusion__coefficient.html#a98bcd7e8761c065f7586e89f4d9050c8',1,'background_diffusion_coefficient.Duu_Alfven_Slab_Linear_Undamped()'],['../namespacebackground__diffusion__coefficient__3.html#a669678cc75709e848975fe28609ced79',1,'background_diffusion_coefficient_3.Duu_Alfven_Slab_Linear_Undamped()']]]
+];

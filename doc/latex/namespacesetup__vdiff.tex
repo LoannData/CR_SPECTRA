@@ -1,0 +1,298 @@
+\hypertarget{namespacesetup__vdiff}{}\section{setup\+\_\+vdiff Namespace Reference}
+\label{namespacesetup__vdiff}\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespacesetup__vdiff_a3514bc0bda9acf16aa13843a1d9d6918}{door} (\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}, X1, X2, V)
+\item 
+def \hyperlink{namespacesetup__vdiff_a5329b0899ca891d3f000cc80bdf7b214}{f} (\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}, X1=900.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, X2=1100.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, sig=20.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}, R=1e-\/3)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X} = nml.\+X
+\item 
+\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E} = nml.\+E
+\item 
+\hyperlink{namespacesetup__vdiff_a442f28b6703d49816e93a23f6486abda}{nx} = nml.\+NX
+\begin{DoxyCompactList}\small\item\em E\+ND \+: I\+N\+I\+T\+I\+AL I\+SM C\+O\+N\+D\+I\+T\+I\+O\+NS \#. \end{DoxyCompactList}\item 
+\hyperlink{namespacesetup__vdiff_a7181dfed2ce727915ce2f4c6f6536317}{ne} = nml.\+NE
+\item 
+\hyperlink{namespacesetup__vdiff_af577fed18e10308814044775943892ca}{x\+\_\+center} = nml.\+box\+\_\+center
+\item 
+\hyperlink{namespacesetup__vdiff_a76c3ba2eb6a6a9c7ed87d8a4de754771}{x\+\_\+center\+\_\+index} = int(\hyperlink{namespacesetup__vdiff_af577fed18e10308814044775943892ca}{x\+\_\+center}/(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}\mbox{[}1\mbox{]} -\/ \hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}\mbox{[}0\mbox{]}))
+\item 
+\hyperlink{namespacesetup__vdiff_aa35267b78597abc4269ab0277b941893}{ism\+\_\+values} = nml.\+ism\+\_\+values
+\item 
+\hyperlink{namespacesetup__vdiff_a4d3774a744ba299dec1abfdd1604dd6b}{B} = ism\+\_\+values.\+get(\char`\"{}B\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a3dbcfca64340e0c182987f04004ea4c9}{nn} = ism\+\_\+values.\+get(\char`\"{}nn\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a3f0542f44af015761eec1a4616abad85}{ni} = ism\+\_\+values.\+get(\char`\"{}ni\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a48ea0c87c878f62d2acf1a491a32eb81}{mn} = ism\+\_\+values.\+get(\char`\"{}mn\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a6df39d82007581d5bf7c12efe1a6ad30}{mi} = ism\+\_\+values.\+get(\char`\"{}mi\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a9c24441c84453bbc2ef54bcee83fefba}{T} = ism\+\_\+values.\+get(\char`\"{}T\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a9817e3096323a6bcf09c61d8deab55d4}{Xi} = ism\+\_\+values.\+get(\char`\"{}X\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_a0a96073d3480e547d34d3a15e23140a7}{va} = ism\+\_\+values.\+get(\char`\"{}VA\char`\"{})
+\item 
+\hyperlink{namespacesetup__vdiff_ac36ac890707883ef8a7605065cde7f4a}{d00} = np.\+zeros(len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}))
+\begin{DoxyCompactList}\small\item\em I\+N\+I\+T\+I\+AL I\+SM C\+O\+N\+D\+I\+T\+I\+O\+NS \#. \end{DoxyCompactList}\item 
+\hyperlink{namespacesetup__vdiff_a31ceb35447c52ca1899ce1833ccdccaa}{D} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a8ae665f58ee3aff54fb7f40893b5aabb}{Db} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a7a8cdb88199d60d403199fffa1acda80}{Ip} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a4c4cb9a325cda7540005e48116ea877d}{Im} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_ae01697e10c9cf5a8acb616ef8a94b0fa}{VA} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a52a76a68b1f51f313d0360f72a8fea9d}{gamma\+\_\+in} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a41ce2a011346f04ee07aae2c33825dc3}{gamma\+\_\+lazarian} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_abc643cc371c5d15683fba13bac645ac9}{gamma\+\_\+nlld} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a6979eb4486494f914d0010f2512864ac}{gamma\+\_\+tot} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a0b7b3be5a33c6732d5545a373f6aa29d}{Pcr} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a582f216db715ff78bb612a997fdb3bf5}{Pe} = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))
+\item 
+\hyperlink{namespacesetup__vdiff_a7d4b35e9140f2b7391c55899526fbf25}{variable}
+\item 
+\hyperlink{namespacesetup__vdiff_a3ddcea8137546394c8342e42b81a505e}{path}
+\item 
+dictionary \hyperlink{namespacesetup__vdiff_a8c8ef0ea72f6cd2c490127eb0e62757f}{variables}
+\item 
+\hyperlink{namespacesetup__vdiff_a07410a97a3fdb01f92826318c5c9ba24}{ext}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{namespacesetup__vdiff_a3514bc0bda9acf16aa13843a1d9d6918}\label{namespacesetup__vdiff_a3514bc0bda9acf16aa13843a1d9d6918}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!door@{door}}
+\index{door@{door}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{door()}{door()}}
+{\footnotesize\ttfamily def setup\+\_\+vdiff.\+door (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{X1,  }\item[{}]{X2,  }\item[{}]{V }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a5329b0899ca891d3f000cc80bdf7b214}\label{namespacesetup__vdiff_a5329b0899ca891d3f000cc80bdf7b214}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!f@{f}}
+\index{f@{f}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{f()}{f()}}
+{\footnotesize\ttfamily def setup\+\_\+vdiff.\+f (\begin{DoxyParamCaption}\item[{}]{X,  }\item[{}]{X1 = {\ttfamily 900.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}},  }\item[{}]{X2 = {\ttfamily 1100.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}},  }\item[{}]{sig = {\ttfamily 20.$\ast$\hyperlink{constants_8h_a2884cd030c4c825754349a525a1d06ce}{cst.\+pc}},  }\item[{}]{R = {\ttfamily 1e-\/3} }\end{DoxyParamCaption})}
+
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{namespacesetup__vdiff_a4d3774a744ba299dec1abfdd1604dd6b}\label{namespacesetup__vdiff_a4d3774a744ba299dec1abfdd1604dd6b}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!B@{B}}
+\index{B@{B}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{B}{B}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+B = ism\+\_\+values.\+get(\char`\"{}B\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a31ceb35447c52ca1899ce1833ccdccaa}\label{namespacesetup__vdiff_a31ceb35447c52ca1899ce1833ccdccaa}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!D@{D}}
+\index{D@{D}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{D}{D}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+D = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_ac36ac890707883ef8a7605065cde7f4a}\label{namespacesetup__vdiff_ac36ac890707883ef8a7605065cde7f4a}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!d00@{d00}}
+\index{d00@{d00}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{d00}{d00}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+d00 = np.\+zeros(len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}))}
+
+
+
+I\+N\+I\+T\+I\+AL I\+SM C\+O\+N\+D\+I\+T\+I\+O\+NS \#. 
+
+You can modify this part \# \mbox{\Hypertarget{namespacesetup__vdiff_a8ae665f58ee3aff54fb7f40893b5aabb}\label{namespacesetup__vdiff_a8ae665f58ee3aff54fb7f40893b5aabb}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!Db@{Db}}
+\index{Db@{Db}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{Db}{Db}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+Db = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}\label{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!E@{E}}
+\index{E@{E}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{E}{E}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+E = nml.\+E}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a07410a97a3fdb01f92826318c5c9ba24}\label{namespacesetup__vdiff_a07410a97a3fdb01f92826318c5c9ba24}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!ext@{ext}}
+\index{ext@{ext}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{ext}{ext}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+ext}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a52a76a68b1f51f313d0360f72a8fea9d}\label{namespacesetup__vdiff_a52a76a68b1f51f313d0360f72a8fea9d}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!gamma\+\_\+in@{gamma\+\_\+in}}
+\index{gamma\+\_\+in@{gamma\+\_\+in}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{gamma\+\_\+in}{gamma\_in}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+gamma\+\_\+in = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a41ce2a011346f04ee07aae2c33825dc3}\label{namespacesetup__vdiff_a41ce2a011346f04ee07aae2c33825dc3}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!gamma\+\_\+lazarian@{gamma\+\_\+lazarian}}
+\index{gamma\+\_\+lazarian@{gamma\+\_\+lazarian}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{gamma\+\_\+lazarian}{gamma\_lazarian}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+gamma\+\_\+lazarian = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_abc643cc371c5d15683fba13bac645ac9}\label{namespacesetup__vdiff_abc643cc371c5d15683fba13bac645ac9}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!gamma\+\_\+nlld@{gamma\+\_\+nlld}}
+\index{gamma\+\_\+nlld@{gamma\+\_\+nlld}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{gamma\+\_\+nlld}{gamma\_nlld}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+gamma\+\_\+nlld = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a6979eb4486494f914d0010f2512864ac}\label{namespacesetup__vdiff_a6979eb4486494f914d0010f2512864ac}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!gamma\+\_\+tot@{gamma\+\_\+tot}}
+\index{gamma\+\_\+tot@{gamma\+\_\+tot}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{gamma\+\_\+tot}{gamma\_tot}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+gamma\+\_\+tot = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a4c4cb9a325cda7540005e48116ea877d}\label{namespacesetup__vdiff_a4c4cb9a325cda7540005e48116ea877d}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!Im@{Im}}
+\index{Im@{Im}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{Im}{Im}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+Im = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a7a8cdb88199d60d403199fffa1acda80}\label{namespacesetup__vdiff_a7a8cdb88199d60d403199fffa1acda80}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!Ip@{Ip}}
+\index{Ip@{Ip}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{Ip}{Ip}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+Ip = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_aa35267b78597abc4269ab0277b941893}\label{namespacesetup__vdiff_aa35267b78597abc4269ab0277b941893}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!ism\+\_\+values@{ism\+\_\+values}}
+\index{ism\+\_\+values@{ism\+\_\+values}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{ism\+\_\+values}{ism\_values}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+ism\+\_\+values = nml.\+ism\+\_\+values}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a6df39d82007581d5bf7c12efe1a6ad30}\label{namespacesetup__vdiff_a6df39d82007581d5bf7c12efe1a6ad30}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!mi@{mi}}
+\index{mi@{mi}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{mi}{mi}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+mi = ism\+\_\+values.\+get(\char`\"{}mi\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a48ea0c87c878f62d2acf1a491a32eb81}\label{namespacesetup__vdiff_a48ea0c87c878f62d2acf1a491a32eb81}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!mn@{mn}}
+\index{mn@{mn}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{mn}{mn}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+mn = ism\+\_\+values.\+get(\char`\"{}mn\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a7181dfed2ce727915ce2f4c6f6536317}\label{namespacesetup__vdiff_a7181dfed2ce727915ce2f4c6f6536317}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!ne@{ne}}
+\index{ne@{ne}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{ne}{ne}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+ne = nml.\+NE}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a3f0542f44af015761eec1a4616abad85}\label{namespacesetup__vdiff_a3f0542f44af015761eec1a4616abad85}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!ni@{ni}}
+\index{ni@{ni}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{ni}{ni}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+ni = ism\+\_\+values.\+get(\char`\"{}ni\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a3dbcfca64340e0c182987f04004ea4c9}\label{namespacesetup__vdiff_a3dbcfca64340e0c182987f04004ea4c9}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!nn@{nn}}
+\index{nn@{nn}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{nn}{nn}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+nn = ism\+\_\+values.\+get(\char`\"{}nn\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a442f28b6703d49816e93a23f6486abda}\label{namespacesetup__vdiff_a442f28b6703d49816e93a23f6486abda}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!nx@{nx}}
+\index{nx@{nx}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{nx}{nx}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+nx = nml.\+NX}
+
+
+
+E\+ND \+: I\+N\+I\+T\+I\+AL I\+SM C\+O\+N\+D\+I\+T\+I\+O\+NS \#. 
+
+W\+R\+I\+TE T\+HE I\+N\+I\+T\+AL C\+O\+N\+D\+I\+T\+I\+O\+NS \# \mbox{\Hypertarget{namespacesetup__vdiff_a3ddcea8137546394c8342e42b81a505e}\label{namespacesetup__vdiff_a3ddcea8137546394c8342e42b81a505e}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!path@{path}}
+\index{path@{path}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+path}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a0b7b3be5a33c6732d5545a373f6aa29d}\label{namespacesetup__vdiff_a0b7b3be5a33c6732d5545a373f6aa29d}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!Pcr@{Pcr}}
+\index{Pcr@{Pcr}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{Pcr}{Pcr}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+Pcr = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a582f216db715ff78bb612a997fdb3bf5}\label{namespacesetup__vdiff_a582f216db715ff78bb612a997fdb3bf5}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!Pe@{Pe}}
+\index{Pe@{Pe}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{Pe}{Pe}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+Pe = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a9c24441c84453bbc2ef54bcee83fefba}\label{namespacesetup__vdiff_a9c24441c84453bbc2ef54bcee83fefba}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!T@{T}}
+\index{T@{T}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{T}{T}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+T = ism\+\_\+values.\+get(\char`\"{}T\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a0a96073d3480e547d34d3a15e23140a7}\label{namespacesetup__vdiff_a0a96073d3480e547d34d3a15e23140a7}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!va@{va}}
+\index{va@{va}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{va}{va}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+va = ism\+\_\+values.\+get(\char`\"{}VA\char`\"{})}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_ae01697e10c9cf5a8acb616ef8a94b0fa}\label{namespacesetup__vdiff_ae01697e10c9cf5a8acb616ef8a94b0fa}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!VA@{VA}}
+\index{VA@{VA}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{VA}{VA}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+VA = np.\+zeros((len(\hyperlink{namespacesetup__vdiff_a7780682c76ff3896106f4045b64e582a}{E}), len(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X})))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a7d4b35e9140f2b7391c55899526fbf25}\label{namespacesetup__vdiff_a7d4b35e9140f2b7391c55899526fbf25}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!variable@{variable}}
+\index{variable@{variable}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{variable}{variable}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+variable}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a8c8ef0ea72f6cd2c490127eb0e62757f}\label{namespacesetup__vdiff_a8c8ef0ea72f6cd2c490127eb0e62757f}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!variables@{variables}}
+\index{variables@{variables}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{variables}{variables}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+variables}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+1 =  \{\textcolor{stringliteral}{"NX"}       : nx,
+2              \textcolor{stringliteral}{"NE"}       : ne,
+3              \textcolor{stringliteral}{"ni"}       : ni[x\_center\_index],
+4              \textcolor{stringliteral}{"X"}        : Xi[x\_center\_index],
+5              \textcolor{stringliteral}{"mn"}       : mn[x\_center\_index],
+6              \textcolor{stringliteral}{"T"}        : T[x\_center\_index],
+7              \textcolor{stringliteral}{"center"}   :x\_center,
+8              \textcolor{stringliteral}{"center\_index"}:x\_center\_index,
+9              \textcolor{stringliteral}{"B"}        : B[x\_center\_index]\}
+\end{DoxyCode}
+\mbox{\Hypertarget{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}\label{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!X@{X}}
+\index{X@{X}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+X = nml.\+X}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_af577fed18e10308814044775943892ca}\label{namespacesetup__vdiff_af577fed18e10308814044775943892ca}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!x\+\_\+center@{x\+\_\+center}}
+\index{x\+\_\+center@{x\+\_\+center}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{x\+\_\+center}{x\_center}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+x\+\_\+center = nml.\+box\+\_\+center}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a76c3ba2eb6a6a9c7ed87d8a4de754771}\label{namespacesetup__vdiff_a76c3ba2eb6a6a9c7ed87d8a4de754771}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!x\+\_\+center\+\_\+index@{x\+\_\+center\+\_\+index}}
+\index{x\+\_\+center\+\_\+index@{x\+\_\+center\+\_\+index}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{x\+\_\+center\+\_\+index}{x\_center\_index}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+x\+\_\+center\+\_\+index = int(\hyperlink{namespacesetup__vdiff_af577fed18e10308814044775943892ca}{x\+\_\+center}/(\hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}\mbox{[}1\mbox{]} -\/ \hyperlink{namespacesetup__vdiff_a2d0381db5d912bb072d7cfa7c997de97}{X}\mbox{[}0\mbox{]}))}
+
+\mbox{\Hypertarget{namespacesetup__vdiff_a9817e3096323a6bcf09c61d8deab55d4}\label{namespacesetup__vdiff_a9817e3096323a6bcf09c61d8deab55d4}} 
+\index{setup\+\_\+vdiff@{setup\+\_\+vdiff}!Xi@{Xi}}
+\index{Xi@{Xi}!setup\+\_\+vdiff@{setup\+\_\+vdiff}}
+\subsubsection{\texorpdfstring{Xi}{Xi}}
+{\footnotesize\ttfamily setup\+\_\+vdiff.\+Xi = ism\+\_\+values.\+get(\char`\"{}X\char`\"{})}
+

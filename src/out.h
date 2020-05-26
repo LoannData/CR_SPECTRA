@@ -10,9 +10,9 @@ using namespace std;
 
 
 
-// This function allows you to specify your own data output time array 
-// You just need to fill the list loc_data : 
-// example: double loc_data[] = {t1, t2, ..., tn}; where t_i is in seconds 
+/// This function allows you to specify your own data output time array 
+/// You just need to fill the list loc_data,
+/// example: double loc_data[] = {t1, t2, ..., tn}; where t_i is in seconds 
 vector<double> specificOutputData()
 {
     vector<double> data; 
@@ -27,7 +27,7 @@ vector<double> specificOutputData()
 
 
 
-// Output data function for a regular and large amount of output data
+/// Output data function for a regular and large amount of output data
 vector<double> outputData(double tmin, double tmax, int nvalues, string modulation, double eps)  
 {
     vector<double> data;
@@ -45,9 +45,9 @@ vector<double> outputData(double tmin, double tmax, int nvalues, string modulati
     if (modulation == "log10")
     {
         double log_tmax = log10(tmax);
-        double log_tmin;
-        if (tmin == 0.) {log_tmin = log10(eps);}
-        else            {log_tmin = log10(tmin);}
+        double log_tmin = log10(eps);
+        //if (tmin == 0.) {log_tmin = log10(eps);}
+        //else            {log_tmin = log10(tmin);}
         double loc_value;
         vector<double> log_data = outputData(log_tmin, log_tmax, nvalues, "linear", eps);
         for (int vi=0; vi < nvalues; vi++)
@@ -76,7 +76,7 @@ vector<double> outputData(double tmin, double tmax, int nvalues, string modulati
 //==========================================================================//
 
 
-// Main output file function. This one will be used in the main file
+/// Main output file function. This one will be used in the main file
 vector<double> getOutput()
 {
     std::string distribution;
@@ -89,7 +89,7 @@ vector<double> getOutput()
     return data; 
 }
 
-// Main output log file function. This one will be used in the main file 
+/// Main output log file function. This one will be used in the main file 
 int getLogOutput()
 {
     // Choose the interval of time step between two log outputs 
@@ -97,7 +97,7 @@ int getLogOutput()
     return step;
 }
 
-// Define the limit time of your simulation 
+/// Define the limit time of your simulation 
 double setTmax()
 {
     //double Tmax = 100.*kyr;
