@@ -206,7 +206,7 @@ shutil.copy("./namelist.py", nml.total_path+"/tools/")
 shutil.copy("./setup.py", nml.total_path+"/tools/")
 
 
-
+shutil.copy("./src/constants.h", nml.total_path+"/tools/")
 
 
 

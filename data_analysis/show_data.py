@@ -207,7 +207,7 @@ def show(variable, time, position, energy,
 # Experiments 
 show(["Pcr", "Pe"], [0, 1, 2, 3, 4, 5, 6, 7], 
       [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
-      [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
+      [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 20.*cst.TeV],
       elim = [1e0, 1e5],
       vlim = [[1e-26, 1e-8], [1e-26, 1e-8]],
       source_center = 1000.,
@@ -215,7 +215,7 @@ show(["Pcr", "Pe"], [0, 1, 2, 3, 4, 5, 6, 7],
 
 show(["Dcr", "Ip", "Im"], [0, 1, 2, 3, 4, 5, 6, 7], 
       [1040.*cst.pc, 1125.*cst.pc, 1300.*cst.pc, 1450.*cst.pc, 1600.*cst.pc, 1850.*cst.pc],
-      [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 30.*cst.TeV],
+      [10.*cst.GeV, 100.*cst.GeV, 1.*cst.TeV, 3.*cst.TeV, 10.*cst.TeV, 20.*cst.TeV],
       source_center = 1000.,
       fig_save = True)
 

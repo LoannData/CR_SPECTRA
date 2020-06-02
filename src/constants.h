@@ -70,7 +70,7 @@ const double t_data_out_max    = 500.*kyr;  ///200.*kyr; Instant of the last out
 const int number_out_data      = 100;       /// Total number of output data
 const int time_distrib_of_data = 1;         /// Time distribution of output data (0 : linspace, 1 : log10-space
                                             ///                                   2 : Custom output times, see the function specificOutputData() in the file : out.h)
-const double log_first_data    = 3e-1*kyr;  /// Time value of the first output in the logscaled output method.  
+const double log_first_data    = 0.3*kyr;  /// Time value of the first output in the logscaled output method.  
 const int delta_log_output     = 100;       /// Number of time-step between two LogOutput
 const double Tmax              = 500.1*kyr; ///200.1*kyr; Define the limit time of your simulation 
 
