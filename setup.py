@@ -142,8 +142,8 @@ for e in range(len(E)) :
                                                                    B[xi],      E[e])
         gamma_tot[e][xi]          = gamma_in[e][xi] + gamma_lazarian[e][xi] + gamma_nlld[e][xi]
         # Background CRs spectra
-        Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)*(E[e]/cst.GeV)**2 
-        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)*(E[e]/cst.GeV)**2 
+        Pcr[e][xi]                = nml.Pcr_1GeV*(E[e]/cst.GeV)**(-2.7)
+        Pe[e][xi]                 = nml.Pe_1GeV*(E[e]/cst.GeV)**(-3.1)
 
 
 
@@ -201,6 +201,9 @@ shutil.copy("./data_analysis/pcr_ip_2D.py", nml.total_path+"/data_analysis/")
 
 shutil.copy("./tools/freader.py", nml.total_path+"/tools/") 
 shutil.copy("./tools/constants.py", nml.total_path+"/tools/") 
+
+shutil.copy("./namelist.py", nml.total_path+"/tools/")
+shutil.copy("./setup.py", nml.total_path+"/tools/")
 
 
 

@@ -441,6 +441,7 @@ void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<doub
             for (int ei = 0; ei < NE; ei++)
             {
                 u_new[xi][ei] = u_old[xi][ei] + dt*Pcr_ini[ei]*Finj_temp[ei]*vec_theta[xi]; 
+                //cout<<Pcr_ini[ei]<<", "<<Finj_temp[ei]<<", "<<vec_theta[xi]<<endl;
             }
         }
     }

@@ -98,8 +98,8 @@ phases  = [] # Phases list
 # Append phases in the order of the setup you want to create
 
 # Example : One phase setup
-phases.append([ism.WNM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),
-               getVA(E, ism.WNM), getDamping(E, ism.WNM)[0], getDamping(E, ism.WNM)[1]]) 
+phases.append([ism.HIM, dict(Xmin=0.*cst.pc,    Xmax=2000.*cst.pc),
+               getVA(E, ism.HIM), getDamping(E, ism.HIM)[0], getDamping(E, ism.HIM)[1]]) 
 
 # Example, multiphase setup : WNM-CNM-DiM-CNM-WNM-CNM-DiM-CNM-WNM 
 # phases.append([ism.WNM, dict(Xmin = 0.*cst.pc, Xmax = 870.*cst.pc), 

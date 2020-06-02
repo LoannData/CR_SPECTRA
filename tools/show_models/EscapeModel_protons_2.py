@@ -309,6 +309,9 @@ def getEmax(t_new, u_sh, r_new, phase, gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e
 
 Ecr = np.logspace(np.log10(0.1*cst.GeV), np.log10(100.*cst.TeV), 1000)
 
+SNR_HIM  = getSNR(ism.HIM, size = 100)
+emax_HIM = getEmax(SNR_HIM.get("t_SNR"), SNR_HIM.get("u_sh"), SNR_HIM.get("R_SNR"), ism.HIM, 
+                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
 
 SNR_HII  = getSNR(ism.HII, size = 100)
 emax_HII = getEmax(SNR_HII.get("t_SNR"), SNR_HII.get("u_sh"), SNR_HII.get("R_SNR"), ism.HII, 
@@ -333,12 +336,14 @@ emax_DiM = getEmax(SNR_DiM.get("t_SNR"), SNR_DiM.get("u_sh"), SNR_DiM.get("R_SNR
 
 
 delta = 2. 
+tesc_HIM = np.empty(len(Ecr))
 tesc_HII = np.empty(len(Ecr))
 tesc_WIM = np.empty(len(Ecr))
 tesc_WNM = np.empty(len(Ecr))
 tesc_CNM = np.empty(len(Ecr))
 tesc_DiM = np.empty(len(Ecr))
 
+tesc_HIM_3 = np.empty(len(Ecr))
 tesc_HII_3 = np.empty(len(Ecr))
 tesc_WIM_3 = np.empty(len(Ecr))
 tesc_WNM_3 = np.empty(len(Ecr))
@@ -346,12 +351,14 @@ tesc_CNM_3 = np.empty(len(Ecr))
 tesc_DiM_3 = np.empty(len(Ecr))
 
 for ii in range(len(Ecr)) : 
+    tesc_HIM[ii] = Gettesc(Ecr[ii], delta, SNR_HIM.get("t_SED"), max(emax_HIM))
     tesc_HII[ii] = Gettesc(Ecr[ii], delta, SNR_HII.get("t_SED"), max(emax_HII))
     tesc_WIM[ii] = Gettesc(Ecr[ii], delta, SNR_WIM.get("t_SED"), max(emax_WIM))
     tesc_WNM[ii] = Gettesc(Ecr[ii], delta, SNR_WNM.get("t_SED"), max(emax_WNM))
     tesc_CNM[ii] = Gettesc(Ecr[ii], delta, SNR_CNM.get("t_SED"), max(emax_CNM))
     tesc_DiM[ii] = Gettesc(Ecr[ii], delta, SNR_DiM.get("t_SED"), max(emax_DiM))
     
+    tesc_HIM_3[ii] = Gettesc(Ecr[ii], 3., SNR_HIM.get("t_SED"), max(emax_HIM))
     tesc_HII_3[ii] = Gettesc(Ecr[ii], 3., SNR_HII.get("t_SED"), max(emax_HII))
     tesc_WIM_3[ii] = Gettesc(Ecr[ii], 3., SNR_WIM.get("t_SED"), max(emax_WIM))
     tesc_WNM_3[ii] = Gettesc(Ecr[ii], 3., SNR_WNM.get("t_SED"), max(emax_WNM))
@@ -371,6 +378,7 @@ gs.update(wspace=0.05, hspace=0.05) # set the spacing between axes.
 
 ax0 = fig.add_subplot(gs[0])
 
+ax0.loglog(SNR_HIM.get("t_SNR")/cst.kyr, emax_HIM/cst.GeV, c="black", label="HIM")
 ax0.loglog(SNR_HII.get("t_SNR")/cst.kyr, emax_HII/cst.GeV, c="red", label="HII")
 ax0.loglog(SNR_WIM.get("t_SNR")/cst.kyr, emax_WIM/cst.GeV, c="orange", label ="WIM")
 ax0.loglog(SNR_WNM.get("t_SNR")/cst.kyr, emax_WNM/cst.GeV, c="green", label="WNM")
@@ -385,12 +393,14 @@ ax0.set_xlabel("$t$ [kyr]")
 
 ax1 = fig.add_subplot(gs[1])
 
+ax1.loglog(Ecr/cst.GeV, tesc_HIM/cst.kyr, c="black", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_HII/cst.kyr, c="red", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_WIM/cst.kyr, c="orange", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_WNM/cst.kyr, c="green", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_CNM/cst.kyr, c="deepskyblue", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_DiM/cst.kyr, c="blue", ls ="-")
 
+ax1.loglog(Ecr/cst.GeV, tesc_HIM_3/cst.kyr, c="black", ls ="--")
 ax1.loglog(Ecr/cst.GeV, tesc_HII_3/cst.kyr, c="red", ls ="--")
 ax1.loglog(Ecr/cst.GeV, tesc_WIM_3/cst.kyr, c="orange", ls ="--")
 ax1.loglog(Ecr/cst.GeV, tesc_WNM_3/cst.kyr, c="green", ls ="--")

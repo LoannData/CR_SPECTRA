@@ -13,11 +13,13 @@ using namespace std;
 double maxElement1D(vector<double> data)
 {
     int size = data.size();
-    double max_element = 0.; 
+    double max_element = data[0]; 
     for (int ii=0; ii<size; ii++)
     {
+        //cout<<data[ii]<<endl;
         if (data[ii] >= max_element) {max_element = data[ii];}
     }
+    cout<<"max element ="<<max_element<<endl;
     return max_element; 
 }
 
@@ -41,7 +43,7 @@ double maxElement2D(vector<vector<double> > data)
         int size_2 = data[ii].size();
         for (int jj=0; jj<size_2; jj++)
         {
-            if (data[ii][jj] > max_element) {max_element = data[ii][jj];}
+            if (data[ii][jj] >= max_element) {max_element = data[ii][jj];}
         }
     }
     return max_element;
@@ -56,7 +58,7 @@ double minElement2D(vector<vector<double> > data)
         int size_2 = data[ii].size();
         for (int jj=0; jj<size_2; jj++)
         {
-            if (data[ii][jj] < min_element) {min_element = data[ii][jj];}
+            if (data[ii][jj] <= min_element) {min_element = data[ii][jj];}
         }
     }
     return min_element;
@@ -71,7 +73,7 @@ double absmaxElement2D(vector<vector<double> > data)
         int size_2 = data[ii].size();
         for (int jj=0; jj<size_2; jj++)
         {
-            if (abs(data[ii][jj]) > max_element) {max_element = abs(data[ii][jj]);}
+            if (abs(data[ii][jj]) >= max_element) {max_element = abs(data[ii][jj]);}
         }
     }
     return max_element;

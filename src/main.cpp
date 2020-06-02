@@ -211,6 +211,8 @@ int main()
     //double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 2.))*minlindE;        // Linear solver
     double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 1.))*minlogdE*log(10.); // Log solver
 
+    //cout<<"maxB = "<<maxB<<", maxlinE = "<<maxlinE<<", minlogdE = "<<minlogdE<<endl;
+
     // CFL condition over energy adevtion terms from dV/dX
     //double adv_ener_cfl = minlindE/(maxlinE*maxdVddX)*3.;  // Linear solver
     //double adv_ener_cfl = 3*log(10.)/(maxdVddX)*minlogdE;    // Log solver 
