@@ -74,7 +74,7 @@ const double log_first_data    = 0.3*kyr;  /// Time value of the first output in
 const int delta_log_output     = 100;       /// Number of time-step between two LogOutput
 const double Tmax              = 500.1*kyr; ///200.1*kyr; Define the limit time of your simulation 
 
-const int verbose              = 0;         /// 0 : False, 1 : True -> Show extra informations during the simulation 
+const int verbose              = 1;         /// 0 : False, 1 : True -> Show extra informations during the simulation 
 
 
 
@@ -91,11 +91,18 @@ const double bbeta    = 2;
 const double C06      = 1.;
 const double xhi_cr   = 0.1;            /// Efficiency of CRs acceleration  
 const double xhi_0    = 2.026; 
-const double gam           = 2.2;       /// CRs injection energy power law index 
-const int injection_cutoff = 0;         /// Cut-off kind of the CRs injection spectra ( 0 : Abrupt no smooth, 1 : Exponential_cutoff see. inj_exp_alpha)
-                                        /// Note : This model is only applicable to the proton spectrum. For electrons, the injection spectrum will 
-                                        ///        be automatically cut by the synchrotron radiations 
-const double inj_exp_alpha = 1;         /// Factor of the exponential cutoff in the CRs injection spectra (dN(E)/dE ~ exp(-inj_exp_alpha*E/E_Max))
+const double gam      = 2.2;       /// CRs injection energy power law index 
+const double gam_e    = 3.1;       /// Electrons injection energy power law index 
+const int injection_law_protons   = 1;    /// Cut-off kind of the CRs injection spectra ( 0 : Abrupt no smooth, 1 : Exponential_cutoff see. inj_exp_alpha)
+                                          /// 
+                                          ///        
+const int injection_law_electrons = 0;    /// (!!! 0: The exponential cutoff does not work for electrons for instance)
+
+
+const double inj_exp_alpha   = 1;         /// Factor of the exponential cutoff in the CRs injection spectra (dN(E)/dE * exp(-inj_exp_alpha*E/E_Max))
+const double inj_exp_alpha_e = 100;         /// Factor of the exponential cutoff in the electrons injection spectra (dN(E)/dE * exp(-inj_exp_alpha*E/E_Max))
+
+
 const double Emin     = 0.1*GeV;        /// Minimum accelered CRs during the Sedov phase 
 const double delta    = 4.;             /// From Celli et al. (2019) - see Brahimi et al. (2020)
 const int injection_shape_time        = 0;        /// 0 : Time Dirac CRs, 1 : Time Gaussian CRs  
@@ -116,8 +123,9 @@ const int tesc_model  = 1;                        /// CR escape time model
 // Model 1 : eta_g = eta_g,free -> 1
 // Model 2 : B^2 = u_sh^3       -> 2
 // Model 3 : B^2 = u_sh^2       -> 3 (Best model)
-const int oh_model = 3;
+const int oh_model = 3; // Useless for instance ... 
 
+/// Parameters defining Bsat = Bfree = eta_gfree*eta_acc*c*t_sed*Eknee/(3*e*pow(R_sed,2))
 const double eta_gfree = 1;
 const double eta_acc = 10;
 const double Eknee = 1e15*eV;

@@ -22,6 +22,8 @@ using namespace std;
 #include "./out.h"
 #include "./logmaker.h"
 #include "./tools.h"
+#include "./params_reader.h"
+#include "./accelerator_models.h"
 #include "./cr_source.h"
 #include "./solver1D.h"
 
@@ -326,7 +328,7 @@ int main()
         Pcr_ini_temp[j] = Pcr_ini(E[j]);
         ttesc[j] = tesc(E[j]);
         r_snr_protons = RSNR(ttesc[j]);
-        Pe_ini_temp[j] = electron_injection_rate*Pcr_ini(E[j]);                    
+        Pe_ini_temp[j] = electron_injection_rate*Pe_ini(E[j]);                    
         ttesc_e[j] = tesc_e(E[j]);
         r_snr_electrons = RSNR(ttesc_e[j]); 
         

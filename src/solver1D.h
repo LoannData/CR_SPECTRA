@@ -257,6 +257,7 @@ void advectionSolverE1(vector<vector<double> > &u_old, vector<vector<double> > &
             u_new[xi][0] = pow(u_new[xi][1],2.)/u_new[xi][2];
 
             // Case where ei = NE
+            //u_new[xi][NE] = u_old[xi][NE];
             u_new[xi][NE] = pow(u_new[xi][NE-1],2.)/u_new[xi][NE-2];
     }
 }
@@ -441,6 +442,24 @@ void CRsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<doub
             for (int ei = 0; ei < NE; ei++)
             {
                 u_new[xi][ei] = u_old[xi][ei] + dt*Pcr_ini[ei]*Finj_temp[ei]*vec_theta[xi]; 
+                //cout<<Pcr_ini[ei]<<", "<<Finj_temp[ei]<<", "<<vec_theta[xi]<<endl;
+            }
+        }
+    }
+
+void EsInjectionSourceSolver(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> Pe_ini, vector<double> Finj_temp, vector<double> vec_theta)
+    {
+        int NX = u_old.size();
+        int NE = u_old[0].size();
+
+        //#pragma omp parallel num_threads(nproc)
+        #pragma omp for schedule(static, int(double(NX/nproc))) //private(NE)
+        for (int xi = 0; xi < NX; xi++)
+        {   
+            //NE = u_old[xi].size();
+            for (int ei = 0; ei < NE; ei++)
+            {
+                u_new[xi][ei] = u_old[xi][ei] + dt*Pe_ini[ei]*Finj_temp[ei]*vec_theta[xi]; 
                 //cout<<Pcr_ini[ei]<<", "<<Finj_temp[ei]<<", "<<vec_theta[xi]<<endl;
             }
         }
