@@ -133,7 +133,16 @@ const double alpha = 2.6;
 
 
 // GEOMETRY CONSIDERATIONS
+// Please see : 
+// https://iopscience.iop.org/article/10.1088/0004-637X/725/2/2117/pdf
+// https://iopscience.iop.org/article/10.1086/524771/pdf
+// https://ui.adsabs.harvard.edu/abs/2002PhRvD..65b3002C/abstract
+// To define your perpendicular diffusion model 
+const int    dperp_shape      = 1;      /// Shape of the perpendicular diffusion coefficient (0 : Uniform, 1 : Erf function with l_coherence parameter) 
+                                        /// If Dperp solvers are activated, if dperp_shape = 0 then the perpendicular diffusion is uniform all along the simulation 
+                                        /// box. If dperp_shape = 1, the perpendicular diffusion starts to play a role only after the cohenrence length of 
+                                        /// the magnetic field (coherence_length)
 const double coherence_length = 100*pc; /// Coherence length of the magnetic field 
-const double sigma_coherence = 10*pc;   /// Width of the transition from the part close to the source where the diffusion coefficient is anitropic 
+const double sigma_coherence  = 10*pc;  /// Width of the transition from the part close to the source where the diffusion coefficient is anitropic 
                                         /// and the part far from the source where the diffusion is isotropic
-const double isotropy = 1;              /// The isotropy parameter allow to define far from the source : Dperp = isotropy*Dpara  
+const double isotropy         = 0.01;   /// The isotropy parameter allow to define far from the source : Dperp = isotropy*Dpara  

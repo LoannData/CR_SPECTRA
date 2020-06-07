@@ -534,7 +534,8 @@ void perpendicular_diffusion_solver(vector<vector<double> > &u_old, vector<vecto
     for (int xi = 0; xi < NX; xi++)
     {
         x = X[xi] - center;
-        factor = 0.5*(erf((x - coherence_length)/sigma_coherence) + erf((-x - coherence_length)/sigma_coherence) + 2);
+        if (dperp_shape == 0){factor = 1.;}
+        if (dperp_shape == 1){factor = 0.5*(erf((x - coherence_length)/sigma_coherence) + erf((-x - coherence_length)/sigma_coherence) + 2);}
         for (int ei = 0; ei < NE; ei++)
         {
             Dperp = isotropy*Db[xi][ei]/I0[xi][ei]*factor;
