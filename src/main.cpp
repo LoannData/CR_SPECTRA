@@ -98,10 +98,12 @@ int main()
     vector<double> X = readAxis("X", NX);
     vector<double> E = readAxis("E", NE);
 
-    vector<double> log10E = E;
+    vector<double> log10E  = E;
+    vector<double> log10E2 = E;
     for (int ei = 0; ei < E.size(); ei++)
     {
         log10E[ei] = log10(E[ei]);
+        log10E2[ei] = log10(pow(E[ei], 2)); 
     }
 
     // Other static gas values 
@@ -146,11 +148,11 @@ int main()
 
 
     // Initialisation des vecteurs de variance d'espace 
-    vector<double> dX(NX), dE(NE), lindE(NE); 
+    vector<double> dX(NX), dE(NE), dE2(NE), lindE(NE); 
     for (int xi=1; xi<NX-1; xi++){dX[xi] = 0.5*abs(X[xi+1] - X[xi-1]);}
     dX[0] = dX[1]; dX[NX-1] = dX[NX-2]; 
-    for (int e=1; e<NE-1; e++){dE[e] = 0.5*abs(log10E[e+1] - log10E[e-1]); lindE[e] = 0.5*abs(E[e+1] - E[e-1]);}
-    dE[0] = dE[1]; dE[NE-1] = dE[NE-2]; lindE[0] = lindE[1]; lindE[NE-1] = lindE[NE-2]; 
+    for (int e=1; e<NE-1; e++){dE[e] = 0.5*abs(log10E[e+1] - log10E[e-1]); dE2[e] = 0.5*abs(log10E2[e+1] - log10E2[e-1]); lindE[e] = 0.5*abs(E[e+1] - E[e-1]);}
+    dE[0] = dE[1]; dE[NE-1] = dE[NE-2]; dE2[0] = dE2[1]; dE2[NE-1] = dE2[NE-2]; lindE[0] = lindE[1]; lindE[NE-1] = lindE[NE-2]; 
 
 
 
@@ -205,13 +207,15 @@ int main()
     double maxdX = maxElement1D(dX); double maxdE = maxElement1D(dE);
     double minlindE = minElement1D(lindE);
     double minlogdE = minElement1D(dE);
+    double minlogdE2 = minElement1D(dE2);
 
     double maxdVddX = absmaxElement2D(cdVAdX); 
     double maxdVddE = absmaxElement2D(dVAdlog10E); 
 
     // CFL condition over synchrotron solvers 
     //double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 2.))*minlindE;        // Linear solver
-    double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 1.))*minlogdE*log(10.); // Log solver
+    double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 1.))*minlogdE2*log(10.); // Log solver (before correction)
+    //double adv_sync_cfl = 4*pi*pow(me,2.)*pow(c,4)/(sig_T*c*pow(2*maxB, 2.)*pow(maxlinE, 2.))*minlogdE*log(10.); // Log solver (after correction)
 
     //cout<<"maxB = "<<maxB<<", maxlinE = "<<maxlinE<<", minlogdE = "<<minlogdE<<endl;
 
@@ -233,7 +237,7 @@ int main()
 
     if (solver_PcrAdvection == 1  || solver_PeAdvection == 1 || solver_IpAdvection == 1 || solver_ImAdvection == 1){cfl.push_back(C1*mindX/maxVd);}
     if (solver_PcrAdvectionE == 1 || solver_PeAdvectionE == 1)                                                    {cfl.push_back(C3*adv_ener_cfl);}
-    if (solver_PeAdvectionE1 == 1 || solver_PeAdvectionE2 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
+    if (solver_PeAdvectionE1 == 1)                                                   {cfl.push_back(C5*adv_sync_cfl);}
     if (solver_PcrAdvection2 == 1 || solver_PeAdvection2 == 1){cfl.push_back(C4*mindX/(maxlinE*maxdVddE));}
     //if (solver_IpDampGrowth == 1 || solver_ImDampGrowth == 1){cfl.push_back(C6/maxGd);}
     //if ((solver_PcrDiffusion == 1 || solver_PeDiffusion == 1) && cfl.size() == 0) {cfl.push_back(step_implicit);}
@@ -458,9 +462,9 @@ int main()
         // source term and an energy advective term
         //----------------------------------------------------------------------//
         if (solver_PeAdvectionE1 == 1)
-        {advectionSolverE1(Pe_old, Pe_new, dt, log10E, B, E, NX, Pe_background);         Pe_old = Pe_new;}
-        if (solver_PeAdvectionE2 == 1)
-        {advectionSolverE2(Pe_old, Pe_new, dt, log10E, NX, B, E, Pe_background);         Pe_old = Pe_new;}
+        {advectionSolverE1(Pe_old, Pe_new, dt, log10E2, B, E, NX, Pe_background);         Pe_old = Pe_new;}
+        //if (solver_PeAdvectionE2 == 1)
+        //{advectionSolverE2(Pe_old, Pe_new, dt, log10E, NX, B, E, Pe_background);         Pe_old = Pe_new;}
         //electron_source(Pe_old, Pe_new, E, dt, NE, NX, Pe_background); Pe_old = Pe_new; 
 
 

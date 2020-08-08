@@ -279,7 +279,7 @@ def Gettesc(E, delta, tSed, EMAX, Emin = 0.1*cst.GeV) :
     # E = E - 1*cst.GeV
     if (E < EMAX and E > Emin) : 
         # return tSed*((E**2/cst.c**2 - cst.mp**2*cst.c**2)/(EMAX**2/cst.c**2 - cst.mp**2*cst.c**2))**(-1./(2.*delta))
-        return tSed*((E**2/cst.c**2)/(EMAX**2/cst.c**2))**(-1./(2.*delta))
+        return tSed*((E**2/cst.c**2)/(EMAX**2/cst.c**2))**(-1./(delta))
     else : 
         return np.NaN
 
@@ -336,60 +336,61 @@ emax_DiM = getEmax(SNR_DiM.get("t_SNR"), SNR_DiM.get("u_sh"), SNR_DiM.get("R_SNR
 
 
 # Old results 
-# t_soft = [[
-#     38.68850, 16.354, 6.838483, 3.2713, 1.4532, 0.704590, np.nan, 0.207302
-# ],[
-#     8.24146, 3.652, 1.22933, np.nan, 1.169809, 0.718255, 0.1, np.nan
-# ],[
-#     2.964, np.nan, np.nan, 3.11714, 2.8569, 0.53177, 0.07047, 0.02210
-# ]]
+t_soft = [[
+    38.68850, 16.354, 6.838483, 3.2713, 1.4532, 0.704590, np.nan, 0.207302
+],[
+    8.24146, 3.652, 1.22933, np.nan, 1.169809, 0.718255, 0.1, np.nan
+],[
+    2.964, np.nan, np.nan, 3.11714, 2.8569, 0.53177, 0.07047, 0.02210
+]]
 
-# Resc_soft = [[
-#     24.2236, 18.0178, 12.4801, 9.102938, 6.3583, 4.5530, np.nan, 1.7510887
-# ],[
-#    4.95380, 3.852727, 2.66158, 0.0, 2.608654, 2.13556, 0.963, 0.0
-# ],[
-#     2.0004, 0.0, 0.0, 2.0372, 1.9744, 1.2028, 0.53109, 0.22058
-# ]]
+Resc_soft = [[
+    24.2236, 18.0178, 12.4801, 9.102938, 6.3583, 4.5530, np.nan, 1.7510887
+],[
+   4.95380, 3.852727, 2.66158, 0.0, 2.608654, 2.13556, 0.963, 0.0
+],[
+    2.0004, 0.0, 0.0, 2.0372, 1.9744, 1.2028, 0.53109, 0.22058
+]]
    
-# E_old = np.array([10., 30., 100., 300., 1e3, 3e3, 10e3, 30e3])*cst.GeV
+E_old = np.array([10., 30., 100., 300., 1e3, 3e3, 10e3, 30e3])*cst.GeV
 
 
 
-delta = 4. 
-tesc_HIM = np.empty(len(Ecr))
-tesc_HII = np.empty(len(Ecr))
-tesc_WIM = np.empty(len(Ecr))
+delta_1 = 2. 
+delta_2 = 3.
+# tesc_HIM = np.empty(len(Ecr))
+# tesc_HII = np.empty(len(Ecr))
+# tesc_WIM = np.empty(len(Ecr))
 tesc_WNM = np.empty(len(Ecr))
 tesc_CNM = np.empty(len(Ecr))
 tesc_DiM = np.empty(len(Ecr))
 
-tesc_HIM_3 = np.empty(len(Ecr))
-tesc_HII_3 = np.empty(len(Ecr))
-tesc_WIM_3 = np.empty(len(Ecr))
+# tesc_HIM_3 = np.empty(len(Ecr))
+# tesc_HII_3 = np.empty(len(Ecr))
+# tesc_WIM_3 = np.empty(len(Ecr))
 tesc_WNM_3 = np.empty(len(Ecr))
 tesc_CNM_3 = np.empty(len(Ecr))
 tesc_DiM_3 = np.empty(len(Ecr))
 
 for ii in range(len(Ecr)) : 
-    tesc_HIM[ii] = Gettesc(Ecr[ii], delta, SNR_HIM.get("t_SED"), max(emax_HIM))
-    tesc_HII[ii] = Gettesc(Ecr[ii], delta, SNR_HII.get("t_SED"), max(emax_HII))
-    tesc_WIM[ii] = Gettesc(Ecr[ii], delta, SNR_WIM.get("t_SED"), max(emax_WIM))
-    tesc_WNM[ii] = Gettesc(Ecr[ii], delta, SNR_WNM.get("t_SED"), max(emax_WNM))
-    tesc_CNM[ii] = Gettesc(Ecr[ii], delta, SNR_CNM.get("t_SED"), max(emax_CNM))
-    tesc_DiM[ii] = Gettesc(Ecr[ii], delta, SNR_DiM.get("t_SED"), max(emax_DiM))
+    # tesc_HIM[ii] = Gettesc(Ecr[ii], delta_1, SNR_HIM.get("t_SED"), max(emax_HIM))
+    # tesc_HII[ii] = Gettesc(Ecr[ii], delta_1, SNR_HII.get("t_SED"), max(emax_HII))
+    # tesc_WIM[ii] = Gettesc(Ecr[ii], delta_1, SNR_WIM.get("t_SED"), max(emax_WIM))
+    tesc_WNM[ii] = Gettesc(Ecr[ii], delta_1, SNR_WNM.get("t_SED"), max(emax_WNM))
+    tesc_CNM[ii] = Gettesc(Ecr[ii], delta_1, SNR_CNM.get("t_SED"), max(emax_CNM))
+    tesc_DiM[ii] = Gettesc(Ecr[ii], delta_1, SNR_DiM.get("t_SED"), max(emax_DiM))
     
-    tesc_HIM_3[ii] = Gettesc(Ecr[ii], 3., SNR_HIM.get("t_SED"), max(emax_HIM))
-    tesc_HII_3[ii] = Gettesc(Ecr[ii], 3., SNR_HII.get("t_SED"), max(emax_HII))
-    tesc_WIM_3[ii] = Gettesc(Ecr[ii], 3., SNR_WIM.get("t_SED"), max(emax_WIM))
-    tesc_WNM_3[ii] = Gettesc(Ecr[ii], 3., SNR_WNM.get("t_SED"), max(emax_WNM))
-    tesc_CNM_3[ii] = Gettesc(Ecr[ii], 3., SNR_CNM.get("t_SED"), max(emax_CNM))
-    tesc_DiM_3[ii] = Gettesc(Ecr[ii], 3., SNR_DiM.get("t_SED"), max(emax_DiM))
+    # tesc_HIM_3[ii] = Gettesc(Ecr[ii], delta_2, SNR_HIM.get("t_SED"), max(emax_HIM))
+    # tesc_HII_3[ii] = Gettesc(Ecr[ii], delta_2, SNR_HII.get("t_SED"), max(emax_HII))
+    # tesc_WIM_3[ii] = Gettesc(Ecr[ii], delta_2, SNR_WIM.get("t_SED"), max(emax_WIM))
+    tesc_WNM_3[ii] = Gettesc(Ecr[ii], delta_2, SNR_WNM.get("t_SED"), max(emax_WNM))
+    tesc_CNM_3[ii] = Gettesc(Ecr[ii], delta_2, SNR_CNM.get("t_SED"), max(emax_CNM))
+    tesc_DiM_3[ii] = Gettesc(Ecr[ii], delta_2, SNR_DiM.get("t_SED"), max(emax_DiM))
 
 
-size_x = 4
+size_x = 6
 size_y = 3.5
-sub_x  = 2
+sub_x  = 1
 sub_y  = 1
 fig = plt.figure(figsize=(size_x*sub_x,size_y*sub_y))
 
@@ -397,56 +398,57 @@ gs = gridspec.GridSpec(ncols= sub_x, nrows = sub_y, figure = fig )
 gs.update(wspace=0.05, hspace=0.05) # set the spacing between axes.
 
 
-ax0 = fig.add_subplot(gs[0])
+# ax0 = fig.add_subplot(gs[0])
 
-ax0.loglog(SNR_HIM.get("t_SNR")/cst.kyr, emax_HIM/cst.GeV, c="black", label="HIM")
-ax0.loglog(SNR_HII.get("t_SNR")/cst.kyr, emax_HII/cst.GeV, c="red", label="HII")
-ax0.loglog(SNR_WIM.get("t_SNR")/cst.kyr, emax_WIM/cst.GeV, c="orange", label ="WIM")
-ax0.loglog(SNR_WNM.get("t_SNR")/cst.kyr, emax_WNM/cst.GeV, c="green", label="WNM")
-ax0.loglog(SNR_CNM.get("t_SNR")/cst.kyr, emax_CNM/cst.GeV, c="deepskyblue", label="CNM")
-ax0.loglog(SNR_DiM.get("t_SNR")/cst.kyr, emax_DiM/cst.GeV, c="blue", label="DiM")
+# ax0.loglog(SNR_HIM.get("t_SNR")/cst.kyr, emax_HIM/cst.GeV, c="black", label="HIM")
+# ax0.loglog(SNR_HII.get("t_SNR")/cst.kyr, emax_HII/cst.GeV, c="red", label="HII")
+# ax0.loglog(SNR_WIM.get("t_SNR")/cst.kyr, emax_WIM/cst.GeV, c="orange", label ="WIM")
+# ax0.loglog(SNR_WNM.get("t_SNR")/cst.kyr, emax_WNM/cst.GeV, c="green", label="WNM")
+# ax0.loglog(SNR_CNM.get("t_SNR")/cst.kyr, emax_CNM/cst.GeV, c="deepskyblue", label="CNM")
+# ax0.loglog(SNR_DiM.get("t_SNR")/cst.kyr, emax_DiM/cst.GeV, c="blue", label="DiM")
 
-ax0.legend(loc="upper right", ncol = 5, bbox_to_anchor=(1.8, 1.15))
+# ax0.legend(loc="upper right", ncol = 5, bbox_to_anchor=(1.8, 1.15))
 
-ax0.set_ylabel("$E_{\\mathrm{max},0}$ [GeV]")
-ax0.set_xlabel("$t$ [kyr]")
+# ax0.set_ylabel("$E_{\\mathrm{max},0}$ [GeV]")
+# ax0.set_xlabel("$t$ [kyr]")
 
 
-ax1 = fig.add_subplot(gs[1])
+ax1 = fig.add_subplot(gs[0])
 
-ax1.loglog(Ecr/cst.GeV, tesc_HIM/cst.kyr, c="black", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_HII/cst.kyr, c="red", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_WIM/cst.kyr, c="orange", ls ="-")
+# ax1.loglog(Ecr/cst.GeV, tesc_HIM/cst.kyr, c="black", ls ="-")
+# ax1.loglog(Ecr/cst.GeV, tesc_HII/cst.kyr, c="red", ls ="-")
+# ax1.loglog(Ecr/cst.GeV, tesc_WIM/cst.kyr, c="orange", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_WNM/cst.kyr, c="green", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_CNM/cst.kyr, c="deepskyblue", ls ="-")
 ax1.loglog(Ecr/cst.GeV, tesc_DiM/cst.kyr, c="blue", ls ="-")
 
-ax1.loglog(Ecr/cst.GeV, tesc_HIM_3/cst.kyr, c="black", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_HII_3/cst.kyr, c="red", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_WIM_3/cst.kyr, c="orange", ls ="--")
+# ax1.loglog(Ecr/cst.GeV, tesc_HIM_3/cst.kyr, c="black", ls ="--")
+# ax1.loglog(Ecr/cst.GeV, tesc_HII_3/cst.kyr, c="red", ls ="--")
+# ax1.loglog(Ecr/cst.GeV, tesc_WIM_3/cst.kyr, c="orange", ls ="--")
 ax1.loglog(Ecr/cst.GeV, tesc_WNM_3/cst.kyr, c="green", ls ="--")
 ax1.loglog(Ecr/cst.GeV, tesc_CNM_3/cst.kyr, c="deepskyblue", ls ="--")
 ax1.loglog(Ecr/cst.GeV, tesc_DiM_3/cst.kyr, c="blue", ls ="--")
 
-# ax1.loglog(E_old/cst.GeV, t_soft[0], c = "green", marker = "v")
-# ax1.loglog(E_old/cst.GeV, t_soft[1], c = "deepskyblue", marker = "v")
-# ax1.loglog(E_old/cst.GeV, t_soft[2], c = "blue", marker = "v")
+ax1.loglog(E_old/cst.GeV, t_soft[0], c = "green", marker = "v")
+ax1.loglog(E_old/cst.GeV, t_soft[1], c = "deepskyblue", marker = "v")
+ax1.loglog(E_old/cst.GeV, t_soft[2], c = "blue", marker = "v")
 
 ax1.plot([],[],ls='-',c="black",label="$\\delta = 2$")
 ax1.plot([],[],ls='--',c="black",label="$\\delta = 3$")
+ax1.plot([],[], c= "black", marker="v", label = "Brahimi+2020")
 
 ax1.legend(loc="upper right")
 
-ax1.yaxis.tick_right()
-ax1.yaxis.set_label_position("right")
+# ax1.yaxis.tick_right()
+# ax1.yaxis.set_label_position("right")
 ax1.set_ylabel("Escape time $t_\\mathrm{esc}$ [kyr]")
 ax1.set_xlabel("$E$ [GeV]")
-ax1.set_xlim(1e-1, 1e5)
-ax1.set_ylim(4e-2, 1e2)
+ax1.set_xlim(1e-0, 1e5)
+ax1.set_ylim(2e-2, 1e2)
 
 
 fig.tight_layout()
-fig.savefig("escape_model.pdf",pad=-10)
+fig.savefig("escape_model_with_old.pdf",pad=-10)
 
 
 

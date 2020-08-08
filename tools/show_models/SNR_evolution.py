@@ -282,9 +282,9 @@ for ii in range(len(t_WNM)) :
     ax1.loglog(t_CNM[ii]/cst.kyr, u_sh_c_CNM[ii]/cst.kms, c="black", marker=marker[ii])
     ax1.loglog(t_DiM[ii]/cst.kyr, u_sh_c_DiM[ii]/cst.kms, c="black", marker=marker[ii])
 
-ax1.scatter([],[],marker="o",c="black",label="$t_\\mathrm{PDS}$")
-ax1.scatter([],[],marker="s",c="black",label="$t_\\mathrm{MCS}$")
-ax1.scatter([],[],marker="v",c="black",label="$t_\\mathrm{merge}$")
+ax1.scatter([],[],marker="o",c="black",label="$t_\\mathrm{Sed}$")
+ax1.scatter([],[],marker="s",c="black",label="$t_\\mathrm{PDS}$")
+ax1.scatter([],[],marker="v",c="black",label="$t_\\mathrm{MCS}$")
 
 ax1.legend(ncol = 3)
 

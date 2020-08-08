@@ -34,17 +34,18 @@ const int solver_PcrAdvection2 = 1; /// Explicit Advection solver for Pcr by the
 const int solver_PcrAdvectionE = 1; /// Explicit Advection solver for Pcr in energy cdVAdX
 const int solver_PcrSource1    = 1; /// Source term effect due to the dependance of the Alfvén velocity to the space
 const int solver_PcrSource2    = 1; /// Source term effect due to the CR injection from the source in the system  
-const int solver_PcrPerpDiff   = 0; /// Perpendicular diffusion of CRs after the coherence length 
+const int solver_PcrPerpDiff   = 1; /// Perpendicular diffusion of CRs after the coherence length 
 
 const int solver_PeAdvection   = 1; /// Advective term of the e- Pressure (the classical one -> V_A*grad ...)
 const int solver_PeDiffusion   = 1; /// Diffusive term of the e- Pressure
 const int solver_PeAdvection2  = 1; /// Explicit Advection solver for e- by the energy derivative of Alfvén velocity.
 const int solver_PeAdvectionE  = 1; /// Explicit Advection solver for e- in energy cdVAdX
-const int solver_PeAdvectionE1 = 1; /// Sychrotron radiations of e- (looses of energy) - Advection term 
-const int solver_PeAdvectionE2 = 1; /// Synchrotron radiations of e- (looses of energy) - source term
+const int solver_PeAdvectionE1 = 1; /// Sychrotron radiations of e- (looses of energy) - Advection term // This is now the only synchrotron term
+//const int solver_PeAdvectionE2 = 0; /// Synchrotron radiations of e- (looses of energy) - source term // Not available anymore !!!
+const double Pe_max_value = 1e-1;   /// [erg/cm^3] Maximum allowed value for electron pressure for the synchrotron terms
 const int solver_PeSource1     = 1; /// Source term effect due to the dependance of the Alfvén velocity to the space (for e-)
 const int solver_PeSource2     = 1; /// Source term effect due to the e- injection from the source in the system 
-const int solver_PePerpDiff    = 0; /// Perpendicular diffusion of e- after the coherence length 
+const int solver_PePerpDiff    = 1; /// Perpendicular diffusion of e- after the coherence length 
 
 const int solver_IpAdvection   = 1; /// Advective term of the foward waves 
 const int solver_ImAdvection   = 1; /// Advective term of the backward waves
@@ -66,13 +67,13 @@ const int nproc                = 1;         /// Number of processors for the run
 
 const int output_freq          = 0;         /// Model of output frequency (0 : n output between t_start and t_end, 1 : 1 output each n timestep) n = number_out_data                                
 const double t_data_out_min    = 0.*kyr;    /// Instant of the first output data 
-const double t_data_out_max    = 500.*kyr;  ///200.*kyr; Instant of the last output data
+const double t_data_out_max    = 200.*kyr;  ///200.*kyr; Instant of the last output data
 const int number_out_data      = 100;       /// Total number of output data
-const int time_distrib_of_data = 1;         /// Time distribution of output data (0 : linspace, 1 : log10-space
+const int time_distrib_of_data = 0;         /// Time distribution of output data (0 : linspace, 1 : log10-space
                                             ///                                   2 : Custom output times, see the function specificOutputData() in the file : out.h)
 const double log_first_data    = 0.3*kyr;  /// Time value of the first output in the logscaled output method.  
 const int delta_log_output     = 100;       /// Number of time-step between two LogOutput
-const double Tmax              = 500.1*kyr; ///200.1*kyr; Define the limit time of your simulation 
+const double Tmax              = 200.1*kyr; ///200.1*kyr; Define the limit time of your simulation 
 
 const int verbose              = 1;         /// 0 : False, 1 : True -> Show extra informations during the simulation 
 

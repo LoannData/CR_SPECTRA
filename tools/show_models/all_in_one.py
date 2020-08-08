@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Created on Thu Apr  2 14:40:12 2020
+Created on Fri Jun 19 16:12:16 2020
 
 @author: lbrahimi
 """
@@ -15,6 +15,7 @@ import sys
 sys.path.append("../")
 import constants as cst
 import phases_collection as ism 
+import damping as dp 
 
 ###############################################################################
 # FUNCTIONS IN ORDER TO CREATE A GOOD SPLINE !!!                              #
@@ -268,7 +269,7 @@ def getSNR(phase, size = 100) :
             "t_MCS"   :tMCS,
             "t_merge" :tmerge,
             "t_max"   : tmax, 
-            "r_SED"   :R_free,
+            "r_SED"   : R_free,
             "r_PDS"   : R_PDS,
             "r_MCS"   : R_MCS,
             "r_merge" : R_merge}
@@ -307,146 +308,302 @@ def getEmax(t_new, u_sh, r_new, phase, gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e
     return Emax 
 
 
-Ecr = np.logspace(np.log10(0.1*cst.GeV), np.log10(100.*cst.TeV), 1000)
-
-SNR_HIM  = getSNR(ism.HIM, size = 100)
-emax_HIM = getEmax(SNR_HIM.get("t_SNR"), SNR_HIM.get("u_sh"), SNR_HIM.get("R_SNR"), ism.HIM, 
-                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
-
-SNR_HII  = getSNR(ism.HII, size = 100)
-emax_HII = getEmax(SNR_HII.get("t_SNR"), SNR_HII.get("u_sh"), SNR_HII.get("R_SNR"), ism.HII, 
-                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
-
-SNR_WIM  = getSNR(ism.WIM, size = 100)
-emax_WIM = getEmax(SNR_WIM.get("t_SNR"), SNR_WIM.get("u_sh"), SNR_WIM.get("R_SNR"), ism.WIM, 
-                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
-
-
-SNR_WNM  = getSNR(ism.WNM, size = 100)
-emax_WNM = getEmax(SNR_WNM.get("t_SNR"), SNR_WNM.get("u_sh"), SNR_WNM.get("R_SNR"), ism.WNM, 
-                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
-
-SNR_CNM  = getSNR(ism.CNM, size = 100)
-emax_CNM = getEmax(SNR_CNM.get("t_SNR"), SNR_CNM.get("u_sh"), SNR_CNM.get("R_SNR"), ism.CNM, 
-                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
-
-SNR_DiM  = getSNR(ism.DiM, size = 100)
-emax_DiM = getEmax(SNR_DiM.get("t_SNR"), SNR_DiM.get("u_sh"), SNR_DiM.get("R_SNR"), ism.DiM, 
-                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
-
-
-# Old results 
-# t_soft = [[
-#     38.68850, 16.354, 6.838483, 3.2713, 1.4532, 0.704590, np.nan, 0.207302
-# ],[
-#     8.24146, 3.652, 1.22933, np.nan, 1.169809, 0.718255, 0.1, np.nan
-# ],[
-#     2.964, np.nan, np.nan, 3.11714, 2.8569, 0.53177, 0.07047, 0.02210
-# ]]
-
-# Resc_soft = [[
-#     24.2236, 18.0178, 12.4801, 9.102938, 6.3583, 4.5530, np.nan, 1.7510887
-# ],[
-#    4.95380, 3.852727, 2.66158, 0.0, 2.608654, 2.13556, 0.963, 0.0
-# ],[
-#     2.0004, 0.0, 0.0, 2.0372, 1.9744, 1.2028, 0.53109, 0.22058
-# ]]
-   
-# E_old = np.array([10., 30., 100., 300., 1e3, 3e3, 10e3, 30e3])*cst.GeV
-
-
-
-delta = 4. 
-tesc_HIM = np.empty(len(Ecr))
-tesc_HII = np.empty(len(Ecr))
-tesc_WIM = np.empty(len(Ecr))
-tesc_WNM = np.empty(len(Ecr))
-tesc_CNM = np.empty(len(Ecr))
-tesc_DiM = np.empty(len(Ecr))
-
-tesc_HIM_3 = np.empty(len(Ecr))
-tesc_HII_3 = np.empty(len(Ecr))
-tesc_WIM_3 = np.empty(len(Ecr))
-tesc_WNM_3 = np.empty(len(Ecr))
-tesc_CNM_3 = np.empty(len(Ecr))
-tesc_DiM_3 = np.empty(len(Ecr))
-
-for ii in range(len(Ecr)) : 
-    tesc_HIM[ii] = Gettesc(Ecr[ii], delta, SNR_HIM.get("t_SED"), max(emax_HIM))
-    tesc_HII[ii] = Gettesc(Ecr[ii], delta, SNR_HII.get("t_SED"), max(emax_HII))
-    tesc_WIM[ii] = Gettesc(Ecr[ii], delta, SNR_WIM.get("t_SED"), max(emax_WIM))
-    tesc_WNM[ii] = Gettesc(Ecr[ii], delta, SNR_WNM.get("t_SED"), max(emax_WNM))
-    tesc_CNM[ii] = Gettesc(Ecr[ii], delta, SNR_CNM.get("t_SED"), max(emax_CNM))
-    tesc_DiM[ii] = Gettesc(Ecr[ii], delta, SNR_DiM.get("t_SED"), max(emax_DiM))
+def IonNeutral_Damping(k, medium_props, nu_n = 0, theta = 0) : 
+    T  = medium_props.get('T')
+    B  = medium_props.get('B')
+    mn = medium_props.get('mn')
+    mi = medium_props.get('mi') 
+    X  = medium_props.get('X')
+    ni = medium_props.get('ni')
+    nn = medium_props.get('nn')    
     
-    tesc_HIM_3[ii] = Gettesc(Ecr[ii], 3., SNR_HIM.get("t_SED"), max(emax_HIM))
-    tesc_HII_3[ii] = Gettesc(Ecr[ii], 3., SNR_HII.get("t_SED"), max(emax_HII))
-    tesc_WIM_3[ii] = Gettesc(Ecr[ii], 3., SNR_WIM.get("t_SED"), max(emax_WIM))
-    tesc_WNM_3[ii] = Gettesc(Ecr[ii], 3., SNR_WNM.get("t_SED"), max(emax_WNM))
-    tesc_CNM_3[ii] = Gettesc(Ecr[ii], 3., SNR_CNM.get("t_SED"), max(emax_CNM))
-    tesc_DiM_3[ii] = Gettesc(Ecr[ii], 3., SNR_DiM.get("t_SED"), max(emax_DiM))
+    
+    # Some relations 
+    # rl = (E)/(cst.e*B)
+    # k = 1/rl
+    chi = (mn/mi)*(X**(-1.)-1.)
+    
+    VAi = B/np.sqrt(4*np.pi*mi*ni)
+    if (T <= 50) : 
+        nu_in = 2*nn*8.4e-9*(50/1e4)**0.4
+    if (T > 50) : 
+        nu_in = 2*nn*8.4e-9*(T/1e4)**0.4
+    nu_ni = chi**(-1.)*nu_in
+    
+    kz = k*np.cos(theta)
+    
+    a = 1 
+    b = (1 + chi)*nu_ni
+    c = kz**2*VAi**2
+    d = nu_ni*kz**2*VAi**2
+    
+    roots = mt.Cubic3(a, b, c, d)
+    
+    wR = abs(roots[2].imag)
+    wI = abs(roots[2].real)
+    cA = wR/k 
+    
+    return dict(wr=wR, wi=-wI, VA=cA)
+
+
+def Duu_Alfven_Slab_Linear_Undamped(mu, E, medium_props, mass = cst.mp, kmin = 1e-20, q = 1.5, I = 1e-4) : 
+    """
+    See. Schlickeiser (2002, Chap 13.1.3.1, p.318)
+
+    Parameters
+    ----------
+    mu : TYPE
+        DESCRIPTION.
+    medium_props : TYPE
+        DESCRIPTION.
+    particles_props : TYPE
+        DESCRIPTION.
+    kmin : TYPE, optional
+        DESCRIPTION. The default is 1e-20.
+    q : TYPE, optional
+        DESCRIPTION. The default is 1.5.
+
+    Returns
+    -------
+    D : TYPE
+        DESCRIPTION.
+
+    """
+    
+    def g_s(k, kmin, q, medium_props, I = I) : 
+        B0 = medium_props.get("B")
+        W0 = B0**2/(8*np.pi)
+        I  = I
+        g_s0 = 2*(q - 1)*W0*I*kmin**(q - 1)
+        # g_s0 = I*W0*kmin
+        if (k >= 0) : 
+            if (k >= kmin) : 
+                return g_s0*k**(-q)
+            else : 
+                return 0. 
+        if (k < 0) : 
+            if (abs(k) >= kmin) : 
+                return g_s0*abs(k)**(-q)
+            else : 
+                return 0.
+    
+    
+    m = mass 
+    gamma = 1 + (E /(m*cst.c**2))
+    v = cst.c*np.sqrt(1 - (1/(E/(m*cst.c**2) + 1))**2)
+    p = gamma*m*v 
+    Omega0 = cst.e*medium_props.get("B")/(m*cst.c)
+    Omega  = Omega0/gamma 
+    
+    
+    B0    = medium_props.get("B")
+    mn    = medium_props.get("mn")
+    nn    = medium_props.get("nn")
+    mi    = medium_props.get("mi")
+    ni    = medium_props.get("ni")
+    
+    # eps = B0/np.sqrt(4*np.pi*(mi*ni + mn*nn))/v
+    eps = B0/np.sqrt(4*np.pi*(mi*ni))/v
+    
+    k_rp = (Omega/v)/(mu - eps)
+    k_rm = (Omega/v)/(mu + eps)
+    
+    Cte1    = np.pi*Omega**2*(1 - mu**2)/(v*B0**2)
+    Cte2_jp = (1 - eps*mu)**2/abs(mu - eps)
+    Cte2_jm = (1 + eps*mu)**2/abs(mu + eps)
+    Gp_jp      = g_s(k_rp, kmin, q, medium_props)  
+    Gm_jp      = g_s(-k_rp, kmin, q, medium_props) 
+    Gp_jm      = g_s(k_rm, kmin, q, medium_props)  
+    Gm_jm      = g_s(-k_rm, kmin, q, medium_props) 
+    
+    Djp = Cte1*Cte2_jp*(Gp_jp + Gm_jp)
+    Djm = Cte1*Cte2_jm*(Gp_jm + Gm_jm)
+    
+    D = Djp + Djm
+    return D
+
+
+
+
+def Kappa_zz(E, medium_props, mass = cst.mp, kmin = 1e-20, q = 5./3, I = 1e28) : 
+    """
+    
+
+    Parameters
+    ----------
+    E : TYPE
+        DESCRIPTION.
+    medium_props : TYPE
+        DESCRIPTION.
+    mass : TYPE float, optional
+        Mass of the diffusin particle. The defaut is m_proton
+    kmin : TYPE float, optional
+        Minimun length in cm^-1 for the turbulence spectra. The default is 1e-20.
+    q : TYPE float, optional
+        Spectral index of the Kolmogorov-like turbulence 
+        spectrum. The default is 5./3.
+    I : TYPE float, optional
+        Diffusion coefficient normalization value for 1GeV particle and 5./3 spectrum. The default is 1e28.
+
+    Returns
+    -------
+    TYPE
+        DESCRIPTION.
+
+    """
+    
+    # I = (2.2345649450772952e28*1e6/I)
+    
+    
+    
+    m = mass
+    gamma = 1 + (E /(m*cst.c**2))
+    v = cst.c*np.sqrt(1 - (1/(E/(m*cst.c**2) + 1))**2)
+    p = gamma*m*v 
+    Omega0 = cst.e*medium_props.get("B")/(m*cst.c)
+    Omega  = Omega0/gamma 
+    
+    lz_damping = dp.damping_lazarian_nopos(E, medium_props)
+    # print (lz_damping)
+    kmax = (lz_damping[1])**(-1)
+    # kmax = 1e-21
+    
+    # print (kmax)
+    
+    I = I*kmax
+    
+    k_zz = 0.
+    mu = np.linspace(-1, 1, 100)
+    for jj in range(1, len(mu)-1) : 
+        dmumu = 0.5*(mu[jj+1] - mu[jj-1])
+        k_zz += dmumu*(1 - mu[jj]**2)**2/Duu_Alfven_Slab_Linear_Undamped(mu[jj], E, medium_props, mass = m, kmin = kmin, q = q, I = I)
+    
+    return v**2/8*k_zz
+
+
+
+def kappa_zz_BC(E, d00, delta) : 
+    return d00*(E/(10*cst.GeV))**(delta)
+
+
+
+SNR_phase = ism.WNM
+ISM_phase = [ism.WNM, ism.CNM, ism.DiM]
+ISM_color = ["orange", "green", "blue"]
+ISM_name  = ["WNM", "CNM", "DiM"]
+delta = 4 
+
+
+
+E = np.logspace(np.log10(0.1*cst.GeV), np.log10(100.*cst.TeV), 1000)
+
+kzz_i = np.zeros(len(E)) 
+kzz_d = np.zeros((len(ISM_phase),len(E)))
+tesc_SNR = np.empty(len(E))
+Resc     = np.empty(len(E))
+SNR  = getSNR(SNR_phase, size = 1000)
+emax_SNR = getEmax(SNR.get("t_SNR"), SNR.get("u_sh"), SNR.get("R_SNR"), SNR_phase, 
+                   gamma = 2.2, Emin = 0.1*cst.GeV, eps = 1e-4, x0 = 10.*cst.GeV)
+
+for ii in range(len(E)) : 
+    tesc_SNR[ii] = Gettesc(E[ii], delta, SNR.get("t_SED"), max(emax_SNR))
+    kzz_i[ii] =  kappa_zz_BC(E[ii], 1e28, 0.5)
+    for ni in range(len(ISM_phase)) : 
+        kzz_d[ni][ii] =  Kappa_zz(E[ii], ISM_phase[ni], mass = cst.mp, kmin = (50*cst.pc)**(-1), q = 5./3, I = 1e-2)
+    
+    if (E[ii] < max(emax_SNR)) : 
+        for xi in range(1, len(SNR.get("R_SNR"))) : 
+            if (SNR.get("t_SNR")[xi] > tesc_SNR[ii] >= SNR.get("t_SNR")[xi-1]) : 
+                Resc[ii] = 0.5*(SNR.get("R_SNR")[xi] + SNR.get("R_SNR")[xi-1])
+
+
+# {"R_SNR"   :r_new, 
+#             "t_SNR"   :t_new, 
+#             "u_sh"    :u_sh, 
+#             "t_SED"   :tfree, 
+#             "t_PDS"   :tPDS,
+#             "t_MCS"   :tMCS,
+#             "t_merge" :tmerge,
+#             "t_max"   : tmax, 
+#             "r_SED"   : R_free,
+#             "r_PDS"   : R_PDS,
+#             "r_MCS"   : R_MCS,
+#             "r_merge" : R_merge}
+
+
 
 
 size_x = 4
-size_y = 3.5
+size_y = 3
 sub_x  = 2
-sub_y  = 1
+sub_y  = 2
 fig = plt.figure(figsize=(size_x*sub_x,size_y*sub_y))
 
 gs = gridspec.GridSpec(ncols= sub_x, nrows = sub_y, figure = fig )
-gs.update(wspace=0.05, hspace=0.05) # set the spacing between axes.
+gs.update(wspace=0.5, hspace=0.5) # set the spacing between axes.
 
 
-ax0 = fig.add_subplot(gs[0])
+ax00l = fig.add_subplot(gs[0, 0])
+ax00r = ax00l.twinx()
+ax00l.loglog(SNR.get("t_SNR")/cst.kyr, SNR.get("R_SNR")/cst.pc, lw = 2, c = "blue")
+ax00r.loglog(SNR.get("t_SNR")/cst.kyr, SNR.get("u_sh")/cst.kms, lw = 2, c = "red")
 
-ax0.loglog(SNR_HIM.get("t_SNR")/cst.kyr, emax_HIM/cst.GeV, c="black", label="HIM")
-ax0.loglog(SNR_HII.get("t_SNR")/cst.kyr, emax_HII/cst.GeV, c="red", label="HII")
-ax0.loglog(SNR_WIM.get("t_SNR")/cst.kyr, emax_WIM/cst.GeV, c="orange", label ="WIM")
-ax0.loglog(SNR_WNM.get("t_SNR")/cst.kyr, emax_WNM/cst.GeV, c="green", label="WNM")
-ax0.loglog(SNR_CNM.get("t_SNR")/cst.kyr, emax_CNM/cst.GeV, c="deepskyblue", label="CNM")
-ax0.loglog(SNR_DiM.get("t_SNR")/cst.kyr, emax_DiM/cst.GeV, c="blue", label="DiM")
+ax00l.scatter(SNR.get("t_SED")/cst.kyr, SNR.get("r_SED")/cst.pc, marker="o",c="black",label="$t_\\mathrm{Sed}$")
+ax00l.scatter(SNR.get("t_PDS")/cst.kyr, SNR.get("r_PDS")/cst.pc, marker="s",c="black",label="$t_\\mathrm{PDS}$")
+# ax00l.plot(SNR.get("t_MCS")/cst.kyr, SNR.get("r_MCS")/cst.pc, marker="v",c="black",label="$t_\\mathrm{MCS}$")
 
-ax0.legend(loc="upper right", ncol = 5, bbox_to_anchor=(1.8, 1.15))
+ax00l.set_ylabel("$R_\\mathrm{SNR}$ [pc]", color = "blue")
+ax00r.set_ylabel("$v_\\mathrm{sh}$ [km/s]", color = "red")
+ax00l.set_xlabel("$t$ [kyr]")
+ax00l.set_xlim(1e-1, 1e3)
+ax00l.set_ylim(1e0, 1e2)
+ax00l.legend(loc = "best", ncol = 2)
 
-ax0.set_ylabel("$E_{\\mathrm{max},0}$ [GeV]")
-ax0.set_xlabel("$t$ [kyr]")
+ax01l = fig.add_subplot(gs[0, 1]) 
+ax01r = ax01l.twinx() 
+ax01l.loglog(E/cst.GeV, tesc_SNR/cst.kyr, lw = 2, c = "red")
+ax01r.semilogx(E/cst.GeV, Resc/cst.pc, lw = 2, c = "blue")
 
-
-ax1 = fig.add_subplot(gs[1])
-
-ax1.loglog(Ecr/cst.GeV, tesc_HIM/cst.kyr, c="black", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_HII/cst.kyr, c="red", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_WIM/cst.kyr, c="orange", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_WNM/cst.kyr, c="green", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_CNM/cst.kyr, c="deepskyblue", ls ="-")
-ax1.loglog(Ecr/cst.GeV, tesc_DiM/cst.kyr, c="blue", ls ="-")
-
-ax1.loglog(Ecr/cst.GeV, tesc_HIM_3/cst.kyr, c="black", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_HII_3/cst.kyr, c="red", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_WIM_3/cst.kyr, c="orange", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_WNM_3/cst.kyr, c="green", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_CNM_3/cst.kyr, c="deepskyblue", ls ="--")
-ax1.loglog(Ecr/cst.GeV, tesc_DiM_3/cst.kyr, c="blue", ls ="--")
-
-# ax1.loglog(E_old/cst.GeV, t_soft[0], c = "green", marker = "v")
-# ax1.loglog(E_old/cst.GeV, t_soft[1], c = "deepskyblue", marker = "v")
-# ax1.loglog(E_old/cst.GeV, t_soft[2], c = "blue", marker = "v")
-
-ax1.plot([],[],ls='-',c="black",label="$\\delta = 2$")
-ax1.plot([],[],ls='--',c="black",label="$\\delta = 3$")
-
-ax1.legend(loc="upper right")
-
-ax1.yaxis.tick_right()
-ax1.yaxis.set_label_position("right")
-ax1.set_ylabel("Escape time $t_\\mathrm{esc}$ [kyr]")
-ax1.set_xlabel("$E$ [GeV]")
-ax1.set_xlim(1e-1, 1e5)
-ax1.set_ylim(4e-2, 1e2)
+ax01r.set_ylabel("$R_\mathrm{esc}$ [pc]", color = "blue") 
+ax01l.set_ylabel("$t_\mathrm{esc}$ [kyr]", color = "red") 
+ax01l.set_xlabel("$E$ [GeV]")
+ax01r.set_ylim(3, 15)
+ax01l.set_xlim(1e-1, 1e5)
 
 
-fig.tight_layout()
-fig.savefig("escape_model.pdf",pad=-10)
+
+
+
+ax11 = fig.add_subplot(gs[1, :]) 
+for ni in range(len(ISM_phase)) : 
+    ax11.loglog(E/cst.GeV, kzz_d[ni], c = ISM_color[ni], ls = '-', lw = 2, label = ISM_name[ni])
+ax11.loglog(E/cst.GeV, kzz_i, c = "black", ls = "--", lw = 2, label = "ISM independant")
+
+ax11.legend(ncol = len(ISM_name)+1, loc = "best")
+
+ax11.set_ylabel("$D_0$ [cm$^2$/s]")
+ax11.set_xlabel("$E$ [GeV]")
+ax11.set_xlim(1e-1, 1e5)
+
+
+plt.savefig("all_in_one.pdf", bbox_inches="tight")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -209,7 +209,9 @@ void advectionSolverE(vector<vector<double> > &u_old, vector<vector<double> > &u
             // Case where ei = NE
             u_new[xi][NE] = pow(u_new[xi][NE-1],2.)/u_new[xi][NE-2];
     }
+
 }
+
 
 
 void advectionSolverE1(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, vector<double> BB, vector <double> EE, int NX, vector<vector<double> > u_background)
@@ -227,14 +229,47 @@ void advectionSolverE1(vector<vector<double> > &u_old, vector<vector<double> > &
     {
             for (ei = 1; ei < NE; ei++)
             {
-                V_loc = - 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4))/log(10.); 
+                V_loc = - 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4))/log(10.); // -
+                //V_loc =  - 2*c*sig_T*pow(2*BB[xi], 2)*pow(EE[ei], 2)/(4*pi*me*me*pow(c, 4))/log(10.); 
+
+                //cout<<"E^2 = "<<pow(EE[ei], 2)<<", E = "<<EE[ei]<<endl;
                 
                 dde = (E[ei+1] - E[ei-1])/2.;
                 a_p = max(V_loc, 0.);
                 a_m = min(V_loc, 0.);
                 ux_p = (u_old[xi][ei+1] - u_old[xi][ei])/dde;
                 ux_m = (u_old[xi][ei]   - u_old[xi][ei-1])/dde;
-                u_new[xi][ei] = u_old[xi][ei] - dt*(a_p*ux_m + a_m*ux_p);
+                //u_new[xi][ei] = u_old[xi][ei] - dt*(a_p*ux_m + a_m*ux_p) ; // Good 
+                //u_new[xi][ei] = u_old[xi][ei]*(1 - V_loc*log(10.)*dt) - dt*(a_p*ux_m + a_m*ux_p) ; // Test 
+
+                if (true) { // The e- Synchrotron source applies only for realistic e- pressure
+
+                    if (u_old[xi][ei] > Pe_max_value){V_loc = - V_loc*1e50;} // If the e- pressure increases too much we invert the radiation process to avoid divergences
+
+                    if (source_terms_exact == 0)
+                    {
+                        if (set_background == 1){u_new[xi][ei] = max(u_old[xi][ei]*(1 - V_loc*log(10.)*dt) - dt*(a_p*ux_m + a_m*ux_p), u_background[xi][ei]);}
+                        else {u_new[xi][ei] = u_old[xi][ei]*(1 - V_loc*log(10.)*dt) - dt*(a_p*ux_m + a_m*ux_p);} 
+                    }
+                    if (source_terms_exact == 1)
+                    {
+                        if (set_background == 1){u_new[xi][ei] = max(u_old[xi][ei]*exp(-V_loc*log(10.)*dt) - dt*(a_p*ux_m + a_m*ux_p), u_background[xi][ei]);}
+                        else {u_new[xi][ei] = u_old[xi][ei]*exp(-V_loc*log(10.)*dt) - dt*(a_p*ux_m + a_m*ux_p);}
+                    }
+
+                    //if (abs(u_new[xi][ei] - u_new[xi][ei-1]) > 1.){u_new[xi][ei] = 1e-50;}
+                    //u_new[xi][ei] = u_new[xi][ei]*(1 - (1)); 
+                    
+
+                    //if (isnan(u_new[xi][ei])){u_new[xi][ei] = 1e-50;}
+                    //if (u_old[xi][ei] > 1 - 0.1 && u_new[xi][ei] > u_old[xi][ei]){u_new[xi][ei] = 1e-50;}
+                    //if (u_new[xi][ei] >= 1.-0.1){u_new[xi][ei] = 1e-50;}
+                    //if (u_new[xi][ei] > 1.){u_new[xi][ei] = 1.;}
+                    //if (u_new[xi][ei]/u_new[xi][ei-1] > 2){u_new[xi][ei] = 1e-50;}
+                
+                }
+
+
 
                 //if (dt*(a_p*ux_m + a_m*ux_p) < 0.){
                 //cout<<"dde = "<<dde<<", dt = "<<dt<<endl;
@@ -242,12 +277,17 @@ void advectionSolverE1(vector<vector<double> > &u_old, vector<vector<double> > &
                 //cout<<"V_loc = "<<V_loc<<", a_p = "<<a_p<<", a_m = "<<a_m<<endl;
                 //cout<<"ux_p = "<<ux_p<<", ux_m = "<<ux_m<<endl;
                 //cout<<"a_p*ux_m + a_m*ux_p = "<<a_p*ux_m + a_m*ux_p<<", dt*(a_p*ux_m + a_m*ux_p) = "<<dt*(a_p*ux_m + a_m*ux_p)<<endl;
-                //cin.get();}
-                if (ei == 1){ad0 = - dt*(a_p*ux_m + a_m*ux_p);}
+                //cin.get();//}
+                //if (ei == 1){ad0 = - dt*(a_p*ux_m + a_m*ux_p);}
                 //cout<<dt<<"  "<<a_p<<" "<<a_m<<" "<<ux_p<<" "<<ux_m<<" "<<- dt*(a_p*ux_m + a_m*ux_p)<<endl;
-                if (set_background == 1){
-                    if (u_new[xi][ei] < u_background[xi][ei]){u_new[xi][ei] = u_background[xi][ei];}}
+                //if (set_background == 1){
+                //    if (u_new[xi][ei] < u_background[xi][ei]){u_new[xi][ei] = u_background[xi][ei];}}
+                //if (set_background == 0 && u_new[xi][ei] < 1e-50) {u_new[xi][ei] = 1e-50;}
+
+                //if (u_new[xi][ei] > 1e2){u_new[xi][ei] = 1e-50;}
                 //else {if (u_new[xi][ei] < 1e-60){u_new[xi][ei] = 1e-60;}}
+
+
             }
             //u_new[xi][0]  = u_old[xi][0] + ad0; // Cas ei = 0
             //u_new[xi][NE] = u_old[xi][NE] - dt*(a_p*ux_m + a_m*ux_p); // Cas ei = NE
@@ -260,10 +300,91 @@ void advectionSolverE1(vector<vector<double> > &u_old, vector<vector<double> > &
             //u_new[xi][NE] = u_old[xi][NE];
             u_new[xi][NE] = pow(u_new[xi][NE-1],2.)/u_new[xi][NE-2];
     }
+    /*for (xi = 0; xi < NX; xi++)
+    {
+            for (ei = 0; ei < NE+1; ei++)
+            { 
+                
+                //if (u_new[xi][ei]/u_background[xi][ei] > 1e2){u_new[xi][ei] = u_background[xi][ei];}
+                //if (u_new[xi][ei] > 2*(abs(V_loc)+1)*u_old[xi][ei]){u_new[xi][ei] = 1e-50;}
+            }
+
+    }*/
 }
 
 
-void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double> > u_background)
+
+/*void advectionSolverE1(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, vector<double> BB, vector <double> EE, int NX, vector<vector<double> > u_background)
+{
+    // Note : No 2nd order scheme ! 
+    // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
+    // We need to find a good method for the boundaries ...  
+    int NE = E.size()-1;
+    double dde, ux_p, ux_m, a_p, a_m, ad0, V_loc;
+    int xi, ei;
+
+    //#pragma omp parallel num_threads(nproc)
+    #pragma omp for schedule(static, int(double(NX/nproc))) private(xi, ei, dde, ux_p, ux_m, a_p, a_m, ad0, V_loc)
+    for (xi = 0; xi < NX; xi++)
+    {
+            for (ei = 1; ei < NE; ei++)
+            {
+                V_loc = - 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4))/log(10.); // -
+                //V_loc =  - 2*c*sig_T*pow(2*BB[xi], 2)*pow(EE[ei], 2)/(4*pi*me*me*pow(c, 4))/log(10.); 
+
+                //cout<<"E^2 = "<<pow(EE[ei], 2)<<", E = "<<EE[ei]<<endl;
+                
+                dde = (E[ei+1] - E[ei-1])/2.;
+                a_p = max(V_loc, 0.);
+                a_m = min(V_loc, 0.);
+                ux_p = (u_old[xi][ei+1] - u_old[xi][ei])/dde;
+                ux_m = (u_old[xi][ei]   - u_old[xi][ei-1])/dde;
+                //u_new[xi][ei] = u_old[xi][ei] - dt*(a_p*ux_m + a_m*ux_p) ; // Good 
+                u_new[xi][ei] = u_old[xi][ei]*(1 - V_loc*log(10.)*dt) - dt*(a_p*ux_m + a_m*ux_p) ; // Test 
+
+                //if (dt*(a_p*ux_m + a_m*ux_p) < 0.){
+                //cout<<"dde = "<<dde<<", dt = "<<dt<<endl;
+                //cout<<"E_ei+1 = "<<u_old[xi][ei+1]<<", E_ei = "<<u_old[xi][ei]<<", E_ei-1 = "<<u_old[xi][ei-1]<<endl;
+                //cout<<"V_loc = "<<V_loc<<", a_p = "<<a_p<<", a_m = "<<a_m<<endl;
+                //cout<<"ux_p = "<<ux_p<<", ux_m = "<<ux_m<<endl;
+                //cout<<"a_p*ux_m + a_m*ux_p = "<<a_p*ux_m + a_m*ux_p<<", dt*(a_p*ux_m + a_m*ux_p) = "<<dt*(a_p*ux_m + a_m*ux_p)<<endl;
+                //cin.get();//}
+                if (ei == 1){ad0 = - dt*(a_p*ux_m + a_m*ux_p);}
+                //cout<<dt<<"  "<<a_p<<" "<<a_m<<" "<<ux_p<<" "<<ux_m<<" "<<- dt*(a_p*ux_m + a_m*ux_p)<<endl;
+                if (set_background == 1){
+                    if (u_new[xi][ei] < u_background[xi][ei]){u_new[xi][ei] = u_background[xi][ei];}}
+                if (set_background == 0 && u_new[xi][ei] < 1e-50) {u_new[xi][ei] = 1e-50;}
+
+                //if (u_new[xi][ei] > 1e2){u_new[xi][ei] = 1e-50;}
+                //else {if (u_new[xi][ei] < 1e-60){u_new[xi][ei] = 1e-60;}}
+
+
+            }
+            //u_new[xi][0]  = u_old[xi][0] + ad0; // Cas ei = 0
+            //u_new[xi][NE] = u_old[xi][NE] - dt*(a_p*ux_m + a_m*ux_p); // Cas ei = NE
+
+            // Border conditions, extrapolation 
+            // Case where ei = 0
+            u_new[xi][0] = pow(u_new[xi][1],2.)/u_new[xi][2];
+
+            // Case where ei = NE
+            //u_new[xi][NE] = u_old[xi][NE];
+            u_new[xi][NE] = pow(u_new[xi][NE-1],2.)/u_new[xi][NE-2];
+
+    for (xi = 0; xi < NX; xi++)
+    {
+            for (ei = 0; ei < NE+1; ei++)
+            { 
+                if (u_new[xi][ei] > 1.){u_new[xi][ei] = 1e-50;}
+                //if (u_new[xi][ei] > 2*(abs(V_loc)+1)*u_old[xi][ei]){u_new[xi][ei] = 1e-50;}
+            }
+
+    }
+    }
+}*/
+
+
+/*void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &u_new, double dt, vector<double> E, int NX, vector<double> BB, vector <double> EE, vector<vector<double> > u_background)
 {
     // Note : No 2nd order scheme ! 
     // Note : For the boundaries, we use absorbing ones. If energy leaves from the borders, it disapear of ever ...
@@ -281,7 +402,12 @@ void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &
     {
             for (ei = 0; ei < NE+1; ei++)
             {
-                C3 = 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4));
+                C3 =  - 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4)); // Numerically good
+                //C3 = 2*c*sig_T*pow(2*BB[xi], 2)*EE[ei]/(4*pi*me*me*pow(c, 4));  // Numerically bad 
+
+                //cout<<"EE = "<<EE[ei]<<", C3 = "<<C3<<endl;
+                if (u_old[xi][ei] < 1) { // The e- Synchrotron source applies only for realistic e- pressure
+
                 if (source_terms_exact == 0)
                 {
                     if (set_background == 1){u_new[xi][ei] = max(u_old[xi][ei]*(1 - C3*dt), u_background[xi][ei]);}
@@ -292,9 +418,22 @@ void advectionSolverE2(vector<vector<double> > &u_old, vector<vector<double> > &
                     if (set_background == 1){u_new[xi][ei] = max(u_old[xi][ei]*exp(-C3*dt), u_background[xi][ei]);}
                     else {u_new[xi][ei] = u_old[xi][ei]*exp(-C3*dt);}
                 }
+
+                if (u_new[xi][ei] > 1.){u_new[xi][ei] = 1.;}
+                
+                }
             }
     }
-}
+    for (xi = 0; xi < NX; xi++)
+    {
+            for (ei = 0; ei < NE+1; ei++)
+            { 
+                if (u_new[xi][ei] > 1.){u_new[xi][ei] = 1e-50;}
+            }
+
+    }
+
+}*/
 
 
 

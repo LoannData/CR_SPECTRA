@@ -1,0 +1,3269 @@
+\begin{theindex}
+
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/data\+\_\+analysis/pcr\+\_\+ip\+\_\+2\+D.\+py}, 
+		\hyperpage{185}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/data\+\_\+analysis/show\+\_\+data.\+py}, 
+		\hyperpage{186}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/namelist.\+py}, 
+		\hyperpage{186}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/fiducial\+\_\+tests/phases\+\_\+energy\+\_\+dependance/namelist\+\_\+uniform.\+py}, 
+		\hyperpage{187}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/fiducial\+\_\+tests/phases\+\_\+energy\+\_\+dependance/setup\+\_\+uniform.\+py}, 
+		\hyperpage{188}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/namelist\+\_\+adv.\+py}, 
+		\hyperpage{189}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/namelist\+\_\+adve.\+py}, 
+		\hyperpage{190}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/namelist\+\_\+advst.\+py}, 
+		\hyperpage{191}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/namelist\+\_\+diff.\+py}, 
+		\hyperpage{192}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/namelist\+\_\+vdiff.\+py}, 
+		\hyperpage{193}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/setup\+\_\+adv.\+py}, 
+		\hyperpage{194}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/setup\+\_\+adve.\+py}, 
+		\hyperpage{195}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/setup\+\_\+advst.\+py}, 
+		\hyperpage{196}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/setup\+\_\+diff.\+py}, 
+		\hyperpage{197}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/other\+\_\+setups/setup\+\_\+vdiff.\+py}, 
+		\hyperpage{198}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/setup.\+py}, 
+		\hyperpage{199}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/constants.\+h}, 
+		\hyperpage{201}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/cr\+\_\+source.\+h}, 
+		\hyperpage{219}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/freader.\+h}, 
+		\hyperpage{227}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/fwritter.\+h}, 
+		\hyperpage{228}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/logmaker.\+h}, 
+		\hyperpage{230}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/main.\+cpp}, 
+		\hyperpage{231}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/mathematics.\+h}, 
+		\hyperpage{232}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+P\+D\+E\+\_\+solvers.\+py}, 
+		\hyperpage{237}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/\+Split\+\_\+solvers.\+py}, 
+		\hyperpage{238}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/others/cr\+\_\+escape.\+cpp}, 
+		\hyperpage{235}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/out.\+h}, 
+		\hyperpage{239}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/read2\+D.\+h}, 
+		\hyperpage{241}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/solver1\+D.\+h}, 
+		\hyperpage{242}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/src/tools.\+h}, 
+		\hyperpage{247}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/\+Data\+\_\+reader.\+py}, 
+		\hyperpage{252}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/\+Output\+\_\+functions.\+py}, 
+		\hyperpage{254}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/\+Show\+Injection\+Evolution.\+py}, 
+		\hyperpage{263}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/background\+\_\+diffusion\+\_\+coefficient.\+py}, 
+		\hyperpage{249}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/constants.\+py}, 
+		\hyperpage{250}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/d1\+\_\+grid\+\_\+generator.\+py}, 
+		\hyperpage{251}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/damping.\+py}, 
+		\hyperpage{251}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/freader.\+py}, 
+		\hyperpage{252}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/fwritter.\+py}, 
+		\hyperpage{252}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/gaussian\+\_\+sub\+Normalization.\+py}, 
+		\hyperpage{253}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/mathmethods.\+py}, 
+		\hyperpage{253}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/phases\+\_\+collection.\+py}, 
+		\hyperpage{254}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/physical\+\_\+models.\+py}, 
+		\hyperpage{255}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/\+Escape\+Model\+\_\+protons.\+py}, 
+		\hyperpage{258}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/\+Escape\+Model\+\_\+protons\+\_\+2.\+py}, 
+		\hyperpage{260}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/\+S\+N\+R\+\_\+evolution.\+py}, 
+		\hyperpage{262}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/background\+\_\+diffusion\+\_\+coefficient\+\_\+3.\+py}, 
+		\hyperpage{255}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/damping\+\_\+models.\+py}, 
+		\hyperpage{256}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/electrons\+\_\+emax\+\_\+t.\+py}, 
+		\hyperpage{258}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/obsolette/background\+\_\+diffusion\+\_\+coefficient.\+py}, 
+		\hyperpage{249}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/show\+\_\+models/obsolette/background\+\_\+diffusion\+\_\+coefficient\+\_\+2.\+py}, 
+		\hyperpage{261}
+  \item {/home/lbrahimi/\+T\+R\+A\+V\+A\+I\+L/\+T\+H\+E\+S\+E/\+Travaux/\+C\+R\+\_\+diffusion/\+C\+R\+\_\+\+S\+P\+E\+C\+T\+R\+A/tools/test\+\_\+tesc.\+py}, 
+		\hyperpage{263}
+
+  \indexspace
+
+  \item {A}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{122}
+  \item {a}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{7}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+  \item {absmax\+Element2D}
+    \subitem {tools.\+h}, \hyperpage{248}
+  \item {advection\+Solver\+E1}
+    \subitem {solver1\+D.\+h}, \hyperpage{244}
+  \item {advection\+Solver\+E2}
+    \subitem {solver1\+D.\+h}, \hyperpage{244}
+  \item {advection\+SolverE}
+    \subitem {solver1\+D.\+h}, \hyperpage{244}
+  \item {advection\+SolverX}
+    \subitem {solver1\+D.\+h}, \hyperpage{245}
+  \item {alpha}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{19}
+    \subitem {constants.\+h}, \hyperpage{205}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+  \item {alpha\+\_\+B}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+  \item {ax}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+  \item {ax0}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{19}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{61}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+  \item {ax1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{19}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{61}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+  \item {ax2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+  \item {ax3}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+
+  \indexspace
+
+  \item {B}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{43}
+    \subitem {namelist}, \hyperpage{76}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{88}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{105}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{122}
+    \subitem {setup}, \hyperpage{130}
+    \subitem {setup\+\_\+adv}, \hyperpage{137}
+    \subitem {setup\+\_\+adve}, \hyperpage{142}
+    \subitem {setup\+\_\+advst}, \hyperpage{148}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{159}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{166}
+  \item {b}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+  \item {B0}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{14}
+  \item {B\+\_\+sat}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{221}
+  \item {background\+\_\+diffusion\+\_\+coefficient}, \hyperpage{5}
+    \subitem {a}, \hyperpage{7}
+    \subitem {b}, \hyperpage{8}
+    \subitem {B0}, \hyperpage{8}
+    \subitem {c}, \hyperpage{8}
+    \subitem {chi}, \hyperpage{8}
+    \subitem {D}, \hyperpage{8}
+    \subitem {d\+\_\+uu}, \hyperpage{8}
+    \subitem {dmu}, \hyperpage{8}
+    \subitem {Duu\+\_\+\+Alfven\+\_\+\+Slab\+\_\+\+Linear\+\_\+\+Undamped}, 
+		\hyperpage{6}
+    \subitem {E}, \hyperpage{8}
+    \subitem {eps}, \hyperpage{9}
+    \subitem {fj\+\_\+m}, \hyperpage{9}
+    \subitem {fj\+\_\+p}, \hyperpage{9}
+    \subitem {gamma}, \hyperpage{9}
+    \subitem {gs0}, \hyperpage{9}
+    \subitem {I}, \hyperpage{9}
+    \subitem {Ion\+Neutral\+\_\+\+Damping}, \hyperpage{6}
+    \subitem {Itot}, \hyperpage{9}
+    \subitem {J}, \hyperpage{7}
+    \subitem {k\+\_\+cm}, \hyperpage{9}
+    \subitem {k\+\_\+cp}, \hyperpage{10}
+    \subitem {k\+\_\+max}, \hyperpage{10}
+    \subitem {k\+\_\+min}, \hyperpage{10}
+    \subitem {k\+\_\+zz}, \hyperpage{10}
+    \subitem {Kappa\+\_\+zz}, \hyperpage{7}
+    \subitem {m}, \hyperpage{10}
+    \subitem {mi}, \hyperpage{10}
+    \subitem {mn}, \hyperpage{10}
+    \subitem {mu}, \hyperpage{10}
+    \subitem {ni}, \hyperpage{11}
+    \subitem {nn}, \hyperpage{11}
+    \subitem {nu\+\_\+in}, \hyperpage{11}
+    \subitem {nu\+\_\+ni}, \hyperpage{11}
+    \subitem {Omega}, \hyperpage{11}
+    \subitem {Omega0}, \hyperpage{11}
+    \subitem {p}, \hyperpage{11}
+    \subitem {phase}, \hyperpage{11}
+    \subitem {q}, \hyperpage{12}
+    \subitem {T}, \hyperpage{12}
+    \subitem {v}, \hyperpage{12}
+    \subitem {V\+Ai}, \hyperpage{12}
+    \subitem {VA}, \hyperpage{12}
+  \item {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{12}
+    \subitem {B0}, \hyperpage{14}
+    \subitem {D\+\_\+uu}, \hyperpage{14}
+    \subitem {dk}, \hyperpage{14}
+    \subitem {E}, \hyperpage{14}
+    \subitem {g\+\_\+s}, \hyperpage{13}
+    \subitem {gamma}, \hyperpage{14}
+    \subitem {I}, \hyperpage{14}
+    \subitem {Ion\+Neutral\+\_\+\+Damping}, \hyperpage{13}
+    \subitem {k}, \hyperpage{15}
+    \subitem {k\+\_\+zz}, \hyperpage{15}
+    \subitem {kmin}, \hyperpage{15}
+    \subitem {m}, \hyperpage{15}
+    \subitem {medium\+\_\+props}, \hyperpage{15}
+    \subitem {mu}, \hyperpage{15}
+    \subitem {Omega}, \hyperpage{15}
+    \subitem {Omega0}, \hyperpage{15}
+    \subitem {p}, \hyperpage{16}
+    \subitem {particles\+\_\+props}, \hyperpage{16}
+    \subitem {q}, \hyperpage{16}
+    \subitem {R}, \hyperpage{13}
+    \subitem {v}, \hyperpage{16}
+    \subitem {w}, \hyperpage{16}
+    \subitem {wtot}, \hyperpage{16}
+  \item {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{16}
+    \subitem {alpha}, \hyperpage{19}
+    \subitem {ax0}, \hyperpage{19}
+    \subitem {ax1}, \hyperpage{19}
+    \subitem {ax2}, \hyperpage{20}
+    \subitem {ax3}, \hyperpage{20}
+    \subitem {bbox\+\_\+to\+\_\+anchor}, \hyperpage{20}
+    \subitem {c}, \hyperpage{20}
+    \subitem {C\+NM}, \hyperpage{20}
+    \subitem {custom\+\_\+lines}, \hyperpage{20}
+    \subitem {DeC}, \hyperpage{20}
+    \subitem {DeM}, \hyperpage{21}
+    \subitem {DiM}, \hyperpage{21}
+    \subitem {Duu\+\_\+\+Alfven\+\_\+\+Slab\+\_\+\+Linear\+\_\+\+Undamped}, 
+		\hyperpage{18}
+    \subitem {E}, \hyperpage{21}
+    \subitem {Emax}, \hyperpage{21}
+    \subitem {Emin}, \hyperpage{21}
+    \subitem {facecolor}, \hyperpage{21}
+    \subitem {fig}, \hyperpage{21}
+    \subitem {GeV}, \hyperpage{21}
+    \subitem {gs}, \hyperpage{22}
+    \subitem {H\+II}, \hyperpage{22}
+    \subitem {handles}, \hyperpage{22}
+    \subitem {hatch}, \hyperpage{22}
+    \subitem {hspace}, \hyperpage{22}
+    \subitem {I}, \hyperpage{22}
+    \subitem {Ion\+Neutral\+\_\+\+Damping}, \hyperpage{18}
+    \subitem {K\+\_\+zz\+\_\+1}, \hyperpage{22}
+    \subitem {K\+\_\+zz\+\_\+2}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+\+C\+N\+M\+\_\+1}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+\+C\+N\+M\+\_\+2}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+\+De\+C\+\_\+1}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+\+De\+C\+\_\+2}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+\+De\+M\+\_\+1}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+\+De\+M\+\_\+2}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+Di\+M\+\_\+1}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+Di\+M\+\_\+2}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+H\+I\+I\+\_\+1}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+H\+I\+I\+\_\+2}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+W\+I\+M\+\_\+1}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+W\+I\+M\+\_\+2}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+W\+N\+M\+\_\+1}, \hyperpage{24}
+    \subitem {K\+\_\+zz\+\_\+\+W\+N\+M\+\_\+2}, \hyperpage{25}
+    \subitem {K\+\_\+zz\+\_\+bc\+\_\+1}, \hyperpage{23}
+    \subitem {K\+\_\+zz\+\_\+bc\+\_\+2}, \hyperpage{23}
+    \subitem {Kappa\+\_\+zz}, \hyperpage{18}
+    \subitem {kappa\+\_\+zz\+\_\+\+BC}, \hyperpage{19}
+    \subitem {kmin}, \hyperpage{25}
+    \subitem {label}, \hyperpage{25}
+    \subitem {loc}, \hyperpage{25}
+    \subitem {ls}, \hyperpage{25}
+    \subitem {mass}, \hyperpage{25}
+    \subitem {mp}, \hyperpage{25}
+    \subitem {ncol}, \hyperpage{25}
+    \subitem {q}, \hyperpage{26}
+    \subitem {size\+\_\+x}, \hyperpage{26}
+    \subitem {size\+\_\+y}, \hyperpage{26}
+    \subitem {sub\+\_\+x}, \hyperpage{26}
+    \subitem {sub\+\_\+y}, \hyperpage{26}
+    \subitem {W\+IM}, \hyperpage{26}
+    \subitem {W\+NM}, \hyperpage{26}
+    \subitem {wspace}, \hyperpage{26}
+    \subitem {xmax}, \hyperpage{27}
+    \subitem {xmin}, \hyperpage{27}
+    \subitem {ymax}, \hyperpage{27}
+    \subitem {ymin}, \hyperpage{27}
+  \item {bbeta}
+    \subitem {constants.\+h}, \hyperpage{205}
+  \item {bbox\+\_\+inches}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+  \item {bbox\+\_\+to\+\_\+anchor}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{61}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+  \item {Bcenter}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{224}
+  \item {bdiff\+\_\+model}
+    \subitem {namelist}, \hyperpage{76}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{88}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+  \item {beta}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+    \subitem {test\+\_\+tesc}, \hyperpage{182}
+  \item {box\+\_\+center}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{88}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+
+  \indexspace
+
+  \item {C}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{123}
+  \item {c}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{205}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{61}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{69}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{124}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+    \subitem {Split\+\_\+solvers}, \hyperpage{179}
+    \subitem {test\+\_\+tesc}, \hyperpage{182}
+  \item {C06}
+    \subitem {constants.\+h}, \hyperpage{205}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+  \item {C\+\_\+a}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{69}
+  \item {C\+\_\+c}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {C\+C70\+Solver}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{123}
+  \item {C\+NM}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+    \subitem {phases\+\_\+collection}, \hyperpage{127}
+  \item {C\+Rs\+Injection\+Source\+Solver}
+    \subitem {solver1\+D.\+h}, \hyperpage{245}
+  \item {cardano3}
+    \subitem {mathmethods}, \hyperpage{72}
+  \item {cax}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+  \item {chi}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+  \item {cmap}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+  \item {coherence\+\_\+length}
+    \subitem {constants.\+h}, \hyperpage{205}
+  \item {collision\+\_\+rate}
+    \subitem {physical\+\_\+models}, \hyperpage{128}
+  \item {color}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {color\+Array}
+    \subitem {show\+\_\+data}, \hyperpage{171}
+  \item {color\+Fader}
+    \subitem {show\+\_\+data}, \hyperpage{171}
+  \item {constants}, \hyperpage{27}
+    \subitem {c}, \hyperpage{28}
+    \subitem {e}, \hyperpage{28}
+    \subitem {eV}, \hyperpage{28}
+    \subitem {GeV}, \hyperpage{28}
+    \subitem {kbolz}, \hyperpage{28}
+    \subitem {kms}, \hyperpage{28}
+    \subitem {kpc}, \hyperpage{28}
+    \subitem {kyr}, \hyperpage{28}
+    \subitem {m\+C\+II}, \hyperpage{29}
+    \subitem {m\+H2}, \hyperpage{29}
+    \subitem {m\+H\+C\+O\+II}, \hyperpage{29}
+    \subitem {m\+H\+II}, \hyperpage{30}
+    \subitem {m\+He\+II}, \hyperpage{29}
+    \subitem {m\+HeI}, \hyperpage{29}
+    \subitem {m\+HI}, \hyperpage{29}
+    \subitem {me}, \hyperpage{29}
+    \subitem {MeV}, \hyperpage{29}
+    \subitem {mn}, \hyperpage{30}
+    \subitem {mp}, \hyperpage{30}
+    \subitem {pc}, \hyperpage{30}
+    \subitem {TeV}, \hyperpage{30}
+    \subitem {yr}, \hyperpage{30}
+  \item {constants.\+h}
+    \subitem {alpha}, \hyperpage{205}
+    \subitem {bbeta}, \hyperpage{205}
+    \subitem {c}, \hyperpage{205}
+    \subitem {C06}, \hyperpage{205}
+    \subitem {coherence\+\_\+length}, \hyperpage{205}
+    \subitem {delta}, \hyperpage{205}
+    \subitem {delta\+\_\+log\+\_\+output}, \hyperpage{205}
+    \subitem {e}, \hyperpage{206}
+    \subitem {Eknee}, \hyperpage{206}
+    \subitem {electron\+\_\+injection\+\_\+rate}, \hyperpage{206}
+    \subitem {Emin}, \hyperpage{206}
+    \subitem {Esn}, \hyperpage{206}
+    \subitem {eta\+\_\+acc}, \hyperpage{206}
+    \subitem {eta\+\_\+gfree}, \hyperpage{207}
+    \subitem {eV}, \hyperpage{207}
+    \subitem {gam}, \hyperpage{207}
+    \subitem {GeV}, \hyperpage{207}
+    \subitem {inj\+\_\+exp\+\_\+alpha}, \hyperpage{207}
+    \subitem {injection\+\_\+cutoff}, \hyperpage{207}
+    \subitem {injection\+\_\+function\+\_\+norm}, \hyperpage{207}
+    \subitem {injection\+\_\+function\+\_\+width}, \hyperpage{208}
+    \subitem {injection\+\_\+shape\+\_\+time}, \hyperpage{208}
+    \subitem {isotropy}, \hyperpage{208}
+    \subitem {kbolz}, \hyperpage{208}
+    \subitem {km}, \hyperpage{208}
+    \subitem {kms}, \hyperpage{208}
+    \subitem {kpc}, \hyperpage{209}
+    \subitem {kyr}, \hyperpage{209}
+    \subitem {log\+\_\+first\+\_\+data}, \hyperpage{209}
+    \subitem {m\+C\+II}, \hyperpage{209}
+    \subitem {m\+H2}, \hyperpage{210}
+    \subitem {m\+H\+II}, \hyperpage{210}
+    \subitem {m\+HeI}, \hyperpage{210}
+    \subitem {m\+HI}, \hyperpage{210}
+    \subitem {me}, \hyperpage{209}
+    \subitem {Mej}, \hyperpage{209}
+    \subitem {MeV}, \hyperpage{210}
+    \subitem {mn}, \hyperpage{210}
+    \subitem {mp}, \hyperpage{211}
+    \subitem {nproc}, \hyperpage{211}
+    \subitem {number\+\_\+out\+\_\+data}, \hyperpage{211}
+    \subitem {oh\+\_\+model}, \hyperpage{211}
+    \subitem {output\+\_\+freq}, \hyperpage{211}
+    \subitem {pc}, \hyperpage{211}
+    \subitem {phi\+\_\+c}, \hyperpage{212}
+    \subitem {pi}, \hyperpage{212}
+    \subitem {r\+\_\+snr\+\_\+thickness}, \hyperpage{212}
+    \subitem {set\+\_\+background}, \hyperpage{212}
+    \subitem {sig\+\_\+T}, \hyperpage{212}
+    \subitem {sigma\+\_\+coherence}, \hyperpage{212}
+    \subitem {solver\+\_\+\+Dilution}, \hyperpage{213}
+    \subitem {solver\+\_\+\+Im\+Advection}, \hyperpage{213}
+    \subitem {solver\+\_\+\+Im\+Damp\+Growth}, \hyperpage{213}
+    \subitem {solver\+\_\+\+Im\+Source1}, \hyperpage{213}
+    \subitem {solver\+\_\+\+Ip\+Advection}, \hyperpage{213}
+    \subitem {solver\+\_\+\+Ip\+Damp\+Growth}, \hyperpage{213}
+    \subitem {solver\+\_\+\+Ip\+Source1}, \hyperpage{214}
+    \subitem {solver\+\_\+\+Pcr\+Advection}, \hyperpage{214}
+    \subitem {solver\+\_\+\+Pcr\+Advection2}, \hyperpage{214}
+    \subitem {solver\+\_\+\+Pcr\+AdvectionE}, \hyperpage{214}
+    \subitem {solver\+\_\+\+Pcr\+Diffusion}, \hyperpage{214}
+    \subitem {solver\+\_\+\+Pcr\+Perp\+Diff}, \hyperpage{214}
+    \subitem {solver\+\_\+\+Pcr\+Source1}, \hyperpage{215}
+    \subitem {solver\+\_\+\+Pcr\+Source2}, \hyperpage{215}
+    \subitem {solver\+\_\+\+Pe\+Advection}, \hyperpage{215}
+    \subitem {solver\+\_\+\+Pe\+Advection2}, \hyperpage{215}
+    \subitem {solver\+\_\+\+Pe\+Advection\+E1}, \hyperpage{215}
+    \subitem {solver\+\_\+\+Pe\+Advection\+E2}, \hyperpage{216}
+    \subitem {solver\+\_\+\+Pe\+AdvectionE}, \hyperpage{215}
+    \subitem {solver\+\_\+\+Pe\+Diffusion}, \hyperpage{216}
+    \subitem {solver\+\_\+\+Pe\+Perp\+Diff}, \hyperpage{216}
+    \subitem {solver\+\_\+\+Pe\+Source1}, \hyperpage{216}
+    \subitem {solver\+\_\+\+Pe\+Source2}, \hyperpage{216}
+    \subitem {source\+\_\+terms\+\_\+exact}, \hyperpage{216}
+    \subitem {step\+\_\+implicit}, \hyperpage{217}
+    \subitem {t\+\_\+data\+\_\+out\+\_\+max}, \hyperpage{217}
+    \subitem {t\+\_\+data\+\_\+out\+\_\+min}, \hyperpage{217}
+    \subitem {t\+\_\+end\+\_\+injection}, \hyperpage{217}
+    \subitem {t\+\_\+start\+\_\+injection}, \hyperpage{217}
+    \subitem {tesc\+\_\+model}, \hyperpage{217}
+    \subitem {TeV}, \hyperpage{218}
+    \subitem {time\+\_\+distrib\+\_\+of\+\_\+data}, \hyperpage{218}
+    \subitem {Tmax}, \hyperpage{218}
+    \subitem {ttau\+\_\+sat}, \hyperpage{218}
+    \subitem {verbose}, \hyperpage{218}
+    \subitem {xhi\+\_\+0}, \hyperpage{218}
+    \subitem {xhi\+\_\+cr}, \hyperpage{219}
+    \subitem {xi\+\_\+n}, \hyperpage{219}
+    \subitem {yr}, \hyperpage{219}
+  \item {cr\+\_\+escape.\+cpp}
+    \subitem {df1dx}, \hyperpage{236}
+    \subitem {df2dx}, \hyperpage{236}
+    \subitem {f1}, \hyperpage{236}
+    \subitem {f2}, \hyperpage{236}
+    \subitem {Get\+Max}, \hyperpage{236}
+    \subitem {Get\+Tesc}, \hyperpage{236}
+    \subitem {Interpolating\+Spline}, \hyperpage{236}
+    \subitem {Inverse\+Trigonal\+Matrix}, \hyperpage{237}
+    \subitem {main}, \hyperpage{237}
+    \subitem {Newton\+Raphson}, \hyperpage{237}
+    \subitem {Product\+Matrix}, \hyperpage{237}
+  \item {cr\+\_\+escape\+\_\+radius\+\_\+model}
+    \subitem {physical\+\_\+models}, \hyperpage{129}
+  \item {cr\+\_\+escape\+\_\+time\+\_\+model}
+    \subitem {physical\+\_\+models}, \hyperpage{129}
+  \item {cr\+\_\+source.\+h}
+    \subitem {B\+\_\+sat}, \hyperpage{221}
+    \subitem {Bcenter}, \hyperpage{224}
+    \subitem {d\+NdE}, \hyperpage{221}
+    \subitem {ff}, \hyperpage{221}
+    \subitem {Finj}, \hyperpage{221}
+    \subitem {Get\+E\+M\+\_\+e}, \hyperpage{222}
+    \subitem {Get\+EM}, \hyperpage{222}
+    \subitem {Get\+T\+Sed}, \hyperpage{222}
+    \subitem {m\+\_\+neutral}, \hyperpage{224}
+    \subitem {ne}, \hyperpage{224}
+    \subitem {ni}, \hyperpage{225}
+    \subitem {nt}, \hyperpage{225}
+    \subitem {nx}, \hyperpage{225}
+    \subitem {parameters}, \hyperpage{225}
+    \subitem {Pcr\+\_\+ini}, \hyperpage{222}
+    \subitem {R\+S\+NR}, \hyperpage{222}
+    \subitem {Resc}, \hyperpage{222}
+    \subitem {s\+Bcenter}, \hyperpage{225}
+    \subitem {scenter}, \hyperpage{225}
+    \subitem {scenter\+\_\+index}, \hyperpage{225}
+    \subitem {sigm}, \hyperpage{223}
+    \subitem {smn}, \hyperpage{225}
+    \subitem {sne}, \hyperpage{226}
+    \subitem {sni}, \hyperpage{226}
+    \subitem {snx}, \hyperpage{226}
+    \subitem {sT}, \hyperpage{226}
+    \subitem {sX}, \hyperpage{226}
+    \subitem {T}, \hyperpage{226}
+    \subitem {tesc}, \hyperpage{223}
+    \subitem {tesc\+\_\+e}, \hyperpage{224}
+    \subitem {theta}, \hyperpage{224}
+    \subitem {u\+\_\+sh}, \hyperpage{224}
+    \subitem {x\+\_\+center}, \hyperpage{226}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{226}
+    \subitem {Xi}, \hyperpage{227}
+  \item {Cubic3}
+    \subitem {mathmethods}, \hyperpage{72}
+  \item {custom\+\_\+lines}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+
+  \indexspace
+
+  \item {D}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+    \subitem {setup}, \hyperpage{130}
+    \subitem {setup\+\_\+adv}, \hyperpage{137}
+    \subitem {setup\+\_\+adve}, \hyperpage{142}
+    \subitem {setup\+\_\+advst}, \hyperpage{148}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{159}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{166}
+    \subitem {Split\+\_\+solvers}, \hyperpage{179}
+  \item {d00}
+    \subitem {setup}, \hyperpage{130}
+    \subitem {setup\+\_\+adv}, \hyperpage{137}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{148}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{159}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{166}
+  \item {d1\+\_\+grid\+\_\+generator}, \hyperpage{30}
+    \subitem {grid}, \hyperpage{31}
+  \item {D\+\_\+uu}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{14}
+  \item {d\+\_\+uu}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+  \item {d\+NdE}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{221}
+  \item {damping}, \hyperpage{31}
+    \subitem {damping\+\_\+lazarian}, \hyperpage{31}
+    \subitem {damping\+\_\+lazarian\+\_\+nopos}, \hyperpage{31}
+    \subitem {I\+N\+\_\+damping\+\_\+approx\+\_\+1}, \hyperpage{31}
+    \subitem {I\+N\+\_\+damping\+\_\+approx\+\_\+2}, \hyperpage{32}
+    \subitem {indamping\+\_\+alfven}, \hyperpage{32}
+    \subitem {indamping\+\_\+alfven\+\_\+nopos}, \hyperpage{32}
+    \subitem {Ion\+Neutral\+\_\+\+Damping}, \hyperpage{33}
+    \subitem {non\+\_\+linear\+\_\+landau\+\_\+damping}, \hyperpage{33}
+  \item {damping\+\_\+lazarian}
+    \subitem {damping}, \hyperpage{31}
+  \item {damping\+\_\+lazarian\+\_\+nopos}
+    \subitem {damping}, \hyperpage{31}
+  \item {damping\+\_\+models}, \hyperpage{33}
+    \subitem {alpha}, \hyperpage{35}
+    \subitem {ax}, \hyperpage{35}
+    \subitem {bbox\+\_\+inches}, \hyperpage{35}
+    \subitem {bbox\+\_\+to\+\_\+anchor}, \hyperpage{35}
+    \subitem {c}, \hyperpage{35}
+    \subitem {color}, \hyperpage{35}
+    \subitem {damprate\+\_\+to\+\_\+damptime}, \hyperpage{34}
+    \subitem {E}, \hyperpage{35}
+    \subitem {egridtype}, \hyperpage{35}
+    \subitem {Em}, \hyperpage{36}
+    \subitem {Emax}, \hyperpage{36}
+    \subitem {Emin}, \hyperpage{36}
+    \subitem {Ep}, \hyperpage{36}
+    \subitem {facecolor}, \hyperpage{36}
+    \subitem {fig}, \hyperpage{36}
+    \subitem {Gamma\+\_\+lz}, \hyperpage{36}
+    \subitem {Gamma\+\_\+nlld\+\_\+inf}, \hyperpage{36}
+    \subitem {Gamma\+\_\+nlld\+\_\+sup}, \hyperpage{37}
+    \subitem {GeV}, \hyperpage{37}
+    \subitem {gs}, \hyperpage{37}
+    \subitem {hspace}, \hyperpage{37}
+    \subitem {Iinf}, \hyperpage{37}
+    \subitem {in\+\_\+damping}, \hyperpage{37}
+    \subitem {Isup}, \hyperpage{37}
+    \subitem {label}, \hyperpage{37}
+    \subitem {loc}, \hyperpage{38}
+    \subitem {ls}, \hyperpage{38}
+    \subitem {lw}, \hyperpage{38}
+    \subitem {lz\+\_\+damping}, \hyperpage{38}
+    \subitem {lz\+\_\+min}, \hyperpage{38}
+    \subitem {Name}, \hyperpage{38}
+    \subitem {NE}, \hyperpage{38}
+    \subitem {pad\+\_\+inches}, \hyperpage{38}
+    \subitem {phases}, \hyperpage{39}
+    \subitem {pos\+\_\+1}, \hyperpage{39}
+    \subitem {pos\+\_\+2}, \hyperpage{39}
+    \subitem {size\+\_\+x}, \hyperpage{39}
+    \subitem {size\+\_\+y}, \hyperpage{39}
+    \subitem {sub\+\_\+x}, \hyperpage{39}
+    \subitem {sub\+\_\+y}, \hyperpage{39}
+    \subitem {w\+I\+\_\+\+Alfven}, \hyperpage{39}
+    \subitem {w\+I\+\_\+\+Alfven\+\_\+o1}, \hyperpage{40}
+    \subitem {w\+I\+\_\+\+Alfven\+\_\+o2}, \hyperpage{40}
+    \subitem {w\+R\+\_\+\+Alfven}, \hyperpage{40}
+    \subitem {w\+R\+\_\+\+Alfven\+\_\+o1}, \hyperpage{40}
+    \subitem {w\+R\+\_\+\+Alfven\+\_\+o2}, \hyperpage{40}
+    \subitem {wspace}, \hyperpage{40}
+    \subitem {x}, \hyperpage{40}
+    \subitem {xlim}, \hyperpage{40}
+    \subitem {xlims}, \hyperpage{41}
+    \subitem {y}, \hyperpage{41}
+    \subitem {ylim}, \hyperpage{41}
+    \subitem {ylims}, \hyperpage{41}
+  \item {damprate\+\_\+to\+\_\+damptime}
+    \subitem {damping\+\_\+models}, \hyperpage{34}
+  \item {data}
+    \subitem {Data\+\_\+reader}, \hyperpage{42}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{173}
+  \item {Data\+\_\+reader}, \hyperpage{41}
+    \subitem {data}, \hyperpage{42}
+    \subitem {E}, \hyperpage{42}
+    \subitem {figsize}, \hyperpage{42}
+    \subitem {read\+Axis}, \hyperpage{41}
+    \subitem {read\+Data\+XE}, \hyperpage{42}
+    \subitem {X}, \hyperpage{42}
+  \item {Db}
+    \subitem {setup}, \hyperpage{130}
+    \subitem {setup\+\_\+adv}, \hyperpage{137}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{148}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{159}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{166}
+  \item {DeC}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{20}
+    \subitem {phases\+\_\+collection}, \hyperpage{127}
+  \item {delta}
+    \subitem {constants.\+h}, \hyperpage{205}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{62}
+  \item {delta\+\_\+log\+\_\+output}
+    \subitem {constants.\+h}, \hyperpage{205}
+  \item {delta\+\_\+t}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+  \item {DeM}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {phases\+\_\+collection}, \hyperpage{127}
+  \item {df1dx}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{49}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{59}
+    \subitem {mathematics.\+h}, \hyperpage{233}
+  \item {df2dx}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{49}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{59}
+    \subitem {mathematics.\+h}, \hyperpage{233}
+  \item {dilute\+\_\+solver}
+    \subitem {solver1\+D.\+h}, \hyperpage{245}
+  \item {DiM}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {phases\+\_\+collection}, \hyperpage{128}
+  \item {dk}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{14}
+  \item {dmu}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+  \item {door}
+    \subitem {setup\+\_\+adv}, \hyperpage{136}
+    \subitem {setup\+\_\+adve}, \hyperpage{142}
+    \subitem {setup\+\_\+advst}, \hyperpage{148}
+    \subitem {setup\+\_\+diff}, \hyperpage{153}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{165}
+  \item {dt}
+    \subitem {Split\+\_\+solvers}, \hyperpage{179}
+  \item {Duu\+\_\+\+Alfven\+\_\+\+Slab\+\_\+\+Linear\+\_\+\+Undamped}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{6}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{18}
+
+  \indexspace
+
+  \item {E}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{8}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{14}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {Data\+\_\+reader}, \hyperpage{42}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+adv}, \hyperpage{137}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{159}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{166}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{173}
+    \subitem {test\+\_\+tesc}, \hyperpage{182}
+  \item {e}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{206}
+    \subitem {test\+\_\+tesc}, \hyperpage{182}
+  \item {E51}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{51}
+  \item {E\+M\+AX}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+  \item {E\+V\+\_\+log}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+  \item {Ecr}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{62}
+  \item {egridtype}
+    \subitem {damping\+\_\+models}, \hyperpage{35}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+  \item {Eknee}
+    \subitem {constants.\+h}, \hyperpage{206}
+  \item {electron\+\_\+injection\+\_\+rate}
+    \subitem {constants.\+h}, \hyperpage{206}
+  \item {electron\+\_\+source}
+    \subitem {solver1\+D.\+h}, \hyperpage{245}
+  \item {electrons\+\_\+emax\+\_\+t}, \hyperpage{43}
+    \subitem {alpha}, \hyperpage{46}
+    \subitem {alpha\+\_\+B}, \hyperpage{46}
+    \subitem {B}, \hyperpage{43}
+    \subitem {beta}, \hyperpage{46}
+    \subitem {C06}, \hyperpage{46}
+    \subitem {E}, \hyperpage{46}
+    \subitem {E51}, \hyperpage{46}
+    \subitem {EM}, \hyperpage{46}
+    \subitem {Em\+\_\+age}, \hyperpage{43}
+    \subitem {Em\+\_\+cool}, \hyperpage{44}
+    \subitem {Em\+\_\+esc}, \hyperpage{44}
+    \subitem {Emax\+\_\+electrons}, \hyperpage{44}
+    \subitem {escape\+\_\+time}, \hyperpage{44}
+    \subitem {eta\+\_\+g}, \hyperpage{45}
+    \subitem {Interpolating\+Spline}, \hyperpage{45}
+    \subitem {Inverse\+Trigonal\+Matrix}, \hyperpage{45}
+    \subitem {Mej}, \hyperpage{46}
+    \subitem {nt}, \hyperpage{47}
+    \subitem {phi\+\_\+c}, \hyperpage{47}
+    \subitem {Product\+Matrix}, \hyperpage{45}
+    \subitem {Rsh}, \hyperpage{45}
+    \subitem {tesc}, \hyperpage{47}
+    \subitem {tsed}, \hyperpage{47}
+    \subitem {vej8}, \hyperpage{47}
+    \subitem {xhi\+\_\+cr}, \hyperpage{47}
+    \subitem {xhi\+\_\+m}, \hyperpage{47}
+  \item {elim}
+    \subitem {show\+\_\+data}, \hyperpage{172}
+  \item {EM}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+  \item {Em}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+  \item {Em\+\_\+age}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{43}
+  \item {Em\+\_\+cool}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{44}
+  \item {Em\+\_\+esc}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{44}
+  \item {Emax}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+  \item {emax\+\_\+\+C\+NM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{62}
+  \item {emax\+\_\+\+DiM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{62}
+  \item {emax\+\_\+\+H\+II}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{62}
+  \item {emax\+\_\+\+W\+IM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{62}
+  \item {emax\+\_\+\+W\+NM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{63}
+  \item {Emax\+\_\+electrons}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{44}
+  \item {Emin}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {constants.\+h}, \hyperpage{206}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+  \item {Ep}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+  \item {eps}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+  \item {escape\+\_\+time}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{44}
+  \item {Escape\+Model\+\_\+protons}, \hyperpage{48}
+    \subitem {a}, \hyperpage{51}
+    \subitem {b}, \hyperpage{51}
+    \subitem {beta}, \hyperpage{51}
+    \subitem {c}, \hyperpage{51}
+    \subitem {C06}, \hyperpage{51}
+    \subitem {delta}, \hyperpage{51}
+    \subitem {df1dx}, \hyperpage{49}
+    \subitem {df2dx}, \hyperpage{49}
+    \subitem {E51}, \hyperpage{51}
+    \subitem {E\+M\+AX}, \hyperpage{52}
+    \subitem {Ecr}, \hyperpage{52}
+    \subitem {Emax}, \hyperpage{52}
+    \subitem {Emin}, \hyperpage{52}
+    \subitem {eps}, \hyperpage{52}
+    \subitem {f1}, \hyperpage{49}
+    \subitem {f2}, \hyperpage{50}
+    \subitem {f\+\_\+\+S\+NR}, \hyperpage{52}
+    \subitem {figsize}, \hyperpage{52}
+    \subitem {gamma}, \hyperpage{53}
+    \subitem {Gettesc}, \hyperpage{50}
+    \subitem {GeV}, \hyperpage{53}
+    \subitem {Interpolating\+Spline}, \hyperpage{50}
+    \subitem {Inverse\+Trigonal\+Matrix}, \hyperpage{50}
+    \subitem {kyr}, \hyperpage{53}
+    \subitem {label}, \hyperpage{53}
+    \subitem {logR}, \hyperpage{53}
+    \subitem {logr\+\_\+new}, \hyperpage{53}
+    \subitem {logt}, \hyperpage{53}
+    \subitem {logt\+\_\+new}, \hyperpage{54}
+    \subitem {lw}, \hyperpage{54}
+    \subitem {marker}, \hyperpage{54}
+    \subitem {Mej}, \hyperpage{54}
+    \subitem {Newton\+Raphson}, \hyperpage{50}
+    \subitem {niter}, \hyperpage{54}
+    \subitem {nt}, \hyperpage{54}
+    \subitem {pc}, \hyperpage{54}
+    \subitem {phi\+\_\+c}, \hyperpage{54}
+    \subitem {Product\+Matrix}, \hyperpage{50}
+    \subitem {R}, \hyperpage{55}
+    \subitem {R\+\_\+\+M\+CS}, \hyperpage{55}
+    \subitem {R\+\_\+\+P\+DS}, \hyperpage{55}
+    \subitem {R\+\_\+free}, \hyperpage{55}
+    \subitem {R\+\_\+ini}, \hyperpage{55}
+    \subitem {R\+\_\+merge}, \hyperpage{55}
+    \subitem {r\+\_\+new}, \hyperpage{55}
+    \subitem {t}, \hyperpage{56}
+    \subitem {t\+\_\+new}, \hyperpage{56}
+    \subitem {t\+M\+CS}, \hyperpage{56}
+    \subitem {t\+P\+DS}, \hyperpage{57}
+    \subitem {t\+Sed}, \hyperpage{57}
+    \subitem {tesc}, \hyperpage{56}
+    \subitem {tfree}, \hyperpage{56}
+    \subitem {tini}, \hyperpage{56}
+    \subitem {tmax}, \hyperpage{56}
+    \subitem {tmerge}, \hyperpage{57}
+    \subitem {u\+\_\+sh}, \hyperpage{57}
+    \subitem {vej8}, \hyperpage{57}
+    \subitem {x0}, \hyperpage{57}
+    \subitem {xhi\+\_\+cr}, \hyperpage{57}
+    \subitem {xhi\+\_\+m}, \hyperpage{58}
+  \item {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{58}
+    \subitem {ax0}, \hyperpage{61}
+    \subitem {ax1}, \hyperpage{61}
+    \subitem {bbox\+\_\+to\+\_\+anchor}, \hyperpage{61}
+    \subitem {c}, \hyperpage{61}
+    \subitem {delta}, \hyperpage{62}
+    \subitem {df1dx}, \hyperpage{59}
+    \subitem {df2dx}, \hyperpage{59}
+    \subitem {Ecr}, \hyperpage{62}
+    \subitem {emax\+\_\+\+C\+NM}, \hyperpage{62}
+    \subitem {emax\+\_\+\+DiM}, \hyperpage{62}
+    \subitem {emax\+\_\+\+H\+II}, \hyperpage{62}
+    \subitem {emax\+\_\+\+W\+IM}, \hyperpage{62}
+    \subitem {emax\+\_\+\+W\+NM}, \hyperpage{63}
+    \subitem {f1}, \hyperpage{59}
+    \subitem {f2}, \hyperpage{59}
+    \subitem {fig}, \hyperpage{63}
+    \subitem {get\+Emax}, \hyperpage{60}
+    \subitem {get\+S\+NR}, \hyperpage{60}
+    \subitem {Gettesc}, \hyperpage{60}
+    \subitem {GeV}, \hyperpage{63}
+    \subitem {gs}, \hyperpage{63}
+    \subitem {hspace}, \hyperpage{63}
+    \subitem {Interpolating\+Spline}, \hyperpage{60}
+    \subitem {Inverse\+Trigonal\+Matrix}, \hyperpage{60}
+    \subitem {kyr}, \hyperpage{63}
+    \subitem {label}, \hyperpage{64}
+    \subitem {loc}, \hyperpage{64}
+    \subitem {ls}, \hyperpage{64}
+    \subitem {ncol}, \hyperpage{64}
+    \subitem {Newton\+Raphson}, \hyperpage{61}
+    \subitem {pad}, \hyperpage{64}
+    \subitem {Product\+Matrix}, \hyperpage{61}
+    \subitem {S\+N\+R\+\_\+\+C\+NM}, \hyperpage{64}
+    \subitem {S\+N\+R\+\_\+\+DiM}, \hyperpage{65}
+    \subitem {S\+N\+R\+\_\+\+H\+II}, \hyperpage{65}
+    \subitem {S\+N\+R\+\_\+\+W\+IM}, \hyperpage{65}
+    \subitem {S\+N\+R\+\_\+\+W\+NM}, \hyperpage{65}
+    \subitem {size\+\_\+x}, \hyperpage{64}
+    \subitem {size\+\_\+y}, \hyperpage{64}
+    \subitem {sub\+\_\+x}, \hyperpage{65}
+    \subitem {sub\+\_\+y}, \hyperpage{65}
+    \subitem {tesc\+\_\+\+C\+N\+M\+\_\+3}, \hyperpage{65}
+    \subitem {tesc\+\_\+\+C\+NM}, \hyperpage{65}
+    \subitem {tesc\+\_\+\+Di\+M\+\_\+3}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+DiM}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+H\+I\+I\+\_\+3}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+H\+II}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+W\+I\+M\+\_\+3}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+W\+IM}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+W\+N\+M\+\_\+3}, \hyperpage{66}
+    \subitem {tesc\+\_\+\+W\+NM}, \hyperpage{66}
+    \subitem {wspace}, \hyperpage{67}
+  \item {Esn}
+    \subitem {constants.\+h}, \hyperpage{206}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+  \item {eta\+\_\+acc}
+    \subitem {constants.\+h}, \hyperpage{206}
+  \item {eta\+\_\+g}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{45}
+  \item {eta\+\_\+gfree}
+    \subitem {constants.\+h}, \hyperpage{207}
+  \item {EV}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+  \item {eV}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{207}
+  \item {ext}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+adv}, \hyperpage{137}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{159}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{166}
+
+  \indexspace
+
+  \item {f}
+    \subitem {mathmethods}, \hyperpage{72}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{165}
+  \item {f1}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{49}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{59}
+    \subitem {mathematics.\+h}, \hyperpage{233}
+  \item {f2}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{50}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{59}
+    \subitem {mathematics.\+h}, \hyperpage{233}
+  \item {f\+\_\+\+S\+NR}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+  \item {facecolor}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+  \item {False}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+  \item {ff}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{221}
+  \item {fig}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{63}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+  \item {fig\+\_\+save}
+    \subitem {show\+\_\+data}, \hyperpage{172}
+  \item {figsize}
+    \subitem {Data\+\_\+reader}, \hyperpage{42}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{52}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{124}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{174}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+  \item {file\+Write}
+    \subitem {fwritter}, \hyperpage{67}
+  \item {findF}
+    \subitem {mathmethods}, \hyperpage{72}
+  \item {findG}
+    \subitem {mathmethods}, \hyperpage{73}
+  \item {findH}
+    \subitem {mathmethods}, \hyperpage{73}
+  \item {finite\+Diff\+Solver}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{123}
+  \item {Finj}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{221}
+  \item {fj\+\_\+m}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+  \item {fj\+\_\+p}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+  \item {folder\+\_\+name}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{83}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{100}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{106}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{112}
+  \item {folder\+\_\+path}
+    \subitem {namelist}, \hyperpage{77}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+  \item {fontsize}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+  \item {freader}, \hyperpage{67}
+    \subitem {search}, \hyperpage{67}
+  \item {freader.\+h}
+    \subitem {read\+Axis}, \hyperpage{228}
+    \subitem {search}, \hyperpage{228}
+  \item {fwritter}, \hyperpage{67}
+    \subitem {file\+Write}, \hyperpage{67}
+    \subitem {search}, \hyperpage{68}
+    \subitem {write1\+Daxis}, \hyperpage{68}
+    \subitem {write1D}, \hyperpage{68}
+    \subitem {write2D}, \hyperpage{68}
+  \item {fwritter.\+h}
+    \subitem {write\+Info}, \hyperpage{229}
+    \subitem {write\+XE}, \hyperpage{229}
+
+  \indexspace
+
+  \item {g}
+    \subitem {mathmethods}, \hyperpage{73}
+  \item {g1}
+    \subitem {mathmethods}, \hyperpage{73}
+  \item {g2}
+    \subitem {mathmethods}, \hyperpage{73}
+  \item {g\+\_\+in}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+  \item {g\+\_\+lz}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+  \item {g\+\_\+s}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{13}
+  \item {gam}
+    \subitem {constants.\+h}, \hyperpage{207}
+  \item {gamma}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{14}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+  \item {gamma\+\_\+in}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {gamma\+\_\+lazarian}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{154}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {Gamma\+\_\+lz}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+  \item {gamma\+\_\+lz}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+  \item {gamma\+\_\+nlld}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{143}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {Gamma\+\_\+nlld\+\_\+inf}
+    \subitem {damping\+\_\+models}, \hyperpage{36}
+  \item {Gamma\+\_\+nlld\+\_\+sup}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+  \item {gamma\+\_\+tot}
+    \subitem {setup}, \hyperpage{131}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {gauss}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{69}
+    \subitem {test\+\_\+tesc}, \hyperpage{181}
+  \item {gauss\+\_\+a}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {gauss\+\_\+c}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {gaussian\+\_\+sub\+Normalization}, \hyperpage{69}
+    \subitem {c}, \hyperpage{69}
+    \subitem {C\+\_\+a}, \hyperpage{69}
+    \subitem {C\+\_\+c}, \hyperpage{70}
+    \subitem {color}, \hyperpage{70}
+    \subitem {gauss}, \hyperpage{69}
+    \subitem {gauss\+\_\+a}, \hyperpage{70}
+    \subitem {gauss\+\_\+c}, \hyperpage{70}
+    \subitem {mu}, \hyperpage{70}
+    \subitem {Nc}, \hyperpage{70}
+    \subitem {Nv}, \hyperpage{70}
+    \subitem {r}, \hyperpage{70}
+    \subitem {sig}, \hyperpage{71}
+    \subitem {ta}, \hyperpage{71}
+    \subitem {tc}, \hyperpage{71}
+    \subitem {tesc}, \hyperpage{71}
+    \subitem {tmax}, \hyperpage{71}
+    \subitem {tmin}, \hyperpage{71}
+  \item {generalized\+\_\+diffusion}
+    \subitem {Split\+\_\+solvers}, \hyperpage{179}
+  \item {get\+Damping}
+    \subitem {namelist}, \hyperpage{76}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{105}
+  \item {get\+Data}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{117}
+    \subitem {show\+\_\+data}, \hyperpage{171}
+  \item {Get\+E\+M\+\_\+e}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{222}
+  \item {Get\+EM}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{222}
+  \item {get\+Emax}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{60}
+  \item {get\+Log\+Output}
+    \subitem {out.\+h}, \hyperpage{240}
+  \item {Get\+Max}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+    \subitem {mathematics.\+h}, \hyperpage{233}
+  \item {get\+Output}
+    \subitem {out.\+h}, \hyperpage{240}
+  \item {get\+S\+NR}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{60}
+  \item {Get\+T\+Sed}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{222}
+  \item {Get\+Tesc}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+  \item {get\+Time\+ID}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{117}
+  \item {get\+VA}
+    \subitem {namelist}, \hyperpage{76}
+    \subitem {namelist\+\_\+adv}, \hyperpage{82}
+    \subitem {namelist\+\_\+adve}, \hyperpage{88}
+    \subitem {namelist\+\_\+advst}, \hyperpage{94}
+    \subitem {namelist\+\_\+diff}, \hyperpage{99}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{105}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{111}
+  \item {Gettesc}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{50}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{60}
+  \item {GeV}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{21}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{207}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{63}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+  \item {glin}
+    \subitem {mathmethods}, \hyperpage{73}
+  \item {grid}
+    \subitem {d1\+\_\+grid\+\_\+generator}, \hyperpage{31}
+  \item {gs}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{63}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+  \item {gs0}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+
+  \indexspace
+
+  \item {H\+II}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+    \subitem {phases\+\_\+collection}, \hyperpage{128}
+  \item {handles}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+  \item {hatch}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+  \item {histogram}
+    \subitem {mathmethods}, \hyperpage{74}
+  \item {hspace}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{63}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{176}
+
+  \indexspace
+
+  \item {I}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{14}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+  \item {I\+N\+\_\+damping\+\_\+approx\+\_\+1}
+    \subitem {damping}, \hyperpage{31}
+  \item {I\+N\+\_\+damping\+\_\+approx\+\_\+2}
+    \subitem {damping}, \hyperpage{32}
+  \item {Iinf}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+  \item {Im}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{160}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {im0}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+  \item {im1}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{119}
+  \item {in\+\_\+damping}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{89}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+  \item {indamping\+\_\+alfven}
+    \subitem {damping}, \hyperpage{32}
+  \item {indamping\+\_\+alfven\+\_\+nopos}
+    \subitem {damping}, \hyperpage{32}
+  \item {index}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{174}
+  \item {indexing}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+  \item {inj\+\_\+exp\+\_\+alpha}
+    \subitem {constants.\+h}, \hyperpage{207}
+  \item {injection\+\_\+cutoff}
+    \subitem {constants.\+h}, \hyperpage{207}
+  \item {injection\+\_\+function\+\_\+norm}
+    \subitem {constants.\+h}, \hyperpage{207}
+  \item {injection\+\_\+function\+\_\+width}
+    \subitem {constants.\+h}, \hyperpage{208}
+  \item {injection\+\_\+shape\+\_\+time}
+    \subitem {constants.\+h}, \hyperpage{208}
+  \item {Interpolating\+Spline}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{236}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{45}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{50}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{60}
+    \subitem {mathematics.\+h}, \hyperpage{234}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{175}
+  \item {Inverse\+Trigonal\+Matrix}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{237}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{45}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{50}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{60}
+    \subitem {mathematics.\+h}, \hyperpage{234}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{175}
+  \item {Ion\+Neutral\+\_\+\+Damping}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{6}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{13}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{18}
+    \subitem {damping}, \hyperpage{33}
+  \item {Ip}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{149}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {ism\+\_\+phase}
+    \subitem {phases\+\_\+collection}, \hyperpage{127}
+  \item {ism\+\_\+values}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {isotropy}
+    \subitem {constants.\+h}, \hyperpage{208}
+  \item {Isup}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+  \item {Itot}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+
+  \indexspace
+
+  \item {J}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{7}
+
+  \indexspace
+
+  \item {k}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+  \item {k\+\_\+cm}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{9}
+  \item {k\+\_\+cp}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+  \item {k\+\_\+max}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+  \item {k\+\_\+min}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+  \item {k\+\_\+zz}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+  \item {K\+\_\+zz\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{22}
+  \item {K\+\_\+zz\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+\+C\+N\+M\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+\+C\+N\+M\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+\+De\+C\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+\+De\+C\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+\+De\+M\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+\+De\+M\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+Di\+M\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+Di\+M\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+H\+I\+I\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+H\+I\+I\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+W\+I\+M\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+W\+I\+M\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+W\+N\+M\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{24}
+  \item {K\+\_\+zz\+\_\+\+W\+N\+M\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+  \item {K\+\_\+zz\+\_\+bc\+\_\+1}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {K\+\_\+zz\+\_\+bc\+\_\+2}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{23}
+  \item {Kappa\+\_\+zz}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{7}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{18}
+  \item {kappa\+\_\+zz\+\_\+\+BC}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{19}
+  \item {kbolz}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{208}
+  \item {km}
+    \subitem {constants.\+h}, \hyperpage{208}
+  \item {kmin}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+  \item {kms}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{208}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {kpc}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{209}
+  \item {kyr}
+    \subitem {constants}, \hyperpage{28}
+    \subitem {constants.\+h}, \hyperpage{209}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{63}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{124}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+
+  \indexspace
+
+  \item {label}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {damping\+\_\+models}, \hyperpage{37}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+  \item {loc}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {loc\+\_\+id}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{174}
+  \item {log\+\_\+first\+\_\+data}
+    \subitem {constants.\+h}, \hyperpage{209}
+  \item {logmaker.\+h}
+    \subitem {show\+Log\+\_\+0}, \hyperpage{230}
+  \item {logR}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+  \item {logr\+\_\+new}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+  \item {logt}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{53}
+  \item {logt\+\_\+new}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+  \item {ls}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+  \item {lw}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {lz\+\_\+damping}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+  \item {lz\+\_\+min}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+
+  \indexspace
+
+  \item {M}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{124}
+  \item {m}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+  \item {m\+\_\+neutral}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{224}
+  \item {m\+C\+II}
+    \subitem {constants}, \hyperpage{29}
+    \subitem {constants.\+h}, \hyperpage{209}
+  \item {m\+H2}
+    \subitem {constants}, \hyperpage{29}
+    \subitem {constants.\+h}, \hyperpage{210}
+  \item {m\+H\+C\+O\+II}
+    \subitem {constants}, \hyperpage{29}
+  \item {m\+H\+II}
+    \subitem {constants}, \hyperpage{30}
+    \subitem {constants.\+h}, \hyperpage{210}
+  \item {m\+He\+II}
+    \subitem {constants}, \hyperpage{29}
+  \item {m\+HeI}
+    \subitem {constants}, \hyperpage{29}
+    \subitem {constants.\+h}, \hyperpage{210}
+  \item {m\+HI}
+    \subitem {constants}, \hyperpage{29}
+    \subitem {constants.\+h}, \hyperpage{210}
+  \item {main}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{237}
+    \subitem {main.\+cpp}, \hyperpage{231}
+  \item {main.\+cpp}
+    \subitem {main}, \hyperpage{231}
+  \item {marker}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {mass}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+  \item {mathematics.\+h}
+    \subitem {df1dx}, \hyperpage{233}
+    \subitem {df2dx}, \hyperpage{233}
+    \subitem {f1}, \hyperpage{233}
+    \subitem {f2}, \hyperpage{233}
+    \subitem {Get\+Max}, \hyperpage{233}
+    \subitem {Interpolating\+Spline}, \hyperpage{234}
+    \subitem {Inverse\+Trigonal\+Matrix}, \hyperpage{234}
+    \subitem {minmod}, \hyperpage{234}
+    \subitem {Newton\+Raphson}, \hyperpage{234}
+    \subitem {Product\+Matrix}, \hyperpage{234}
+    \subitem {T\+D\+MA}, \hyperpage{234}
+    \subitem {transpose}, \hyperpage{235}
+  \item {mathmethods}, \hyperpage{72}
+    \subitem {cardano3}, \hyperpage{72}
+    \subitem {Cubic3}, \hyperpage{72}
+    \subitem {f}, \hyperpage{72}
+    \subitem {findF}, \hyperpage{72}
+    \subitem {findG}, \hyperpage{73}
+    \subitem {findH}, \hyperpage{73}
+    \subitem {g}, \hyperpage{73}
+    \subitem {g1}, \hyperpage{73}
+    \subitem {g2}, \hyperpage{73}
+    \subitem {glin}, \hyperpage{73}
+    \subitem {histogram}, \hyperpage{74}
+    \subitem {multishape}, \hyperpage{74}
+    \subitem {shape}, \hyperpage{74}
+    \subitem {simpson\+\_\+lin}, \hyperpage{74}
+    \subitem {simpson\+\_\+log}, \hyperpage{74}
+    \subitem {Smooth\+Phase\+Transition}, \hyperpage{75}
+  \item {max\+Element1D}
+    \subitem {tools.\+h}, \hyperpage{248}
+  \item {max\+Element2D}
+    \subitem {tools.\+h}, \hyperpage{248}
+  \item {me}
+    \subitem {constants}, \hyperpage{29}
+    \subitem {constants.\+h}, \hyperpage{209}
+  \item {medium\+\_\+props}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+    \subitem {setup}, \hyperpage{132}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+  \item {Mej}
+    \subitem {constants.\+h}, \hyperpage{209}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{46}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+  \item {MeV}
+    \subitem {constants}, \hyperpage{29}
+    \subitem {constants.\+h}, \hyperpage{210}
+  \item {mi}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{95}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{107}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+    \subitem {setup}, \hyperpage{133}
+    \subitem {setup\+\_\+adv}, \hyperpage{138}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{161}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{167}
+  \item {min\+Element1D}
+    \subitem {tools.\+h}, \hyperpage{248}
+  \item {min\+Element2D}
+    \subitem {tools.\+h}, \hyperpage{249}
+  \item {minmod}
+    \subitem {mathematics.\+h}, \hyperpage{234}
+  \item {mn}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+    \subitem {constants}, \hyperpage{30}
+    \subitem {constants.\+h}, \hyperpage{210}
+    \subitem {namelist}, \hyperpage{78}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+    \subitem {setup}, \hyperpage{133}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+  \item {mp}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {constants}, \hyperpage{30}
+    \subitem {constants.\+h}, \hyperpage{211}
+  \item {mu}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{10}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {multishape}
+    \subitem {mathmethods}, \hyperpage{74}
+
+  \indexspace
+
+  \item {Name}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+  \item {namelist}, \hyperpage{75}
+    \subitem {B}, \hyperpage{76}
+    \subitem {bdiff\+\_\+model}, \hyperpage{76}
+    \subitem {box\+\_\+center}, \hyperpage{77}
+    \subitem {E}, \hyperpage{77}
+    \subitem {egridtype}, \hyperpage{77}
+    \subitem {Emax}, \hyperpage{77}
+    \subitem {Emin}, \hyperpage{77}
+    \subitem {folder\+\_\+name}, \hyperpage{77}
+    \subitem {folder\+\_\+path}, \hyperpage{77}
+    \subitem {gamma\+\_\+in}, \hyperpage{78}
+    \subitem {gamma\+\_\+lz}, \hyperpage{78}
+    \subitem {get\+Damping}, \hyperpage{76}
+    \subitem {get\+VA}, \hyperpage{76}
+    \subitem {in\+\_\+damping}, \hyperpage{78}
+    \subitem {ism\+\_\+values}, \hyperpage{78}
+    \subitem {lz\+\_\+damping}, \hyperpage{78}
+    \subitem {mi}, \hyperpage{78}
+    \subitem {mn}, \hyperpage{78}
+    \subitem {NE}, \hyperpage{79}
+    \subitem {ni}, \hyperpage{79}
+    \subitem {nlld\+\_\+damping}, \hyperpage{79}
+    \subitem {nn}, \hyperpage{79}
+    \subitem {nt}, \hyperpage{79}
+    \subitem {NX}, \hyperpage{79}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{79}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{80}
+    \subitem {phases}, \hyperpage{80}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{80}
+    \subitem {T}, \hyperpage{80}
+    \subitem {total\+\_\+path}, \hyperpage{80}
+    \subitem {va}, \hyperpage{80}
+    \subitem {X}, \hyperpage{80}
+    \subitem {xgridtype}, \hyperpage{81}
+    \subitem {Xi}, \hyperpage{81}
+    \subitem {Xmax}, \hyperpage{81}
+    \subitem {Xmin}, \hyperpage{81}
+  \item {namelist\+\_\+adv}, \hyperpage{81}
+    \subitem {B}, \hyperpage{83}
+    \subitem {bdiff\+\_\+model}, \hyperpage{83}
+    \subitem {box\+\_\+center}, \hyperpage{83}
+    \subitem {E}, \hyperpage{83}
+    \subitem {egridtype}, \hyperpage{83}
+    \subitem {Emax}, \hyperpage{83}
+    \subitem {Emin}, \hyperpage{83}
+    \subitem {folder\+\_\+name}, \hyperpage{83}
+    \subitem {folder\+\_\+path}, \hyperpage{84}
+    \subitem {get\+VA}, \hyperpage{82}
+    \subitem {in\+\_\+damping}, \hyperpage{84}
+    \subitem {ism\+\_\+values}, \hyperpage{84}
+    \subitem {lz\+\_\+damping}, \hyperpage{84}
+    \subitem {mi}, \hyperpage{84}
+    \subitem {mn}, \hyperpage{84}
+    \subitem {NE}, \hyperpage{84}
+    \subitem {ni}, \hyperpage{85}
+    \subitem {nlld\+\_\+damping}, \hyperpage{85}
+    \subitem {nn}, \hyperpage{85}
+    \subitem {nt}, \hyperpage{85}
+    \subitem {NX}, \hyperpage{85}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{85}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{85}
+    \subitem {phases}, \hyperpage{86}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{86}
+    \subitem {T}, \hyperpage{86}
+    \subitem {total\+\_\+path}, \hyperpage{86}
+    \subitem {va}, \hyperpage{86}
+    \subitem {X}, \hyperpage{86}
+    \subitem {xgridtype}, \hyperpage{86}
+    \subitem {Xi}, \hyperpage{87}
+    \subitem {Xmax}, \hyperpage{87}
+    \subitem {Xmin}, \hyperpage{87}
+  \item {namelist\+\_\+adve}, \hyperpage{87}
+    \subitem {B}, \hyperpage{88}
+    \subitem {bdiff\+\_\+model}, \hyperpage{88}
+    \subitem {box\+\_\+center}, \hyperpage{88}
+    \subitem {E}, \hyperpage{89}
+    \subitem {egridtype}, \hyperpage{89}
+    \subitem {Emax}, \hyperpage{89}
+    \subitem {Emin}, \hyperpage{89}
+    \subitem {folder\+\_\+name}, \hyperpage{89}
+    \subitem {folder\+\_\+path}, \hyperpage{89}
+    \subitem {get\+VA}, \hyperpage{88}
+    \subitem {in\+\_\+damping}, \hyperpage{89}
+    \subitem {ism\+\_\+values}, \hyperpage{90}
+    \subitem {lz\+\_\+damping}, \hyperpage{90}
+    \subitem {mi}, \hyperpage{90}
+    \subitem {mn}, \hyperpage{90}
+    \subitem {NE}, \hyperpage{90}
+    \subitem {ni}, \hyperpage{90}
+    \subitem {nlld\+\_\+damping}, \hyperpage{90}
+    \subitem {nn}, \hyperpage{91}
+    \subitem {nt}, \hyperpage{91}
+    \subitem {NX}, \hyperpage{91}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{91}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{91}
+    \subitem {phases}, \hyperpage{91}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{91}
+    \subitem {T}, \hyperpage{92}
+    \subitem {total\+\_\+path}, \hyperpage{92}
+    \subitem {va}, \hyperpage{92}
+    \subitem {X}, \hyperpage{92}
+    \subitem {xgridtype}, \hyperpage{92}
+    \subitem {Xi}, \hyperpage{92}
+    \subitem {Xmax}, \hyperpage{92}
+    \subitem {Xmin}, \hyperpage{93}
+  \item {namelist\+\_\+advst}, \hyperpage{93}
+    \subitem {B}, \hyperpage{94}
+    \subitem {bdiff\+\_\+model}, \hyperpage{94}
+    \subitem {box\+\_\+center}, \hyperpage{94}
+    \subitem {E}, \hyperpage{94}
+    \subitem {egridtype}, \hyperpage{94}
+    \subitem {Emax}, \hyperpage{94}
+    \subitem {Emin}, \hyperpage{95}
+    \subitem {folder\+\_\+name}, \hyperpage{95}
+    \subitem {folder\+\_\+path}, \hyperpage{95}
+    \subitem {get\+VA}, \hyperpage{94}
+    \subitem {in\+\_\+damping}, \hyperpage{95}
+    \subitem {ism\+\_\+values}, \hyperpage{95}
+    \subitem {lz\+\_\+damping}, \hyperpage{95}
+    \subitem {mi}, \hyperpage{95}
+    \subitem {mn}, \hyperpage{96}
+    \subitem {NE}, \hyperpage{96}
+    \subitem {ni}, \hyperpage{96}
+    \subitem {nlld\+\_\+damping}, \hyperpage{96}
+    \subitem {nn}, \hyperpage{96}
+    \subitem {nt}, \hyperpage{96}
+    \subitem {NX}, \hyperpage{96}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{97}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{97}
+    \subitem {phases}, \hyperpage{97}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{97}
+    \subitem {T}, \hyperpage{97}
+    \subitem {total\+\_\+path}, \hyperpage{97}
+    \subitem {va}, \hyperpage{97}
+    \subitem {X}, \hyperpage{98}
+    \subitem {xgridtype}, \hyperpage{98}
+    \subitem {Xi}, \hyperpage{98}
+    \subitem {Xmax}, \hyperpage{98}
+    \subitem {Xmin}, \hyperpage{98}
+  \item {namelist\+\_\+diff}, \hyperpage{98}
+    \subitem {B}, \hyperpage{100}
+    \subitem {bdiff\+\_\+model}, \hyperpage{100}
+    \subitem {box\+\_\+center}, \hyperpage{100}
+    \subitem {E}, \hyperpage{100}
+    \subitem {egridtype}, \hyperpage{100}
+    \subitem {Emax}, \hyperpage{100}
+    \subitem {Emin}, \hyperpage{100}
+    \subitem {folder\+\_\+name}, \hyperpage{100}
+    \subitem {folder\+\_\+path}, \hyperpage{101}
+    \subitem {get\+VA}, \hyperpage{99}
+    \subitem {in\+\_\+damping}, \hyperpage{101}
+    \subitem {ism\+\_\+values}, \hyperpage{101}
+    \subitem {lz\+\_\+damping}, \hyperpage{101}
+    \subitem {mi}, \hyperpage{101}
+    \subitem {mn}, \hyperpage{101}
+    \subitem {NE}, \hyperpage{101}
+    \subitem {ni}, \hyperpage{102}
+    \subitem {nlld\+\_\+damping}, \hyperpage{102}
+    \subitem {nn}, \hyperpage{102}
+    \subitem {nt}, \hyperpage{102}
+    \subitem {NX}, \hyperpage{102}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{102}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{102}
+    \subitem {phases}, \hyperpage{103}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{103}
+    \subitem {T}, \hyperpage{103}
+    \subitem {total\+\_\+path}, \hyperpage{103}
+    \subitem {va}, \hyperpage{103}
+    \subitem {X}, \hyperpage{103}
+    \subitem {xgridtype}, \hyperpage{103}
+    \subitem {Xi}, \hyperpage{104}
+    \subitem {Xmax}, \hyperpage{104}
+    \subitem {Xmin}, \hyperpage{104}
+  \item {namelist\+\_\+uniform}, \hyperpage{104}
+    \subitem {B}, \hyperpage{105}
+    \subitem {bdiff\+\_\+model}, \hyperpage{106}
+    \subitem {box\+\_\+center}, \hyperpage{106}
+    \subitem {E}, \hyperpage{106}
+    \subitem {egridtype}, \hyperpage{106}
+    \subitem {Emax}, \hyperpage{106}
+    \subitem {Emin}, \hyperpage{106}
+    \subitem {folder\+\_\+name}, \hyperpage{106}
+    \subitem {folder\+\_\+path}, \hyperpage{107}
+    \subitem {gamma\+\_\+in}, \hyperpage{107}
+    \subitem {gamma\+\_\+lz}, \hyperpage{107}
+    \subitem {get\+Damping}, \hyperpage{105}
+    \subitem {get\+VA}, \hyperpage{105}
+    \subitem {in\+\_\+damping}, \hyperpage{107}
+    \subitem {ism\+\_\+values}, \hyperpage{107}
+    \subitem {lz\+\_\+damping}, \hyperpage{107}
+    \subitem {mi}, \hyperpage{107}
+    \subitem {mn}, \hyperpage{108}
+    \subitem {NE}, \hyperpage{108}
+    \subitem {ni}, \hyperpage{108}
+    \subitem {nlld\+\_\+damping}, \hyperpage{108}
+    \subitem {nn}, \hyperpage{108}
+    \subitem {nt}, \hyperpage{108}
+    \subitem {NX}, \hyperpage{108}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{109}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{109}
+    \subitem {phases}, \hyperpage{109}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{109}
+    \subitem {T}, \hyperpage{109}
+    \subitem {total\+\_\+path}, \hyperpage{109}
+    \subitem {va}, \hyperpage{109}
+    \subitem {X}, \hyperpage{110}
+    \subitem {xgridtype}, \hyperpage{110}
+    \subitem {Xi}, \hyperpage{110}
+    \subitem {Xmax}, \hyperpage{110}
+    \subitem {Xmin}, \hyperpage{110}
+  \item {namelist\+\_\+vdiff}, \hyperpage{110}
+    \subitem {B}, \hyperpage{112}
+    \subitem {bdiff\+\_\+model}, \hyperpage{112}
+    \subitem {box\+\_\+center}, \hyperpage{112}
+    \subitem {E}, \hyperpage{112}
+    \subitem {egridtype}, \hyperpage{112}
+    \subitem {Emax}, \hyperpage{112}
+    \subitem {Emin}, \hyperpage{112}
+    \subitem {folder\+\_\+name}, \hyperpage{112}
+    \subitem {folder\+\_\+path}, \hyperpage{113}
+    \subitem {get\+VA}, \hyperpage{111}
+    \subitem {in\+\_\+damping}, \hyperpage{113}
+    \subitem {ism\+\_\+values}, \hyperpage{113}
+    \subitem {lz\+\_\+damping}, \hyperpage{113}
+    \subitem {mi}, \hyperpage{113}
+    \subitem {mn}, \hyperpage{113}
+    \subitem {NE}, \hyperpage{113}
+    \subitem {ni}, \hyperpage{114}
+    \subitem {nlld\+\_\+damping}, \hyperpage{114}
+    \subitem {nn}, \hyperpage{114}
+    \subitem {nt}, \hyperpage{114}
+    \subitem {NX}, \hyperpage{114}
+    \subitem {Pcr\+\_\+1\+GeV}, \hyperpage{114}
+    \subitem {Pe\+\_\+1\+GeV}, \hyperpage{114}
+    \subitem {phases}, \hyperpage{115}
+    \subitem {smooth\+\_\+width\+\_\+transition}, \hyperpage{115}
+    \subitem {T}, \hyperpage{115}
+    \subitem {total\+\_\+path}, \hyperpage{115}
+    \subitem {va}, \hyperpage{115}
+    \subitem {X}, \hyperpage{115}
+    \subitem {xgridtype}, \hyperpage{115}
+    \subitem {Xi}, \hyperpage{116}
+    \subitem {Xmax}, \hyperpage{116}
+    \subitem {Xmin}, \hyperpage{116}
+  \item {Nc}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {ncol}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{25}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {ncols}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+  \item {NE}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{84}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{101}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{113}
+  \item {ne}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{224}
+    \subitem {setup}, \hyperpage{133}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{155}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+  \item {Newton\+Raphson}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{237}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{50}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{61}
+    \subitem {mathematics.\+h}, \hyperpage{234}
+  \item {ni}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+    \subitem {setup}, \hyperpage{133}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{144}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+  \item {niter}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+  \item {nlld\+\_\+damping}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{90}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+  \item {nn}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+    \subitem {setup}, \hyperpage{133}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+  \item {non\+\_\+linear\+\_\+landau\+\_\+damping}
+    \subitem {damping}, \hyperpage{33}
+  \item {Not\+Move}
+    \subitem {solver1\+D.\+h}, \hyperpage{246}
+  \item {nproc}
+    \subitem {constants.\+h}, \hyperpage{211}
+  \item {nt}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+  \item {nu\+\_\+in}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+  \item {nu\+\_\+ni}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+  \item {number\+\_\+out\+\_\+data}
+    \subitem {constants.\+h}, \hyperpage{211}
+  \item {Nv}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {NX}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{96}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{108}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+    \subitem {Split\+\_\+solvers}, \hyperpage{179}
+  \item {nx}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+    \subitem {setup}, \hyperpage{133}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{150}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+
+  \indexspace
+
+  \item {oh\+\_\+model}
+    \subitem {constants.\+h}, \hyperpage{211}
+  \item {Omega}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+  \item {Omega0}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{15}
+  \item {out.\+h}
+    \subitem {get\+Log\+Output}, \hyperpage{240}
+    \subitem {get\+Output}, \hyperpage{240}
+    \subitem {output\+Data}, \hyperpage{240}
+    \subitem {set\+Tmax}, \hyperpage{241}
+    \subitem {specific\+Output\+Data}, \hyperpage{241}
+  \item {out\+\_\+id}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+  \item {output\+\_\+freq}
+    \subitem {constants.\+h}, \hyperpage{211}
+  \item {Output\+\_\+functions}, \hyperpage{116}
+  \item {output\+Data}
+    \subitem {out.\+h}, \hyperpage{240}
+
+  \indexspace
+
+  \item {p}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{16}
+  \item {P\+D\+E\+\_\+solvers}, \hyperpage{122}
+    \subitem {A}, \hyperpage{122}
+    \subitem {B}, \hyperpage{122}
+    \subitem {C}, \hyperpage{123}
+    \subitem {c}, \hyperpage{124}
+    \subitem {C\+C70\+Solver}, \hyperpage{123}
+    \subitem {figsize}, \hyperpage{124}
+    \subitem {finite\+Diff\+Solver}, \hyperpage{123}
+    \subitem {kyr}, \hyperpage{124}
+    \subitem {M}, \hyperpage{124}
+    \subitem {pc}, \hyperpage{124}
+    \subitem {Q}, \hyperpage{123}
+    \subitem {Simple\+Implicit\+Solver}, \hyperpage{123}
+    \subitem {T}, \hyperpage{123}
+    \subitem {T\+D\+MA}, \hyperpage{124}
+    \subitem {Tmax}, \hyperpage{125}
+    \subitem {u}, \hyperpage{125}
+    \subitem {u0}, \hyperpage{125}
+    \subitem {u\+\_\+0}, \hyperpage{125}
+    \subitem {u\+\_\+1}, \hyperpage{125}
+    \subitem {u\+\_\+2}, \hyperpage{125}
+    \subitem {u\+\_\+end}, \hyperpage{126}
+    \subitem {u\+\_\+ini}, \hyperpage{126}
+    \subitem {uM}, \hyperpage{126}
+    \subitem {X}, \hyperpage{126}
+    \subitem {Xmax}, \hyperpage{126}
+    \subitem {Xmin}, \hyperpage{126}
+    \subitem {yr}, \hyperpage{126}
+  \item {pad}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+  \item {pad\+\_\+inches}
+    \subitem {damping\+\_\+models}, \hyperpage{38}
+  \item {parameters}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+  \item {parse2\+D\+Csv\+File}
+    \subitem {read2\+D.\+h}, \hyperpage{242}
+  \item {particles\+\_\+props}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{16}
+  \item {path}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+  \item {pc}
+    \subitem {constants}, \hyperpage{30}
+    \subitem {constants.\+h}, \hyperpage{211}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{124}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {Pcr}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+adv}, \hyperpage{139}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{162}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{168}
+  \item {Pcr\+\_\+1\+GeV}
+    \subitem {namelist}, \hyperpage{79}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+  \item {Pcr\+\_\+ini}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{222}
+  \item {pcr\+\_\+ip\+\_\+2D}, \hyperpage{116}
+    \subitem {ax}, \hyperpage{118}
+    \subitem {ax0}, \hyperpage{118}
+    \subitem {ax1}, \hyperpage{118}
+    \subitem {cax}, \hyperpage{118}
+    \subitem {cmap}, \hyperpage{118}
+    \subitem {delta\+\_\+t}, \hyperpage{118}
+    \subitem {E}, \hyperpage{119}
+    \subitem {E\+V\+\_\+log}, \hyperpage{119}
+    \subitem {EV}, \hyperpage{119}
+    \subitem {False}, \hyperpage{119}
+    \subitem {figsize}, \hyperpage{119}
+    \subitem {fontsize}, \hyperpage{119}
+    \subitem {get\+Data}, \hyperpage{117}
+    \subitem {get\+Time\+ID}, \hyperpage{117}
+    \subitem {im0}, \hyperpage{119}
+    \subitem {im1}, \hyperpage{119}
+    \subitem {indexing}, \hyperpage{120}
+    \subitem {Ip}, \hyperpage{120}
+    \subitem {label}, \hyperpage{120}
+    \subitem {ncols}, \hyperpage{120}
+    \subitem {out\+\_\+id}, \hyperpage{120}
+    \subitem {Pcr}, \hyperpage{120}
+    \subitem {read\+Axis}, \hyperpage{117}
+    \subitem {read\+Data\+XE}, \hyperpage{118}
+    \subitem {sharey}, \hyperpage{120}
+    \subitem {sparse}, \hyperpage{120}
+    \subitem {t\+\_\+ini}, \hyperpage{121}
+    \subitem {t\+\_\+max}, \hyperpage{121}
+    \subitem {time\+\_\+test}, \hyperpage{121}
+    \subitem {X}, \hyperpage{121}
+    \subitem {x\+\_\+center}, \hyperpage{121}
+    \subitem {X\+V\+\_\+log}, \hyperpage{121}
+    \subitem {XV}, \hyperpage{121}
+  \item {Pe}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+  \item {Pe\+\_\+1\+GeV}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{85}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{102}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{114}
+  \item {perpendicular\+\_\+diffusion\+\_\+solver}
+    \subitem {solver1\+D.\+h}, \hyperpage{246}
+  \item {phase}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{11}
+  \item {phases}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+  \item {phases\+\_\+collection}, \hyperpage{127}
+    \subitem {C\+NM}, \hyperpage{127}
+    \subitem {DeC}, \hyperpage{127}
+    \subitem {DeM}, \hyperpage{127}
+    \subitem {DiM}, \hyperpage{128}
+    \subitem {H\+II}, \hyperpage{128}
+    \subitem {ism\+\_\+phase}, \hyperpage{127}
+    \subitem {W\+IM}, \hyperpage{128}
+    \subitem {W\+NM}, \hyperpage{128}
+  \item {phi\+\_\+c}
+    \subitem {constants.\+h}, \hyperpage{212}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{54}
+  \item {physical\+\_\+models}, \hyperpage{128}
+    \subitem {collision\+\_\+rate}, \hyperpage{128}
+    \subitem {cr\+\_\+escape\+\_\+radius\+\_\+model}, \hyperpage{129}
+    \subitem {cr\+\_\+escape\+\_\+time\+\_\+model}, \hyperpage{129}
+  \item {pi}
+    \subitem {constants.\+h}, \hyperpage{212}
+  \item {pos\+\_\+1}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+  \item {pos\+\_\+2}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+  \item {Product\+Matrix}
+    \subitem {cr\+\_\+escape.\+cpp}, \hyperpage{237}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{45}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{50}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{61}
+    \subitem {mathematics.\+h}, \hyperpage{234}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{175}
+
+  \indexspace
+
+  \item {Q}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{123}
+  \item {q}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{12}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{16}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+  \item {Qcr}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+
+  \indexspace
+
+  \item {R}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{13}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {r}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{70}
+  \item {R\+\_\+\+M\+CS}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {R\+\_\+\+P\+DS}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {R\+\_\+free}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {R\+\_\+ini}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {R\+\_\+merge}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {r\+\_\+new}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{55}
+  \item {r\+\_\+snr\+\_\+thickness}
+    \subitem {constants.\+h}, \hyperpage{212}
+  \item {R\+S\+NR}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{222}
+  \item {read2\+D.\+h}
+    \subitem {parse2\+D\+Csv\+File}, \hyperpage{242}
+  \item {read\+Axis}
+    \subitem {Data\+\_\+reader}, \hyperpage{41}
+    \subitem {freader.\+h}, \hyperpage{228}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{117}
+    \subitem {show\+\_\+data}, \hyperpage{171}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{173}
+  \item {read\+Data\+XE}
+    \subitem {Data\+\_\+reader}, \hyperpage{42}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{118}
+    \subitem {show\+\_\+data}, \hyperpage{171}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{173}
+  \item {read\+Info}
+    \subitem {show\+\_\+data}, \hyperpage{171}
+  \item {Resc}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{222}
+  \item {rho\+\_\+0}
+    \subitem {test\+\_\+tesc}, \hyperpage{183}
+  \item {Rsh}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{45}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{175}
+
+  \indexspace
+
+  \item {s\+Bcenter}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+  \item {S\+N\+R\+\_\+\+C\+NM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+  \item {S\+N\+R\+\_\+\+DiM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+  \item {S\+N\+R\+\_\+\+H\+II}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+  \item {S\+N\+R\+\_\+\+W\+IM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+  \item {S\+N\+R\+\_\+\+W\+NM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+  \item {S\+N\+R\+\_\+evolution}, \hyperpage{174}
+    \subitem {ax0}, \hyperpage{176}
+    \subitem {ax1}, \hyperpage{176}
+    \subitem {bbox\+\_\+to\+\_\+anchor}, \hyperpage{176}
+    \subitem {c}, \hyperpage{176}
+    \subitem {fig}, \hyperpage{176}
+    \subitem {gs}, \hyperpage{176}
+    \subitem {hspace}, \hyperpage{176}
+    \subitem {Interpolating\+Spline}, \hyperpage{175}
+    \subitem {Inverse\+Trigonal\+Matrix}, \hyperpage{175}
+    \subitem {kms}, \hyperpage{177}
+    \subitem {label}, \hyperpage{177}
+    \subitem {loc}, \hyperpage{177}
+    \subitem {lw}, \hyperpage{177}
+    \subitem {marker}, \hyperpage{177}
+    \subitem {ncol}, \hyperpage{177}
+    \subitem {pc}, \hyperpage{177}
+    \subitem {Product\+Matrix}, \hyperpage{175}
+    \subitem {Rsh}, \hyperpage{175}
+    \subitem {size\+\_\+x}, \hyperpage{177}
+    \subitem {size\+\_\+y}, \hyperpage{178}
+    \subitem {sub\+\_\+x}, \hyperpage{178}
+    \subitem {sub\+\_\+y}, \hyperpage{178}
+    \subitem {wspace}, \hyperpage{178}
+  \item {scenter}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+  \item {scenter\+\_\+index}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+  \item {search}
+    \subitem {freader}, \hyperpage{67}
+    \subitem {freader.\+h}, \hyperpage{228}
+    \subitem {fwritter}, \hyperpage{68}
+  \item {set\+\_\+background}
+    \subitem {constants.\+h}, \hyperpage{212}
+  \item {set\+Tmax}
+    \subitem {out.\+h}, \hyperpage{241}
+  \item {setup}, \hyperpage{129}
+    \subitem {B}, \hyperpage{130}
+    \subitem {D}, \hyperpage{130}
+    \subitem {d00}, \hyperpage{130}
+    \subitem {Db}, \hyperpage{130}
+    \subitem {E}, \hyperpage{131}
+    \subitem {ext}, \hyperpage{131}
+    \subitem {g\+\_\+in}, \hyperpage{131}
+    \subitem {g\+\_\+lz}, \hyperpage{131}
+    \subitem {gamma\+\_\+in}, \hyperpage{131}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{131}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{131}
+    \subitem {gamma\+\_\+tot}, \hyperpage{131}
+    \subitem {I}, \hyperpage{132}
+    \subitem {Im}, \hyperpage{132}
+    \subitem {in\+\_\+damping}, \hyperpage{132}
+    \subitem {Ip}, \hyperpage{132}
+    \subitem {ism\+\_\+values}, \hyperpage{132}
+    \subitem {kmin}, \hyperpage{132}
+    \subitem {mass}, \hyperpage{132}
+    \subitem {medium\+\_\+props}, \hyperpage{132}
+    \subitem {mi}, \hyperpage{133}
+    \subitem {mn}, \hyperpage{133}
+    \subitem {ne}, \hyperpage{133}
+    \subitem {ni}, \hyperpage{133}
+    \subitem {nn}, \hyperpage{133}
+    \subitem {nx}, \hyperpage{133}
+    \subitem {path}, \hyperpage{134}
+    \subitem {Pcr}, \hyperpage{134}
+    \subitem {Pe}, \hyperpage{134}
+    \subitem {q}, \hyperpage{134}
+    \subitem {T}, \hyperpage{134}
+    \subitem {VA}, \hyperpage{134}
+    \subitem {va}, \hyperpage{134}
+    \subitem {variable}, \hyperpage{135}
+    \subitem {variables}, \hyperpage{135}
+    \subitem {X}, \hyperpage{135}
+    \subitem {x\+\_\+center}, \hyperpage{135}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{135}
+    \subitem {Xi}, \hyperpage{135}
+  \item {setup\+\_\+adv}, \hyperpage{136}
+    \subitem {B}, \hyperpage{137}
+    \subitem {D}, \hyperpage{137}
+    \subitem {d00}, \hyperpage{137}
+    \subitem {Db}, \hyperpage{137}
+    \subitem {door}, \hyperpage{136}
+    \subitem {E}, \hyperpage{137}
+    \subitem {ext}, \hyperpage{137}
+    \subitem {gamma\+\_\+in}, \hyperpage{138}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{138}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{138}
+    \subitem {gamma\+\_\+tot}, \hyperpage{138}
+    \subitem {Im}, \hyperpage{138}
+    \subitem {Ip}, \hyperpage{138}
+    \subitem {ism\+\_\+values}, \hyperpage{138}
+    \subitem {mi}, \hyperpage{138}
+    \subitem {mn}, \hyperpage{139}
+    \subitem {ne}, \hyperpage{139}
+    \subitem {ni}, \hyperpage{139}
+    \subitem {nn}, \hyperpage{139}
+    \subitem {nx}, \hyperpage{139}
+    \subitem {path}, \hyperpage{139}
+    \subitem {Pcr}, \hyperpage{139}
+    \subitem {Pe}, \hyperpage{140}
+    \subitem {T}, \hyperpage{140}
+    \subitem {VA}, \hyperpage{140}
+    \subitem {va}, \hyperpage{140}
+    \subitem {variable}, \hyperpage{140}
+    \subitem {variables}, \hyperpage{140}
+    \subitem {X}, \hyperpage{140}
+    \subitem {x\+\_\+center}, \hyperpage{141}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{141}
+    \subitem {Xi}, \hyperpage{141}
+  \item {setup\+\_\+adve}, \hyperpage{141}
+    \subitem {B}, \hyperpage{142}
+    \subitem {D}, \hyperpage{142}
+    \subitem {d00}, \hyperpage{143}
+    \subitem {Db}, \hyperpage{143}
+    \subitem {door}, \hyperpage{142}
+    \subitem {E}, \hyperpage{143}
+    \subitem {ext}, \hyperpage{143}
+    \subitem {gamma\+\_\+in}, \hyperpage{143}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{143}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{143}
+    \subitem {gamma\+\_\+tot}, \hyperpage{144}
+    \subitem {Im}, \hyperpage{144}
+    \subitem {Ip}, \hyperpage{144}
+    \subitem {ism\+\_\+values}, \hyperpage{144}
+    \subitem {mi}, \hyperpage{144}
+    \subitem {mn}, \hyperpage{144}
+    \subitem {ne}, \hyperpage{144}
+    \subitem {ni}, \hyperpage{144}
+    \subitem {nn}, \hyperpage{145}
+    \subitem {nx}, \hyperpage{145}
+    \subitem {path}, \hyperpage{145}
+    \subitem {Pcr}, \hyperpage{145}
+    \subitem {Pe}, \hyperpage{145}
+    \subitem {spec}, \hyperpage{142}
+    \subitem {T}, \hyperpage{145}
+    \subitem {VA}, \hyperpage{146}
+    \subitem {va}, \hyperpage{145}
+    \subitem {variable}, \hyperpage{146}
+    \subitem {variables}, \hyperpage{146}
+    \subitem {X}, \hyperpage{146}
+    \subitem {x\+\_\+center}, \hyperpage{146}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{146}
+    \subitem {Xi}, \hyperpage{147}
+  \item {setup\+\_\+advst}, \hyperpage{147}
+    \subitem {B}, \hyperpage{148}
+    \subitem {D}, \hyperpage{148}
+    \subitem {d00}, \hyperpage{148}
+    \subitem {Db}, \hyperpage{148}
+    \subitem {door}, \hyperpage{148}
+    \subitem {E}, \hyperpage{149}
+    \subitem {ext}, \hyperpage{149}
+    \subitem {gamma\+\_\+in}, \hyperpage{149}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{149}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{149}
+    \subitem {gamma\+\_\+tot}, \hyperpage{149}
+    \subitem {Im}, \hyperpage{149}
+    \subitem {Ip}, \hyperpage{149}
+    \subitem {ism\+\_\+values}, \hyperpage{150}
+    \subitem {mi}, \hyperpage{150}
+    \subitem {mn}, \hyperpage{150}
+    \subitem {ne}, \hyperpage{150}
+    \subitem {ni}, \hyperpage{150}
+    \subitem {nn}, \hyperpage{150}
+    \subitem {nx}, \hyperpage{150}
+    \subitem {path}, \hyperpage{151}
+    \subitem {Pcr}, \hyperpage{151}
+    \subitem {Pe}, \hyperpage{151}
+    \subitem {spec}, \hyperpage{148}
+    \subitem {T}, \hyperpage{151}
+    \subitem {VA}, \hyperpage{151}
+    \subitem {va}, \hyperpage{151}
+    \subitem {variable}, \hyperpage{151}
+    \subitem {variables}, \hyperpage{152}
+    \subitem {X}, \hyperpage{152}
+    \subitem {x\+\_\+center}, \hyperpage{152}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{152}
+    \subitem {Xi}, \hyperpage{152}
+  \item {setup\+\_\+diff}, \hyperpage{153}
+    \subitem {B}, \hyperpage{154}
+    \subitem {D}, \hyperpage{154}
+    \subitem {d00}, \hyperpage{154}
+    \subitem {Db}, \hyperpage{154}
+    \subitem {door}, \hyperpage{153}
+    \subitem {E}, \hyperpage{154}
+    \subitem {ext}, \hyperpage{154}
+    \subitem {gamma\+\_\+in}, \hyperpage{154}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{154}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{155}
+    \subitem {gamma\+\_\+tot}, \hyperpage{155}
+    \subitem {Im}, \hyperpage{155}
+    \subitem {Ip}, \hyperpage{155}
+    \subitem {ism\+\_\+values}, \hyperpage{155}
+    \subitem {mi}, \hyperpage{155}
+    \subitem {mn}, \hyperpage{155}
+    \subitem {ne}, \hyperpage{155}
+    \subitem {ni}, \hyperpage{156}
+    \subitem {nn}, \hyperpage{156}
+    \subitem {nx}, \hyperpage{156}
+    \subitem {path}, \hyperpage{156}
+    \subitem {Pcr}, \hyperpage{156}
+    \subitem {Pe}, \hyperpage{156}
+    \subitem {T}, \hyperpage{156}
+    \subitem {VA}, \hyperpage{157}
+    \subitem {va}, \hyperpage{157}
+    \subitem {variable}, \hyperpage{157}
+    \subitem {variables}, \hyperpage{157}
+    \subitem {X}, \hyperpage{157}
+    \subitem {x\+\_\+center}, \hyperpage{157}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{158}
+    \subitem {Xi}, \hyperpage{158}
+  \item {setup\+\_\+uniform}, \hyperpage{158}
+    \subitem {B}, \hyperpage{159}
+    \subitem {D}, \hyperpage{159}
+    \subitem {d00}, \hyperpage{159}
+    \subitem {Db}, \hyperpage{159}
+    \subitem {E}, \hyperpage{159}
+    \subitem {ext}, \hyperpage{159}
+    \subitem {g\+\_\+in}, \hyperpage{160}
+    \subitem {g\+\_\+lz}, \hyperpage{160}
+    \subitem {gamma\+\_\+in}, \hyperpage{160}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{160}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{160}
+    \subitem {gamma\+\_\+tot}, \hyperpage{160}
+    \subitem {I}, \hyperpage{160}
+    \subitem {Im}, \hyperpage{160}
+    \subitem {in\+\_\+damping}, \hyperpage{161}
+    \subitem {Ip}, \hyperpage{161}
+    \subitem {ism\+\_\+values}, \hyperpage{161}
+    \subitem {kmin}, \hyperpage{161}
+    \subitem {mass}, \hyperpage{161}
+    \subitem {medium\+\_\+props}, \hyperpage{161}
+    \subitem {mi}, \hyperpage{161}
+    \subitem {mn}, \hyperpage{162}
+    \subitem {ne}, \hyperpage{162}
+    \subitem {ni}, \hyperpage{162}
+    \subitem {nn}, \hyperpage{162}
+    \subitem {nx}, \hyperpage{162}
+    \subitem {path}, \hyperpage{162}
+    \subitem {Pcr}, \hyperpage{162}
+    \subitem {Pe}, \hyperpage{163}
+    \subitem {q}, \hyperpage{163}
+    \subitem {T}, \hyperpage{163}
+    \subitem {VA}, \hyperpage{163}
+    \subitem {va}, \hyperpage{163}
+    \subitem {variable}, \hyperpage{163}
+    \subitem {variables}, \hyperpage{163}
+    \subitem {X}, \hyperpage{164}
+    \subitem {x\+\_\+center}, \hyperpage{164}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{164}
+    \subitem {Xi}, \hyperpage{164}
+  \item {setup\+\_\+vdiff}, \hyperpage{164}
+    \subitem {B}, \hyperpage{166}
+    \subitem {D}, \hyperpage{166}
+    \subitem {d00}, \hyperpage{166}
+    \subitem {Db}, \hyperpage{166}
+    \subitem {door}, \hyperpage{165}
+    \subitem {E}, \hyperpage{166}
+    \subitem {ext}, \hyperpage{166}
+    \subitem {f}, \hyperpage{165}
+    \subitem {gamma\+\_\+in}, \hyperpage{167}
+    \subitem {gamma\+\_\+lazarian}, \hyperpage{167}
+    \subitem {gamma\+\_\+nlld}, \hyperpage{167}
+    \subitem {gamma\+\_\+tot}, \hyperpage{167}
+    \subitem {Im}, \hyperpage{167}
+    \subitem {Ip}, \hyperpage{167}
+    \subitem {ism\+\_\+values}, \hyperpage{167}
+    \subitem {mi}, \hyperpage{167}
+    \subitem {mn}, \hyperpage{168}
+    \subitem {ne}, \hyperpage{168}
+    \subitem {ni}, \hyperpage{168}
+    \subitem {nn}, \hyperpage{168}
+    \subitem {nx}, \hyperpage{168}
+    \subitem {path}, \hyperpage{168}
+    \subitem {Pcr}, \hyperpage{168}
+    \subitem {Pe}, \hyperpage{169}
+    \subitem {T}, \hyperpage{169}
+    \subitem {VA}, \hyperpage{169}
+    \subitem {va}, \hyperpage{169}
+    \subitem {variable}, \hyperpage{169}
+    \subitem {variables}, \hyperpage{169}
+    \subitem {X}, \hyperpage{169}
+    \subitem {x\+\_\+center}, \hyperpage{170}
+    \subitem {x\+\_\+center\+\_\+index}, \hyperpage{170}
+    \subitem {Xi}, \hyperpage{170}
+  \item {shape}
+    \subitem {mathmethods}, \hyperpage{74}
+  \item {sharey}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+  \item {show}
+    \subitem {show\+\_\+data}, \hyperpage{172}
+  \item {show\+\_\+data}, \hyperpage{170}
+    \subitem {color\+Array}, \hyperpage{171}
+    \subitem {color\+Fader}, \hyperpage{171}
+    \subitem {elim}, \hyperpage{172}
+    \subitem {fig\+\_\+save}, \hyperpage{172}
+    \subitem {get\+Data}, \hyperpage{171}
+    \subitem {read\+Axis}, \hyperpage{171}
+    \subitem {read\+Data\+XE}, \hyperpage{171}
+    \subitem {read\+Info}, \hyperpage{171}
+    \subitem {show}, \hyperpage{172}
+    \subitem {source\+\_\+center}, \hyperpage{172}
+    \subitem {vlim}, \hyperpage{172}
+  \item {Show\+Injection\+Evolution}, \hyperpage{173}
+    \subitem {data}, \hyperpage{173}
+    \subitem {E}, \hyperpage{173}
+    \subitem {figsize}, \hyperpage{174}
+    \subitem {index}, \hyperpage{174}
+    \subitem {loc\+\_\+id}, \hyperpage{174}
+    \subitem {read\+Axis}, \hyperpage{173}
+    \subitem {read\+Data\+XE}, \hyperpage{173}
+    \subitem {X}, \hyperpage{174}
+  \item {show\+Log\+\_\+0}
+    \subitem {logmaker.\+h}, \hyperpage{230}
+  \item {sig}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{71}
+    \subitem {test\+\_\+tesc}, \hyperpage{182}
+  \item {sig\+\_\+T}
+    \subitem {constants.\+h}, \hyperpage{212}
+  \item {sigm}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{223}
+  \item {sigma\+\_\+coherence}
+    \subitem {constants.\+h}, \hyperpage{212}
+  \item {Simple\+Implicit\+Solver}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{123}
+  \item {simpson\+\_\+lin}
+    \subitem {mathmethods}, \hyperpage{74}
+  \item {simpson\+\_\+log}
+    \subitem {mathmethods}, \hyperpage{74}
+  \item {size\+\_\+x}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{177}
+  \item {size\+\_\+y}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{64}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{178}
+  \item {smn}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{225}
+  \item {smooth\+\_\+width\+\_\+transition}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{91}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+  \item {Smooth\+Phase\+Transition}
+    \subitem {mathmethods}, \hyperpage{75}
+  \item {sne}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+  \item {sni}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+  \item {snx}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+  \item {solver1\+D.\+h}
+    \subitem {advection\+Solver\+E1}, \hyperpage{244}
+    \subitem {advection\+Solver\+E2}, \hyperpage{244}
+    \subitem {advection\+SolverE}, \hyperpage{244}
+    \subitem {advection\+SolverX}, \hyperpage{245}
+    \subitem {C\+Rs\+Injection\+Source\+Solver}, \hyperpage{245}
+    \subitem {dilute\+\_\+solver}, \hyperpage{245}
+    \subitem {electron\+\_\+source}, \hyperpage{245}
+    \subitem {Not\+Move}, \hyperpage{246}
+    \subitem {perpendicular\+\_\+diffusion\+\_\+solver}, 
+		\hyperpage{246}
+    \subitem {source\+Growth\+Damp\+Rate\+Solver}, \hyperpage{246}
+    \subitem {source\+Solver}, \hyperpage{246}
+    \subitem {theta\+Diffusion\+Solver}, \hyperpage{247}
+  \item {solver\+\_\+\+Dilution}
+    \subitem {constants.\+h}, \hyperpage{213}
+  \item {solver\+\_\+\+Im\+Advection}
+    \subitem {constants.\+h}, \hyperpage{213}
+  \item {solver\+\_\+\+Im\+Damp\+Growth}
+    \subitem {constants.\+h}, \hyperpage{213}
+  \item {solver\+\_\+\+Im\+Source1}
+    \subitem {constants.\+h}, \hyperpage{213}
+  \item {solver\+\_\+\+Ip\+Advection}
+    \subitem {constants.\+h}, \hyperpage{213}
+  \item {solver\+\_\+\+Ip\+Damp\+Growth}
+    \subitem {constants.\+h}, \hyperpage{213}
+  \item {solver\+\_\+\+Ip\+Source1}
+    \subitem {constants.\+h}, \hyperpage{214}
+  \item {solver\+\_\+\+Pcr\+Advection}
+    \subitem {constants.\+h}, \hyperpage{214}
+  \item {solver\+\_\+\+Pcr\+Advection2}
+    \subitem {constants.\+h}, \hyperpage{214}
+  \item {solver\+\_\+\+Pcr\+AdvectionE}
+    \subitem {constants.\+h}, \hyperpage{214}
+  \item {solver\+\_\+\+Pcr\+Diffusion}
+    \subitem {constants.\+h}, \hyperpage{214}
+  \item {solver\+\_\+\+Pcr\+Perp\+Diff}
+    \subitem {constants.\+h}, \hyperpage{214}
+  \item {solver\+\_\+\+Pcr\+Source1}
+    \subitem {constants.\+h}, \hyperpage{215}
+  \item {solver\+\_\+\+Pcr\+Source2}
+    \subitem {constants.\+h}, \hyperpage{215}
+  \item {solver\+\_\+\+Pe\+Advection}
+    \subitem {constants.\+h}, \hyperpage{215}
+  \item {solver\+\_\+\+Pe\+Advection2}
+    \subitem {constants.\+h}, \hyperpage{215}
+  \item {solver\+\_\+\+Pe\+Advection\+E1}
+    \subitem {constants.\+h}, \hyperpage{215}
+  \item {solver\+\_\+\+Pe\+Advection\+E2}
+    \subitem {constants.\+h}, \hyperpage{216}
+  \item {solver\+\_\+\+Pe\+AdvectionE}
+    \subitem {constants.\+h}, \hyperpage{215}
+  \item {solver\+\_\+\+Pe\+Diffusion}
+    \subitem {constants.\+h}, \hyperpage{216}
+  \item {solver\+\_\+\+Pe\+Perp\+Diff}
+    \subitem {constants.\+h}, \hyperpage{216}
+  \item {solver\+\_\+\+Pe\+Source1}
+    \subitem {constants.\+h}, \hyperpage{216}
+  \item {solver\+\_\+\+Pe\+Source2}
+    \subitem {constants.\+h}, \hyperpage{216}
+  \item {source\+\_\+center}
+    \subitem {show\+\_\+data}, \hyperpage{172}
+  \item {source\+\_\+terms\+\_\+exact}
+    \subitem {constants.\+h}, \hyperpage{216}
+  \item {source\+Growth\+Damp\+Rate\+Solver}
+    \subitem {solver1\+D.\+h}, \hyperpage{246}
+  \item {source\+Solver}
+    \subitem {solver1\+D.\+h}, \hyperpage{246}
+  \item {sparse}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{120}
+  \item {spec}
+    \subitem {setup\+\_\+adve}, \hyperpage{142}
+    \subitem {setup\+\_\+advst}, \hyperpage{148}
+  \item {specific\+Output\+Data}
+    \subitem {out.\+h}, \hyperpage{241}
+  \item {Split\+\_\+solvers}, \hyperpage{178}
+    \subitem {c}, \hyperpage{179}
+    \subitem {D}, \hyperpage{179}
+    \subitem {dt}, \hyperpage{179}
+    \subitem {generalized\+\_\+diffusion}, \hyperpage{179}
+    \subitem {NX}, \hyperpage{179}
+    \subitem {t}, \hyperpage{180}
+    \subitem {t\+\_\+ini}, \hyperpage{180}
+    \subitem {t\+\_\+max}, \hyperpage{180}
+    \subitem {T\+D\+MA}, \hyperpage{179}
+    \subitem {u}, \hyperpage{180}
+    \subitem {u\+\_\+new\+\_\+0}, \hyperpage{180}
+    \subitem {u\+\_\+new\+\_\+1}, \hyperpage{180}
+    \subitem {u\+\_\+old}, \hyperpage{180}
+    \subitem {X}, \hyperpage{180}
+    \subitem {Xmax}, \hyperpage{181}
+    \subitem {Xmin}, \hyperpage{181}
+  \item {sT}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+  \item {step\+\_\+implicit}
+    \subitem {constants.\+h}, \hyperpage{217}
+  \item {sub\+\_\+x}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{178}
+  \item {sub\+\_\+y}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{178}
+  \item {sX}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+
+  \indexspace
+
+  \item {T}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{12}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{123}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{156}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+  \item {t}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+    \subitem {test\+\_\+tesc}, \hyperpage{184}
+  \item {t\+\_\+data\+\_\+out\+\_\+max}
+    \subitem {constants.\+h}, \hyperpage{217}
+  \item {t\+\_\+data\+\_\+out\+\_\+min}
+    \subitem {constants.\+h}, \hyperpage{217}
+  \item {t\+\_\+end\+\_\+injection}
+    \subitem {constants.\+h}, \hyperpage{217}
+  \item {t\+\_\+ini}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {t\+\_\+max}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {t\+\_\+new}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+  \item {t\+\_\+start\+\_\+injection}
+    \subitem {constants.\+h}, \hyperpage{217}
+  \item {T\+D\+MA}
+    \subitem {mathematics.\+h}, \hyperpage{234}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{124}
+    \subitem {Split\+\_\+solvers}, \hyperpage{179}
+  \item {t\+M\+CS}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+  \item {t\+P\+DS}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+  \item {t\+Sed}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+  \item {ta}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{71}
+  \item {tc}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{71}
+  \item {tesc}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{223}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{71}
+    \subitem {test\+\_\+tesc}, \hyperpage{182}
+  \item {tesc\+\_\+\+C\+N\+M\+\_\+3}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+  \item {tesc\+\_\+\+C\+NM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{65}
+  \item {tesc\+\_\+\+Di\+M\+\_\+3}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+DiM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+H\+I\+I\+\_\+3}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+H\+II}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+W\+I\+M\+\_\+3}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+W\+IM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+W\+N\+M\+\_\+3}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+\+W\+NM}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{66}
+  \item {tesc\+\_\+e}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{224}
+  \item {tesc\+\_\+model}
+    \subitem {constants.\+h}, \hyperpage{217}
+  \item {test\+\_\+tesc}, \hyperpage{181}
+    \subitem {beta}, \hyperpage{182}
+    \subitem {c}, \hyperpage{182}
+    \subitem {E}, \hyperpage{182}
+    \subitem {e}, \hyperpage{182}
+    \subitem {Emin}, \hyperpage{183}
+    \subitem {Esn}, \hyperpage{183}
+    \subitem {figsize}, \hyperpage{183}
+    \subitem {gauss}, \hyperpage{181}
+    \subitem {GeV}, \hyperpage{183}
+    \subitem {kyr}, \hyperpage{183}
+    \subitem {label}, \hyperpage{183}
+    \subitem {Qcr}, \hyperpage{183}
+    \subitem {rho\+\_\+0}, \hyperpage{183}
+    \subitem {sig}, \hyperpage{182}
+    \subitem {t}, \hyperpage{184}
+    \subitem {tesc}, \hyperpage{182}
+    \subitem {xhi\+\_\+0}, \hyperpage{184}
+    \subitem {xhi\+\_\+cr}, \hyperpage{184}
+  \item {TeV}
+    \subitem {constants}, \hyperpage{30}
+    \subitem {constants.\+h}, \hyperpage{218}
+  \item {tfree}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+  \item {theta}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{224}
+  \item {theta\+Diffusion\+Solver}
+    \subitem {solver1\+D.\+h}, \hyperpage{247}
+  \item {time\+\_\+distrib\+\_\+of\+\_\+data}
+    \subitem {constants.\+h}, \hyperpage{218}
+  \item {time\+\_\+test}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+  \item {tini}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+  \item {Tmax}
+    \subitem {constants.\+h}, \hyperpage{218}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{125}
+  \item {tmax}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{56}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{71}
+  \item {tmerge}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+  \item {tmin}
+    \subitem {gaussian\+\_\+sub\+Normalization}, \hyperpage{71}
+  \item {tools.\+h}
+    \subitem {absmax\+Element2D}, \hyperpage{248}
+    \subitem {max\+Element1D}, \hyperpage{248}
+    \subitem {max\+Element2D}, \hyperpage{248}
+    \subitem {min\+Element1D}, \hyperpage{248}
+    \subitem {min\+Element2D}, \hyperpage{249}
+  \item {total\+\_\+path}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+  \item {transpose}
+    \subitem {mathematics.\+h}, \hyperpage{235}
+  \item {tsed}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+  \item {ttau\+\_\+sat}
+    \subitem {constants.\+h}, \hyperpage{218}
+
+  \indexspace
+
+  \item {u}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{125}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {u0}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{125}
+  \item {u\+\_\+0}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{125}
+  \item {u\+\_\+1}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{125}
+  \item {u\+\_\+2}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{125}
+  \item {u\+\_\+end}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+  \item {u\+\_\+ini}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+  \item {u\+\_\+new\+\_\+0}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {u\+\_\+new\+\_\+1}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {u\+\_\+old}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {u\+\_\+sh}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{224}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+  \item {uM}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+
+  \indexspace
+
+  \item {v}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{12}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{16}
+  \item {V\+Ai}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{12}
+  \item {VA}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient}, 
+		\hyperpage{12}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{146}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{157}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+  \item {va}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{97}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{109}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+    \subitem {setup}, \hyperpage{134}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{145}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{157}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+  \item {variable}
+    \subitem {setup}, \hyperpage{135}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{146}
+    \subitem {setup\+\_\+advst}, \hyperpage{151}
+    \subitem {setup\+\_\+diff}, \hyperpage{157}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+  \item {variables}
+    \subitem {setup}, \hyperpage{135}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{146}
+    \subitem {setup\+\_\+advst}, \hyperpage{152}
+    \subitem {setup\+\_\+diff}, \hyperpage{157}
+    \subitem {setup\+\_\+uniform}, \hyperpage{163}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+  \item {vej8}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+  \item {verbose}
+    \subitem {constants.\+h}, \hyperpage{218}
+  \item {vlim}
+    \subitem {show\+\_\+data}, \hyperpage{172}
+
+  \indexspace
+
+  \item {w}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{16}
+  \item {w\+I\+\_\+\+Alfven}
+    \subitem {damping\+\_\+models}, \hyperpage{39}
+  \item {w\+I\+\_\+\+Alfven\+\_\+o1}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {w\+I\+\_\+\+Alfven\+\_\+o2}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {W\+IM}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {phases\+\_\+collection}, \hyperpage{128}
+  \item {W\+NM}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {phases\+\_\+collection}, \hyperpage{128}
+  \item {w\+R\+\_\+\+Alfven}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {w\+R\+\_\+\+Alfven\+\_\+o1}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {w\+R\+\_\+\+Alfven\+\_\+o2}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {write1\+Daxis}
+    \subitem {fwritter}, \hyperpage{68}
+  \item {write1D}
+    \subitem {fwritter}, \hyperpage{68}
+  \item {write2D}
+    \subitem {fwritter}, \hyperpage{68}
+  \item {write\+Info}
+    \subitem {fwritter.\+h}, \hyperpage{229}
+  \item {write\+XE}
+    \subitem {fwritter.\+h}, \hyperpage{229}
+  \item {wspace}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{26}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+    \subitem {Escape\+Model\+\_\+protons\+\_\+2}, \hyperpage{67}
+    \subitem {S\+N\+R\+\_\+evolution}, \hyperpage{178}
+  \item {wtot}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+2}, 
+		\hyperpage{16}
+
+  \indexspace
+
+  \item {X}
+    \subitem {Data\+\_\+reader}, \hyperpage{42}
+    \subitem {namelist}, \hyperpage{80}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{98}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{110}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+    \subitem {setup}, \hyperpage{135}
+    \subitem {setup\+\_\+adv}, \hyperpage{140}
+    \subitem {setup\+\_\+adve}, \hyperpage{146}
+    \subitem {setup\+\_\+advst}, \hyperpage{152}
+    \subitem {setup\+\_\+diff}, \hyperpage{157}
+    \subitem {setup\+\_\+uniform}, \hyperpage{164}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{169}
+    \subitem {Show\+Injection\+Evolution}, \hyperpage{174}
+    \subitem {Split\+\_\+solvers}, \hyperpage{180}
+  \item {x}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {x0}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+  \item {x\+\_\+center}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+    \subitem {setup}, \hyperpage{135}
+    \subitem {setup\+\_\+adv}, \hyperpage{141}
+    \subitem {setup\+\_\+adve}, \hyperpage{146}
+    \subitem {setup\+\_\+advst}, \hyperpage{152}
+    \subitem {setup\+\_\+diff}, \hyperpage{157}
+    \subitem {setup\+\_\+uniform}, \hyperpage{164}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{170}
+  \item {x\+\_\+center\+\_\+index}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{226}
+    \subitem {setup}, \hyperpage{135}
+    \subitem {setup\+\_\+adv}, \hyperpage{141}
+    \subitem {setup\+\_\+adve}, \hyperpage{146}
+    \subitem {setup\+\_\+advst}, \hyperpage{152}
+    \subitem {setup\+\_\+diff}, \hyperpage{158}
+    \subitem {setup\+\_\+uniform}, \hyperpage{164}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{170}
+  \item {X\+V\+\_\+log}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+  \item {xgridtype}
+    \subitem {namelist}, \hyperpage{81}
+    \subitem {namelist\+\_\+adv}, \hyperpage{86}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{98}
+    \subitem {namelist\+\_\+diff}, \hyperpage{103}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{110}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{115}
+  \item {xhi\+\_\+0}
+    \subitem {constants.\+h}, \hyperpage{218}
+    \subitem {test\+\_\+tesc}, \hyperpage{184}
+  \item {xhi\+\_\+cr}
+    \subitem {constants.\+h}, \hyperpage{219}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{57}
+    \subitem {test\+\_\+tesc}, \hyperpage{184}
+  \item {xhi\+\_\+m}
+    \subitem {electrons\+\_\+emax\+\_\+t}, \hyperpage{47}
+    \subitem {Escape\+Model\+\_\+protons}, \hyperpage{58}
+  \item {Xi}
+    \subitem {cr\+\_\+source.\+h}, \hyperpage{227}
+    \subitem {namelist}, \hyperpage{81}
+    \subitem {namelist\+\_\+adv}, \hyperpage{87}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{98}
+    \subitem {namelist\+\_\+diff}, \hyperpage{104}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{110}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{116}
+    \subitem {setup}, \hyperpage{135}
+    \subitem {setup\+\_\+adv}, \hyperpage{141}
+    \subitem {setup\+\_\+adve}, \hyperpage{147}
+    \subitem {setup\+\_\+advst}, \hyperpage{152}
+    \subitem {setup\+\_\+diff}, \hyperpage{158}
+    \subitem {setup\+\_\+uniform}, \hyperpage{164}
+    \subitem {setup\+\_\+vdiff}, \hyperpage{170}
+  \item {xi\+\_\+n}
+    \subitem {constants.\+h}, \hyperpage{219}
+  \item {xlim}
+    \subitem {damping\+\_\+models}, \hyperpage{40}
+  \item {xlims}
+    \subitem {damping\+\_\+models}, \hyperpage{41}
+  \item {Xmax}
+    \subitem {namelist}, \hyperpage{81}
+    \subitem {namelist\+\_\+adv}, \hyperpage{87}
+    \subitem {namelist\+\_\+adve}, \hyperpage{92}
+    \subitem {namelist\+\_\+advst}, \hyperpage{98}
+    \subitem {namelist\+\_\+diff}, \hyperpage{104}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{110}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{116}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+    \subitem {Split\+\_\+solvers}, \hyperpage{181}
+  \item {xmax}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{27}
+  \item {Xmin}
+    \subitem {namelist}, \hyperpage{81}
+    \subitem {namelist\+\_\+adv}, \hyperpage{87}
+    \subitem {namelist\+\_\+adve}, \hyperpage{93}
+    \subitem {namelist\+\_\+advst}, \hyperpage{98}
+    \subitem {namelist\+\_\+diff}, \hyperpage{104}
+    \subitem {namelist\+\_\+uniform}, \hyperpage{110}
+    \subitem {namelist\+\_\+vdiff}, \hyperpage{116}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+    \subitem {Split\+\_\+solvers}, \hyperpage{181}
+  \item {xmin}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{27}
+  \item {XV}
+    \subitem {pcr\+\_\+ip\+\_\+2D}, \hyperpage{121}
+
+  \indexspace
+
+  \item {y}
+    \subitem {damping\+\_\+models}, \hyperpage{41}
+  \item {ylim}
+    \subitem {damping\+\_\+models}, \hyperpage{41}
+  \item {ylims}
+    \subitem {damping\+\_\+models}, \hyperpage{41}
+  \item {ymax}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{27}
+  \item {ymin}
+    \subitem {background\+\_\+diffusion\+\_\+coefficient\+\_\+3}, 
+		\hyperpage{27}
+  \item {yr}
+    \subitem {constants}, \hyperpage{30}
+    \subitem {constants.\+h}, \hyperpage{219}
+    \subitem {P\+D\+E\+\_\+solvers}, \hyperpage{126}
+
+\end{theindex}
