@@ -25,6 +25,7 @@ using namespace std;
 #include "./params_reader.h"
 #include "./accelerator_models.h"
 #include "./cr_source.h"
+#include "./turbulence_model.h"
 #include "./solver1D.h"
 
 // Main function 
@@ -158,7 +159,7 @@ int main()
 
     vector<double> Vdminvec(NE), Dminvec(NE), Gammadminvec(NE);
 
-    vector<vector<double> > abs_VA = VA, dVAdlog10E = VA, cdVAdX = VA, c2dVAdX = VA;
+    vector<vector<double> > abs_VA = VA, dVAdlog10E = VA, cdVAdX = VA, c2dVAdX = VA, c2mdVAdX = VA, c3dVAdX = VA;
     vector<vector<double> > dVAdE_E = VA;
     for (int xi = 0; xi < VA.size(); xi++)
     {
@@ -174,13 +175,19 @@ int main()
             if (xi > 0 and xi < VA.size()-1)
             {
                 cdVAdX[xi][ei] = (VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1])/(3.*log(10.)); //1e-11 -> Test value
+                c3dVAdX[xi][ei] = (VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1])/(log(10.)); //1e-11 -> Test value
                 //cdVAdX[xi][ei] = E[ei]/3.*(VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1]);
                 c2dVAdX[xi][ei] = -(VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1]);
+                c2mdVAdX[xi][ei] = (VA[xi+1][ei] - VA[xi-1][ei])/(X[xi+1] - X[xi-1]);
             }
             cdVAdX[0][ei] = cdVAdX[1][ei];
             cdVAdX[VA.size()-1][ei] = cdVAdX[VA.size()-2][ei];
+            c3dVAdX[0][ei] = c3dVAdX[1][ei];
+            c3dVAdX[VA.size()-1][ei] = c3dVAdX[VA.size()-2][ei];
             c2dVAdX[0][ei] = c2dVAdX[1][ei];
             c2dVAdX[VA.size()-1][ei] = c2dVAdX[VA.size()-2][ei];
+            c2mdVAdX[0][ei] = c2mdVAdX[1][ei];
+            c2mdVAdX[VA.size()-1][ei] = c2mdVAdX[VA.size()-2][ei];
         }
         dVAdE_E[xi][0] = dVAdE_E[xi][1];
         dVAdE_E[xi][VA[xi].size()-1] = dVAdE_E[xi][VA[xi].size()-2];
@@ -397,7 +404,7 @@ int main()
         #pragma omp parallel num_threads(nproc)
         {
         //----------------------------------------------------------------------//
-        // This solver do nothing, just lose your time                          //
+        // This solver does nothing, just to lose your time                     //
         //----------------------------------------------------------------------//
         //NotMove(Ip_old, Ip_new);
 
@@ -433,9 +440,13 @@ int main()
         //----------------------------------------------------------------------//
         if (solver_IpAdvection == 1)
         {advectionSolverX(Ip_old, Ip_new, dt, X, NE, VA,  1, 1);                                   Ip_old = Ip_new;}
-
         if (solver_ImAdvection == 1)
         {advectionSolverX(Im_old, Im_new, dt, X, NE, VA, -1, 1);                                   Im_old = Im_new;}
+
+        if (solver_IpSource1 == 1)
+        {sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.);                                      Ip_old = Ip_new;}
+        if (solver_ImSource1 == 1)
+        {sourceSolver(Im_old, Im_new, dt, c2dVAdX, 1.);                                      Im_old = Im_new;}
 
 
         //----------------------------------------------------------------------//
@@ -458,6 +469,21 @@ int main()
         {advectionSolverE(Pe_old, Pe_new, dt, log10E, NX, cdVAdX, Pe_background);         Pe_old = Pe_new;}
 
         //----------------------------------------------------------------------//
+        // Explicit Advection solver for Ip and Im in energy c3dVAdX
+        // This value needs to be studied more in details 
+        //----------------------------------------------------------------------//
+        if (solver_IpAdvectionE == 1)
+        {advectionSolverE(Ip_old, Ip_new, dt, log10E, NX, c3dVAdX, Ip_background);         Ip_old = Ip_new;}
+        if (solver_ImAdvectionE == 1)
+        {advectionSolverE(Im_old, Im_new, dt, log10E, NX, c3dVAdX, Im_background);         Im_old = Im_new;}
+
+
+        if (solver_IpSource2 == 1)
+        {sourceSolver(Ip_old, Ip_new, dt, c2mdVAdX, 1.);                                     Ip_old = Ip_new;}
+        if (solver_ImSource2 == 1)
+        {sourceSolver(Im_old, Im_new, dt, c2mdVAdX, 1.);                                     Im_old = Im_new;}
+
+        //----------------------------------------------------------------------//
         // Source term from synchrotron radiation of e-. It contains a pure 
         // source term and an energy advective term
         //----------------------------------------------------------------------//
@@ -477,14 +503,7 @@ int main()
         if (solver_PeSource1 == 1)
         {sourceSolver(Pe_old, Pe_new, dt, c2dVAdX, 4./3);                                  Pe_old = Pe_new;}
 
-        //----------------------------------------------------------------------//
-        // Source term effect due to the dependance of the Alfvén velocity to   //
-        // the space                                                            //
-        //----------------------------------------------------------------------//
-        if (solver_IpSource1 == 1)
-        {sourceSolver(Ip_old, Ip_new, dt, c2dVAdX, 1.);                                      Ip_old = Ip_new;}
-        if (solver_ImSource1 == 1)
-        {sourceSolver(Im_old, Im_new, dt, c2dVAdX, 1.);                                      Im_old = Im_new;}
+
 
         //----------------------------------------------------------------------//
         // Source term effect due to production of self-turbulence - damping    //
@@ -501,9 +520,9 @@ int main()
         // perpendicular diffusion after we reached the coherence length of B   //
         //----------------------------------------------------------------------//
         if (solver_PcrPerpDiff == 1)
-        {perpendicular_diffusion_solver(Pcr_old, Pcr_new, Pcr_background, Db, Ip_background, X, dt, injection_model[3]); Pcr_old = Pcr_new;}
+        {perpendicular_diffusion_solver(Pcr_old, Pcr_new, Pcr_background, Db, Ip_background, X, dt, injection_model[3], E); Pcr_old = Pcr_new;}
         if (solver_PePerpDiff == 1)
-        {perpendicular_diffusion_solver(Pe_old, Pe_new, Pe_background, Db, Ip_background, X, dt, injection_model[5]); Pe_old = Pe_new;}
+        {perpendicular_diffusion_solver(Pe_old, Pe_new, Pe_background, Db, Ip_background, X, dt, injection_model[5], E); Pe_old = Pe_new;}
 
 
 

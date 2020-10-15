@@ -6,7 +6,7 @@ Created on Thu Dec 13 15:17:05 2018
 @author: lbrahimi
 """
 # Relative position to the main folder : ./CR_SPECTRA = "./"
-base_pos = "./"
+base_pos = "./../../../"
 
 import numpy as np
 import matplotlib.pyplot as plt 
